@@ -1,0 +1,17 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="apiStackTitle">
+  <title id="apiStackTitle">Pandas and Open Meteo APIs</title>
+  <defs>
+    <linearGradient id="apiBg" x1="16" y1="16" x2="112" y2="112" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E3F3FF"/>
+      <stop offset="1" stop-color="#FFF2E5"/>
+    </linearGradient>
+  </defs>
+  <rect x="10" y="10" width="108" height="108" rx="28" fill="url(#apiBg)"/>
+  <rect x="22" y="24" width="84" height="80" rx="22" fill="#fff"/>
+  <path d="M38 51l-10 13 10 13" stroke="#0D3557" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M90 51l10 13-10 13" stroke="#0D3557" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M61 44l-10 40" stroke="#FF7A00" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="78" cy="44" r="10" fill="#8FD0FF"/>
+  <path d="M70 84h33" stroke="#6FB14A" stroke-width="6" stroke-linecap="round"/>
+  <path d="M76 74h21" stroke="#6FB14A" stroke-width="6" stroke-linecap="round"/>
+</svg>

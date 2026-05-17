@@ -1,0 +1,15 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="streamlitTitle">
+  <title id="streamlitTitle">VS Code and Streamlit</title>
+  <defs>
+    <linearGradient id="streamlitBg" x1="16" y1="16" x2="112" y2="112" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#E5F3FF"/>
+      <stop offset="1" stop-color="#FFF0EA"/>
+    </linearGradient>
+  </defs>
+  <rect x="10" y="10" width="108" height="108" rx="28" fill="url(#streamlitBg)"/>
+  <rect x="22" y="24" width="84" height="80" rx="22" fill="#fff"/>
+  <path d="M34 64l18-16v10l18-14v40L52 70v10L34 64z" fill="#1F9CF0"/>
+  <path d="M76 46h18" stroke="#FF4B4B" stroke-width="6" stroke-linecap="round"/>
+  <path d="M70 60h24" stroke="#FF4B4B" stroke-width="6" stroke-linecap="round"/>
+  <path d="M76 74h18" stroke="#FF4B4B" stroke-width="6" stroke-linecap="round"/>
+</svg>

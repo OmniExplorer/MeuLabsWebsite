@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title>API braces icon</title>
+  <defs>
+    <linearGradient id="apiBg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#fff3e6"/>
+      <stop offset="100%" stop-color="#ffe1bf"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="48" height="48" rx="14" fill="url(#apiBg)"/>
+  <path d="M25 20c-3 0-5 2-5 5v4c0 2.1-.7 3.4-2.5 4.1 1.8.7 2.5 2 2.5 4.1v4c0 3 2 5 5 5h2v-4h-1.1c-1.2 0-1.9-.7-1.9-2v-4.3c0-2.3-.8-3.8-2.6-4.9 1.8-1.1 2.6-2.7 2.6-4.9V24c0-1.3.7-2 1.9-2H27v-4zm14 0v4h1.1c1.2 0 1.9.7 1.9 2v4.3c0 2.3.8 3.8 2.6 4.9-1.8 1.1-2.6 2.7-2.6 4.9V45c0 1.3-.7 2-1.9 2H39v4h2c3 0 5-2 5-5v-4c0-2.1.7-3.4 2.5-4.1-1.8-.7-2.5-2-2.5-4.1v-4c0-3-2-5-5-5z" fill="#ff7a00"/>
+  <path d="M36 21h4L28 43h-4z" fill="#0d3557"/>
+</svg>

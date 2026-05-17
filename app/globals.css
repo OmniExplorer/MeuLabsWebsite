@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-meu-navy: #0d3557;
+  --color-meu-orange: #ff7a00;
+  --color-meu-cream: #f7efdf;
+  --shadow-glass: 0 24px 70px rgba(13, 53, 87, 0.14);
+  --font-sans: "Manrope", sans-serif;
+  --font-display: "Outfit", sans-serif;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  a {
+    color: inherit;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply rounded-[28px] border border-white/40 bg-white/20 backdrop-blur-xl;
+    box-shadow: var(--shadow-glass);
+  }
+
+  .glass-chip {
+    @apply inline-flex items-center rounded-full border border-white/40 bg-white/30 px-4 py-2 text-sm font-semibold text-[color:var(--color-meu-navy)] backdrop-blur-lg;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .marquee-track {
+    animation: marquee-x 34s linear infinite;
+  }
+
+  .marquee-track-reverse {
+    animation-direction: reverse;
+    animation-duration: 39s;
+  }
+}
+
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - 0.75rem));
+  }
+}

@@ -1,0 +1,17 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="pythonColabTitle">
+  <title id="pythonColabTitle">Python and Google Colab</title>
+  <defs>
+    <linearGradient id="pythonColabBg" x1="16" y1="16" x2="112" y2="112" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFE4B8"/>
+      <stop offset="1" stop-color="#FFF4E3"/>
+    </linearGradient>
+  </defs>
+  <rect x="10" y="10" width="108" height="108" rx="28" fill="url(#pythonColabBg)"/>
+  <rect x="24" y="24" width="80" height="80" rx="22" fill="#fff"/>
+  <path d="M50 42h14c8 0 12 4 12 12v6H54c-5 0-8 3-8 8v6c0 6 4 12 12 12h14" fill="#366C9C"/>
+  <circle cx="61" cy="50" r="3.5" fill="#fff"/>
+  <path d="M78 86H64c-8 0-12-4-12-12v-6h22c5 0 8-3 8-8v-6c0-6-4-12-12-12H56" fill="#FFB42C"/>
+  <circle cx="67" cy="78" r="3.5" fill="#fff"/>
+  <path d="M85 35c6 3 10 8 11 15" stroke="#F9AB00" stroke-width="5" stroke-linecap="round"/>
+  <path d="M91 30l9 7-10 4" fill="#F9AB00"/>
+</svg>
