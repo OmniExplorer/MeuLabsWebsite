@@ -28,6 +28,7 @@ export default function HomePage({
         : pathwayFamiliesData.length === 2
           ? "md:grid-cols-2"
           : "max-w-xl";
+  const isNzBranch = basePath === "/nz";
 
   return (
     <>
@@ -162,8 +163,12 @@ export default function HomePage({
                   <div
                     className={
                       family.id === "foundations"
-                        ? "pb-3 pl-3 pr-0 sm:pl-4 sm:pr-0"
-                        : "pb-3 pl-5 pr-0 -mr-3 sm:pl-6 sm:-mr-4"
+                        ? isNzBranch
+                          ? "pb-3 pl-4 pr-0 -mr-2 sm:pl-5 sm:-mr-3"
+                          : "pb-3 pl-3 pr-0 sm:pl-4 sm:pr-0"
+                        : isNzBranch
+                          ? "pb-3 pl-7 pr-0 -mr-6 sm:pl-8 sm:-mr-7"
+                          : "pb-3 pl-5 pr-0 -mr-3 sm:pl-6 sm:-mr-4"
                     }
                   >
                     <div className="grid gap-3">
