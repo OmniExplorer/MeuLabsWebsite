@@ -4,7 +4,7 @@ import { SectionHeading, SiteFooter, SiteHeader } from "@/components/site-chrome
 
 export function AboutPage({
   basePath = "",
-  aboutCopy = "Meu Labs combines robotics, coding, AI, electronics, design, storytelling, and engineering into a project-based learning ecosystem. The goal is not just to teach isolated lessons. It is to help students build, test, present, and grow through real work."
+  aboutCopy = "Meu Labs brings together robotics, coding, AI, electronics, design, storytelling, and engineering through project-based learning. Students do not just study concepts in isolation. They build, test, present, and improve real work so their skills grow through doing."
 }) {
   return (
     <>
@@ -13,8 +13,8 @@ export function AboutPage({
         <section className="mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
           <SectionHeading
             eyebrow="About Meu Labs"
-            title="A cleaner structure, but still unmistakably"
-            accent="Meu Labs."
+            title="Project-based STEM learning that grows real"
+            accent="capability."
             copy={aboutCopy}
           />
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -30,16 +30,16 @@ export function AboutPage({
         <section className="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <SectionHeading
-              eyebrow="What Matters"
-              title="The structure changed so the story is easier for parents to understand."
-              copy="The separate pages now let visitors go directly to programmes, outcomes, and contact information instead of digging through one long page."
+              eyebrow="Why Meu Labs"
+              title="Students learn best when they build, test, and explain what they create."
+              copy="Meu Labs is designed to move students beyond passive lessons. The experience is hands-on, visible, and progressive, so families can clearly see how confidence and technical depth grow over time."
             />
           </div>
           <div className="mt-8 grid gap-5 md:grid-cols-3">
             {[
-              ["Project-Based By Default", "Students do not just consume lessons. They design, code, simulate, prototype, edit, build, and present work that can actually be shown."],
-              ["Built Around Progression", "Foundations, learning paths, specializations, and launch-level readiness each have a clearer role inside the ecosystem."],
-              ["Better For Parents", "The site now separates the questions parents actually ask: what the programs are, what students create, how Meu Labs works, and who to contact next."]
+              ["Project-Based By Default", "Students design, code, simulate, prototype, edit, build, and present work that can actually be seen, tested, and explained."],
+              ["Built Around Progression", "The learning journey moves from foundations into pathways and deeper specialization so students can grow with clearer direction."],
+              ["Visible Growth For Families", "Parents can see stronger confidence, clearer thinking, and more polished outputs instead of only hearing that lessons were completed."]
             ].map(([title, copy]) => (
               <article key={title} className="glass-panel p-6">
                 <h3 className="font-display text-2xl font-semibold tracking-[-0.04em] text-[color:var(--color-meu-navy)]">{title}</h3>
@@ -52,20 +52,20 @@ export function AboutPage({
         <section className="mx-auto grid w-full max-w-7xl gap-5 px-4 py-12 sm:px-6 lg:grid-cols-2 lg:px-8">
           <div className="max-w-3xl lg:col-span-2">
             <SectionHeading
-              eyebrow="How It Works"
-              title="Meu Labs blends breadth, depth, and visible output."
+              eyebrow="How Students Grow"
+              title="Learning starts with curiosity and moves toward stronger technical ownership."
             />
           </div>
           {[
             ["Learning Model", [
-              "Students start with broad exposure to multiple disciplines.",
-              "They move into guided projects with clearer skill-building.",
-              "Later stages push deeper specialization and stronger technical ownership."
+              "Students begin with broad exposure to multiple disciplines so they can discover what excites them.",
+              "They move into guided projects that build confidence through repeated practice, feedback, and iteration.",
+              "Later stages push into deeper specialization, stronger systems thinking, and more independent execution."
             ]],
             ["Why Families Choose It", [
-              "Clearer progression across ages and interests.",
-              "More visible student output and portfolio-ready work.",
-              "Practical exposure to robotics, coding, design, media, and systems thinking."
+              "There is a clearer pathway across ages, interests, and technical depth.",
+              "Student output is visible, portfolio-friendly, and easier to talk about with confidence.",
+              "The experience connects robotics, coding, design, media, AI, and systems thinking in one ecosystem."
             ]]
           ].map(([title, items]) => (
             <article key={title} className="glass-panel p-7">
@@ -88,10 +88,10 @@ export function AboutPage({
               Next Step
             </span>
             <h2 className="mt-5 max-w-3xl font-display text-4xl font-bold tracking-[-0.05em] sm:text-5xl">
-              Use the separate pages to explore the ecosystem without friction.
+              Explore the pathways and find the best starting point for your child.
             </h2>
             <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-200">
-              Start with Programmes if you want course structure, Student Creations if you want proof of output, or Contact if you want direct counselling support for the right age band and interest area.
+              Start with Programmes if you want to understand the learning journey, Student Creations if you want to see the kind of work students produce, or Contact if you want direct guidance on age fit and interests.
             </p>
             <div className="mt-8 flex flex-col gap-4 sm:flex-row">
               <Link href={withBasePath(basePath, "/programmes")} className="inline-flex items-center justify-center rounded-full bg-white px-7 py-4 text-base font-extrabold text-[color:var(--color-meu-navy)] transition hover:-translate-y-0.5">
@@ -119,7 +119,7 @@ export function ContactPage({ basePath = "" }) {
             eyebrow="Contact Meu Labs"
             title="Talk to the team about the right programme,"
             accent="age fit, and next step."
-            copy="This page now acts as the dedicated contact destination instead of relying on a small homepage block. Use it for parent counselling, student fit questions, or pathway guidance."
+            copy="Contact Meu Labs for help choosing the best starting point for your child. Families can reach out for programme guidance, pathway questions, age fit advice, and direct support on what to explore next."
           />
           <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <a href="mailto:hello@meulabs.org" className="inline-flex items-center justify-center rounded-full bg-[linear-gradient(135deg,_#ff7a00,_#ff9d4a)] px-7 py-4 text-base font-extrabold text-white shadow-[0_20px_48px_rgba(255,122,0,0.28)] transition hover:-translate-y-0.5">
@@ -137,14 +137,14 @@ export function ContactPage({ basePath = "" }) {
               What to contact us about
             </h2>
             <p className="mt-4 text-base leading-7 text-slate-600">
-              The contact page is the right place for families who want help choosing between foundations, learning paths, specializations, and advanced options.
+              Reach out if you want clearer guidance on where your child should begin, which pathway fits their interests, or what kind of programme progression makes the most sense.
             </p>
             <ul className="mt-5 grid gap-4 text-base leading-7 text-slate-600">
               {[
-                "Programme guidance by age and interest.",
-                "Questions about the Project Superhero journey and other courses.",
-                "Support deciding the best starting point for a student.",
-                "Requests for meetings, calls, or parent counselling."
+                "Programme guidance based on age, confidence level, and interests.",
+                "Questions about specific courses such as Mars Exploration, Project Superhero, Analytics, or advanced specializations.",
+                "Support choosing the strongest starting point and next pathway.",
+                "Requests for calls, meetings, or direct parent counselling."
               ].map((item) => (
                 <li key={item} className="flex gap-3">
                   <span className="mt-2 size-2 shrink-0 rounded-full bg-[color:var(--color-meu-orange)]" />
@@ -155,9 +155,9 @@ export function ContactPage({ basePath = "" }) {
           </article>
           <div className="grid gap-5">
             {[
-              ["Email", "hello@meulabs.org", "Use email for programme questions, requests for follow-up, and direct parent inquiries."],
-              ["Phone", "+94 76 962 3500", "Use the direct line for faster guidance when a parent wants to discuss programme fit."],
-              ["Best Preparation", "Share age and interest area", "When contacting Meu Labs, the most useful starting information is the student age band and the domains they are most curious about."]
+              ["Email", "hello@meulabs.org", "Use email for programme questions, follow-up requests, and direct parent inquiries about the best fit."],
+              ["Phone", "+94 76 962 3500", "Use the direct line for faster guidance when you want to talk through programme options and next steps."],
+              ["Best Preparation", "Share age and interests", "The most useful first details are the student age band, current experience level, and the areas they are most curious about."]
             ].map(([label, title, copy]) => (
               <article key={label} className="glass-panel p-6">
                 <strong className="text-sm font-black uppercase tracking-[0.16em] text-[color:var(--color-meu-orange)]">{label}</strong>
