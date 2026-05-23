@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-navy: #0D3557;
+  --color-orange: #FF7A00;
+  --color-cream: #FFF6EA;
+  --color-cream-alt: #F8F1E2;
+  --color-sky: #1995D3;
+  --color-teal: #2CAC95;
+  --color-white: #FFFFFF;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-cream);
+  color: var(--color-navy);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.reveal-pending {
+  opacity: 0;
+  transform: translateY(18px) scale(0.98);
+}
+
+.reveal-fade {
+  animation: revealFade 0.72s ease both;
+}
+
+.reveal-pop {
+  animation: revealPop 0.72s cubic-bezier(0.2, 0.85, 0.2, 1.08) both;
+}
+
+.reveal-rise {
+  animation: revealRise 0.82s ease both;
+}
+
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-400 {
+  animation-delay: 400ms;
+}
+
+.delay-500 {
+  animation-delay: 500ms;
+}
+
+.delay-600 {
+  animation-delay: 600ms;
+}
+
+.dot-ripple {
+  animation: dotRipple 1.8s ease-in-out infinite;
+}
+
+@keyframes revealFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes revealRise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes revealPop {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes dotRipple {
+  0%, 100% {
+    opacity: 0.42;
+    transform: scale(0.72);
+  }
+  45% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-fade,
+  .reveal-pop,
+  .reveal-rise,
+  .dot-ripple {
+    animation: none;
+  }
+}
+
+.hero-overlay {
+  background:
+    linear-gradient(90deg, rgba(13, 53, 87, 0.92), rgba(13, 53, 87, 0.68), rgba(13, 53, 87, 0.15)),
+    linear-gradient(0deg, rgba(255, 246, 234, 0.12), rgba(255, 246, 234, 0.12));
+}
