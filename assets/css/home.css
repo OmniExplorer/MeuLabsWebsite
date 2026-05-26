@@ -166,7 +166,7 @@ a { color: inherit; text-decoration: none; }
   position: relative;
   width: 3.04em;
   overflow: hidden;
-  background-image: url("/assets/images/coding-wordmark-exact.svg");
+  background-image: url("../images/coding-wordmark-exact.svg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
@@ -175,7 +175,7 @@ a { color: inherit; text-decoration: none; }
   content: "";
   position: absolute;
   inset: 0;
-  background-image: url("/assets/images/coding-wordmark-exact.svg");
+  background-image: url("../images/coding-wordmark-exact.svg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   opacity: 0;
@@ -250,7 +250,7 @@ a { color: inherit; text-decoration: none; }
 .stem-wordmark-animated span {
   display: block;
   height: 100%;
-  background-image: url("/assets/images/stem-wordmark-exact.svg");
+  background-image: url("../images/stem-wordmark-exact.svg");
   background-repeat: no-repeat;
   background-size: 400% 100%;
   transform-origin: 50% 55%;
@@ -812,3 +812,4 @@ a { color: inherit; text-decoration: none; }
   .footer-main { grid-template-columns: 1fr; }
   .footer-legal { flex-wrap: wrap; }
 }
+
