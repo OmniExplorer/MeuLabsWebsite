@@ -1,107 +1,128 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Youtube } from 'lucide-react';
-import { Reveal } from './Reveal';
+import { Mail, MapPin, Phone } from 'lucide-react';
 import { siteConfig } from '@/data/siteConfig';
 
+const courseLinks = [
+  { href: '/courses', label: 'All Courses' },
+  { href: '/courses/kx', label: 'STEM for Kids' },
+  { href: '/courses/an', label: 'Analytics' },
+  { href: '/courses/pd', label: 'Product Design' },
+  { href: '/courses/cx', label: 'Creative Expression' },
+  { href: '/courses/se', label: 'Specialisations' }
+];
+
+const companyLinks = [
+  { href: '/about', label: 'About Us' },
+  { href: '/about', label: 'Our Approach' },
+  { href: '/projects', label: 'Student Projects' },
+  { href: '/contact', label: 'Careers' },
+  { href: '/about', label: 'Blog' }
+];
+
+const socials = [
+  { href: siteConfig.socialLinks.facebook, label: 'Facebook', icon: '/assets/logos/social/facebook.svg', className: 'bg-[#1877F2]' },
+  { href: siteConfig.socialLinks.instagram, label: 'Instagram', icon: '/assets/logos/social/instagram.svg', className: 'bg-[#C13584]' },
+  { href: siteConfig.socialLinks.youtube, label: 'YouTube', icon: '/assets/logos/social/youtube.svg', className: 'bg-[#FF0033]' },
+  { href: siteConfig.socialLinks.linkedin, label: 'LinkedIn', icon: '/assets/logos/social/linkedin.svg', className: 'bg-[#0A66C2]' }
+];
+
 export function Footer() {
-  const socials = [
-    { href: siteConfig.socialLinks.facebook, label: 'Facebook', icon: Facebook },
-    { href: siteConfig.socialLinks.instagram, label: 'Instagram', icon: Instagram },
-    { href: siteConfig.socialLinks.youtube, label: 'YouTube', icon: Youtube },
-    { href: siteConfig.socialLinks.linkedin, label: 'LinkedIn', icon: Linkedin }
-  ];
-
-  const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/courses', label: 'Courses' },
-    { href: '/projects', label: 'Projects' },
-    { href: '/about', label: 'About' },
-    { href: '/contact', label: 'Contact Us' }
-  ];
-
   return (
-    <footer className="border-t border-navy/10 bg-cream text-navy">
-      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <Reveal className="flex flex-col gap-8 border-b border-navy/12 pb-10 lg:flex-row lg:items-center lg:justify-between">
-          <Link href="/" className="flex items-center gap-3">
-            <Image src="/assets/logos/logo.svg" alt="Meu Labs" width={150} height={48} className="h-auto w-40" />
+    <footer className="bg-[#06243A] text-white">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.45fr_1fr_1fr_1.35fr_1.65fr] lg:px-8">
+        <div>
+          <Link href="/" className="inline-flex">
+            <Image src="/assets/logos/logo.svg" alt="Meu Labs" width={160} height={50} className="h-auto w-40 brightness-0 invert" />
           </Link>
-          <nav className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-extrabold text-slate-600">
-            {navLinks.map((link, index) => (
-              <span key={link.href} className="flex items-center gap-4">
-                <Link href={link.href} className="transition hover:text-orange">{link.label}</Link>
-                {index < navLinks.length - 1 && <span className="text-orange/40">•</span>}
-              </span>
-            ))}
-          </nav>
-        </Reveal>
-
-        <div className="grid gap-10 py-12 lg:grid-cols-[1fr_1.15fr] lg:items-center">
-          <Reveal delay={100} className="grid gap-8">
-            <p className="max-w-xl text-lg font-semibold leading-8 text-slate-700">Project-based robotics, coding, design, data and AI learning for future-ready students.</p>
-
-            <div className="grid gap-8">
-              <div>
-                <h3 className="mb-4 font-extrabold">Contact</h3>
-                <div className="grid gap-3 text-sm font-semibold text-slate-700">
-                  <a href={`tel:${siteConfig.phoneNumber}`} className="flex items-center gap-3 hover:text-orange">
-                    <span className="grid h-9 w-9 place-items-center rounded-full bg-cream"><Phone size={17} /></span>
-                    {siteConfig.phoneNumber}
-                  </a>
-                  <a href="mailto:hello@meulabs.org" className="flex items-center gap-3 hover:text-orange">
-                    <span className="grid h-9 w-9 place-items-center rounded-full bg-cream"><Mail size={17} /></span>
-                    hello@meulabs.org
-                  </a>
-                  <span className="flex items-center gap-3">
-                    <span className="grid h-9 w-9 place-items-center rounded-full bg-cream"><MapPin size={17} /></span>
-                    {siteConfig.address}
-                  </span>
-                </div>
-              </div>
-
-            </div>
-
-            <div className="flex flex-wrap items-center gap-3">
-              <span>
-                <Image src="/assets/logos/icta.png" alt="ICTA" width={170} height={64} className="h-16 w-auto object-contain" />
-              </span>
-              <span>
-                <Image src="/assets/logos/scratchlogo.png" alt="Scratch" width={200} height={76} className="h-20 w-auto object-contain" />
-              </span>
-              <span>
-                <Image src="/assets/logos/STEM-1.webp" alt="STEM.org" width={170} height={64} className="h-16 w-auto object-contain" />
-              </span>
-            </div>
-          </Reveal>
-
-          <Reveal animation="pop" delay={200} className="relative aspect-[16/9] overflow-hidden">
-            <Image src="/assets/images/world-map.svg" alt="" fill className="object-contain opacity-90" sizes="(min-width: 1024px) 48vw, 100vw" />
-            <button type="button" aria-label="New Zealand coming soon" className="absolute left-[82%] top-[72%] animate-bounce text-[#FF4F1F] drop-shadow-[0_8px_12px_rgba(255,79,31,0.35)] transition hover:scale-110">
-              <MapPin size={30} fill="currentColor" />
-              <span className="absolute left-1/2 top-[34%] h-2 w-2 -translate-x-1/2 rounded-full bg-white" />
-            </button>
-            <button type="button" aria-label="Maldives coming soon" className="absolute left-[61%] top-[55%] animate-bounce text-[#FF4F1F] drop-shadow-[0_8px_12px_rgba(255,79,31,0.35)] transition hover:scale-110 [animation-delay:180ms]">
-              <MapPin size={30} fill="currentColor" />
-              <span className="absolute left-1/2 top-[34%] h-2 w-2 -translate-x-1/2 rounded-full bg-white" />
-            </button>
-          </Reveal>
-        </div>
-
-        <Reveal delay={300} className="flex flex-col gap-5 border-t border-navy/12 pt-8 text-sm font-semibold text-slate-600 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex flex-wrap items-center gap-5">
-            <span>© Meu Labs</span>
-            <Link href="#" className="hover:text-orange">Privacy</Link>
-            <Link href="#" className="hover:text-orange">Terms</Link>
-          </div>
-          <div className="flex gap-3">
-            {socials.map(({ href, label, icon: Icon }) => (
-              <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label} className="grid h-11 w-11 place-items-center rounded-full bg-white text-navy shadow-soft transition hover:bg-orange hover:text-white">
-                <Icon size={20} />
+          <p className="mt-8 max-w-[300px] text-base font-extrabold leading-7 text-slate-300">Empowering young minds through project-based STEM, robotics, coding and creative learning.</p>
+          <div className="mt-7 flex flex-nowrap gap-3">
+            {socials.map(({ href, label, icon, className }) => (
+              <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label} className={`grid h-11 w-11 shrink-0 place-items-center rounded-full text-white shadow-soft transition hover:-translate-y-1 ${className}`}>
+                <Image src={icon} alt="" width={20} height={20} className="h-5 w-5 object-contain" aria-hidden="true" />
               </a>
             ))}
           </div>
-        </Reveal>
+        </div>
+
+        <nav aria-label="Courses">
+          <h2 className="text-base font-medium">Courses</h2>
+          <ul className="mt-6 grid gap-3 text-sm font-extrabold leading-6 text-slate-300">
+            {courseLinks.map((link) => (
+              <li key={link.label}>
+                <Link href={link.href} className="transition hover:text-orange">{link.label}</Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <nav aria-label="Company">
+          <h2 className="text-base font-medium">Company</h2>
+          <ul className="mt-6 grid gap-3 text-sm font-extrabold leading-6 text-slate-300">
+            {companyLinks.map((link) => (
+              <li key={link.label}>
+                <Link href={link.href} className="transition hover:text-orange">{link.label}</Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+
+        <div>
+          <h2 className="text-base font-medium">Contact</h2>
+          <div className="mt-6 grid gap-4 text-sm font-extrabold leading-6 text-slate-300">
+            <a href={`tel:${siteConfig.phoneNumber}`} className="grid grid-cols-[1.5rem_1fr] gap-4 transition hover:text-orange">
+              <Phone size={20} className="text-orange" aria-hidden />
+              <span>{siteConfig.phoneNumber}</span>
+            </a>
+            <a href="mailto:info@meulabs.com" className="grid grid-cols-[1.5rem_1fr] gap-4 transition hover:text-orange">
+              <Mail size={20} className="text-orange" aria-hidden />
+              <span>info@meulabs.com</span>
+            </a>
+            <div className="grid grid-cols-[1.5rem_1fr] gap-4">
+              <MapPin size={21} className="text-orange" aria-hidden />
+              <span>No. 133, High Level Road, Nugegoda, Colombo, Sri Lanka</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 className="text-base font-medium">Our Locations</h2>
+          <div className="relative mx-auto mt-7 aspect-[2.35/1] max-w-[310px]">
+            <Image src="/assets/images/world-map.svg" alt="" fill className="object-contain opacity-75 invert" sizes="310px" />
+            <span className="footer-map-pin absolute left-[62%] top-[50%] z-10 h-[30px] w-[30px] text-orange drop-shadow-[0_10px_12px_rgba(255,122,0,0.34)]">
+              <MapPin size={30} fill="currentColor" strokeWidth={0} aria-hidden className="h-[30px] w-[30px]" />
+              <span className="absolute left-1/2 top-[8px] h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-white" />
+            </span>
+            <span className="footer-map-pin absolute left-[58%] top-[46%] z-20 h-[30px] w-[30px] text-[#65D96C] drop-shadow-[0_10px_12px_rgba(101,217,108,0.32)] [animation-delay:160ms]">
+              <MapPin size={30} fill="currentColor" strokeWidth={0} aria-hidden className="h-[30px] w-[30px]" />
+              <span className="absolute left-1/2 top-[8px] h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-white" />
+            </span>
+            <span className="footer-map-pin absolute left-[83%] top-[58%] z-10 h-[30px] w-[30px] text-[#2FA8FF] drop-shadow-[0_10px_12px_rgba(47,168,255,0.34)] [animation-delay:320ms]">
+              <MapPin size={30} fill="currentColor" strokeWidth={0} aria-hidden className="h-[30px] w-[30px]" />
+              <span className="absolute left-1/2 top-[8px] h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-white" />
+            </span>
+          </div>
+          <div className="mt-6 grid gap-x-5 gap-y-4 text-sm font-extrabold sm:grid-cols-[max-content_max-content]">
+            <span className="inline-flex whitespace-nowrap items-center gap-2"><span className="h-3 w-3 shrink-0 rounded-full bg-orange" />Sri Lanka</span>
+            <span className="inline-flex whitespace-nowrap items-center gap-2"><span className="h-3 w-3 shrink-0 rounded-full bg-[#2FA8FF]" />New Zealand <small className="text-xs text-slate-400">Coming Soon</small></span>
+            <span className="inline-flex whitespace-nowrap items-center gap-2 sm:col-span-2"><span className="h-3 w-3 shrink-0 rounded-full bg-[#65D96C]" />Maldives <small className="text-xs text-slate-400">Coming Soon</small></span>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-[#F5F6F7] text-navy">
+        <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-5 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+          <div className="flex flex-wrap items-center gap-7">
+            <Image src="/assets/logos/icta.png" alt="ICTA" width={112} height={42} className="h-9 w-auto object-contain" />
+            <Image src="/assets/logos/scratchlogo.png" alt="Scratch" width={84} height={38} className="h-10 w-auto object-contain" />
+            <Image src="/assets/logos/STEM-1.webp" alt="STEM.org accredited" width={118} height={42} className="h-10 w-auto object-contain" />
+          </div>
+          <p className="text-sm font-extrabold text-slate-600">© 2026 Meu Labs. All rights reserved.</p>
+          <div className="flex gap-7 text-sm font-extrabold">
+            <Link href="#" className="transition hover:text-orange">Privacy Policy</Link>
+            <Link href="#" className="transition hover:text-orange">Terms of Use</Link>
+          </div>
+        </div>
       </div>
     </footer>
   );

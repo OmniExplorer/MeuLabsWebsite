@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { ButtonLink } from '@/components/ButtonLink';
 
 const reasons = [
   {
@@ -31,7 +32,11 @@ const reasons = [
   }
 ];
 
-export function WhyMeuLabs() {
+type WhyMeuLabsProps = {
+  intro?: string;
+};
+
+export function WhyMeuLabs({ intro }: WhyMeuLabsProps) {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
 
@@ -45,31 +50,34 @@ export function WhyMeuLabs() {
   }, [active, paused]);
 
   return (
-    <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
-      <div className="grid gap-3" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
-        {reasons.map((reason, index) => (
-          <button
-            key={reason.title}
-            type="button"
-            aria-pressed={active === index}
-            onFocus={() => {
-              setPaused(true);
-              setActive(index);
-            }}
-            onBlur={() => setPaused(false)}
-            onMouseEnter={() => setActive(index)}
-            onClick={() => {
-              setPaused(true);
-              setActive(index);
-            }}
-            className={`relative cursor-pointer rounded-card p-5 text-left transition duration-300 focus:outline-none focus:ring-4 focus:ring-orange/35 ${active === index ? 'bg-navy text-white shadow-[0_0_0_3px_rgba(255,122,0,0.95),0_22px_55px_rgba(255,79,31,0.24)]' : 'bg-white text-navy shadow-soft hover:-translate-y-1 hover:shadow-pop'}`}
-          >
-            <span className="text-lg font-extrabold">{reason.title}</span>
-            <span className={`mt-2 block text-sm leading-6 ${active === index ? 'text-white/78' : 'text-slate-700'}`}>{reason.body}</span>
-          </button>
-        ))}
+    <div className="grid max-w-6xl gap-8 lg:grid-cols-[0.92fr_0.98fr] lg:items-start">
+      <div>
+        {intro && <p className="mb-9 max-w-3xl text-pretty text-lg font-bold leading-8 text-slate-600">{intro}</p>}
+        <div className="grid gap-2.5" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+          {reasons.map((reason, index) => (
+            <button
+              key={reason.title}
+              type="button"
+              aria-pressed={active === index}
+              onFocus={() => {
+                setPaused(true);
+                setActive(index);
+              }}
+              onBlur={() => setPaused(false)}
+              onMouseEnter={() => setActive(index)}
+              onClick={() => {
+                setPaused(true);
+                setActive(index);
+              }}
+              className={`relative flex min-h-[58px] cursor-pointer items-center rounded-[16px] px-5 py-3 text-left transition duration-300 focus:outline-none focus:ring-4 focus:ring-orange/35 ${active === index ? 'bg-navy text-white shadow-[0_0_0_3px_rgba(255,122,0,0.95),0_18px_42px_rgba(255,79,31,0.18)]' : 'bg-white text-navy shadow-soft hover:-translate-y-1 hover:shadow-pop'}`}
+            >
+              <span className="min-w-0 break-words text-base font-extrabold">{reason.title}</span>
+            </button>
+          ))}
+        </div>
+        <ButtonLink href="/about" className="mt-8 w-fit">Learn More</ButtonLink>
       </div>
-      <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] shadow-pop" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+      <div className="relative aspect-[4/3] overflow-hidden rounded-[28px] shadow-pop lg:mt-0 lg:h-[540px] lg:aspect-auto" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
         {reasons.map((reason, index) => (
           <Image
             key={reason.image}
