@@ -1,0 +1,174 @@
+.meu-hero-kicker {
+  margin-bottom: 1.85rem;
+  max-width: 42rem;
+  border-left: 4px solid #ff7a00;
+  padding-left: 1.25rem;
+}
+
+.meu-hero-kicker p {
+  background: none !important;
+  -webkit-text-fill-color: #062a50;
+  color: #062a50 !important;
+  font-size: clamp(1rem, 1.18vw, 1.25rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0 !important;
+  line-height: 1.35 !important;
+  text-transform: none !important;
+}
+
+.meu-hero-title {
+  max-width: 45rem;
+  color: #062a50;
+  font-size: clamp(3.15rem, 4.7vw, 5.6rem) !important;
+  font-weight: 950 !important;
+  line-height: 1.02 !important;
+}
+
+.meu-hero-title .title-line {
+  display: block;
+}
+
+.meu-hero-title .robotics-word {
+  position: relative;
+  display: inline-block;
+  padding: 0 0.08em;
+  color: #062a50;
+  text-shadow: 0 0.035em 0 rgba(255, 255, 255, 0.95);
+}
+
+.meu-hero-title .robotics-word::before {
+  content: "";
+  position: absolute;
+  inset: 0.2em 0.08em 0.1em;
+  z-index: -1;
+  border-radius: 0.18em;
+  background:
+    radial-gradient(circle, #062a50 0 19%, transparent 21%) 0 0 / 0.34em 0.34em,
+    linear-gradient(135deg, rgba(6, 42, 80, 0.13), rgba(255, 122, 0, 0.16));
+  opacity: 0.6;
+  transform: rotate(-1deg);
+}
+
+.meu-hero-title .coding-word {
+  display: inline-block;
+  color: #f05a16;
+  font-family: "Courier New", ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-shadow: 0.035em 0.035em 0 rgba(6, 42, 80, 0.14);
+}
+
+.meu-stem-tiles {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.12em;
+  margin-right: 0.12em;
+  vertical-align: -0.08em;
+}
+
+.meu-stem-tiles span {
+  display: grid;
+  width: 0.72em;
+  height: 0.72em;
+  place-items: center;
+  border-radius: 0.14em;
+  color: #fff;
+  font-size: 0.72em;
+  line-height: 1;
+  box-shadow: 0 0.08em 0.18em rgba(6, 42, 80, 0.17);
+}
+
+.meu-stem-tiles span:nth-child(1) { background: #062a50; }
+.meu-stem-tiles span:nth-child(2) { background: #ff5a00; }
+.meu-stem-tiles span:nth-child(3) { background: #008c8c; }
+.meu-stem-tiles span:nth-child(4) { background: #f7b500; }
+
+.meu-hero-title .kids-word {
+  color: #ff5a00;
+}
+
+@media (max-width: 1023px) {
+  .meu-hero-title {
+    font-size: clamp(2.75rem, 9vw, 4.4rem) !important;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1180px) {
+  .meu-hero-title {
+    font-size: clamp(3rem, 4.2vw, 4.55rem) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .meu-hero-kicker {
+    margin-bottom: 1.4rem;
+  }
+
+  .meu-hero-title {
+    font-size: clamp(2.3rem, 10.5vw, 3.25rem) !important;
+  }
+
+  .meu-hero-title .title-line {
+    margin-bottom: 0.04em;
+  }
+}
+
+.meu-course-chip {
+  display: grid !important;
+  grid-template-columns: auto minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  width: 100% !important;
+  margin-top: 0.7rem !important;
+  border: 1px solid rgba(6, 42, 80, 0.1) !important;
+  border-radius: 0.9rem !important;
+  background: linear-gradient(180deg, #fff 0%, #fff8ef 100%) !important;
+  padding: 0.78rem 0.85rem !important;
+  color: #062a50 !important;
+  text-decoration: none !important;
+  box-shadow: 0 0.35rem 0.9rem rgba(6, 42, 80, 0.06) !important;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease !important;
+}
+
+.meu-course-chip:hover {
+  transform: translateY(-2px) !important;
+  border-color: rgba(255, 122, 0, 0.45) !important;
+  box-shadow: 0 0.75rem 1.5rem rgba(6, 42, 80, 0.11) !important;
+}
+
+.meu-course-chip__icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-width: 3.4rem !important;
+  border-radius: 999px !important;
+  background: #ff7a00 !important;
+  padding: 0.28rem 0.5rem !important;
+  color: #fff !important;
+  font-size: 0.62rem !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.06em !important;
+  line-height: 1 !important;
+  text-transform: uppercase !important;
+}
+
+.meu-course-chip__label {
+  min-width: 0 !important;
+  color: #062a50 !important;
+  font-size: 0.88rem !important;
+  font-weight: 900 !important;
+  line-height: 1.28 !important;
+}
+
+.meu-course-chip__arrow {
+  display: grid !important;
+  width: 1.7rem !important;
+  height: 1.7rem !important;
+  place-items: center !important;
+  border-radius: 999px !important;
+  background: rgba(6, 42, 80, 0.07) !important;
+  color: #ff5a00 !important;
+  font-size: 1.35rem !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+}

@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Meu Labs | Robotics, Coding & STEM for Kids in Sri Lanka</title>
+  <meta name="description" content="Project-based robotics, coding, STEM, AI, data and design learning for children and teens in Colombo, Sri Lanka.">
+  <link rel="preload" as="image" href="/assets/logos/logo.svg">
+  <link rel="stylesheet" href="/assets/css/home.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-shell" aria-label="Main navigation">
+      <a class="brand" href="/" aria-label="Meu Labs home">
+        <img src="/assets/logos/logo.svg" alt="Meu Labs" width="150" height="48">
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" data-nav-links>
+        <a href="/">Home</a>
+        <a href="/courses">Courses</a>
+        <a href="/projects">Projects</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </div>
+      <a class="nav-cta" href="/courses">Explore Courses</a>
+    </nav>
+  </header>
+
+  <main>
+    <svg aria-hidden="true" focusable="false" width="0" height="0" style="position:absolute;overflow:hidden">
+      <symbol id="icon-rocket" viewBox="0 0 24 24"><path d="M13.5 4.8c1.9-1.6 4.1-2.3 6.4-2.1.2 2.3-.5 4.5-2.1 6.4l-6.9 8.2-4.2-4.2 6.8-8.3Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 16l-3 3m11-11 2 2M7.4 12.6 4 12l2.7-2.7m4.7 7.3.6 3.4 2.7-2.7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v5c0 4.3 2.8 7.6 7 9 4.2-1.4 7-4.7 7-9V6l-7-3Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m13 7-4 6h3l-1 4 4-6h-3l1-4Z" fill="currentColor"/></symbol>
+      <symbol id="icon-leaf" viewBox="0 0 24 24"><path d="M20 4c-7.5 0-13 4.2-13 10.5 0 2.8 2.2 5.1 5 5.1 5.8 0 8-6.4 8-15.6Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M4 20c3.5-5.2 7.2-8 12-10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="icon-code" viewBox="0 0 24 24"><path d="m8 8-4 4 4 4m8-8 4 4-4 4m-2-10-4 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="icon-robot" viewBox="0 0 24 24"><path d="M8 8h8a4 4 0 0 1 4 4v5a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-5a4 4 0 0 1 4-4Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 8V4m-4 9h.01M16 13h.01M9 17h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="icon-camera" viewBox="0 0 24 24"><path d="M4 7h10a3 3 0 0 1 3 3v7H4V7Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m17 11 4-2v6l-4-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+      <symbol id="icon-window" viewBox="0 0 24 24"><path d="M4 5h16v14H4V5Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 9h16M9 14l-2 2 2 2m6-4 2 2-2 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="icon-nodes" viewBox="0 0 24 24"><path d="M7 17h10M7 17l4-10m6 10-4-10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="7" cy="17" r="2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="7" r="2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="17" r="2" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+      <symbol id="icon-gear" viewBox="0 0 24 24"><path d="M12 8a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v3m0 14v3M4.9 4.9 7 7m10 10 2.1 2.1M2 12h3m14 0h3M4.9 19.1 7 17m10-10 2.1-2.1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="icon-megaphone" viewBox="0 0 24 24"><path d="M4 13h4l9 4V5L8 9H4v4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m8 13 2 6h3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="icon-cap" viewBox="0 0 24 24"><path d="m3 9 9-4 9 4-9 4-9-4Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M7 11v4c2.8 2 7.2 2 10 0v-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="icon-briefcase" viewBox="0 0 24 24"><path d="M4 8h16v11H4V8Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 8V5h6v3m-1 5h.01" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="icon-lightbulb" viewBox="0 0 24 24"><path d="M9 18h6m-5 3h4m-2-19a7 7 0 0 0-4 12.7V16h8v-1.3A7 7 0 0 0 12 2Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+      <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M6.6 3.8 9.2 7c.5.6.4 1.5-.2 2l-1.2 1c1.1 2.3 3 4.2 5.3 5.3l1-1.2c.5-.6 1.4-.7 2-.2l3.2 2.6c.7.5.8 1.5.3 2.2-.9 1.3-2.2 2-3.7 2C9.1 20.7 3.3 14.9 3.3 8.1c0-1.5.7-2.8 2-3.7.7-.5 1.7-.4 2.2.3Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+      <symbol id="icon-mail" viewBox="0 0 24 24"><path d="M4 6h16v12H4V6Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="m4 8 8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+      <symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 8v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+      <symbol id="icon-location" viewBox="0 0 24 24"><path d="M12 21s7-5.4 7-12a7 7 0 1 0-14 0c0 6.6 7 12 7 12Z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9" r="2" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+    </svg>
+    <section class="hero-section">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="page-shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Where students discover their passion and build real world tools and skills</p>
+          <h1 class="hero-title">
+            <span class="hero-line">Sri Lanka's Best</span>
+            <span class="hero-line"><img class="robotics-wordmark" src="/assets/images/robotics-wordmark-exact.svg" alt="Robotics"> <span class="coding-wordmark coding-wordmark-typed" role="img" aria-label="Coding"></span></span>
+            <span class="hero-line"><span class="stem-wordmark stem-wordmark-animated" role="img" aria-label="STEM"><span></span><span></span><span></span><span></span></span> Courses</span>
+            <span class="hero-line">for <span class="word-kids">Kids</span></span>
+          </h1>
+          <p class="hero-subtitle">Bridge the gap between what your child learns in school and what they need for the real world</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="/courses">Explore Courses <span aria-hidden="true">-&gt;</span></a>
+            <a class="btn btn-secondary" href="/contact">Speak with a Student Counselor <span aria-hidden="true">-&gt;</span></a>
+          </div>
+        </div>
+        <div class="hero-collage" aria-label="Student project collage">
+          <figure class="hero-card hero-card-main">
+            <img src="/assets/images/hero-robotics.jpg" alt="Students building robotics projects">
+          </figure>
+          <figure class="hero-card hero-card-code">
+            <img src="/assets/images/hero-code.jpg" alt="Coding project on a computer screen">
+          </figure>
+          <figure class="hero-card hero-card-board">
+            <img src="/assets/images/electronics-board.jpg" alt="Electronics board project">
+            <figcaption>Smart Home</figcaption>
+          </figure>
+          <div class="dot-grid dot-grid-top" aria-hidden="true"></div>
+          <div class="dot-grid dot-grid-bottom" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section pathway-section">
+      <div class="page-shell">
+        <div class="section-heading">
+          <p class="section-kicker">Learning pathway</p>
+          <h2>A long-term journey, built step by step</h2>
+          <p>From first steps to advanced skills, our courses help students discover what they love and build real-world capabilities.</p>
+        </div>
+        <div class="pathway-grid">
+          <article class="stage-card stage-foundations">
+            <div class="stage-top">
+              <span class="stage-icon">01</span>
+              <div>
+                <h3>Foundations</h3>
+                <p class="age-chip">Age 8 - 12</p>
+              </div>
+            </div>
+            <p>Build strong foundational skills across coding, design, robotics, videography, communication, and leadership while developing essential 21st-century skills.</p>
+            <p class="course-list-label">Courses</p>
+            <div class="course-list">
+              <a class="journey-course" href="/courses"><svg><use href="#icon-rocket"></use></svg><span>STEM for Kids: Junior</span></a>
+              <a class="journey-course" href="/courses"><svg><use href="#icon-shield"></use></svg><span>STEM for Kids</span></a>
+            </div>
+          </article>
+          <article class="stage-card stage-learning">
+            <div class="stage-top">
+              <span class="stage-icon">02</span>
+              <div>
+                <h3>Learning Paths</h3>
+                <p class="age-chip">Age 10 - 14</p>
+              </div>
+            </div>
+            <p>Choose themed courses aligned with engineering, analytics, or creative expression. Deeper, project-driven, and skill-focused.</p>
+            <p class="course-list-label">Courses</p>
+            <div class="course-list">
+              <a class="journey-course" href="/courses"><svg><use href="#icon-code"></use></svg><span>Coding for Kids</span></a>
+              <a class="journey-course" href="/courses"><svg><use href="#icon-robot"></use></svg><span>Robotics and IoT</span></a>
+              <a class="journey-course" href="/courses"><svg><use href="#icon-camera"></use></svg><span>Digital Media Production</span></a>
+            </div>
+          </article>
+          <article class="stage-card stage-specialisations">
+            <div class="stage-top">
+              <span class="stage-icon">03</span>
+              <div>
+                <h3>Specialisations</h3>
+                <p class="age-chip">Age 12 - 16</p>
+              </div>
+            </div>
+            <p>Dive deep into industry-focused domains through advanced projects, technical mentorship, and real-world problem solving.</p>
+            <p class="course-list-label">Courses</p>
+            <div class="course-list course-list-scroll">
+              <div class="course-scroll-track">
+                <a class="journey-course" href="/courses"><svg><use href="#icon-window"></use></svg><span>Software Engineering</span></a>
+                <a class="journey-course" href="/courses"><svg><use href="#icon-nodes"></use></svg><span>Data Science and AI</span></a>
+                <a class="journey-course" href="/courses"><svg><use href="#icon-gear"></use></svg><span>EEE</span></a>
+                <a class="journey-course" href="/courses"><svg><use href="#icon-robot"></use></svg><span>Embedded Systems &amp; IoT</span></a>
+                <a class="journey-course is-upcoming" href="/courses"><svg><use href="#icon-gear"></use></svg><span>Manufacturing and Robotics <em>Coming Soon</em></span></a>
+                <a class="journey-course is-upcoming" href="/courses"><svg><use href="#icon-shield"></use></svg><span>Cyber Security <em>Coming Soon</em></span></a>
+                <a class="journey-course is-upcoming" href="/courses"><svg><use href="#icon-code"></use></svg><span>Game Development <em>Coming Soon</em></span></a>
+                <a class="journey-course is-upcoming" href="/courses"><svg><use href="#icon-megaphone"></use></svg><span>Digital Marketing <em>Coming Soon</em></span></a>
+                <a class="journey-course is-upcoming" href="/courses"><svg><use href="#icon-camera"></use></svg><span>Animation &amp; Post-Production <em>Coming Soon</em></span></a>
+              </div>
+            </div>
+          </article>
+          <article class="stage-card stage-launch">
+            <div class="stage-top">
+              <span class="stage-icon">04</span>
+              <div>
+                <h3>Launch Pad</h3>
+                <p class="age-chip">Age 16+</p>
+              </div>
+            </div>
+            <p>Transition into university, career, or entrepreneurship through structured pathways and our Launch Network.</p>
+            <p class="course-list-label">Pathways</p>
+            <div class="course-list">
+              <a class="journey-course" href="/courses"><svg><use href="#icon-briefcase"></use></svg><span>Industry Gateway</span></a>
+              <a class="journey-course" href="/courses"><svg><use href="#icon-cap"></use></svg><span>University Access</span></a>
+              <a class="journey-course is-upcoming" href="/courses"><svg><use href="#icon-lightbulb"></use></svg><span>Founder Studio <em>Coming Soon</em></span></a>
+            </div>
+          </article>
+        </div>
+        <div class="center-action">
+          <a class="btn btn-primary" href="/courses">Explore Courses</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section projects-section">
+      <div class="page-shell">
+        <div class="split-heading">
+          <div class="section-heading">
+            <p class="section-kicker">Student projects</p>
+            <h2>See what your child will build at Meu Labs.</h2>
+            <p>From Robots to WebApps from Media productions to AI agents. At Meu Labs students build literally anything</p>
+          </div>
+          <a class="btn btn-primary" href="/projects">View Student Projects</a>
+        </div>
+        <div class="project-showcase">
+          <div class="project-marquee" aria-label="Featured student projects">
+            <div class="project-marquee-track">
+              <div class="project-marquee-set">
+                <a class="project-card" href="/projects">
+                  <img src="/assets/images/project-traffic.jpg" alt="Smart city traffic light project">
+                  <div><span>Robotics</span><h3>Smart City Traffic Lights</h3><p>Arduino logic, sensors, timing and presentation skills.</p></div>
+                </a>
+                <a class="project-card" href="/projects">
+                  <img src="/assets/images/project-dashboard.jpg" alt="Climate data dashboard project">
+                  <div><span>Data</span><h3>Climate Data Dashboard</h3><p>Python dashboards that turn data into decisions.</p></div>
+                </a>
+                <a class="project-card" href="/projects">
+                  <img src="/assets/images/project-prototype.jpg" alt="Product prototype project">
+                  <div><span>Design</span><h3>Product Prototype</h3><p>From idea to working model using design thinking.</p></div>
+                </a>
+                <a class="project-card" href="/projects">
+                  <img src="/assets/images/project-film.jpg" alt="Student film production project">
+                  <div><span>Media</span><h3>Mini Documentary</h3><p>Storytelling, filming, editing and digital expression.</p></div>
+                </a>
+                <a class="project-card" href="/projects">
+                  <img src="/assets/images/project-ai.jpg" alt="AI assistant project">
+                  <div><span>AI</span><h3>AI Study Assistant</h3><p>Students explore prompts, automation and useful AI tools.</p></div>
+                </a>
+                <a class="project-card" href="/projects">
+                  <img src="/assets/images/project-game.jpg" alt="Student game development project">
+                  <div><span>Game Dev</span><h3>Arcade Game Prototype</h3><p>Students design levels, controls, scoring and game logic.</p></div>
+                </a>
+                <a class="project-card" href="/projects">
+                  <img src="/assets/images/project-3d-print.jpg" alt="3D printed design project">
+                  <div><span>Making</span><h3>3D Printed Invention</h3><p>From sketch to model to a physical prototype.</p></div>
+                </a>
+                <a class="project-card" href="/projects">
+                  <img src="/assets/images/project-electronics-lab.jpg" alt="Electronics lab project">
+                  <div><span>Electronics</span><h3>Sensor Lab Build</h3><p>Circuit thinking, testing, debugging and real devices.</p></div>
+                </a>
+                <a class="project-card" href="/projects">
+                  <img src="/assets/images/project-video.jpg" alt="Student video production project">
+                  <div><span>Video</span><h3>Creative Video Edit</h3><p>Planning, shooting, editing and digital storytelling.</p></div>
+                </a>
+                <a class="project-card" href="/projects">
+                  <img src="/assets/images/electronics-board.jpg" alt="Smart home electronics board project">
+                  <div><span>IoT</span><h3>Smart Home Controller</h3><p>Connected devices, automation logic and presentation.</p></div>
+                </a>
+              </div>
+              <div class="project-marquee-set" aria-hidden="true">
+            <a class="project-card" href="/projects">
+              <img src="/assets/images/project-traffic.jpg" alt="Smart city traffic light project">
+              <div><span>Robotics</span><h3>Smart City Traffic Lights</h3><p>Arduino logic, sensors, timing and presentation skills.</p></div>
+            </a>
+            <a class="project-card" href="/projects">
+              <img src="/assets/images/project-dashboard.jpg" alt="Climate data dashboard project">
+              <div><span>Data</span><h3>Climate Data Dashboard</h3><p>Python dashboards that turn data into decisions.</p></div>
+            </a>
+            <a class="project-card" href="/projects">
+              <img src="/assets/images/project-prototype.jpg" alt="Product prototype project">
+              <div><span>Design</span><h3>Product Prototype</h3><p>From idea to working model using design thinking.</p></div>
+            </a>
+            <a class="project-card" href="/projects">
+              <img src="/assets/images/project-film.jpg" alt="Student film production project">
+              <div><span>Media</span><h3>Mini Documentary</h3><p>Storytelling, filming, editing and digital expression.</p></div>
+            </a>
+            <a class="project-card" href="/projects">
+              <img src="/assets/images/project-ai.jpg" alt="AI assistant project">
+              <div><span>AI</span><h3>AI Study Assistant</h3><p>Students explore prompts, automation and useful AI tools.</p></div>
+            </a>
+            <a class="project-card" href="/projects">
+              <img src="/assets/images/project-game.jpg" alt="Student game development project">
+              <div><span>Game Dev</span><h3>Arcade Game Prototype</h3><p>Students design levels, controls, scoring and game logic.</p></div>
+            </a>
+            <a class="project-card" href="/projects">
+              <img src="/assets/images/project-3d-print.jpg" alt="3D printed design project">
+              <div><span>Making</span><h3>3D Printed Invention</h3><p>From sketch to model to a physical prototype.</p></div>
+            </a>
+            <a class="project-card" href="/projects">
+              <img src="/assets/images/project-electronics-lab.jpg" alt="Electronics lab project">
+              <div><span>Electronics</span><h3>Sensor Lab Build</h3><p>Circuit thinking, testing, debugging and real devices.</p></div>
+            </a>
+            <a class="project-card" href="/projects">
+              <img src="/assets/images/project-video.jpg" alt="Student video production project">
+              <div><span>Video</span><h3>Creative Video Edit</h3><p>Planning, shooting, editing and digital storytelling.</p></div>
+            </a>
+            <a class="project-card" href="/projects">
+              <img src="/assets/images/electronics-board.jpg" alt="Smart home electronics board project">
+              <div><span>IoT</span><h3>Smart Home Controller</h3><p>Connected devices, automation logic and presentation.</p></div>
+            </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section course-preview-section">
+      <div class="page-shell">
+        <div class="programmes-heading">
+          <div class="section-heading">
+            <p class="section-kicker">Popular programmes</p>
+            <h2>Explore our most loved courses.</h2>
+          </div>
+        </div>
+        <div class="programmes-grid" aria-label="Popular programmes">
+          <article class="programme-card programme-orange">
+            <a href="/courses">
+              <div class="programme-image">
+                <img src="/assets/images/hero-robotics.jpg" alt="Students working on STEM projects">
+                <span class="programme-icon"><svg><use href="#icon-rocket"></use></svg></span>
+              </div>
+              <div class="programme-content">
+                <h3>STEM for Kids</h3>
+                <p class="programme-age">Age 8-12</p>
+                <p>Fun, hands-on projects that build curiosity, creativity and confidence.</p>
+                <span class="programme-link">View Course <span aria-hidden="true">-&gt;</span></span>
+              </div>
+            </a>
+          </article>
+          <article class="programme-card programme-blue">
+            <a href="/courses">
+              <div class="programme-image">
+                <img src="/assets/images/project-dashboard.jpg" alt="Student building an analytics dashboard">
+                <span class="programme-icon"><svg><use href="#icon-nodes"></use></svg></span>
+              </div>
+              <div class="programme-content">
+                  <h3>Coding for Kids</h3>
+                <p class="programme-age">Age 12-16</p>
+                <p>Turn data into insights and build real world analytical skills.</p>
+                <span class="programme-link">View Course <span aria-hidden="true">-&gt;</span></span>
+              </div>
+            </a>
+          </article>
+          <article class="programme-card programme-green">
+            <a href="/courses">
+              <div class="programme-image">
+                <img src="/assets/images/project-prototype.jpg" alt="Student designing a product prototype">
+                <span class="programme-icon"><svg><use href="#icon-gear"></use></svg></span>
+              </div>
+              <div class="programme-content">
+                  <h3>Robotics and IoT</h3>
+                <p class="programme-age">Age 12-16</p>
+                <p>Design thinking, 3D modeling and prototyping real world products.</p>
+                <span class="programme-link">View Course <span aria-hidden="true">-&gt;</span></span>
+              </div>
+            </a>
+          </article>
+          <article class="programme-card programme-purple">
+            <a href="/courses">
+              <div class="programme-image">
+                <img src="/assets/images/project-film.jpg" alt="Student filming a creative project">
+                <span class="programme-icon"><svg><use href="#icon-camera"></use></svg></span>
+              </div>
+              <div class="programme-content">
+                  <h3>Digital Media Production</h3>
+                <p class="programme-age">Age 10-16</p>
+                <p>Storytelling through film, animation, photography and more.</p>
+                <span class="programme-link">View Course <span aria-hidden="true">-&gt;</span></span>
+              </div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section why-section">
+      <div class="page-shell why-shell" data-why-section>
+        <div class="section-heading why-heading">
+          <p class="section-kicker">Why Meu Labs</p>
+          <h2>A Home for students who learn by doing.</h2>
+        </div>
+        <div class="why-grid">
+          <div class="why-copy">
+            <p class="why-description">We combine expert instruction, safe creative spaces, and a world-class project-based curriculum so students build confidence, creativity, and real technical skill.</p>
+            <div class="why-list" role="tablist" aria-label="Why Meu Labs highlights">
+              <button class="why-item active" type="button" data-why="0">Expert instructors</button>
+              <button class="why-item" type="button" data-why="1">Personal attention</button>
+            <button class="why-item" type="button" data-why="2">Safe creative spaces</button>
+            <button class="why-item" type="button" data-why="3">World Class curriculum</button>
+            <button class="why-item" type="button" data-why="4">Fun learning culture</button>
+            </div>
+            <a class="btn btn-primary why-cta" href="/about">Learn more</a>
+          </div>
+        <div class="why-media">
+          <img class="active" src="/assets/images/why-instructors.jpg" alt="Instructor helping a student">
+          <img src="/assets/images/why-attention.jpg" alt="Small group learning at Meu Labs">
+          <img src="/assets/images/why-space.jpg" alt="Meu Labs creative learning space">
+          <img src="/assets/images/why-curriculum.jpg" alt="Students working with learning tools">
+          <img src="/assets/images/why-culture.jpg" alt="Students showcasing work">
+        </div>
+      </div>
+    </section>
+
+    <section class="section counselor-section">
+      <div class="page-shell">
+        <div class="counselor-card">
+          <div class="counselor-copy">
+            <h2>Not sure where to start?</h2>
+            <p>Our student counselors are here to help you choose the right starting point based on your child’s interests, age and goals.</p>
+            <div class="counselor-actions">
+              <a class="btn btn-primary" href="/contact">Talk to a Student Counselor <span aria-hidden="true">-&gt;</span></a>
+              <a class="btn btn-secondary counselor-outline" href="/courses">Explore Courses <span aria-hidden="true">-&gt;</span></a>
+            </div>
+          </div>
+          <figure class="counselor-photo">
+            <img src="/assets/images/why-instructors.jpg" alt="Student counselor helping a learner">
+          </figure>
+          <div class="counselor-contact">
+            <h3>Student Counselor</h3>
+            <p>We’re here to help!</p>
+            <ul>
+              <li><svg><use href="#icon-clock"></use></svg><span>Mon – Sat | 9:00 AM – 6:00 PM</span></li>
+              <li><svg><use href="#icon-phone"></use></svg><a href="tel:+94771234567">+94 77 123 4567</a></li>
+              <li><svg><use href="#icon-mail"></use></svg><a href="mailto:counselor@meulabs.com">counselor@meulabs.com</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-shell footer-main">
+      <div class="footer-brand">
+        <img class="footer-logo" src="/assets/logos/logo.svg" alt="Meu Labs" width="150" height="48">
+        <p>Empowering young minds through project-based STEM, robotics, coding and creative learning.</p>
+        <div class="social-links" aria-label="Social media links">
+          <a class="social-facebook" href="#" aria-label="Facebook">f</a>
+          <a class="social-instagram" href="#" aria-label="Instagram">◎</a>
+          <a class="social-youtube" href="#" aria-label="YouTube">▶</a>
+          <a class="social-linkedin" href="#" aria-label="LinkedIn">in</a>
+          <a class="social-tiktok" href="#" aria-label="TikTok">♪</a>
+        </div>
+      </div>
+      <nav class="footer-column" aria-label="Footer courses">
+        <h3>Courses</h3>
+        <a href="/courses">All Courses</a>
+        <a href="/courses">STEM for Kids</a>
+        <a href="/courses">Analytics</a>
+        <a href="/courses">Product Design</a>
+        <a href="/courses">Creative Expression</a>
+        <a href="/courses">Specialisations</a>
+      </nav>
+      <nav class="footer-column" aria-label="Footer company">
+        <h3>Company</h3>
+        <a href="/about">About Us</a>
+        <a href="/about">Our Approach</a>
+        <a href="/projects">Student Projects</a>
+        <a href="/about">Careers</a>
+        <a href="/about">Blog</a>
+      </nav>
+      <div class="footer-column footer-contact">
+        <h3>Contact</h3>
+        <p><svg><use href="#icon-phone"></use></svg><a href="tel:+94771234567">+94 77 123 4567</a></p>
+        <p><svg><use href="#icon-mail"></use></svg><a href="mailto:info@meulabs.com">info@meulabs.com</a></p>
+        <p><svg><use href="#icon-location"></use></svg><span>No. 133, High Level Road, Nugegoda, Colombo, Sri Lanka</span></p>
+      </div>
+      <div class="footer-locations">
+        <h3>Our Locations</h3>
+        <div class="footer-map">
+          <img src="/assets/images/world-map.svg" alt="World map showing Meu Labs locations">
+          <a class="map-pin pin-sl" href="#" aria-label="Sri Lanka"></a>
+          <a class="map-pin pin-nz" href="#" aria-label="New Zealand coming soon"></a>
+          <a class="map-pin pin-maldives" href="#" aria-label="Maldives coming soon"></a>
+        </div>
+        <div class="location-legend">
+          <span><i class="legend-sl"></i>Sri Lanka</span>
+          <span><i class="legend-nz"></i>New Zealand <small>Coming Soon</small></span>
+          <span><i class="legend-maldives"></i>Maldives <small>Coming Soon</small></span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="page-shell footer-bottom-inner">
+        <div class="partner-logos" aria-label="Partner and certification logos">
+          <img src="/assets/logos/icta.png" alt="ICTA">
+          <img src="/assets/logos/scratchlogo.png" alt="Scratch">
+          <img src="/assets/logos/STEM-1.webp" alt="STEM.org Accredited">
+        </div>
+        <p>© 2026 Meu Labs. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="/assets/js/home.js"></script>
+</body>
+</html>

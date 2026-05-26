@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Projects | Meu Labs</title>
+  <meta name="description" content="See what Meu Labs students build, create, and achieve through project-based STEM learning.">
+  <link rel="preload" as="image" href="/assets/logos/logo.svg">
+  <style>
+    :root {
+      --navy: #0d3557;
+      --navy-dark: #061d31;
+      --orange: #ff7a00;
+      --orange-dark: #ff4f1f;
+      --cream: #fff6ea;
+      --cream-2: #f8f1e2;
+      --sky: #1995d3;
+      --teal: #20a982;
+      --purple: #7c5cff;
+      --ink-soft: #526173;
+      --line: rgba(13, 53, 87, .12);
+      --shadow: 0 22px 55px rgba(13, 53, 87, .14);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--navy);
+      font-family: Inter, "Plus Jakarta Sans", Aptos, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    .page-shell { width: min(1180px, calc(100% - 32px)); margin-inline: auto; }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid rgba(255,255,255,.7);
+      background: rgba(255,246,234,.9);
+      backdrop-filter: blur(18px);
+    }
+    .nav-shell {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 28px;
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 16px 0;
+    }
+    .brand img { width: 150px; height: auto; }
+    .nav-links { display: flex; justify-content: center; gap: 28px; font-weight: 850; font-size: .92rem; }
+    .nav-links a:hover, .nav-links a.active { color: var(--orange); }
+    .nav-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 0;
+      border-radius: 999px;
+      background: #fff;
+      box-shadow: 0 12px 30px rgba(13,53,87,.12);
+    }
+    .nav-toggle span { display: block; width: 18px; height: 2px; margin: 4px auto; background: var(--navy); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      border-radius: 999px;
+      padding: 0 22px;
+      font-weight: 950;
+      line-height: 1;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 16px 34px rgba(13,53,87,.16); }
+    .btn-primary { background: linear-gradient(135deg, var(--orange), var(--orange-dark)); color: #fff; }
+    .btn-secondary { background: #fff; color: var(--navy); box-shadow: 0 12px 28px rgba(13,53,87,.09); }
+    .btn-outline { background: rgba(255,255,255,.82); border: 1px solid rgba(13,53,87,.2); color: var(--navy); }
+
+    .section { padding: 82px 0; }
+    .section-heading { max-width: 760px; margin-bottom: 34px; }
+    .section-heading.wide-heading { max-width: 900px; }
+    .section-heading.single-line-heading { max-width: none; }
+    .section-heading.single-line-heading h2 { white-space: nowrap; }
+    .eyebrow {
+      margin: 0 0 18px;
+      border-left: 4px solid var(--orange);
+      padding-left: 16px;
+      color: var(--orange-dark);
+      font-size: clamp(1rem, 1.5vw, 1.28rem);
+      font-weight: 950;
+      line-height: 1.25;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    h1, h2, h3, p { overflow-wrap: anywhere; }
+    .hero-copy h1 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(2.55rem, 5vw, 5rem);
+      line-height: 1.04;
+      letter-spacing: 0;
+    }
+    .section-heading h2 {
+      margin: 0;
+      color: var(--navy);
+      font-size: clamp(2.2rem, 4vw, 4.1rem);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+    .section-heading p, .hero-copy > p {
+      margin: 18px 0 0;
+      color: var(--ink-soft);
+      font-size: 1.1rem;
+      line-height: 1.75;
+      font-weight: 620;
+    }
+
+    .hero-section {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 18% 32%, rgba(255,122,0,.22), transparent 32%),
+        radial-gradient(circle at 84% 20%, rgba(32,169,130,.16), transparent 29%),
+        linear-gradient(120deg, var(--cream-2), var(--cream) 58%, rgba(255,122,0,.12));
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(360px, .95fr);
+      gap: clamp(34px, 5vw, 70px);
+      align-items: center;
+      min-height: 650px;
+      padding: 70px 0;
+    }
+    .hero-copy h1 { max-width: 820px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
+    .hero-media {
+      position: relative;
+      min-height: 470px;
+    }
+    .hero-photo {
+      position: absolute;
+      inset: 42px 0 0 28px;
+      overflow: hidden;
+      border: 10px solid #fff;
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      transform: rotate(1.5deg);
+      background: #fff;
+    }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-stat {
+      position: absolute;
+      left: 0;
+      bottom: 20px;
+      max-width: 250px;
+      border-radius: 20px;
+      background: #fff;
+      padding: 18px;
+      box-shadow: 0 18px 40px rgba(13,53,87,.14);
+      font-weight: 900;
+    }
+    .hero-stat span { display: block; color: var(--orange-dark); font-size: 2rem; line-height: 1; }
+    .dot-grid {
+      position: absolute;
+      right: -8px;
+      top: 54px;
+      width: 72px;
+      height: 72px;
+      background: radial-gradient(circle, var(--orange) 2px, transparent 3px) 0 0 / 12px 12px;
+      opacity: .9;
+    }
+
+    .news-section { background: #fff; }
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .news-card {
+      min-height: 210px;
+      display: grid;
+      align-content: end;
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(13,53,87,0), rgba(13,53,87,.86)), var(--news-image);
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      padding: 18px;
+      box-shadow: 0 16px 34px rgba(13,53,87,.11);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .news-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+    .news-card span { color: #ffd9b4; font-size: .72rem; font-weight: 950; text-transform: uppercase; letter-spacing: .08em; }
+    .news-card h3 { margin: 8px 0 0; font-size: 1.05rem; line-height: 1.25; }
+
+    .featured-section { background: var(--cream); overflow: hidden; }
+    .featured-marquee, .gallery-marquee {
+      width: min(1180px, calc(100% - 32px));
+      margin-inline: auto;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+      mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
+    }
+    .featured-track, .gallery-track {
+      display: flex;
+      width: max-content;
+      gap: 22px;
+      will-change: transform;
+    }
+    .featured-set, .gallery-set { display: flex; gap: 22px; }
+    .featured-card {
+      flex: 0 0 clamp(460px, calc((min(1180px, 100vw - 32px) - 22px) / 2), 580px);
+      display: grid;
+      grid-template-columns: minmax(180px, .9fr) minmax(0, 1.1fr);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: #fff;
+      box-shadow: 0 16px 36px rgba(13,53,87,.1);
+    }
+    .thumb {
+      position: relative;
+      min-height: 250px;
+      background: #dbe6ef;
+    }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .play {
+      position: absolute;
+      inset: 50% auto auto 50%;
+      display: grid;
+      place-items: center;
+      width: 54px;
+      height: 54px;
+      border-radius: 999px;
+      background: rgba(255,122,0,.94);
+      color: #fff;
+      transform: translate(-50%, -50%);
+      font-size: 1.15rem;
+      box-shadow: 0 12px 28px rgba(255,79,31,.28);
+    }
+    .featured-content { padding: 22px; }
+    .featured-content h3 { margin: 0; font-size: 1.42rem; line-height: 1.18; }
+    .featured-content p { margin: 14px 0 0; color: var(--ink-soft); line-height: 1.62; font-weight: 650; font-size: .96rem; }
+    .featured-content span { display: inline-flex; margin-top: 18px; color: var(--orange-dark); font-weight: 950; }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .featured-track { animation: marquee-left 42s linear infinite; }
+      .gallery-track.row-one { animation: marquee-left 55s linear infinite; }
+      .gallery-track.row-two { animation: marquee-right 62s linear infinite; }
+      .featured-marquee:hover .featured-track,
+      .gallery-marquee:hover .gallery-track { animation-play-state: paused; }
+    }
+    @keyframes marquee-left {
+      from { transform: translateX(0); }
+      to { transform: translateX(calc(-50% - 11px)); }
+    }
+    @keyframes marquee-right {
+      from { transform: translateX(calc(-50% - 11px)); }
+      to { transform: translateX(0); }
+    }
+
+    .gallery-section { background: #fff; overflow: hidden; }
+    .gallery-marquee + .gallery-marquee { margin-top: 22px; }
+    .creation-card {
+      flex: 0 0 clamp(250px, calc((min(1180px, 100vw - 32px) - 66px) / 4), 288px);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: 0 14px 30px rgba(13,53,87,.09);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .creation-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .creation-card .thumb { min-height: 150px; }
+    .creation-content { padding: 16px; }
+    .creation-content h3 { margin: 0; font-size: 1.05rem; line-height: 1.25; }
+    .creation-content p { margin: 10px 0 0; color: var(--ink-soft); font-size: .9rem; line-height: 1.48; font-weight: 650; }
+
+    .counselor-section { background: #fff; }
+    .counselor-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(230px, .72fr) minmax(260px, .9fr);
+      gap: clamp(20px, 3vw, 34px);
+      align-items: center;
+      border-radius: 30px;
+      background:
+        radial-gradient(circle at 78% 18%, rgba(255,122,0,.16), transparent 30%),
+        linear-gradient(115deg, #fff9ef, #fff3e5 58%, #fff7ec);
+      padding: clamp(24px, 4vw, 48px);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,122,0,.16);
+    }
+    .counselor-copy h2 { margin: 0; font-size: clamp(2rem, 4vw, 3.4rem); line-height: 1.05; }
+    .counselor-copy p { max-width: 620px; margin: 16px 0 0; color: var(--ink-soft); font-size: 1.05rem; line-height: 1.7; font-weight: 650; }
+    .counselor-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+    .counselor-photo { margin: 0; overflow: hidden; border-radius: 24px; box-shadow: 0 18px 40px rgba(13,53,87,.16); aspect-ratio: 4 / 3; background: #fff; }
+    .counselor-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .counselor-contact { border-radius: 24px; background: rgba(255,255,255,.88); padding: 24px; box-shadow: 0 16px 34px rgba(13,53,87,.1); border: 1px solid rgba(13,53,87,.08); }
+    .counselor-contact h3 { margin: 0; font-size: 1.2rem; }
+    .counselor-contact > p { margin: 8px 0 18px; color: var(--ink-soft); font-weight: 750; }
+    .counselor-contact ul { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+    .counselor-contact li { display: grid; grid-template-columns: 32px 1fr; align-items: center; gap: 10px; color: var(--navy); font-size: .94rem; font-weight: 800; }
+    .contact-icon { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 999px; color: var(--orange-dark); background: rgba(255,122,0,.12); }
+
+    .site-footer {
+      background: linear-gradient(135deg, #08243c, #041827 70%);
+      color: #fff;
+      padding: 42px 0;
+    }
+    .footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
+    .footer-logo { width: 140px; height: auto; filter: brightness(0) invert(1); }
+    .footer-inner p { margin: 10px 0 0; max-width: 520px; color: rgba(255,255,255,.72); line-height: 1.6; font-weight: 650; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 18px; font-weight: 850; color: rgba(255,255,255,.78); }
+    .footer-links a:hover { color: var(--orange); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .featured-track, .gallery-track { animation: none !important; }
+      .featured-marquee, .gallery-marquee { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+      .featured-set[aria-hidden="true"], .gallery-set[aria-hidden="true"] { display: none; }
+    }
+
+    @media (max-width: 980px) {
+      .section-heading.single-line-heading h2 { white-space: normal; }
+      .nav-shell { grid-template-columns: auto auto; }
+      .nav-toggle { display: block; justify-self: end; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-links.open { display: grid; grid-column: 1 / -1; justify-content: stretch; gap: 0; background: #fff; border-radius: 18px; padding: 10px; box-shadow: 0 18px 38px rgba(13,53,87,.12); }
+      .nav-links.open a { padding: 14px; }
+      .hero-grid, .counselor-card { grid-template-columns: 1fr; }
+      .hero-media { min-height: 390px; }
+      .news-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .featured-card { flex-basis: min(86vw, 560px); grid-template-columns: 1fr; }
+      .featured-card .thumb { min-height: 220px; }
+      .creation-card { flex-basis: min(72vw, 310px); }
+      .counselor-photo { aspect-ratio: 16 / 10; }
+    }
+
+    @media (max-width: 640px) {
+      .section { padding: 58px 0; }
+      .hero-grid { min-height: auto; padding: 56px 0; }
+      .hero-photo { inset: 26px 0 0 0; }
+      .hero-stat { left: 8px; bottom: 4px; }
+      .news-grid { grid-template-columns: 1fr; }
+      .featured-card { flex-basis: 86vw; }
+      .creation-card { flex-basis: 78vw; }
+      .counselor-actions .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav-shell" aria-label="Main navigation">
+      <a class="brand" href="/" aria-label="Meu Labs home">
+        <img src="/assets/logos/logo.svg" alt="Meu Labs" width="150" height="48">
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links" data-nav-links>
+        <a href="/">Home</a>
+        <a href="/courses">Courses</a>
+        <a class="active" href="/projects">Projects</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </div>
+      <a class="btn btn-primary nav-cta" href="/courses">Explore Courses -&gt;</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-section">
+      <div class="page-shell hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Young innovators are building the future.</p>
+          <h1>See what our students build, create, and achieve at Meu Labs</h1>
+          <p>Every project is evidence of learning: creative thinking, technical skills, and the confidence to turn ideas into real-world work.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="/courses">Explore Courses -&gt;</a>
+            <a class="btn btn-secondary" href="/contact">Help Me Choose -&gt;</a>
+          </div>
+        </div>
+        <div class="hero-media" aria-label="Student project showcase">
+          <div class="dot-grid" aria-hidden="true"></div>
+          <figure class="hero-photo">
+            <img src="/assets/images/project-electronics-lab.jpg" alt="Meu Labs students working on electronics projects">
+          </figure>
+          <div class="hero-stat"><span>30+</span> student builds, demos, videos, and showcases</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section news-section">
+      <div class="page-shell">
+        <div class="section-heading">
+          <p class="eyebrow">In The News.</p>
+          <h2>Big ideas making waves beyond the classroom.</h2>
+        </div>
+        <div class="news-grid">
+          <a class="news-card" style="--news-image:url('/assets/images/project-traffic.jpg')" href="https://www.facebook.com/share/p/1AuioXRpqt/" target="_blank" rel="noreferrer"><span>Facebook story</span><h3>Student project milestone</h3></a>
+          <a class="news-card" style="--news-image:url('/assets/images/project-dashboard.jpg')" href="https://www.facebook.com/share/p/1Cbvewmr7V/" target="_blank" rel="noreferrer"><span>Facebook story</span><h3>Learning beyond the classroom</h3></a>
+          <a class="news-card" style="--news-image:url('/assets/images/project-video.jpg')" href="https://www.facebook.com/share/v/1DsELrXLbx/" target="_blank" rel="noreferrer"><span>Video update</span><h3>Project showcase video</h3></a>
+          <a class="news-card" style="--news-image:url('/assets/images/project-game.jpg')" href="https://www.facebook.com/share/v/1HtZaMc1mP/" target="_blank" rel="noreferrer"><span>Video update</span><h3>Creative student demo</h3></a>
+          <a class="news-card" style="--news-image:url('/assets/images/project-prototype.jpg')" href="https://www.facebook.com/share/p/1E1tTZiP4V/" target="_blank" rel="noreferrer"><span>Facebook story</span><h3>Prototype and making moment</h3></a>
+          <a class="news-card" style="--news-image:url('/assets/images/project-3d-print.jpg')" href="https://www.facebook.com/share/p/17eo24XzN9/" target="_blank" rel="noreferrer"><span>Facebook story</span><h3>Hands-on student achievement</h3></a>
+          <a class="news-card" style="--news-image:url('/assets/images/project-ai.jpg')" href="https://www.facebook.com/share/p/1CTDdv6uXL/" target="_blank" rel="noreferrer"><span>Facebook story</span><h3>Young innovators in action</h3></a>
+          <a class="news-card" style="--news-image:url('/assets/images/hero-robotics.jpg')" href="https://www.facebook.com/share/r/18eS4NhCHF/" target="_blank" rel="noreferrer"><span>Reel</span><h3>Meu Labs student reel</h3></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section featured-section">
+      <div class="page-shell">
+        <div class="section-heading wide-heading">
+          <p class="eyebrow">Featured Projects</p>
+          <h2>Standout projects from our community</h2>
+        </div>
+      </div>
+      <div class="featured-marquee" aria-label="Featured student projects">
+        <div class="featured-track">
+          <div class="featured-set">
+            <a class="featured-card" href="https://youtu.be/kq_oZhAgNT4" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/kq_oZhAgNT4/hqdefault.jpg" alt="Rain Sensor project thumbnail"><span class="play">▶</span></div><div class="featured-content"><h3>Rain Sensor</h3><p>A rainfall detection system using a water sensor, buzzer, LEDs, LCD display, and Arduino board to create practical weather-monitoring alerts.</p><span>Watch project -&gt;</span></div></a>
+            <a class="featured-card" href="https://youtu.be/jNGwXJ68ofI" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/jNGwXJ68ofI/hqdefault.jpg" alt="Dragon Ball Z Game thumbnail"><span class="play">▶</span></div><div class="featured-content"><h3>Dragon Ball Z Game</h3><p>A Scratch game inspired by a favourite animated series, exploring character control, animation, game design, and block-based programming.</p><span>Watch project -&gt;</span></div></a>
+            <a class="featured-card" href="https://www.youtube.com/watch?v=Wuo9nqrSFM8" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/Wuo9nqrSFM8/hqdefault.jpg" alt="Home Automation System thumbnail"><span class="play">▶</span></div><div class="featured-content"><h3>Home Automation System</h3><p>A Bluetooth and Wi-Fi controlled smart home system with relay controls, LED lights, and a mobile app built with MIT App Inventor.</p><span>Watch project -&gt;</span></div></a>
+            <a class="featured-card" href="https://youtu.be/1hEFNYY8peE" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/1hEFNYY8peE/hqdefault.jpg" alt="DIY Power Generator thumbnail"><span class="play">▶</span></div><div class="featured-content"><h3>DIY Power Generator</h3><p>A hands-on generator built with rotating DC motors to explore electromagnetic induction and how motion becomes electrical energy.</p><span>Watch project -&gt;</span></div></a>
+            <a class="featured-card" href="https://www.youtube.com/watch?v=99eoCu-d6z0" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/99eoCu-d6z0/hqdefault.jpg" alt="Voice Controlled Rover thumbnail"><span class="play">▶</span></div><div class="featured-content"><h3>Voice Controlled Rover</h3><p>A voice-controlled rover using Arduino and Bluetooth to combine robotics, electronics, programming, and wireless communication.</p><span>Watch project -&gt;</span></div></a>
+          </div>
+          <div class="featured-set" aria-hidden="true">
+            <a class="featured-card" href="https://youtu.be/kq_oZhAgNT4" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/kq_oZhAgNT4/hqdefault.jpg" alt=""><span class="play">▶</span></div><div class="featured-content"><h3>Rain Sensor</h3><p>A rainfall detection system using a water sensor, buzzer, LEDs, LCD display, and Arduino board to create practical weather-monitoring alerts.</p><span>Watch project -&gt;</span></div></a>
+            <a class="featured-card" href="https://youtu.be/jNGwXJ68ofI" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/jNGwXJ68ofI/hqdefault.jpg" alt=""><span class="play">▶</span></div><div class="featured-content"><h3>Dragon Ball Z Game</h3><p>A Scratch game inspired by a favourite animated series, exploring character control, animation, game design, and block-based programming.</p><span>Watch project -&gt;</span></div></a>
+            <a class="featured-card" href="https://www.youtube.com/watch?v=Wuo9nqrSFM8" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/Wuo9nqrSFM8/hqdefault.jpg" alt=""><span class="play">▶</span></div><div class="featured-content"><h3>Home Automation System</h3><p>A Bluetooth and Wi-Fi controlled smart home system with relay controls, LED lights, and a mobile app built with MIT App Inventor.</p><span>Watch project -&gt;</span></div></a>
+            <a class="featured-card" href="https://youtu.be/1hEFNYY8peE" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/1hEFNYY8peE/hqdefault.jpg" alt=""><span class="play">▶</span></div><div class="featured-content"><h3>DIY Power Generator</h3><p>A hands-on generator built with rotating DC motors to explore electromagnetic induction and how motion becomes electrical energy.</p><span>Watch project -&gt;</span></div></a>
+            <a class="featured-card" href="https://www.youtube.com/watch?v=99eoCu-d6z0" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/99eoCu-d6z0/hqdefault.jpg" alt=""><span class="play">▶</span></div><div class="featured-content"><h3>Voice Controlled Rover</h3><p>A voice-controlled rover using Arduino and Bluetooth to combine robotics, electronics, programming, and wireless communication.</p><span>Watch project -&gt;</span></div></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section gallery-section">
+      <div class="page-shell">
+        <div class="section-heading single-line-heading">
+          <p class="eyebrow">Project Gallery</p>
+          <h2>The work speaks for itself.</h2>
+        </div>
+      </div>
+      <div class="gallery-marquee" aria-label="Student creation gallery row one">
+        <div class="gallery-track row-one">
+          <div class="gallery-set">
+            <a class="creation-card" href="https://www.youtube.com/watch?v=OwFiDiJEGCo" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/OwFiDiJEGCo/hqdefault.jpg" alt="Character Animation on Scratch thumbnail"><span class="play">▶</span></div><div class="creation-content"><h3>Character Animation on Scratch</h3><p>A creative Scratch animation where a student brought original characters and imagination to life.</p></div></a>
+            <a class="creation-card" href="https://youtu.be/ZVs_dX7dEAs" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/ZVs_dX7dEAs/hqdefault.jpg" alt="Superhero Promotional Video thumbnail"><span class="play">▶</span></div><div class="creation-content"><h3>Superhero Promotional Video</h3><p>A team-created animated promo using storytelling, character design, and video editing.</p></div></a>
+            <a class="creation-card" href="https://youtu.be/vy1l7n0PSCg" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/vy1l7n0PSCg/hqdefault.jpg" alt="Plotagon Animation thumbnail"><span class="play">▶</span></div><div class="creation-content"><h3>Plotagon Animation</h3><p>Students worked together to create a short animated story using digital production tools.</p></div></a>
+            <a class="creation-card" href="https://www.youtube.com/watch?v=Ynrzna6bJh4" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/Ynrzna6bJh4/hqdefault.jpg" alt="Superhero Vessel Design thumbnail"><span class="play">▶</span></div><div class="creation-content"><h3>Superhero Vessel Design</h3><p>A 3D design project where students modelled an imaginative superhero-inspired vehicle.</p></div></a>
+            <a class="creation-card" href="https://youtu.be/-BZt2Yb2CiI" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/-BZt2Yb2CiI/hqdefault.jpg" alt="Crew Selection Simulation thumbnail"><span class="play">▶</span></div><div class="creation-content"><h3>Crew Selection Simulation</h3><p>A decision-making challenge where students selected the best team for a mission.</p></div></a>
+            <a class="creation-card" href="https://youtu.be/Xg80lzFcxnA" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/Xg80lzFcxnA/hqdefault.jpg" alt="Product Design Build thumbnail"><span class="play">▶</span></div><div class="creation-content"><h3>Product Design Build</h3><p>Students explored how everyday products can be taken apart, improved, and rebuilt.</p></div></a>
+            <a class="creation-card" href="https://youtu.be/zr1ygTZb3eA" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/zr1ygTZb3eA/hqdefault.jpg" alt="Robotics Showcase thumbnail"><span class="play">▶</span></div><div class="creation-content"><h3>Robotics Showcase</h3><p>A hands-on robotics project combining electronics, programming, and problem-solving.</p></div></a>
+            <a class="creation-card" href="https://youtu.be/AV38MIf89k8" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/AV38MIf89k8/hqdefault.jpg" alt="Radar System thumbnail"><span class="play">▶</span></div><div class="creation-content"><h3>Radar System</h3><p>A sensor-based radar project using Arduino, a servo motor, and ultrasonic sensing.</p></div></a>
+            <a class="creation-card" href="https://www.youtube.com/watch?v=Rca7MabcBaI" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/Rca7MabcBaI/hqdefault.jpg" alt="Python Statistics Project thumbnail"><span class="play">▶</span></div><div class="creation-content"><h3>Python Statistics Project</h3><p>Students explored real-world data while building early Python and analysis skills.</p></div></a>
+            <a class="creation-card" href="https://www.youtube.com/watch?v=zJad6DNxMi4" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/zJad6DNxMi4/hqdefault.jpg" alt="Mars Advertisement thumbnail"><span class="play">▶</span></div><div class="creation-content"><h3>Mars Advertisement</h3><p>A creative animated advertisement built through storytelling, animation, and editing.</p></div></a>
+          </div>
+          <div class="gallery-set" aria-hidden="true">
+            <a class="creation-card" href="https://www.youtube.com/watch?v=OwFiDiJEGCo" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/OwFiDiJEGCo/hqdefault.jpg" alt=""><span class="play">▶</span></div><div class="creation-content"><h3>Character Animation on Scratch</h3><p>A creative Scratch animation where a student brought original characters and imagination to life.</p></div></a>
+            <a class="creation-card" href="https://youtu.be/ZVs_dX7dEAs" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/ZVs_dX7dEAs/hqdefault.jpg" alt=""><span class="play">▶</span></div><div class="creation-content"><h3>Superhero Promotional Video</h3><p>A team-created animated promo using storytelling, character design, and video editing.</p></div></a>
+            <a class="creation-card" href="https://youtu.be/vy1l7n0PSCg" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/vy1l7n0PSCg/hqdefault.jpg" alt=""><span class="play">▶</span></div><div class="creation-content"><h3>Plotagon Animation</h3><p>Students worked together to create a short animated story using digital production tools.</p></div></a>
+            <a class="creation-card" href="https://www.youtube.com/watch?v=Ynrzna6bJh4" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/Ynrzna6bJh4/hqdefault.jpg" alt=""><span class="play">▶</span></div><div class="creation-content"><h3>Superhero Vessel Design</h3><p>A 3D design project where students modelled an imaginative superhero-inspired vehicle.</p></div></a>
+            <a class="creation-card" href="https://youtu.be/-BZt2Yb2CiI" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/-BZt2Yb2CiI/hqdefault.jpg" alt=""><span class="play">▶</span></div><div class="creation-content"><h3>Crew Selection Simulation</h3><p>A decision-making challenge where students selected the best team for a mission.</p></div></a>
+            <a class="creation-card" href="https://youtu.be/Xg80lzFcxnA" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/Xg80lzFcxnA/hqdefault.jpg" alt=""><span class="play">▶</span></div><div class="creation-content"><h3>Product Design Build</h3><p>Students explored how everyday products can be taken apart, improved, and rebuilt.</p></div></a>
+            <a class="creation-card" href="https://youtu.be/zr1ygTZb3eA" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/zr1ygTZb3eA/hqdefault.jpg" alt=""><span class="play">▶</span></div><div class="creation-content"><h3>Robotics Showcase</h3><p>A hands-on robotics project combining electronics, programming, and problem-solving.</p></div></a>
+            <a class="creation-card" href="https://youtu.be/AV38MIf89k8" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/AV38MIf89k8/hqdefault.jpg" alt=""><span class="play">▶</span></div><div class="creation-content"><h3>Radar System</h3><p>A sensor-based radar project using Arduino, a servo motor, and ultrasonic sensing.</p></div></a>
+            <a class="creation-card" href="https://www.youtube.com/watch?v=Rca7MabcBaI" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/Rca7MabcBaI/hqdefault.jpg" alt=""><span class="play">▶</span></div><div class="creation-content"><h3>Python Statistics Project</h3><p>Students explored real-world data while building early Python and analysis skills.</p></div></a>
+            <a class="creation-card" href="https://www.youtube.com/watch?v=zJad6DNxMi4" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/zJad6DNxMi4/hqdefault.jpg" alt=""><span class="play">▶</span></div><div class="creation-content"><h3>Mars Advertisement</h3><p>A creative animated advertisement built through storytelling, animation, and editing.</p></div></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-marquee" aria-label="Student creation gallery row two">
+        <div class="gallery-track row-two">
+          <div class="gallery-set">
+            <a class="creation-card" href="https://youtu.be/JwyQzYerro0" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/JwyQzYerro0/hqdefault.jpg" alt="Awareness Video Project thumbnail"><span class="play">▶</span></div><div class="creation-content"><h3>Awareness Video Project</h3><p>Students used video editing to communicate an important real-world message.</p></div></a>
+            <a class="creation-card" href="https://youtu.be/xa3J7tl4rF8" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/xa3J7tl4rF8/hqdefault.jpg" alt="Rover Build thumbnail"><span class="play">▶</span></div><div class="creation-content"><h3>Rover Build</h3><p>A student-built rover using motors, electronics, coding, and hands-on assembly.</p></div></a>
+            <a class="creation-card" href="https://www.youtube.com/watch?v=YAovgSpVFkk" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/YAovgSpVFkk/hqdefault.jpg" alt="Autopilot Game Controls thumbnail"><span class="play">▶</span></div><div class="creation-content"><h3>Autopilot Game Controls</h3><p>Students programmed automated game controls using logic, sequencing, and Scratch.</p></div></a>
+            <a class="creation-card" href="https://www.youtube.com/watch?v=oF_7jVwy7HA" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/oF_7jVwy7HA/hqdefault.jpg" alt="Minecraft Designer thumbnail"><span class="play">▶</span></div><div class="creation-content"><h3>Minecraft Designer</h3><p>A block-coding project where students completed challenges and created their own game.</p></div></a>
+            <a class="creation-card" href="https://youtu.be/IpPJNvM-uOA" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/IpPJNvM-uOA/hqdefault.jpg" alt="Rocket Autopilot Controls thumbnail"><span class="play">▶</span></div><div class="creation-content"><h3>Rocket Autopilot Controls</h3><p>Students coded automated controls to navigate obstacles and respond to game events.</p></div></a>
+            <a class="creation-card" href="https://youtu.be/9j0DwTvcrB0" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/9j0DwTvcrB0/hqdefault.jpg" alt="Dance Party on Code.org thumbnail"><span class="play">▶</span></div><div class="creation-content"><h3>Dance Party on Code.org</h3><p>A fun coding project where students created an interactive music and animation experience.</p></div></a>
+            <a class="creation-card" href="https://www.youtube.com/watch?v=_OVK-qS8hlg" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/_OVK-qS8hlg/hqdefault.jpg" alt="Turret Robot thumbnail"><span class="play">▶</span></div><div class="creation-content"><h3>Turret Robot</h3><p>A robotics build using sensors, motors, and control logic to create a working turret.</p></div></a>
+            <a class="creation-card" href="https://www.youtube.com/watch?v=Oy7rVEmzSdU" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/Oy7rVEmzSdU/hqdefault.jpg" alt="Wi-Fi Controlled Turret thumbnail"><span class="play">▶</span></div><div class="creation-content"><h3>Wi-Fi Controlled Turret</h3><p>A sensor-based robotic system controlled through Wi-Fi using motors and electronics.</p></div></a>
+            <a class="creation-card" href="https://www.youtube.com/watch?v=nUQWVDTSdIg" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/nUQWVDTSdIg/hqdefault.jpg" alt="Student Rover Project thumbnail"><span class="play">▶</span></div><div class="creation-content"><h3>Student Rover Project</h3><p>A team robotics project where students built, tested, and improved a moving rover.</p></div></a>
+          </div>
+          <div class="gallery-set" aria-hidden="true">
+            <a class="creation-card" href="https://youtu.be/JwyQzYerro0" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/JwyQzYerro0/hqdefault.jpg" alt=""><span class="play">▶</span></div><div class="creation-content"><h3>Awareness Video Project</h3><p>Students used video editing to communicate an important real-world message.</p></div></a>
+            <a class="creation-card" href="https://youtu.be/xa3J7tl4rF8" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/xa3J7tl4rF8/hqdefault.jpg" alt=""><span class="play">▶</span></div><div class="creation-content"><h3>Rover Build</h3><p>A student-built rover using motors, electronics, coding, and hands-on assembly.</p></div></a>
+            <a class="creation-card" href="https://www.youtube.com/watch?v=YAovgSpVFkk" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/YAovgSpVFkk/hqdefault.jpg" alt=""><span class="play">▶</span></div><div class="creation-content"><h3>Autopilot Game Controls</h3><p>Students programmed automated game controls using logic, sequencing, and Scratch.</p></div></a>
+            <a class="creation-card" href="https://www.youtube.com/watch?v=oF_7jVwy7HA" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/oF_7jVwy7HA/hqdefault.jpg" alt=""><span class="play">▶</span></div><div class="creation-content"><h3>Minecraft Designer</h3><p>A block-coding project where students completed challenges and created their own game.</p></div></a>
+            <a class="creation-card" href="https://youtu.be/IpPJNvM-uOA" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/IpPJNvM-uOA/hqdefault.jpg" alt=""><span class="play">▶</span></div><div class="creation-content"><h3>Rocket Autopilot Controls</h3><p>Students coded automated controls to navigate obstacles and respond to game events.</p></div></a>
+            <a class="creation-card" href="https://youtu.be/9j0DwTvcrB0" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/9j0DwTvcrB0/hqdefault.jpg" alt=""><span class="play">▶</span></div><div class="creation-content"><h3>Dance Party on Code.org</h3><p>A fun coding project where students created an interactive music and animation experience.</p></div></a>
+            <a class="creation-card" href="https://www.youtube.com/watch?v=_OVK-qS8hlg" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/_OVK-qS8hlg/hqdefault.jpg" alt=""><span class="play">▶</span></div><div class="creation-content"><h3>Turret Robot</h3><p>A robotics build using sensors, motors, and control logic to create a working turret.</p></div></a>
+            <a class="creation-card" href="https://www.youtube.com/watch?v=Oy7rVEmzSdU" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/Oy7rVEmzSdU/hqdefault.jpg" alt=""><span class="play">▶</span></div><div class="creation-content"><h3>Wi-Fi Controlled Turret</h3><p>A sensor-based robotic system controlled through Wi-Fi using motors and electronics.</p></div></a>
+            <a class="creation-card" href="https://www.youtube.com/watch?v=nUQWVDTSdIg" target="_blank" rel="noreferrer"><div class="thumb"><img src="https://img.youtube.com/vi/nUQWVDTSdIg/hqdefault.jpg" alt=""><span class="play">▶</span></div><div class="creation-content"><h3>Student Rover Project</h3><p>A team robotics project where students built, tested, and improved a moving rover.</p></div></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section counselor-section">
+      <div class="page-shell">
+        <div class="counselor-card">
+          <div class="counselor-copy">
+            <h2>Not sure where to start?</h2>
+            <p>Our student counselors are here to help you choose the right starting point based on your child's interests, age and goals.</p>
+            <div class="counselor-actions">
+              <a class="btn btn-primary" href="/contact">Talk to a Student Counselor -&gt;</a>
+              <a class="btn btn-outline" href="/courses">Explore Related Courses -&gt;</a>
+            </div>
+          </div>
+          <figure class="counselor-photo">
+            <img src="/assets/images/why-instructors.jpg" alt="Student counselor helping a learner">
+          </figure>
+          <div class="counselor-contact">
+            <h3>Student Counselor</h3>
+            <p>We're here to help!</p>
+            <ul>
+              <li><span class="contact-icon">⏱</span><span>Mon - Sat | 9:00 AM - 6:00 PM</span></li>
+              <li><span class="contact-icon">☎</span><a href="tel:+94771234567">+94 77 123 4567</a></li>
+              <li><span class="contact-icon">@</span><a href="mailto:counselor@meulabs.com">counselor@meulabs.com</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="page-shell footer-inner">
+      <div>
+        <img class="footer-logo" src="/assets/logos/logo.svg" alt="Meu Labs" width="150" height="48">
+        <p>Empowering young minds through project-based STEM, robotics, coding and creative learning.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/">Home</a>
+        <a href="/courses">Courses</a>
+        <a href="/projects">Projects</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var toggle = document.querySelector(".nav-toggle");
+      var links = document.querySelector("[data-nav-links]");
+      var duplicateLinks = document.querySelectorAll('[aria-hidden="true"] a');
+
+      duplicateLinks.forEach(function (link) {
+        link.setAttribute("tabindex", "-1");
+      });
+
+      document.querySelectorAll(".featured-card, .creation-card").forEach(function (card) {
+        card.addEventListener("click", function () {
+          window.setTimeout(function () {
+            card.blur();
+          }, 0);
+        });
+      });
+
+      if (toggle && links) {
+        toggle.addEventListener("click", function () {
+          var open = links.classList.toggle("open");
+          toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
