@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Blocks, Bot, BrainCircuit, BriefcaseBusiness, Code2, Factory, GraduationCap, Landmark, Lightbulb, Megaphone, Orbit, Rocket, Route, Shield, Sparkles, Trees, Video } from 'lucide-react';
+import { Blocks, Bot, BrainCircuit, BriefcaseBusiness, Code2, Factory, GraduationCap, Landmark, Lightbulb, Megaphone, Orbit, Rocket, Route, Shield, Trees, Video } from 'lucide-react';
 import { ButtonLink } from '@/components/ButtonLink';
 import { CounselorCTA } from '@/components/CounselorCTA';
 import { Reveal } from '@/components/Reveal';
@@ -12,13 +12,14 @@ const pathway = [
     age: 'Age 8 - 12',
     body: 'Build strong foundational skills across coding, design, robotics, videography, communication, and leadership while developing essential 21st-century skills.',
     courses: [
-      { name: 'STEM for Kids: Junior', icon: Rocket },
-      { name: 'STEM for Kids', icon: Shield }
+      { name: 'STEM for Kids: Junior', icon: Rocket, href: '/courses/kx-j' },
+      { name: 'STEM for Kids', icon: Shield, href: '/courses/kx' }
     ],
     color: 'bg-gradient-to-br from-[#FF7A00] to-[#FFB347]',
-    accent: 'from-orange/18 via-white to-white border-orange/45',
+    accent: 'from-orange/16 via-white to-white border-orange/60',
+    ringColor: 'border-orange',
+    cornerColor: 'bg-orange/20',
     badge: 'bg-gradient-to-br from-[#FF7A00] to-[#FF4F1F]',
-    decor: [Rocket, Shield],
     icon: Blocks
   },
   {
@@ -26,14 +27,15 @@ const pathway = [
     age: 'Age 10 - 14',
     body: 'Choose themed courses aligned with engineering, analytics, or creative expression. Deeper, project-driven, and skill-focused.',
     courses: [
-      { name: 'Intro to Programming', icon: Code2 },
-      { name: 'Robotics and IoT', icon: Bot },
-      { name: 'Digital Media Production', icon: Video }
+      { name: 'Intro to Programming', icon: Code2, href: '/courses/an' },
+      { name: 'Robotics and IoT', icon: Bot, href: '/courses/pd' },
+      { name: 'Digital Media Production', icon: Video, href: '/courses/cx' }
     ],
     color: 'bg-gradient-to-br from-[#31C3DE] to-[#7DE3F2]',
-    accent: 'from-sky/18 via-white to-white border-sky/40',
+    accent: 'from-sky/16 via-white to-white border-sky/60',
+    ringColor: 'border-sky',
+    cornerColor: 'bg-sky/20',
     badge: 'bg-gradient-to-br from-[#1995D3] to-[#31C3DE]',
-    decor: [Code2, Bot],
     icon: Route
   },
   {
@@ -41,15 +43,16 @@ const pathway = [
     age: 'Age 12 - 16',
     body: 'Dive deep into industry-focused domains through advanced projects, technical mentorship, and real-world problem solving.',
     courses: [
-      { name: 'Software Engineering', icon: Code2 },
-      { name: 'Data Science and AI', icon: BrainCircuit },
-      { name: 'Manufacturing and Robotics', icon: Factory },
-      { name: 'Digital Marketing', icon: Megaphone }
+      { name: 'Software Engineering', icon: Code2, href: '/courses/se' },
+      { name: 'Data Science and AI', icon: BrainCircuit, href: '/courses/ds' },
+      { name: 'Manufacturing and Robotics', icon: Factory, href: '/courses/mr' },
+      { name: 'Digital Marketing', icon: Megaphone, href: '/courses/dm' }
     ],
-    color: 'bg-gradient-to-br from-[#48D83E] to-[#8BE95E]',
-    accent: 'from-teal/18 via-white to-white border-teal/40',
-    badge: 'bg-gradient-to-br from-[#2CAC95] to-[#48D83E]',
-    decor: [BrainCircuit, Factory],
+    color: 'bg-gradient-to-br from-[#8B5CF6] to-[#C084FC]',
+    accent: 'from-[#8B5CF6]/16 via-white to-white border-[#8B5CF6]/60',
+    ringColor: 'border-[#8B5CF6]',
+    cornerColor: 'bg-[#8B5CF6]/20',
+    badge: 'bg-gradient-to-br from-[#8B5CF6] to-[#A855F7]',
     icon: GraduationCap
   },
   {
@@ -57,14 +60,15 @@ const pathway = [
     age: 'Age 16 +',
     body: 'Transition into university, career, or entrepreneurship through structured pathways and our Launch Network.',
     courses: [
-      { name: 'Industry Gateway', icon: BriefcaseBusiness },
-      { name: 'University Access', icon: Landmark },
-      { name: 'Founder Studio', icon: Lightbulb, badge: 'COMING SOON' }
+      { name: 'Industry Gateway', icon: BriefcaseBusiness, href: '/courses/ig' },
+      { name: 'University Access', icon: Landmark, href: '/courses/ua' },
+      { name: 'Founder Studio', icon: Lightbulb, href: '/courses/fs', badge: 'COMING SOON' }
     ],
-    color: 'bg-gradient-to-br from-[#8B5CF6] to-[#C084FC]',
-    accent: 'from-[#8B5CF6]/18 via-white to-white border-[#8B5CF6]/40',
-    badge: 'bg-gradient-to-br from-[#7C5CFF] to-[#8B5CF6]',
-    decor: [BriefcaseBusiness, Landmark],
+    color: 'bg-gradient-to-br from-[#48D83E] to-[#8BE95E]',
+    accent: 'from-[#48D83E]/16 via-white to-white border-[#48D83E]/60',
+    ringColor: 'border-[#48D83E]',
+    cornerColor: 'bg-[#48D83E]/20',
+    badge: 'bg-gradient-to-br from-[#48D83E] to-[#65D96C]',
     icon: Rocket
   }
 ];
@@ -87,7 +91,7 @@ const popularPrograms = [
     body: 'Turn data into insights and build real world analytical skills.',
     href: '/courses/an',
     image: '/assets/images/project-dashboard.jpg',
-    color: 'bg-[#2FA8FF]',
+    color: 'bg-gradient-to-br from-[#31C3DE] to-[#7DE3F2]',
     icon: Code2
   },
   {
@@ -96,8 +100,8 @@ const popularPrograms = [
     body: 'Design thinking, 3D modeling and prototyping real world products.',
     href: '/courses/pd',
     image: '/assets/images/project-prototype.jpg',
-    color: 'bg-[#2CAC95]',
-    icon: Sparkles
+    color: 'bg-gradient-to-br from-[#31C3DE] to-[#7DE3F2]',
+    icon: Bot
   },
   {
     title: 'Digital Media Production',
@@ -105,7 +109,7 @@ const popularPrograms = [
     body: 'Storytelling through film, animation, photography and more.',
     href: '/courses/cx',
     image: '/assets/images/project-film.jpg',
-    color: 'bg-[#7C5CFF]',
+    color: 'bg-gradient-to-br from-[#31C3DE] to-[#7DE3F2]',
     icon: Video
   }
 ];
@@ -122,7 +126,36 @@ export default function HomePage() {
                 <p className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">Where students discover their passion and build real world tools and skills</p>
               </div>
             </Reveal>
-            <Reveal delay={100}><h1 className="text-4xl font-extrabold leading-[1.08] md:text-6xl">Sri Lanka&apos;s Best Robotics, Coding, STEM Courses for <span className="text-orange">Kids</span></h1></Reveal>
+            <Reveal delay={100}>
+              <h1 className="text-4xl font-normal leading-[1.08] md:text-6xl">
+                Sri Lanka&apos;s Best{' '}
+                <Image
+                  src="/assets/images/Removal-192.png"
+                  alt="Robotics"
+                  width={600}
+                  height={157}
+                  priority
+                  className="relative top-[3px] -ml-[7px] mr-1 inline-block h-[1.22em] w-auto align-[-0.07em] md:-ml-[15px] md:h-[1.28em]"
+                />
+                {' '}
+                <span className="coding-type" aria-label="Coding">
+                  <span aria-hidden="true">Coding</span>
+                </span>{' '}
+                <span className="stem-tiles" aria-label="STEM">
+                  {[
+                    ['S', 'stem-tile-blue', '0ms'],
+                    ['T', 'stem-tile-orange', '220ms'],
+                    ['E', 'stem-tile-teal', '440ms'],
+                    ['M', 'stem-tile-yellow', '660ms']
+                  ].map(([letter, tileClass, delay]) => (
+                    <span key={letter} className={`stem-tile ${tileClass}`} style={{ animationDelay: delay }} aria-hidden="true">
+                      {letter}
+                    </span>
+                  ))}
+                </span>{' '}
+                Courses <span className="relative top-[5px] whitespace-nowrap">for <span className="text-orange">Kids</span></span>
+              </h1>
+            </Reveal>
             <Reveal delay={200}><p className="mt-6 max-w-2xl text-xl leading-9 text-slate-700">Bridge the gap between what your child learns in school and what they need for the real world</p></Reveal>
             <Reveal animation="pop" delay={300} className="mt-8 flex flex-col gap-3 sm:flex-row">
               <ButtonLink href="/courses">Explore Courses</ButtonLink>
@@ -143,17 +176,24 @@ export default function HomePage() {
             <div
               className="absolute left-[0%] top-[9%] z-30 h-[78%] w-[60%] overflow-hidden p-2 shadow-[0_30px_58px_rgba(5,24,44,0.34)]"
               style={{
-                background: 'linear-gradient(90deg, transparent 0 50%, #fff 50% 100%)',
+                background: 'linear-gradient(90deg, transparent 0 44%, rgba(255,246,234,0.72) 44% 100%)',
                 clipPath: 'polygon(22% 0, 100% 8%, 78% 100%, 0 90%)',
                 transform: 'rotate(-4deg) translate(-10px, -4px)'
               }}
             >
-              <div className="relative h-full w-full overflow-hidden" style={{ clipPath: 'polygon(22% 0, 100% 8%, 78% 100%, 0 90%)' }}>
+              <div
+                className="relative h-full w-full overflow-hidden"
+                style={{
+                  clipPath: 'polygon(22% 0, 100% 8%, 78% 100%, 0 90%)',
+                  WebkitMaskImage: 'linear-gradient(90deg, transparent 0%, #000 18%, #000 100%)',
+                  maskImage: 'linear-gradient(90deg, transparent 0%, #000 18%, #000 100%)'
+                }}
+              >
                 <Image src="/assets/images/hero-robotics.jpg" alt="" fill priority className="object-cover" sizes="(min-width: 1024px) 30vw, 82vw" />
               </div>
             </div>
             <div
-              className="absolute right-[4%] top-[7%] z-20 h-[45%] w-[49%] overflow-hidden rounded-[28px] bg-white p-2 shadow-[0_18px_38px_rgba(5,24,44,0.20)]"
+              className="absolute right-[4%] top-[7%] z-20 h-[45%] w-[49%] overflow-hidden rounded-[28px] bg-[#FFF6EA]/70 p-2 shadow-[0_18px_38px_rgba(5,24,44,0.20)]"
               style={{ transform: 'rotate(2deg) translateX(-8px)' }}
             >
               <div className="relative h-full w-full overflow-hidden rounded-[20px]">
@@ -161,7 +201,7 @@ export default function HomePage() {
               </div>
             </div>
             <div
-              className="absolute bottom-[8%] right-[5%] z-20 h-[45%] w-[53%] overflow-hidden rounded-[28px] bg-white p-2 shadow-[0_18px_38px_rgba(5,24,44,0.20)]"
+              className="absolute bottom-[8%] right-[5%] z-20 h-[45%] w-[53%] overflow-hidden rounded-[28px] bg-[#FFF6EA]/70 p-2 shadow-[0_18px_38px_rgba(5,24,44,0.20)]"
               style={{ transform: 'rotate(-1deg) translateX(-4px)' }}
             >
               <div className="relative h-full w-full overflow-hidden rounded-[20px]">
@@ -184,19 +224,17 @@ export default function HomePage() {
               <p className="mt-5 max-w-5xl text-pretty text-lg font-extrabold leading-8 text-slate-600">From first steps to advanced skills, our courses help students discover what they love and build real-world capabilities.</p>
             </div>
           </Reveal>
-          <div className="grid gap-5 lg:grid-cols-4">
+          <div className="grid gap-4 lg:grid-cols-4">
             {pathway.map((stage, index) => {
                   const stageNumber = index + 1;
                   return (
               <Reveal key={stage.title} animation="pop" delay={index * 100} className="h-full">
-              <article className={`group relative flex h-full flex-col overflow-hidden rounded-[26px] border bg-gradient-to-b ${stage.accent} p-5 shadow-soft transition hover:shadow-pop`}>
-                <div className="pointer-events-none absolute -right-7 -top-9 grid h-28 w-28 place-items-center rounded-full bg-white/35 text-navy/10">
-                  {stage.decor.map((DecorIcon, decorIndex) => (
-                    <DecorIcon key={decorIndex} size={decorIndex === 0 ? 48 : 28} strokeWidth={2.1} className={decorIndex === 0 ? '' : 'absolute bottom-7 left-7'} aria-hidden />
-                  ))}
+              <article className={`relative flex h-full flex-col overflow-hidden rounded-[22px] border-x border-b border-t-[5px] bg-gradient-to-b ${stage.accent} ${stage.ringColor} p-4 shadow-soft`}>
+                <div className="pointer-events-none absolute right-0 top-0 h-32 w-32 overflow-hidden">
+                  <div className={`absolute -right-8 -top-10 h-32 w-32 rounded-full ${stage.cornerColor}`} />
                 </div>
                 <div className="relative mb-5 flex min-h-[56px] items-start gap-4">
-                  <div className={`grid h-12 w-12 shrink-0 place-items-center rounded-2xl ${stage.badge} text-xl font-extrabold text-white shadow-soft transition duration-200 group-hover:scale-110`}>
+                  <div className={`grid h-11 w-11 shrink-0 place-items-center rounded-2xl ${stage.badge} text-xl font-extrabold text-white shadow-soft`}>
                     {String(stageNumber).padStart(2, '0')}
                   </div>
                   <div>
@@ -204,20 +242,22 @@ export default function HomePage() {
                     <p className="mt-1 text-sm font-extrabold text-navy/75">{stage.age}</p>
                   </div>
                 </div>
-                <p className="min-h-[132px] text-sm font-semibold leading-6 text-slate-700">{stage.body}</p>
-                <p className="mt-5 text-sm font-extrabold uppercase tracking-[0.18em] text-slate-600">{stage.title === 'Launch Pad' ? 'Pathways' : 'Courses'}</p>
-                <ul className="mt-4 grid gap-3">
+                <p className="min-h-[118px] text-sm font-semibold leading-6 text-slate-700">{stage.body}</p>
+                <p className="mt-4 text-sm font-extrabold uppercase tracking-[0.18em] text-slate-600">{stage.title === 'Launch Pad' ? 'Pathways' : 'Courses'}</p>
+                <ul className="mt-3 grid gap-2.5">
                   {stage.courses.map((course) => {
                     const CourseIcon = course.icon;
                     return (
-                      <li key={course.name} className="grid min-h-[72px] grid-cols-[3rem_1fr] items-center gap-3 rounded-[16px] border border-navy/10 bg-white px-4 py-3 text-sm font-extrabold leading-5 text-navy shadow-[0_12px_28px_rgba(13,53,87,0.05)] transition duration-200 group-hover:scale-[1.01]">
-                        <span className={`grid h-8 w-8 place-items-center self-center rounded-full ${stage.color} text-white transition duration-200 group-hover:scale-110`}>
+                      <li key={course.name}>
+                        <a href={course.href} className="grid min-h-[58px] grid-cols-[2.5rem_1fr] items-center gap-3 rounded-[14px] border border-navy/10 bg-white px-3.5 py-2.5 text-sm font-extrabold leading-5 text-navy shadow-[0_12px_28px_rgba(13,53,87,0.05)] transition duration-200 hover:-translate-y-1 hover:scale-[1.01] hover:shadow-pop focus-visible:scale-[1.01]">
+                        <span className={`grid h-7 w-7 place-items-center self-center rounded-full ${stage.color} text-white transition duration-200`}>
                           <CourseIcon size={16} strokeWidth={2.5} aria-hidden />
                         </span>
                         <span className="min-w-0 break-words">
                           {course.name}
                           {'badge' in course && course.badge && <span className="mt-1 block w-fit rounded-full bg-[#E8DDFF] px-2 py-0.5 text-[11px] font-extrabold text-[#6D45FF]">{course.badge}</span>}
                         </span>
+                        </a>
                       </li>
                     );
                   })}
@@ -259,12 +299,12 @@ export default function HomePage() {
                   href={project.link}
                   aria-hidden={isDuplicate}
                   tabIndex={isDuplicate ? -1 : undefined}
-                  className="group grid h-[350px] w-[min(72vw,250px)] shrink-0 grid-rows-[138px_1fr] overflow-hidden rounded-[22px] bg-white shadow-[0_18px_44px_rgba(13,53,87,0.12)] transition duration-200 hover:-translate-y-1 hover:shadow-pop sm:h-[360px] sm:w-[270px] sm:grid-rows-[148px_1fr]"
+                  className="group grid h-[320px] w-[min(68vw,230px)] shrink-0 grid-rows-[124px_1fr] overflow-hidden rounded-[20px] bg-white shadow-[0_18px_44px_rgba(13,53,87,0.12)] transition duration-200 hover:-translate-y-1 hover:shadow-pop sm:h-[335px] sm:w-[250px] sm:grid-rows-[136px_1fr]"
                 >
                   <div className="relative h-full min-h-0 overflow-hidden">
                     <Image src={project.image} alt="" fill className="object-cover transition duration-300 group-hover:scale-105" sizes="310px" />
                   </div>
-                  <div className="flex min-h-0 min-w-0 flex-1 flex-col p-5">
+                  <div className="flex min-h-0 min-w-0 flex-1 flex-col p-4">
                     <div className="flex flex-wrap content-start gap-1.5 overflow-hidden">
                       {project.skills.slice(0, 1).map((skill) => (
                         <span key={skill} className="rounded-full bg-cream px-3.5 py-2 text-xs font-extrabold uppercase">
@@ -274,8 +314,8 @@ export default function HomePage() {
                         </span>
                       ))}
                     </div>
-                    <h3 className="mt-4 line-clamp-2 self-start break-words text-xl font-extrabold leading-tight text-navy">{project.title}</h3>
-                    <p className="mt-3 line-clamp-4 self-start break-words text-sm font-extrabold leading-6 text-slate-600 sm:line-clamp-3">{project.description}</p>
+                    <h3 className="mt-3 line-clamp-2 self-start break-words text-lg font-extrabold leading-tight text-navy">{project.title}</h3>
+                    <p className="mt-2 line-clamp-3 self-start break-words text-xs font-extrabold leading-5 text-slate-600">{project.description}</p>
                   </div>
                 </a>
                 );
@@ -296,24 +336,24 @@ export default function HomePage() {
               <h2 id="popular-programmes-title" className="text-balance text-[2.85rem] font-normal leading-[1.05] text-navy md:text-[4rem]">Explore our most loved courses.</h2>
             </div>
           </Reveal>
-          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {popularPrograms.map((program, index) => {
               const Icon = program.icon;
 
               return (
                 <Reveal key={program.title} animation="pop" delay={index * 90} className="h-full">
-                  <a href={program.href} className="group flex h-full min-h-[430px] flex-col overflow-hidden rounded-[18px] border border-navy/10 bg-white shadow-[0_18px_46px_rgba(13,53,87,0.10)] transition duration-200 hover:-translate-y-1 hover:shadow-pop">
-                    <div className="relative h-[178px] overflow-visible">
+                  <a href={program.href} className="group flex h-full min-h-[340px] flex-col overflow-hidden rounded-[14px] border border-navy/10 bg-white shadow-[0_18px_46px_rgba(13,53,87,0.10)] transition duration-200 hover:-translate-y-1 hover:shadow-pop">
+                    <div className="relative h-[130px] overflow-visible">
                       <Image src={program.image} alt="" fill className="object-cover transition duration-300 group-hover:scale-105" sizes="(min-width: 1280px) 280px, (min-width: 768px) 45vw, 90vw" />
-                      <span className={`absolute -bottom-7 left-6 grid h-14 w-14 place-items-center rounded-full border-4 border-white ${program.color} text-white shadow-soft`}>
-                        <Icon size={24} strokeWidth={2.4} aria-hidden />
+                      <span className={`absolute -bottom-5 left-5 grid h-10 w-10 place-items-center rounded-full border-4 border-white ${program.color} text-white shadow-soft`}>
+                        <Icon size={20} strokeWidth={2.4} aria-hidden />
                       </span>
                     </div>
-                    <div className="flex flex-1 flex-col p-6 pt-10">
-                      <h3 className="text-2xl font-normal leading-tight text-navy">{program.title}</h3>
+                    <div className="flex flex-1 flex-col p-4 pt-8">
+                      <h3 className="text-xl font-normal leading-tight text-navy">{program.title}</h3>
                       <p className="mt-2 text-base font-extrabold text-slate-600">{program.age}</p>
-                      <p className="mt-6 text-lg font-extrabold leading-8 text-slate-600">{program.body}</p>
-                      <span className="mt-auto pt-6 text-base font-extrabold text-[#FF4F1F]">View Course -&gt;</span>
+                      <p className="mt-4 text-base font-extrabold leading-7 text-slate-600">{program.body}</p>
+                      <span className="mt-auto pt-5 text-base font-extrabold text-[#FF4F1F]">View Course &gt;</span>
                     </div>
                   </a>
                 </Reveal>

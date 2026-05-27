@@ -11,8 +11,8 @@ import { trackEvent } from '@/lib/analytics';
 export function CounselorCTA({ courseName, source = 'page' }: { courseName?: string; source?: string }) {
   const message = counselorMessage(courseName);
   return (
-    <section className="overflow-hidden rounded-[34px] border border-orange/20 bg-[radial-gradient(circle_at_72%_18%,rgba(255,122,0,0.18),transparent_28%),linear-gradient(105deg,#FFF8EF_0%,#FFF4E6_100%)] p-8 text-navy shadow-[0_28px_80px_rgba(13,53,87,0.12)] md:p-10 lg:p-12">
-      <div className="grid gap-8 lg:grid-cols-[1.05fr_0.82fr_0.92fr] lg:items-center">
+    <section className="mx-auto max-w-7xl overflow-hidden rounded-[24px] border border-orange/20 bg-[radial-gradient(circle_at_72%_18%,rgba(255,122,0,0.18),transparent_28%),linear-gradient(105deg,#FFF8EF_0%,#FFF4E6_100%)] p-6 text-navy shadow-[0_24px_64px_rgba(13,53,87,0.10)] md:p-7 lg:p-8">
+      <div className="grid gap-6 lg:grid-cols-[1.05fr_0.78fr_0.88fr] lg:items-center">
         <Reveal>
           <h2 className="max-w-xl text-5xl font-normal leading-[1.08] md:text-6xl">Not sure where to start?</h2>
           <p className="mt-6 max-w-xl text-lg font-extrabold leading-8 text-slate-600">Our student counselors are here to help you choose the right starting point based on your child&apos;s interests, age and goals.</p>
@@ -23,13 +23,13 @@ export function CounselorCTA({ courseName, source = 'page' }: { courseName?: str
         </Reveal>
 
         <Reveal animation="pop" delay={100}>
-          <div className="relative mx-auto aspect-[4/3] w-full max-w-[330px] overflow-hidden rounded-[28px] shadow-pop">
+          <div className="relative mx-auto aspect-[4/3] w-full max-w-[290px] overflow-hidden rounded-[24px] shadow-pop">
             <Image src="/assets/images/why-curriculum.jpg" alt="" fill className="object-cover" sizes="330px" />
           </div>
         </Reveal>
 
         <Reveal animation="pop" delay={200}>
-          <div className="rounded-[28px] bg-white/88 p-7 shadow-[0_22px_60px_rgba(13,53,87,0.12)] backdrop-blur">
+          <div className="rounded-[24px] bg-white/88 p-6 shadow-[0_22px_60px_rgba(13,53,87,0.12)] backdrop-blur">
             <h3 className="text-2xl font-normal text-navy">Student Counselor</h3>
             <p className="mt-4 text-lg font-extrabold text-slate-600">We&apos;re here to help!</p>
             <div className="mt-7 grid gap-5">
