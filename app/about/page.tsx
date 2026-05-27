@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { ButtonLink } from '@/components/ButtonLink';
 import { CounselorCTA } from '@/components/CounselorCTA';
+import { PageHero } from '@/components/PageHero';
 import { SectionHeader } from '@/components/SectionHeader';
 
 export const metadata: Metadata = {
@@ -20,17 +21,15 @@ export default function AboutPage() {
 
   return (
     <main>
-      <section className="bg-navy px-4 py-20 text-white sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <p className="mb-4 text-sm font-extrabold uppercase tracking-[0.18em] text-orange">About Meu Labs</p>
-          <h1 className="max-w-5xl text-5xl font-extrabold leading-tight md:text-7xl">Helping students build confidence through real-world STEM learning.</h1>
-          <p className="mt-6 max-w-3xl text-xl leading-9 text-white/80">Meu Labs is a project-based learning space where students explore robotics, coding, design, data and AI through guided hands-on programmes.</p>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href="/courses">Explore Courses</ButtonLink>
-            <ButtonLink href="/projects" variant="secondary">View Student Projects</ButtonLink>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="About Meu Labs"
+        title="Helping students build confidence through real-world STEM learning."
+        subtitle="Meu Labs is a project-based learning space where students explore robotics, coding, design, data and AI through guided hands-on programmes."
+        imageSrc="/assets/images/why-space.jpg"
+      >
+        <ButtonLink href="/courses">Explore Courses</ButtonLink>
+        <ButtonLink href="/projects" variant="secondary">View Student Projects</ButtonLink>
+      </PageHero>
       <section className="bg-cream px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2">
           <div>

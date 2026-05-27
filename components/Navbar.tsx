@@ -19,7 +19,7 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/60 bg-cream/88 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-white/70 bg-cream/95 backdrop-blur-md">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
           <Image src="/assets/logos/logo.svg" alt="Meu Labs" width={150} height={48} className="h-auto w-40" priority />

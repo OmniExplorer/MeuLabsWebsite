@@ -5,10 +5,10 @@ import { siteConfig } from '@/data/siteConfig';
 
 const courseLinks = [
   { href: '/courses', label: 'All Courses' },
-  { href: '/courses/kx', label: 'STEM for Kids' },
-  { href: '/courses/an', label: 'Analytics' },
-  { href: '/courses/pd', label: 'Product Design' },
-  { href: '/courses/cx', label: 'Creative Expression' },
+  { href: '/courses/kx', label: 'STEM for Kids: Project Mars' },
+  { href: '/courses/coding-software', label: 'Coding and Software' },
+  { href: '/courses/robotics-iot', label: 'Robotics and IoT' },
+  { href: '/courses/digital-media', label: 'Digital Media Production' },
   { href: '/courses/se', label: 'Specialisations' }
 ];
 
@@ -33,7 +33,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.45fr_1fr_1fr_1.35fr_1.65fr] lg:px-8">
         <div>
           <Link href="/" className="inline-flex">
-            <Image src="/assets/logos/logo.svg" alt="Meu Labs" width={160} height={50} className="h-auto w-40 brightness-0 invert" />
+            <Image src="/assets/logos/logo.svg" alt="Meu Labs" width={160} height={50} className="h-auto w-40" />
           </Link>
           <p className="mt-8 max-w-[300px] text-base font-extrabold leading-7 text-slate-300">Empowering young minds through project-based STEM, robotics, coding and creative learning.</p>
           <div className="mt-7 flex flex-nowrap gap-3">

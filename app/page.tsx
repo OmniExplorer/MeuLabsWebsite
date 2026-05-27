@@ -4,7 +4,29 @@ import { ButtonLink } from '@/components/ButtonLink';
 import { CounselorCTA } from '@/components/CounselorCTA';
 import { Reveal } from '@/components/Reveal';
 import { WhyMeuLabs } from '@/components/WhyMeuLabs';
+import { courses } from '@/data/courses';
 import { projects } from '@/data/projects';
+
+const specialisationIconBySlug = {
+  se: Code2,
+  ds: BrainCircuit,
+  gd: Code2,
+  cs: Shield,
+  es: Bot,
+  eee: Orbit,
+  mr: Factory,
+  dm: Megaphone,
+  va: Video
+};
+
+const specialisationCourses = courses
+  .filter((course) => course.pathwayStage === 'Specialisation')
+  .map((course) => ({
+    name: course.title,
+    icon: specialisationIconBySlug[course.slug as keyof typeof specialisationIconBySlug] ?? GraduationCap,
+    href: `/courses/${course.slug}`,
+    badge: course.comingSoon ? 'COMING SOON' : undefined
+  }));
 
 const pathway = [
   {
@@ -13,7 +35,7 @@ const pathway = [
     body: 'Build strong foundational skills across coding, design, robotics, videography, communication, and leadership while developing essential 21st-century skills.',
     courses: [
       { name: 'STEM for Kids: Junior', icon: Rocket, href: '/courses/kx-j' },
-      { name: 'STEM for Kids', icon: Shield, href: '/courses/kx' }
+      { name: 'STEM for Kids: Project Mars', icon: Shield, href: '/courses/kx' }
     ],
     color: 'bg-gradient-to-br from-[#FF7A00] to-[#FFB347]',
     accent: 'from-orange/16 via-white to-white border-orange/60',
@@ -27,9 +49,9 @@ const pathway = [
     age: 'Age 10 - 14',
     body: 'Choose themed courses aligned with engineering, analytics, or creative expression. Deeper, project-driven, and skill-focused.',
     courses: [
-      { name: 'Intro to Programming', icon: Code2, href: '/courses/an' },
-      { name: 'Robotics and IoT', icon: Bot, href: '/courses/pd' },
-      { name: 'Digital Media Production', icon: Video, href: '/courses/cx' }
+      { name: 'Coding and Software', icon: Code2, href: '/courses/coding-software' },
+      { name: 'Robotics and IoT', icon: Bot, href: '/courses/robotics-iot' },
+      { name: 'Digital Media Production', icon: Video, href: '/courses/digital-media' }
     ],
     color: 'bg-gradient-to-br from-[#31C3DE] to-[#7DE3F2]',
     accent: 'from-sky/16 via-white to-white border-sky/60',
@@ -42,17 +64,12 @@ const pathway = [
     title: 'Specialisations',
     age: 'Age 12 - 16',
     body: 'Dive deep into industry-focused domains through advanced projects, technical mentorship, and real-world problem solving.',
-    courses: [
-      { name: 'Software Engineering', icon: Code2, href: '/courses/se' },
-      { name: 'Data Science and AI', icon: BrainCircuit, href: '/courses/ds' },
-      { name: 'Manufacturing and Robotics', icon: Factory, href: '/courses/mr' },
-      { name: 'Digital Marketing', icon: Megaphone, href: '/courses/dm' }
-    ],
-    color: 'bg-gradient-to-br from-[#8B5CF6] to-[#C084FC]',
-    accent: 'from-[#8B5CF6]/16 via-white to-white border-[#8B5CF6]/60',
-    ringColor: 'border-[#8B5CF6]',
-    cornerColor: 'bg-[#8B5CF6]/20',
-    badge: 'bg-gradient-to-br from-[#8B5CF6] to-[#A855F7]',
+    courses: specialisationCourses,
+    color: 'bg-gradient-to-br from-[#48D83E] to-[#8BE95E]',
+    accent: 'from-[#48D83E]/16 via-white to-white border-[#48D83E]/60',
+    ringColor: 'border-[#48D83E]',
+    cornerColor: 'bg-[#48D83E]/20',
+    badge: 'bg-gradient-to-br from-[#48D83E] to-[#65D96C]',
     icon: GraduationCap
   },
   {
@@ -64,11 +81,11 @@ const pathway = [
       { name: 'University Access', icon: Landmark, href: '/courses/ua' },
       { name: 'Founder Studio', icon: Lightbulb, href: '/courses/fs', badge: 'COMING SOON' }
     ],
-    color: 'bg-gradient-to-br from-[#48D83E] to-[#8BE95E]',
-    accent: 'from-[#48D83E]/16 via-white to-white border-[#48D83E]/60',
-    ringColor: 'border-[#48D83E]',
-    cornerColor: 'bg-[#48D83E]/20',
-    badge: 'bg-gradient-to-br from-[#48D83E] to-[#65D96C]',
+    color: 'bg-gradient-to-br from-[#8B5CF6] to-[#C084FC]',
+    accent: 'from-[#8B5CF6]/16 via-white to-white border-[#8B5CF6]/60',
+    ringColor: 'border-[#8B5CF6]',
+    cornerColor: 'bg-[#8B5CF6]/20',
+    badge: 'bg-gradient-to-br from-[#8B5CF6] to-[#A855F7]',
     icon: Rocket
   }
 ];
@@ -77,7 +94,7 @@ const projectCards = projects.slice(0, 10);
 
 const popularPrograms = [
   {
-    title: 'STEM for Kids: Junior',
+    title: 'STEM for Kids: Project Mars',
     age: 'Age 8-12',
     body: 'Fun, hands-on projects that build curiosity, creativity and confidence.',
     href: '/courses/kx',
@@ -86,10 +103,10 @@ const popularPrograms = [
     icon: Rocket
   },
   {
-    title: 'Coding for Kids',
+    title: 'Coding and Software',
     age: 'Age 12-16',
     body: 'Turn data into insights and build real world analytical skills.',
-    href: '/courses/an',
+    href: '/courses/coding-software',
     image: '/assets/images/project-dashboard.jpg',
     color: 'bg-gradient-to-br from-[#31C3DE] to-[#7DE3F2]',
     icon: Code2
@@ -98,7 +115,7 @@ const popularPrograms = [
     title: 'Robotics and IoT',
     age: 'Age 12-16',
     body: 'Design thinking, 3D modeling and prototyping real world products.',
-    href: '/courses/pd',
+    href: '/courses/robotics-iot',
     image: '/assets/images/project-prototype.jpg',
     color: 'bg-gradient-to-br from-[#31C3DE] to-[#7DE3F2]',
     icon: Bot
@@ -107,7 +124,7 @@ const popularPrograms = [
     title: 'Digital Media Production',
     age: 'Age 10-16',
     body: 'Storytelling through film, animation, photography and more.',
-    href: '/courses/cx',
+    href: '/courses/digital-media',
     image: '/assets/images/project-film.jpg',
     color: 'bg-gradient-to-br from-[#31C3DE] to-[#7DE3F2]',
     icon: Video
@@ -168,11 +185,6 @@ export default function HomePage() {
                 <span key={index} className="dot-ripple h-1.5 w-1.5 rounded-full bg-orange" style={{ animationDelay: `${(index % 5) * 120 + Math.floor(index / 5) * 18}ms` }} />
               ))}
             </div>
-            <div className="absolute left-[7%] bottom-[18%] z-30 grid grid-cols-4 gap-1.5" aria-hidden="true">
-              {Array.from({ length: 20 }).map((_, index) => (
-                <span key={index} className="dot-ripple h-1.5 w-1.5 rounded-full bg-orange" style={{ animationDelay: `${(index % 4) * 130 + Math.floor(index / 4) * 18}ms` }} />
-              ))}
-            </div>
             <div
               className="absolute left-[0%] top-[9%] z-30 h-[78%] w-[60%] overflow-hidden p-2 shadow-[0_30px_58px_rgba(5,24,44,0.34)]"
               style={{
@@ -227,6 +239,8 @@ export default function HomePage() {
           <div className="grid gap-4 lg:grid-cols-4">
             {pathway.map((stage, index) => {
                   const stageNumber = index + 1;
+                  const isSpecialisations = stage.title === 'Specialisations';
+                  const displayedCourses = isSpecialisations ? [...stage.courses, ...stage.courses] : stage.courses;
                   return (
               <Reveal key={stage.title} animation="pop" delay={index * 100} className="h-full">
               <article className={`relative flex h-full flex-col overflow-hidden rounded-[22px] border-x border-b border-t-[5px] bg-gradient-to-b ${stage.accent} ${stage.ringColor} p-4 shadow-soft`}>
@@ -244,12 +258,13 @@ export default function HomePage() {
                 </div>
                 <p className="min-h-[118px] text-sm font-semibold leading-6 text-slate-700">{stage.body}</p>
                 <p className="mt-4 text-sm font-extrabold uppercase tracking-[0.18em] text-slate-600">{stage.title === 'Launch Pad' ? 'Pathways' : 'Courses'}</p>
-                <ul className="mt-3 grid gap-2.5">
-                  {stage.courses.map((course) => {
+                <div className={isSpecialisations ? 'specialisation-course-carousel mt-3 max-h-[268px] overflow-hidden pr-1' : 'mt-3'}>
+                <ul className={`grid gap-2.5 ${isSpecialisations ? 'specialisation-course-track' : ''}`}>
+                  {displayedCourses.map((course, courseIndex) => {
                     const CourseIcon = course.icon;
                     return (
-                      <li key={course.name}>
-                        <a href={course.href} className="grid min-h-[58px] grid-cols-[2.5rem_1fr] items-center gap-3 rounded-[14px] border border-navy/10 bg-white px-3.5 py-2.5 text-sm font-extrabold leading-5 text-navy shadow-[0_12px_28px_rgba(13,53,87,0.05)] transition duration-200 hover:-translate-y-1 hover:scale-[1.01] hover:shadow-pop focus-visible:scale-[1.01]">
+                      <li key={`${course.name}-${courseIndex}`}>
+                        <a href={course.href} tabIndex={isSpecialisations && courseIndex >= stage.courses.length ? -1 : undefined} className={`grid min-h-[58px] grid-cols-[2.5rem_1fr] items-center gap-3 rounded-[14px] border border-navy/10 bg-white px-3.5 py-2.5 text-sm font-extrabold leading-5 text-navy transition duration-200 hover:-translate-y-1 hover:scale-[1.01] focus-visible:scale-[1.01] ${isSpecialisations ? '' : 'shadow-[0_12px_28px_rgba(13,53,87,0.05)] hover:shadow-pop'}`}>
                         <span className={`grid h-7 w-7 place-items-center self-center rounded-full ${stage.color} text-white transition duration-200`}>
                           <CourseIcon size={16} strokeWidth={2.5} aria-hidden />
                         </span>
@@ -262,6 +277,7 @@ export default function HomePage() {
                     );
                   })}
                 </ul>
+                </div>
               </article>
               </Reveal>
               );
@@ -299,7 +315,7 @@ export default function HomePage() {
                   href={project.link}
                   aria-hidden={isDuplicate}
                   tabIndex={isDuplicate ? -1 : undefined}
-                  className="group grid h-[320px] w-[min(68vw,230px)] shrink-0 grid-rows-[124px_1fr] overflow-hidden rounded-[20px] bg-white shadow-[0_18px_44px_rgba(13,53,87,0.12)] transition duration-200 hover:-translate-y-1 hover:shadow-pop sm:h-[335px] sm:w-[250px] sm:grid-rows-[136px_1fr]"
+                  className="group grid h-[320px] w-[min(68vw,230px)] shrink-0 grid-rows-[124px_1fr] overflow-hidden rounded-[20px] border border-navy/10 bg-white transition duration-200 hover:-translate-y-1 sm:h-[335px] sm:w-[250px] sm:grid-rows-[136px_1fr]"
                 >
                   <div className="relative h-full min-h-0 overflow-hidden">
                     <Image src={project.image} alt="" fill className="object-cover transition duration-300 group-hover:scale-105" sizes="310px" />

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { ButtonLink } from '@/components/ButtonLink';
+import { PageHero } from '@/components/PageHero';
 import { ProjectCard } from '@/components/ProjectCard';
 import { SectionHeader } from '@/components/SectionHeader';
 import { projects } from '@/data/projects';
@@ -13,19 +14,14 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <main>
-      <section className="bg-navy px-4 py-20 text-white sm:px-6 lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-2 lg:items-center">
-          <div>
-            <p className="mb-4 text-sm font-extrabold uppercase tracking-[0.18em] text-orange">Young innovators are building the future.</p>
-            <h1 className="text-5xl font-extrabold leading-tight md:text-7xl">See what our students build, create, and achieve.</h1>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href="/courses">Explore Courses</ButtonLink>
-              <ButtonLink href="/contact" variant="secondary">Help Me Choose</ButtonLink>
-            </div>
-          </div>
-          <div className="rounded-[28px] bg-white/10 p-8 text-xl font-bold leading-9 text-white/85">Projects are placeholders for MVP. Marketing can replace these cards with current student videos, photos, wins and Facebook links as they become available.</div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Young innovators are building the future."
+        title="See what our students build, create, and achieve."
+        imageSrc="/assets/images/project-prototype.jpg"
+      >
+        <ButtonLink href="/courses">Explore Courses</ButtonLink>
+        <ButtonLink href="/contact" variant="secondary">Help Me Choose</ButtonLink>
+      </PageHero>
       <section className="bg-cream px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <SectionHeader eyebrow="In The News" title="Big ideas making waves beyond the classroom." subtitle="Explore the projects, stories, videos, wins, and milestones that show how Meu Labs students are turning ideas into real-world impact." />

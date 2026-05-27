@@ -24,20 +24,20 @@ export const projects: Project[] = [
     title: 'Climate Data Dashboard',
     description: 'A Python dashboard that turns climate data into visual insights for young researchers.',
     skills: ['Python', 'Data', 'Dashboards'],
-    courseSlug: 'an',
-    courseLabel: 'Analytics',
+    courseSlug: 'coding-software',
+    courseLabel: 'Coding and Software',
     image: '/assets/images/project-dashboard.jpg',
-    link: '/courses/an',
+    link: '/courses/coding-software',
     featured: true
   },
   {
     title: 'Assistive Product Prototype',
     description: 'A student-built prototype designed, fabricated and pitched for a real user need.',
     skills: ['CAD', 'Prototyping', 'Pitching'],
-    courseSlug: 'pd',
-    courseLabel: 'Product Design',
+    courseSlug: 'robotics-iot',
+    courseLabel: 'Robotics and IoT',
     image: '/assets/images/project-prototype.jpg',
-    link: '/courses/pd',
+    link: '/courses/robotics-iot',
     featured: true
   },
   {
@@ -54,10 +54,10 @@ export const projects: Project[] = [
     title: 'Short Film Showcase',
     description: 'A creative production from concept and script to filming, editing and premiere.',
     skills: ['Video', 'Story', 'Editing'],
-    courseSlug: 'cx',
-    courseLabel: 'Creative Expression',
+    courseSlug: 'digital-media',
+    courseLabel: 'Digital Media',
     image: '/assets/images/project-film.jpg',
-    link: '/courses/cx'
+    link: '/courses/digital-media'
   },
   {
     title: 'Connected Sensor Network',
@@ -81,19 +81,19 @@ export const projects: Project[] = [
     title: '3D Printed Rover Part',
     description: 'A designed and fabricated part tested against constraints for a robotics challenge.',
     skills: ['CAD', '3D Printing', 'Testing'],
-    courseSlug: 'pd',
-    courseLabel: 'Product Design',
+    courseSlug: 'robotics-iot',
+    courseLabel: 'Robotics and IoT',
     image: '/assets/images/project-3d-print.jpg',
-    link: '/courses/pd'
+    link: '/courses/robotics-iot'
   },
   {
     title: 'Video Story Studio',
     description: 'A student-led media project planned, filmed and edited into a final showcase.',
     skills: ['Story', 'Video', 'Editing'],
-    courseSlug: 'cx',
-    courseLabel: 'Creative Expression',
+    courseSlug: 'digital-media',
+    courseLabel: 'Digital Media',
     image: '/assets/images/project-video.jpg',
-    link: '/courses/cx'
+    link: '/courses/digital-media'
   },
   {
     title: 'Electronics Lab Build',

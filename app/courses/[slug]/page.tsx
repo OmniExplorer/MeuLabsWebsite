@@ -6,6 +6,7 @@ import { intakes } from '@/data/intakes';
 import { ButtonLink } from '@/components/ButtonLink';
 import { CounselorCTA } from '@/components/CounselorCTA';
 import { CourseCard } from '@/components/CourseCard';
+import { PageHero } from '@/components/PageHero';
 import { RegistrationCard } from '@/components/RegistrationCard';
 import { SectionHeader } from '@/components/SectionHeader';
 import { SyllabusForm } from '@/components/SyllabusForm';
@@ -13,6 +14,28 @@ import { counselorMessage, whatsappHref } from '@/lib/whatsapp';
 import { currentMonthName, daysToNextClosingDate } from '@/lib/registration';
 
 type PageProps = { params: { slug: string } };
+
+const courseHeroImages: Record<string, string> = {
+  kx: '/assets/images/hero-robotics.jpg',
+  'kx-superhero': '/assets/images/project-traffic.jpg',
+  'kx-wild': '/assets/images/electronics-board.jpg',
+  'kx-j': '/assets/images/hero-robotics.jpg',
+  'coding-software': '/assets/images/hero-code.jpg',
+  'robotics-iot': '/assets/images/project-prototype.jpg',
+  'digital-media': '/assets/images/project-film.jpg',
+  se: '/assets/images/project-dashboard.jpg',
+  ds: '/assets/images/project-ai.jpg',
+  eee: '/assets/images/electronics-board.jpg',
+  es: '/assets/images/project-electronics-lab.jpg',
+  mr: '/assets/images/project-electronics-lab.jpg',
+  cs: '/assets/images/hero-code.jpg',
+  gd: '/assets/images/project-game.jpg',
+  dm: '/assets/images/project-video.jpg',
+  va: '/assets/images/project-film.jpg',
+  ig: '/assets/images/why-instructors.jpg',
+  ua: '/assets/images/why-curriculum.jpg',
+  fs: '/assets/images/project-3d-print.jpg'
+};
 
 export function generateStaticParams() {
   return allCourses.map((course) => ({ slug: course.slug }));
@@ -38,25 +61,15 @@ export default function CoursePage({ params }: PageProps) {
 
   return (
     <main>
-      <section className="bg-navy px-4 py-20 text-white sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <span className="rounded-full bg-orange px-4 py-2 text-sm font-extrabold">{course.pathwayStage}</span>
-          <h1 className="mt-6 max-w-4xl text-5xl font-extrabold leading-tight md:text-7xl">{course.title}</h1>
-          <p className="mt-3 text-2xl font-bold text-orange">{course.subtitle}</p>
-          <div className="mt-6 flex flex-wrap gap-2">
-            {course.keywords.map((keyword) => <span key={keyword} className="rounded-full bg-white/10 px-3 py-1 text-sm font-bold">{keyword}</span>)}
-          </div>
-          <div className="mt-8 flex flex-wrap gap-3 text-sm font-extrabold">
-            <span className="rounded-full bg-white px-4 py-2 text-navy">Age {course.ageRange}</span>
-            <span className="rounded-full bg-white/10 px-4 py-2">{course.duration}</span>
-            <span className="rounded-full bg-white/10 px-4 py-2">{course.format}</span>
-          </div>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            {!course.comingSoon && <ButtonLink href={course.registerLink} external>Register Now</ButtonLink>}
-            <ButtonLink href={whatsappHref(counselorMessage(course.title))} external variant="secondary">Talk to a Student Counselor</ButtonLink>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow={course.pathwayStage}
+        title={course.title}
+        subtitle={`${course.subtitle}. Age ${course.ageRange}. ${course.duration}, ${course.format}.`}
+        imageSrc={courseHeroImages[course.slug] ?? '/assets/images/project-electronics-lab.jpg'}
+      >
+        {!course.comingSoon && <ButtonLink href={course.registerLink} external>Register Now</ButtonLink>}
+        <ButtonLink href={whatsappHref(counselorMessage(course.title))} external variant="secondary">Talk to a Student Counselor</ButtonLink>
+      </PageHero>
 
       <section className="bg-cream px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl rounded-[28px] bg-white p-8 text-xl font-semibold leading-9 text-navy shadow-soft">{course.descriptor}</div>
