@@ -4,7 +4,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
-import { courses } from '@/data/courses';
 import { ButtonLink } from './ButtonLink';
 
 const navLinks = [
@@ -51,16 +50,6 @@ export function Navbar() {
                 {link.label}
               </Link>
             ))}
-            <div className="mt-2 rounded-card bg-white p-4 shadow-soft">
-              <p className="mb-3 text-sm font-extrabold text-navy">Course links</p>
-              <div className="grid gap-2">
-                {courses.map((course) => (
-                  <Link key={course.slug} href={`/courses/${course.slug}`} className="text-sm font-semibold text-slate-700 hover:text-orange" onClick={() => setOpen(false)}>
-                    {course.title}
-                  </Link>
-                ))}
-              </div>
-            </div>
             <ButtonLink href="/courses" className="mt-3" onClick={() => setOpen(false)}>Explore Courses</ButtonLink>
           </div>
         </div>
