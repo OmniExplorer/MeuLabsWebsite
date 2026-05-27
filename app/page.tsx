@@ -82,7 +82,7 @@ const popularPrograms = [
     body: 'Fun, hands-on projects that build curiosity, creativity and confidence.',
     href: '/courses/kx',
     image: '/assets/images/hero-robotics.jpg',
-    color: 'bg-orange',
+    color: 'bg-gradient-to-br from-[#FF7A00] to-[#FFB347]',
     icon: Rocket
   },
   {
@@ -345,7 +345,7 @@ export default function HomePage() {
                   <a href={program.href} className="group flex h-full min-h-[340px] flex-col overflow-hidden rounded-[14px] border border-navy/10 bg-white shadow-[0_18px_46px_rgba(13,53,87,0.10)] transition duration-200 hover:-translate-y-1 hover:shadow-pop">
                     <div className="relative h-[130px] overflow-visible">
                       <Image src={program.image} alt="" fill className="object-cover transition duration-300 group-hover:scale-105" sizes="(min-width: 1280px) 280px, (min-width: 768px) 45vw, 90vw" />
-                      <span className={`absolute -bottom-5 left-5 grid h-10 w-10 place-items-center rounded-full border-4 border-white ${program.color} text-white shadow-soft`}>
+                      <span className={`absolute -bottom-5 left-5 grid h-10 w-10 place-items-center rounded-full ${program.color} text-white shadow-soft`}>
                         <Icon size={20} strokeWidth={2.4} aria-hidden />
                       </span>
                     </div>
