@@ -34,8 +34,8 @@ const pathway = [
     age: 'Age 8 - 12',
     body: 'Build strong foundational skills across coding, design, robotics, videography, communication, and leadership while developing essential 21st-century skills.',
     courses: [
-      { name: 'STEM for Kids: Junior', icon: Rocket, href: '/courses/kx-j' },
-      { name: 'STEM for Kids: Project Mars', icon: Shield, href: '/courses/kx' }
+      { name: 'STEM For Kids: Junior', icon: Rocket, href: '/courses/kx-j' },
+      { name: 'STEM For Kids: Project Mars', icon: Shield, href: '/courses/kx' }
     ],
     color: 'bg-gradient-to-br from-[#FF7A00] to-[#FFB347]',
     accent: 'from-orange/16 via-white to-white border-orange/60',
@@ -94,7 +94,7 @@ const projectCards = projects.slice(0, 10);
 
 const popularPrograms = [
   {
-    title: 'STEM for Kids: Project Mars',
+    title: 'STEM For Kids: Project Mars',
     age: 'Age 8-12',
     body: 'Fun, hands-on projects that build curiosity, creativity and confidence.',
     href: '/courses/kx',
@@ -134,9 +134,9 @@ const popularPrograms = [
 export default function HomePage() {
   return (
     <main id="main-content">
-      <section className="relative min-h-[760px] overflow-hidden bg-creamAlt">
+      <section className="relative min-h-[760px] overflow-hidden bg-creamAlt px-4 sm:px-6 lg:px-8">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_24%_42%,rgba(255,122,0,0.26),transparent_32%),radial-gradient(circle_at_82%_22%,rgba(255,79,31,0.12),transparent_30%),linear-gradient(120deg,#F8F1E2_0%,#FFF6EA_58%,rgba(255,122,0,0.12)_100%)]" />
-        <div className="relative mx-auto grid min-h-[760px] max-w-7xl items-center gap-8 px-4 py-20 sm:px-6 lg:grid-cols-[0.92fr_1fr] lg:px-8">
+        <div className="relative mx-auto grid min-h-[760px] max-w-[92rem] items-center gap-8 py-20 lg:grid-cols-[0.84fr_1.16fr]">
           <div className="max-w-4xl text-navy">
             <Reveal>
               <div className="mb-8 max-w-3xl border-l-4 border-orange pl-5">
@@ -179,7 +179,7 @@ export default function HomePage() {
               <ButtonLink href="/contact" variant="secondary">Speak with a Student Counselor</ButtonLink>
             </Reveal>
           </div>
-          <Reveal animation="pop" delay={400} className="relative mx-auto aspect-[1.18/1] w-full max-w-[680px] lg:ml-auto lg:scale-110">
+          <Reveal animation="pop" delay={400} className="relative mx-auto aspect-[1.18/1] w-full max-w-[760px] lg:ml-auto lg:scale-[1.12]">
             <div className="absolute -right-1 top-8 z-30 grid grid-cols-5 gap-1.5" aria-hidden="true">
               {Array.from({ length: 25 }).map((_, index) => (
                 <span key={index} className="dot-ripple h-1.5 w-1.5 rounded-full bg-orange" style={{ animationDelay: `${(index % 5) * 120 + Math.floor(index / 5) * 18}ms` }} />
@@ -226,11 +226,11 @@ export default function HomePage() {
       </section>
 
       <section className="bg-creamAlt px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="learning-pathway-title">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[92rem]">
           <Reveal>
             <div className="mb-10 max-w-[58rem]">
               <div className="mb-6 border-l-4 border-orange pl-5">
-                <p className="text-xl font-black uppercase leading-snug tracking-[0.08em] text-[#FF4F1F]">Learning Pathway</p>
+                <p className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">Learning Pathway</p>
               </div>
               <h2 id="learning-pathway-title" className="text-balance text-[2.85rem] font-normal leading-[1.05] text-navy md:text-[4rem]">A long-term journey, built step by step</h2>
               <p className="mt-5 max-w-5xl text-pretty text-lg font-extrabold leading-8 text-slate-600">From first steps to advanced skills, our courses help students discover what they love and build real-world capabilities.</p>
@@ -283,17 +283,17 @@ export default function HomePage() {
               );
             })}
           </div>
-          <Reveal animation="pop" delay={400} className="mt-10 text-center"><ButtonLink href="/courses">Explore Courses</ButtonLink></Reveal>
+          <Reveal animation="pop" delay={400} className="mt-10"><ButtonLink href="/courses">Explore Courses</ButtonLink></Reveal>
         </div>
       </section>
 
       <section className="overflow-hidden bg-cream px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="student-projects-title">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[92rem]">
           <Reveal>
             <div className="mb-10 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
               <div className="max-w-[58rem]">
                 <div className="mb-6 border-l-4 border-orange pl-5">
-                  <p className="text-xl font-black uppercase leading-snug tracking-[0.08em] text-[#FF4F1F]">Student Projects</p>
+                  <p className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">Student Projects</p>
                 </div>
                 <h2 id="student-projects-title" className="text-balance text-[2.85rem] font-normal leading-[1.05] text-navy md:text-[4rem]">See what your child will build at Meu Labs.</h2>
                 <p className="mt-5 max-w-5xl text-pretty text-lg font-extrabold leading-8 text-slate-600">From Robots to WebApps from Media productions to AI agents. At Meu Labs students build literally anything</p>
@@ -302,7 +302,7 @@ export default function HomePage() {
             </div>
           </Reveal>
         </div>
-        <div className="mx-auto mt-2 max-w-7xl">
+        <div className="mx-auto mt-2 max-w-[92rem]">
           <Reveal animation="pop" delay={150}>
           <div className="project-carousel-shell py-3" aria-label="Featured student projects">
             <div className="project-carousel-track flex w-max gap-5 pr-5 sm:gap-6 sm:pr-6">
@@ -343,11 +343,11 @@ export default function HomePage() {
       </section>
 
       <section className="bg-white px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="popular-programmes-title">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[92rem]">
           <Reveal>
             <div className="mb-10 max-w-[58rem]">
               <div className="mb-6 border-l-4 border-orange pl-5">
-                <p className="text-xl font-black uppercase leading-snug tracking-[0.08em] text-[#FF4F1F]">Popular Programmes</p>
+                <p className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">Popular Programmes</p>
               </div>
               <h2 id="popular-programmes-title" className="text-balance text-[2.85rem] font-normal leading-[1.05] text-navy md:text-[4rem]">Explore our most loved courses.</h2>
             </div>
@@ -380,11 +380,11 @@ export default function HomePage() {
       </section>
 
       <section className="bg-cream px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="why-meu-labs-title">
-        <div className="mx-auto max-w-7xl">
+        <div className="mx-auto max-w-[92rem]">
           <Reveal>
             <div className="mb-7">
               <div className="mb-5 border-l-4 border-orange pl-5">
-                <p className="text-lg font-black uppercase leading-snug tracking-[0.08em] text-[#FF4F1F]">Why Meu Labs</p>
+                <p className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">Why Meu Labs</p>
               </div>
               <h2 id="why-meu-labs-title" className="max-w-[72rem] text-balance text-[2.75rem] font-normal leading-[1.05] text-navy md:text-[3.6rem]">A Home for students who learn by <span className="block">doing.</span></h2>
             </div>
@@ -392,13 +392,8 @@ export default function HomePage() {
           <Reveal animation="pop" delay={200}>
             <WhyMeuLabs intro="We combine expert instruction, safe creative spaces, and a world-class project-based curriculum so students build confidence, creativity, and real technical skill." />
           </Reveal>
-        </div>
-      </section>
-
-      <section className="bg-creamAlt px-4 py-16 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <Reveal animation="pop">
-            <CounselorCTA source="/" />
+          <Reveal animation="pop" delay={300} className="mt-10">
+            <CounselorCTA source="/" compact />
           </Reveal>
         </div>
       </section>

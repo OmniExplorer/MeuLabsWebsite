@@ -15,7 +15,7 @@ export function SyllabusForm({ courseSlug }: { courseSlug: string }) {
 
   return (
     <form
-      className="grid gap-3 md:grid-cols-[1fr_1fr_1fr_auto]"
+      className="grid gap-3"
       onSubmit={(event) => {
         event.preventDefault();
         trackEvent('syllabus_request', { course: courseSlug });
@@ -25,10 +25,10 @@ export function SyllabusForm({ courseSlug }: { courseSlug: string }) {
       {['Name', 'Email', 'Phone'].map((label) => (
         <label key={label} className="sr-only" htmlFor={label.toLowerCase()}>{label}</label>
       ))}
-      <input id="name" required placeholder="Name" className="rounded-full border border-navy/10 px-5 py-3 font-semibold outline-none focus:border-orange" />
-      <input id="email" required type="email" placeholder="Email" className="rounded-full border border-navy/10 px-5 py-3 font-semibold outline-none focus:border-orange" />
-      <input id="phone" required placeholder="Phone" className="rounded-full border border-navy/10 px-5 py-3 font-semibold outline-none focus:border-orange" />
-      <button className="rounded-full bg-navy px-6 py-3 font-extrabold text-white transition hover:bg-[#082a47]" type="submit">Request</button>
+      <input id="name" required placeholder="Full Name" className="rounded-[8px] border border-navy/10 px-5 py-3 font-semibold outline-none focus:border-orange" />
+      <input id="email" required type="email" placeholder="Email Address" className="rounded-[8px] border border-navy/10 px-5 py-3 font-semibold outline-none focus:border-orange" />
+      <input id="phone" required placeholder="Phone Number" className="rounded-[8px] border border-navy/10 px-5 py-3 font-semibold outline-none focus:border-orange" />
+      <button className="rounded-[8px] bg-orange px-6 py-3 font-extrabold text-white transition hover:bg-[#e76e00]" type="submit">Request Syllabus</button>
     </form>
   );
 }

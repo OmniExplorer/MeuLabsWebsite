@@ -8,8 +8,30 @@ import { Reveal } from './Reveal';
 import { counselorMessage, whatsappHref } from '@/lib/whatsapp';
 import { trackEvent } from '@/lib/analytics';
 
-export function CounselorCTA({ courseName, source = 'page' }: { courseName?: string; source?: string }) {
+export function CounselorCTA({ courseName, source = 'page', compact = false }: { courseName?: string; source?: string; compact?: boolean }) {
   const message = counselorMessage(courseName);
+
+  if (compact) {
+    return (
+      <section className="mx-auto max-w-[92rem] overflow-hidden rounded-lg border border-orange/20 bg-white text-navy shadow-[0_14px_34px_rgba(13,53,87,0.08)]">
+        <div className="grid min-h-[168px] lg:grid-cols-[0.92fr_1.08fr]">
+          <div className="flex flex-col justify-center px-5 py-6 sm:px-8 lg:px-10">
+            <h2 className="text-2xl font-extrabold leading-tight md:text-3xl">Not sure where to start?</h2>
+            <p className="mt-2 max-w-2xl text-sm font-bold leading-6 text-slate-600">Talk to a Meu Labs student counselor and get help choosing the best course based on age, interests, and experience level.</p>
+            <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <ButtonLink href={whatsappHref(message)} external onClick={() => trackEvent('whatsapp_click', { source })}>Talk to a Student Counselor</ButtonLink>
+              <ButtonLink href="/courses" variant="secondary">Explore All Courses</ButtonLink>
+            </div>
+          </div>
+          <div className="relative hidden min-h-[168px] overflow-hidden lg:block">
+            <Image src="/assets/images/why-instructors.jpg" alt="" fill className="object-cover object-right" sizes="54vw" />
+            <div className="absolute inset-0 bg-gradient-to-r from-white/70 via-transparent to-transparent" />
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="mx-auto max-w-7xl overflow-hidden rounded-[24px] border border-orange/20 bg-[radial-gradient(circle_at_72%_18%,rgba(255,122,0,0.18),transparent_28%),linear-gradient(105deg,#FFF8EF_0%,#FFF4E6_100%)] p-6 text-navy shadow-[0_24px_64px_rgba(13,53,87,0.10)] md:p-7 lg:p-8">
       <div className="grid gap-6 lg:grid-cols-[1.05fr_0.78fr_0.88fr] lg:items-center">

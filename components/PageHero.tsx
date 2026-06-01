@@ -14,9 +14,9 @@ type PageHeroProps = {
 
 export function PageHero({ eyebrow, title, subtitle, imageSrc, imageAlt = '', imageMode = 'photo', children }: PageHeroProps) {
   return (
-    <section className="relative min-h-[760px] overflow-hidden bg-creamAlt text-navy">
+    <section className="relative min-h-[760px] overflow-hidden bg-creamAlt px-4 text-navy sm:px-6 lg:px-8">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_24%_42%,rgba(255,122,0,0.26),transparent_32%),radial-gradient(circle_at_82%_22%,rgba(255,79,31,0.12),transparent_30%),linear-gradient(120deg,#F8F1E2_0%,#FFF6EA_58%,rgba(255,122,0,0.12)_100%)]" />
-      <div className="relative mx-auto grid min-h-[760px] max-w-7xl items-center gap-8 px-4 py-20 sm:px-6 lg:grid-cols-[0.92fr_1fr] lg:px-8">
+      <div className="relative mx-auto grid min-h-[760px] max-w-[92rem] items-center gap-8 py-20 lg:grid-cols-[0.84fr_1.16fr]">
         <div>
           <Reveal>
             <div className="mb-8 max-w-3xl border-l-4 border-orange pl-5">
@@ -37,7 +37,7 @@ export function PageHero({ eyebrow, title, subtitle, imageSrc, imageAlt = '', im
             </Reveal>
           )}
         </div>
-        <Reveal animation="pop" delay={400} className="relative mx-auto aspect-[1.18/1] w-full max-w-[680px] lg:ml-auto lg:scale-110">
+        <Reveal animation="pop" delay={400} className="relative mx-auto aspect-[1.18/1] w-full max-w-[760px] lg:ml-auto lg:scale-[1.14]">
           <div className="absolute -right-1 top-8 z-0 grid grid-cols-5 gap-1.5" aria-hidden="true">
             {Array.from({ length: 25 }).map((_, index) => (
               <span key={index} className="dot-ripple h-1.5 w-1.5 rounded-full bg-orange" style={{ animationDelay: `${(index % 5) * 120 + Math.floor(index / 5) * 18}ms` }} />
@@ -51,7 +51,7 @@ export function PageHero({ eyebrow, title, subtitle, imageSrc, imageAlt = '', im
           {imageMode === 'object' ? (
             <>
               <div className="absolute inset-x-10 bottom-10 top-12 z-10 rounded-full bg-[radial-gradient(circle,rgba(255,122,0,0.22)_0%,rgba(49,195,222,0.12)_42%,transparent_72%)]" />
-              <div className="absolute -inset-x-8 -bottom-2 top-0 z-20">
+              <div className="absolute -inset-x-12 -bottom-6 -top-4 z-20">
                 <Image src={imageSrc} alt={imageAlt} fill priority className="object-contain drop-shadow-[0_30px_42px_rgba(13,53,87,0.22)]" sizes="(min-width: 1024px) 42vw, 95vw" />
               </div>
             </>

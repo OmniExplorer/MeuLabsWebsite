@@ -1,3 +1,5 @@
+import { courseAliases, courseSpecificUpdates } from './courseContent';
+
 export type PathwayStage = 'Foundations' | 'Learning Path' | 'Specialisation' | 'Launch Pad';
 
 export interface Course {
@@ -31,7 +33,7 @@ const tbc = 'To be confirmed';
 export const courses: Course[] = [
   {
     slug: 'kx',
-    title: 'STEM for Kids: Project Mars',
+    title: 'STEM For Kids: Project Mars',
     internalName: 'Knowledge Explorers: Project Mars',
     subtitle: 'Build a Mars-themed STEM foundation through coding, robotics, design and creative problem solving.',
     keywords: ['Scratch', 'Arduino', 'TinkerCAD', 'Animation', '21st Century Skills'],
@@ -52,7 +54,7 @@ export const courses: Course[] = [
   },
   {
     slug: 'kx-superhero',
-    title: 'STEM for Kids: Super Hero',
+    title: 'STEM For Kids: Super Hero',
     internalName: 'Knowledge Explorers: Super Hero',
     subtitle: 'A foundation STEM adventure built around creative hero-themed challenges.',
     keywords: ['Scratch', 'Arduino', 'Design Thinking', 'Animation', 'Teamwork'],
@@ -73,7 +75,7 @@ export const courses: Course[] = [
   },
   {
     slug: 'kx-wild',
-    title: 'STEM for Kids: Into the Wild',
+    title: 'STEM For Kids: Into the Wild',
     internalName: 'Knowledge Explorers: Into the Wild',
     subtitle: 'A nature-inspired STEM pathway for young builders and problem solvers.',
     keywords: ['Scratch', 'Arduino', 'Sensors', '3D Design', 'Creative Thinking'],
@@ -94,7 +96,7 @@ export const courses: Course[] = [
   },
   {
     slug: 'kx-j',
-    title: 'STEM for Kids: Junior',
+    title: 'STEM For Kids: Junior',
     internalName: 'Knowledge Explorers Junior',
     subtitle: 'Early STEM discovery for younger learners.',
     keywords: ['STEM Basics', 'Creativity', 'Logic', 'Building', 'Teamwork'],
@@ -434,8 +436,12 @@ export const courses: Course[] = [
   }
 ];
 
-export const allCourses = courses;
+export const allCourses = courses.map((course) => ({
+  ...course,
+  ...courseSpecificUpdates[course.slug]
+}));
 
 export function getCourse(slug: string) {
-  return allCourses.find((course) => course.slug === slug);
+  const canonicalSlug = courseAliases[slug] ?? slug;
+  return allCourses.find((course) => course.slug === canonicalSlug);
 }
