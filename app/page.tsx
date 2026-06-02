@@ -282,8 +282,8 @@ export default function HomePage() {
                   <div className={`absolute -right-8 -top-10 h-32 w-32 rounded-full ${stage.cornerColor}`} />
                 </div>
                 <div className="relative mb-5 flex min-h-[56px] items-start gap-4">
-                  <div className={`grid h-11 w-11 shrink-0 place-items-center rounded-2xl ${stage.badge} text-xl font-extrabold text-white shadow-soft`}>
-                    {String(stageNumber).padStart(2, '0')}
+                  <div className={`grid h-11 shrink-0 place-items-center rounded-2xl px-3 ${stage.badge} text-sm font-extrabold text-white shadow-soft`}>
+                    Level {stageNumber}
                   </div>
                   <div>
                     <h3 className="break-words text-xl font-extrabold leading-tight text-navy">{stage.title}</h3>
