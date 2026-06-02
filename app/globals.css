@@ -252,7 +252,7 @@ h6 {
   top: 28%;
   z-index: 3;
   display: block;
-  width: 0.52em;
+  width: 0.40em;
   aspect-ratio: 90 / 100;
   transform: translate(-50%, -50%);
   pointer-events: none;
