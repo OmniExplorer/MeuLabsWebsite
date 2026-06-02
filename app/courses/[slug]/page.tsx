@@ -180,6 +180,12 @@ function splitPrerequisites(text: string) {
 
 function getOutcomeTitle(outcome: string) {
   const normalized = outcome.toLowerCase();
+  if (normalized.includes('rules') || normalized.includes('player choices') || normalized.includes('feedback loops')) return 'Game Design';
+  if (normalized.includes('playable') || normalized.includes('gameplay')) return 'Gameplay Programming';
+  if (normalized.includes('characters') || normalized.includes('environments') || normalized.includes('levels')) return 'Level & Character Design';
+  if (normalized.includes('physics') || normalized.includes('collision') || normalized.includes('scoring')) return 'Game Systems';
+  if (normalized.includes('playtesting') || normalized.includes('balancing')) return 'Playtesting & Iteration';
+  if (normalized.includes('capstone') || normalized.includes('playable demo')) return 'Capstone Project';
   if (normalized.includes('clean') || normalized.includes('maintainable')) return 'Clean Code';
   if (normalized.includes('frontend') || normalized.includes('responsive') || normalized.includes('interface')) return 'Frontend Development';
   if (normalized.includes('backend') || normalized.includes('database') || normalized.includes('api')) return 'Backend & Databases';
@@ -294,16 +300,16 @@ export default function CoursePage({ params }: PageProps) {
 
         <div className="mx-auto mt-16 grid max-w-[92rem] gap-6 lg:grid-cols-[1.15fr_0.95fr]">
           <Reveal animation="rise" className="h-full">
-          <article className="flex h-full flex-col rounded-[10px] border border-navy/10 bg-white p-8 shadow-[0_14px_34px_rgba(13,53,87,0.07)]">
+          <article className="flex h-full min-h-[790px] flex-col rounded-[10px] border border-navy/10 bg-white p-8 shadow-[0_14px_34px_rgba(13,53,87,0.07)]">
             <div className="border-l-4 border-orange pl-4">
               <h2 className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">What You Will Learn</h2>
             </div>
-            <div className="mt-10 flex flex-1 flex-col justify-between divide-y divide-navy/10 pt-4">
+            <div className="mt-10 divide-y divide-navy/10">
               {course.learningOutcomes.map((outcome, index) => {
                 const Icon = outcomeIcons[index % outcomeIcons.length];
                 const badgeClass = outcomeBadgeClasses[index % outcomeBadgeClasses.length];
                 return (
-                  <div key={outcome} className="grid gap-5 py-5 first:pt-0 sm:grid-cols-[64px_1fr]">
+                  <div key={outcome} className="grid gap-5 py-6 first:pt-0 sm:grid-cols-[64px_1fr]">
                     <span className={`grid h-14 w-14 place-items-center rounded-full text-white ${badgeClass}`}>
                       <Icon size={26} strokeWidth={2.1} aria-hidden />
                     </span>

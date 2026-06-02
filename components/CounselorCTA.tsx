@@ -14,16 +14,16 @@ export function CounselorCTA({ courseName, source = 'page', compact = false }: {
   if (compact) {
     return (
       <section className="mx-auto max-w-[92rem] overflow-hidden rounded-lg border border-orange/20 bg-white text-navy shadow-[0_14px_34px_rgba(13,53,87,0.08)]">
-        <div className="grid min-h-[168px] lg:grid-cols-[0.92fr_1.08fr]">
-          <div className="flex flex-col justify-center px-5 py-6 sm:px-8 lg:px-10">
-            <h2 className="text-2xl font-extrabold leading-tight md:text-3xl">Not sure where to start?</h2>
-            <p className="mt-2 max-w-2xl text-sm font-bold leading-6 text-slate-600">Talk to a Meu Labs student counselor and get help choosing the best course based on age, interests, and experience level.</p>
-            <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <div className="grid min-h-[260px] lg:grid-cols-[0.92fr_1.08fr]">
+          <div className="flex flex-col justify-center px-5 py-10 sm:px-8 sm:py-12 lg:px-12">
+            <h2 className="text-3xl font-extrabold leading-tight md:text-4xl">Not sure where to start?</h2>
+            <p className="mt-4 max-w-2xl text-base font-bold leading-7 text-slate-600">Talk to a Meu Labs student counselor and get help choosing the best course based on age, interests, and experience level.</p>
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
               <ButtonLink href={whatsappHref(message)} external onClick={() => trackEvent('whatsapp_click', { source })}>Talk to a Student Counselor</ButtonLink>
               <ButtonLink href="/courses" variant="secondary">Explore All Courses</ButtonLink>
             </div>
           </div>
-          <div className="relative hidden min-h-[168px] overflow-hidden lg:block">
+          <div className="relative hidden min-h-[260px] overflow-hidden lg:block">
             <Image src="/assets/images/why-instructors.jpg" alt="" fill className="object-cover object-right" sizes="54vw" />
             <div className="absolute inset-0 bg-gradient-to-r from-white/70 via-transparent to-transparent" />
           </div>

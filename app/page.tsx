@@ -35,7 +35,7 @@ const pathway = [
     body: 'Build strong foundational skills across coding, design, robotics, videography, communication, and leadership while developing essential 21st-century skills.',
     courses: [
       { name: 'STEM For Kids: Junior', icon: Rocket, href: '/courses/kx-j' },
-      { name: 'STEM For Kids: Project Mars', icon: Shield, href: '/courses/kx' }
+      { name: 'STEM For Kids', icon: Shield, href: '/courses/kx' }
     ],
     color: 'bg-gradient-to-br from-[#FF7A00] to-[#FFB347]',
     accent: 'from-orange/16 via-white to-white border-orange/60',
@@ -146,14 +146,48 @@ export default function HomePage() {
             <Reveal delay={100}>
               <h1 className="text-4xl font-normal leading-[1.08] md:text-6xl">
                 Sri Lanka&apos;s Best{' '}
-                <Image
-                  src="/assets/images/Removal-192.png"
-                  alt="Robotics"
-                  width={600}
-                  height={157}
-                  priority
-                  className="relative top-[3px] -ml-[7px] mr-1 inline-block h-[1.22em] w-auto align-[-0.07em] md:-ml-[15px] md:h-[1.28em]"
-                />
+                <span className="robotics-image-word">
+                  <Image
+                    src="/assets/images/ROBOTICSFONTDEMO.png"
+                    alt="Robotics"
+                    width={2017}
+                    height={528}
+                    priority
+                    className="robotics-word-image h-full w-auto"
+                  />
+                  <Image
+                    src="/assets/images/COG.png"
+                    alt=""
+                    width={212}
+                    height={214}
+                    className="robotics-cog-overlay robotics-cog-overlay-first"
+                    aria-hidden="true"
+                  />
+                  <Image
+                    src="/assets/images/COG.png"
+                    alt=""
+                    width={212}
+                    height={214}
+                    className="robotics-cog-overlay robotics-cog-overlay-second"
+                    aria-hidden="true"
+                  />
+                  <span className="robotics-bulb-overlay" aria-hidden="true">
+                    <Image
+                    src="/assets/images/LIGHTBULBOFF.png"
+                    alt=""
+                    width={90}
+                    height={100}
+                    className="robotics-bulb-frame robotics-bulb-frame-off"
+                  />
+                    <Image
+                      src="/assets/images/LIGHTBULBFULL.png"
+                      alt=""
+                      width={90}
+                      height={100}
+                      className="robotics-bulb-frame robotics-bulb-frame-full"
+                    />
+                  </span>
+                </span>
                 {' '}
                 <span className="coding-type" aria-label="Coding">
                   <span aria-hidden="true">Coding</span>

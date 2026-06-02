@@ -143,12 +143,18 @@ h6 {
 }
 
 .project-carousel-shell {
+  background: transparent;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 2.5%, #000 97.5%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 2.5%, #000 97.5%, transparent 100%);
   overflow: hidden;
   overscroll-behavior-x: contain;
 }
 
 .project-carousel-track {
   animation: projectCarousel 34s linear infinite;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
 }
 
 .specialisation-course-carousel {
@@ -176,7 +182,7 @@ h6 {
 
 .coding-type {
   position: relative;
-  top: 3px;
+  top: 10px;
   display: inline-block;
   width: 7.45ch;
   font-family: 'CS Gilbert Mono Demo', 'Liberation Mono', 'Courier New', monospace;
@@ -199,6 +205,79 @@ h6 {
   animation:
     codingType 2.8s steps(6, end) infinite,
     codingCursor 0.72s step-end infinite;
+}
+
+.robotics-image-word {
+  position: relative;
+  top: 13px;
+  display: inline-block;
+  height: 1.22em;
+  width: auto;
+  margin-left: -7px;
+  margin-right: 0.25rem;
+  vertical-align: -0.07em;
+}
+
+.robotics-word-image {
+  position: relative;
+  z-index: 1;
+}
+
+.robotics-cog-overlay {
+  position: absolute;
+  top: 52.0%;
+  z-index: 2;
+  display: block;
+  width: 0.24em;
+  height: auto;
+  transform: translate(-50%, -50%);
+  transform-origin: center;
+  filter: drop-shadow(0 0 0.035em rgba(5, 24, 44, 0.8)) drop-shadow(0 0.025em 0.035em rgba(5, 24, 44, 0.46));
+  pointer-events: none;
+}
+
+.robotics-cog-overlay-first {
+  left: 26.6%;
+  animation: roboticsCogSpinClockwise 1.8s linear infinite;
+}
+
+.robotics-cog-overlay-second {
+  left: 51.0%;
+  animation: roboticsCogSpinCounterClockwise 1.8s linear infinite;
+}
+
+.robotics-bulb-overlay {
+  position: absolute;
+  left: 68.9%;
+  top: 28%;
+  z-index: 3;
+  display: block;
+  width: 0.52em;
+  aspect-ratio: 90 / 100;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.robotics-bulb-frame {
+  position: absolute;
+  inset: 0;
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  opacity: 0;
+  animation: roboticsBulbOff 2.4s steps(1, end) infinite;
+}
+
+.robotics-bulb-frame-full {
+  animation-name: roboticsBulbFull;
+}
+
+@media (min-width: 768px) {
+  .robotics-image-word {
+    height: 1.28em;
+    margin-left: -15px;
+  }
 }
 
 .stem-tiles {
@@ -291,10 +370,10 @@ h6 {
 
 @keyframes projectCarousel {
   from {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   to {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
@@ -345,6 +424,58 @@ h6 {
   }
 }
 
+@keyframes roboticsCogSpinClockwise {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes roboticsCogSpinCounterClockwise {
+  to {
+    transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
+@keyframes roboticsBulbOff {
+  0%,
+  5%,
+  12%,
+  18%,
+  64%,
+  70%,
+  100% {
+    opacity: 1;
+  }
+  6%,
+  11%,
+  19%,
+  63%,
+  71%,
+  96% {
+    opacity: 0;
+  }
+}
+
+@keyframes roboticsBulbFull {
+  6%,
+  11%,
+  19%,
+  63%,
+  71%,
+  96% {
+    opacity: 1;
+  }
+  0%,
+  5%,
+  12%,
+  18%,
+  64%,
+  70%,
+  100% {
+    opacity: 0;
+  }
+}
+
 @keyframes stemGlow {
   0%,
   70%,
@@ -377,9 +508,15 @@ h6 {
   .project-carousel-track,
   .specialisation-course-track,
   .footer-map-pin,
+  .robotics-cog-overlay,
+  .robotics-bulb-frame,
   .stem-tile,
   .coding-type > span {
     animation: none;
+  }
+
+  .robotics-bulb-frame-full {
+    opacity: 1;
   }
 
   .coding-type > span {
