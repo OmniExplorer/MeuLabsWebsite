@@ -1,10 +1,12 @@
 import Image from 'next/image';
 import { Blocks, Bot, BrainCircuit, BriefcaseBusiness, Code2, Factory, GraduationCap, Landmark, Lightbulb, Megaphone, Orbit, Rocket, Route, Shield, Trees, Video } from 'lucide-react';
+import { AutoCarousel } from '@/components/AutoCarousel';
 import { ButtonLink } from '@/components/ButtonLink';
 import { CounselorCTA } from '@/components/CounselorCTA';
+import { CourseCard } from '@/components/CourseCard';
 import { Reveal } from '@/components/Reveal';
 import { WhyMeuLabs } from '@/components/WhyMeuLabs';
-import { courses } from '@/data/courses';
+import { allCourses } from '@/data/courses';
 import { projects } from '@/data/projects';
 
 const specialisationIconBySlug = {
@@ -19,7 +21,7 @@ const specialisationIconBySlug = {
   va: Video
 };
 
-const specialisationCourses = courses
+const specialisationCourses = allCourses
   .filter((course) => course.pathwayStage === 'Specialisation')
   .map((course) => ({
     name: course.title,
@@ -92,44 +94,10 @@ const pathway = [
 
 const projectCards = projects.slice(0, 10);
 
-const popularPrograms = [
-  {
-    title: 'STEM For Kids: Project Mars',
-    age: 'Age 8-12',
-    body: 'Fun, hands-on projects that build curiosity, creativity and confidence.',
-    href: '/courses/kx',
-    image: '/assets/images/hero-robotics.jpg',
-    color: 'bg-gradient-to-br from-[#FF7A00] to-[#FFB347]',
-    icon: Rocket
-  },
-  {
-    title: 'Coding and Software',
-    age: 'Age 12-16',
-    body: 'Turn data into insights and build real world analytical skills.',
-    href: '/courses/coding-software',
-    image: '/assets/images/project-dashboard.jpg',
-    color: 'bg-gradient-to-br from-[#31C3DE] to-[#7DE3F2]',
-    icon: Code2
-  },
-  {
-    title: 'Robotics and IoT',
-    age: 'Age 12-16',
-    body: 'Design thinking, 3D modeling and prototyping real world products.',
-    href: '/courses/robotics-iot',
-    image: '/assets/images/project-prototype.jpg',
-    color: 'bg-gradient-to-br from-[#31C3DE] to-[#7DE3F2]',
-    icon: Bot
-  },
-  {
-    title: 'Digital Media Production',
-    age: 'Age 10-16',
-    body: 'Storytelling through film, animation, photography and more.',
-    href: '/courses/digital-media',
-    image: '/assets/images/project-film.jpg',
-    color: 'bg-gradient-to-br from-[#31C3DE] to-[#7DE3F2]',
-    icon: Video
-  }
-];
+const popularProgramSlugs = ['kx', 'coding-software', 'robotics-iot', 'digital-media'];
+const popularPrograms = popularProgramSlugs
+  .map((slug) => allCourses.find((course) => course.slug === slug))
+  .filter((course): course is NonNullable<typeof course> => Boolean(course));
 
 export default function HomePage() {
   return (
@@ -148,12 +116,28 @@ export default function HomePage() {
                 Sri Lanka&apos;s Best{' '}
                 <span className="robotics-image-word">
                   <Image
-                    src="/assets/images/ROBOTICSFONTDEMO.png"
+                    src="/assets/images/RoboticsFont.png"
                     alt="Robotics"
-                    width={2017}
+                    width={2015}
                     height={528}
                     priority
                     className="robotics-word-image h-full w-auto"
+                  />
+                  <Image
+                    src="/assets/images/FirstO.png"
+                    alt=""
+                    width={234}
+                    height={236}
+                    className="robotics-cog-overlay robotics-first-o"
+                    aria-hidden="true"
+                  />
+                  <Image
+                    src="/assets/images/secondo .png"
+                    alt=""
+                    width={244}
+                    height={246}
+                    className="robotics-cog-overlay robotics-second-o"
+                    aria-hidden="true"
                   />
                   <Image
                     src="/assets/images/COG.png"
@@ -262,12 +246,12 @@ export default function HomePage() {
       <section className="bg-creamAlt px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="learning-pathway-title">
         <div className="mx-auto max-w-[92rem]">
           <Reveal>
-            <div className="mb-10 max-w-[58rem]">
+            <div className="mb-10 w-full">
               <div className="mb-6 border-l-4 border-orange pl-5">
                 <p className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">Learning Pathway</p>
               </div>
-              <h2 id="learning-pathway-title" className="text-balance text-[2.85rem] font-normal leading-[1.05] text-navy md:text-[4rem]">A long-term journey, built step by step</h2>
-              <p className="mt-5 max-w-5xl text-pretty text-lg font-extrabold leading-8 text-slate-600">From first steps to advanced skills, our courses help students discover what they love and build real-world capabilities.</p>
+              <h2 id="learning-pathway-title" className="text-[2.85rem] font-normal leading-[1.05] text-navy md:text-[4rem]">A long-term journey, built step by step</h2>
+              <p className="mt-5 w-full text-lg font-extrabold leading-8 text-slate-600">From first steps to advanced skills, our courses help students discover what they love and build real-world capabilities.</p>
             </div>
           </Reveal>
           <div className="grid gap-4 lg:grid-cols-4">
@@ -292,13 +276,17 @@ export default function HomePage() {
                 </div>
                 <p className="min-h-[118px] text-sm font-semibold leading-6 text-slate-700">{stage.body}</p>
                 <p className="mt-4 text-sm font-extrabold uppercase tracking-[0.18em] text-slate-600">{stage.title === 'Launch Pad' ? 'Pathways' : 'Courses'}</p>
-                <div className={isSpecialisations ? 'specialisation-course-carousel mt-3 max-h-[268px] overflow-hidden pr-1' : 'mt-3'}>
-                <ul className={`grid gap-2.5 ${isSpecialisations ? 'specialisation-course-track' : ''}`}>
-                  {displayedCourses.map((course, courseIndex) => {
+                {isSpecialisations ? (
+                  <AutoCarousel
+                    axis="y"
+                    ariaLabel="Specialisation courses"
+                    className="specialisation-course-carousel mt-3 max-h-[268px] pr-1"
+                    trackClassName="grid gap-2.5 pb-2.5"
+                  >
+                  {stage.courses.map((course) => {
                     const CourseIcon = course.icon;
                     return (
-                      <li key={`${course.name}-${courseIndex}`}>
-                        <a href={course.href} tabIndex={isSpecialisations && courseIndex >= stage.courses.length ? -1 : undefined} className={`grid min-h-[58px] grid-cols-[2.5rem_1fr] items-center gap-3 rounded-[14px] border border-navy/10 bg-white px-3.5 py-2.5 text-sm font-extrabold leading-5 text-navy transition duration-200 hover:-translate-y-1 hover:scale-[1.01] focus-visible:scale-[1.01] ${isSpecialisations ? '' : 'shadow-[0_12px_28px_rgba(13,53,87,0.05)] hover:shadow-pop'}`}>
+                      <a key={course.name} href={course.href} className="grid min-h-[58px] grid-cols-[2.5rem_1fr] items-center gap-3 rounded-[14px] border border-navy/10 bg-white px-3.5 py-2.5 text-sm font-extrabold leading-5 text-navy transition duration-200 hover:-translate-y-1 hover:scale-[1.01] focus-visible:scale-[1.01]">
                         <span className={`grid h-7 w-7 place-items-center self-center rounded-full ${stage.color} text-white transition duration-200`}>
                           <CourseIcon size={16} strokeWidth={2.5} aria-hidden />
                         </span>
@@ -306,12 +294,32 @@ export default function HomePage() {
                           {course.name}
                           {'badge' in course && course.badge && <span className="mt-1 block w-fit rounded-full bg-[#E8DDFF] px-2 py-0.5 text-[11px] font-extrabold text-[#6D45FF]">{course.badge}</span>}
                         </span>
-                        </a>
-                      </li>
+                      </a>
                     );
                   })}
-                </ul>
-                </div>
+                  </AutoCarousel>
+                ) : (
+                  <div className="mt-3">
+                    <ul className="grid gap-2.5">
+                      {displayedCourses.map((course) => {
+                        const CourseIcon = course.icon;
+                        return (
+                          <li key={course.name}>
+                            <a href={course.href} className="grid min-h-[58px] grid-cols-[2.5rem_1fr] items-center gap-3 rounded-[14px] border border-navy/10 bg-white px-3.5 py-2.5 text-sm font-extrabold leading-5 text-navy shadow-[0_12px_28px_rgba(13,53,87,0.05)] transition duration-200 hover:-translate-y-1 hover:scale-[1.01] hover:shadow-pop focus-visible:scale-[1.01]">
+                            <span className={`grid h-7 w-7 place-items-center self-center rounded-full ${stage.color} text-white transition duration-200`}>
+                              <CourseIcon size={16} strokeWidth={2.5} aria-hidden />
+                            </span>
+                            <span className="min-w-0 break-words">
+                              {course.name}
+                              {'badge' in course && course.badge && <span className="mt-1 block w-fit rounded-full bg-[#E8DDFF] px-2 py-0.5 text-[11px] font-extrabold text-[#6D45FF]">{course.badge}</span>}
+                            </span>
+                            </a>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                )}
               </article>
               </Reveal>
               );
@@ -325,12 +333,12 @@ export default function HomePage() {
         <div className="mx-auto max-w-[92rem]">
           <Reveal>
             <div className="mb-10 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-              <div className="max-w-[58rem]">
+              <div className="w-full">
                 <div className="mb-6 border-l-4 border-orange pl-5">
                   <p className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">Student Projects</p>
                 </div>
-                <h2 id="student-projects-title" className="text-balance text-[2.85rem] font-normal leading-[1.05] text-navy md:text-[4rem]">See what your child will build at Meu Labs.</h2>
-                <p className="mt-5 max-w-5xl text-pretty text-lg font-extrabold leading-8 text-slate-600">From Robots to WebApps from Media productions to AI agents. At Meu Labs students build literally anything</p>
+                <h2 id="student-projects-title" className="text-[2.85rem] font-normal leading-[1.05] text-navy md:text-[4rem]">See what your child will build at Meu Labs.</h2>
+                <p className="mt-5 w-full text-lg font-extrabold leading-8 text-slate-600">From Robots to WebApps from Media productions to AI agents. At Meu Labs students build literally anything</p>
               </div>
               <ButtonLink href="/projects" className="w-fit shrink-0 lg:mb-2">View Student Projects</ButtonLink>
             </div>
@@ -338,17 +346,11 @@ export default function HomePage() {
         </div>
         <div className="mx-auto mt-2 max-w-[92rem]">
           <Reveal animation="pop" delay={150}>
-          <div className="project-carousel-shell py-3" aria-label="Featured student projects">
-            <div className="project-carousel-track flex w-max gap-5 pr-5 sm:gap-6 sm:pr-6">
-              {[...projectCards, ...projectCards].map((project, index) => {
-                const isDuplicate = index >= projectCards.length;
-
-                return (
+          <AutoCarousel ariaLabel="Featured student projects" className="project-carousel-shell py-3" trackClassName="gap-5 pr-5 sm:gap-6 sm:pr-6">
+              {projectCards.map((project) => (
                 <a
-                  key={`${project.title}-${index}`}
+                  key={project.title}
                   href={project.link}
-                  aria-hidden={isDuplicate}
-                  tabIndex={isDuplicate ? -1 : undefined}
                   className="group grid h-[320px] w-[min(68vw,230px)] shrink-0 grid-rows-[124px_1fr] overflow-hidden rounded-[20px] border border-navy/10 bg-white transition duration-200 hover:-translate-y-1 sm:h-[335px] sm:w-[250px] sm:grid-rows-[136px_1fr]"
                 >
                   <div className="relative h-full min-h-0 overflow-hidden">
@@ -368,10 +370,8 @@ export default function HomePage() {
                     <p className="mt-2 line-clamp-3 self-start break-words text-xs font-extrabold leading-5 text-slate-600">{project.description}</p>
                   </div>
                 </a>
-                );
-              })}
-            </div>
-          </div>
+              ))}
+          </AutoCarousel>
           </Reveal>
         </div>
       </section>
@@ -379,36 +379,19 @@ export default function HomePage() {
       <section className="bg-white px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="popular-programmes-title">
         <div className="mx-auto max-w-[92rem]">
           <Reveal>
-            <div className="mb-10 max-w-[58rem]">
+            <div className="mb-10 w-full">
               <div className="mb-6 border-l-4 border-orange pl-5">
                 <p className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">Popular Programmes</p>
               </div>
-              <h2 id="popular-programmes-title" className="text-balance text-[2.85rem] font-normal leading-[1.05] text-navy md:text-[4rem]">Explore our most loved courses.</h2>
+              <h2 id="popular-programmes-title" className="text-[2.85rem] font-normal leading-[1.05] text-navy md:text-[4rem]">Explore our most loved courses.</h2>
             </div>
           </Reveal>
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {popularPrograms.map((program, index) => {
-              const Icon = program.icon;
-
-              return (
-                <Reveal key={program.title} animation="pop" delay={index * 90} className="h-full">
-                  <a href={program.href} className="group flex h-full min-h-[340px] flex-col overflow-hidden rounded-[14px] border border-navy/10 bg-white shadow-[0_18px_46px_rgba(13,53,87,0.10)] transition duration-200 hover:-translate-y-1 hover:shadow-pop">
-                    <div className="relative h-[130px] overflow-visible">
-                      <Image src={program.image} alt="" fill className="object-cover transition duration-300 group-hover:scale-105" sizes="(min-width: 1280px) 280px, (min-width: 768px) 45vw, 90vw" />
-                      <span className={`absolute -bottom-5 left-5 grid h-10 w-10 place-items-center rounded-full ${program.color} text-white shadow-soft`}>
-                        <Icon size={20} strokeWidth={2.4} aria-hidden />
-                      </span>
-                    </div>
-                    <div className="flex flex-1 flex-col p-4 pt-8">
-                      <h3 className="text-xl font-normal leading-tight text-navy">{program.title}</h3>
-                      <p className="mt-2 text-base font-extrabold text-slate-600">{program.age}</p>
-                      <p className="mt-4 text-base font-extrabold leading-7 text-slate-600">{program.body}</p>
-                      <span className="mt-auto pt-5 text-base font-extrabold text-[#FF4F1F]">View Course &gt;</span>
-                    </div>
-                  </a>
-                </Reveal>
-              );
-            })}
+            {popularPrograms.map((course, index) => (
+              <Reveal key={course.slug} animation="pop" delay={index * 90} className="h-full">
+                <CourseCard course={course} />
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
@@ -420,7 +403,7 @@ export default function HomePage() {
               <div className="mb-5 border-l-4 border-orange pl-5">
                 <p className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">Why Meu Labs</p>
               </div>
-              <h2 id="why-meu-labs-title" className="max-w-[72rem] text-balance text-[2.75rem] font-normal leading-[1.05] text-navy md:text-[3.6rem]">A Home for students who learn by <span className="block">doing.</span></h2>
+              <h2 id="why-meu-labs-title" className="w-full text-[2.75rem] font-normal leading-[1.05] text-navy md:text-[3.6rem]">A Home for students who learn by doing.</h2>
             </div>
           </Reveal>
           <Reveal animation="pop" delay={200}>

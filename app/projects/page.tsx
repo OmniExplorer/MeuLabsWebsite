@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { ArrowUpRight, Newspaper, Play } from 'lucide-react';
+import { AutoCarousel } from '@/components/AutoCarousel';
 import { ButtonLink } from '@/components/ButtonLink';
 import { CounselorCTA } from '@/components/CounselorCTA';
 import { PageHero } from '@/components/PageHero';
@@ -88,11 +89,11 @@ export default function ProjectsPage() {
         <div className="mx-auto max-w-[92rem]">
           <Reveal>
             <div className="mb-10 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-              <div className="max-w-[58rem]">
+              <div className="w-full">
                 <div className="mb-6 border-l-4 border-orange pl-5">
                   <p className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">In The News.</p>
                 </div>
-                <h2 id="projects-news-title" className="text-balance text-[2.85rem] font-normal leading-[1.05] text-navy md:text-[4rem]">Big ideas making waves beyond the classroom.</h2>
+                <h2 id="projects-news-title" className="text-[2.85rem] font-normal leading-[1.05] text-navy md:text-[4rem]">Big ideas making waves beyond the classroom.</h2>
               </div>
             </div>
           </Reveal>
@@ -133,13 +134,11 @@ export default function ProjectsPage() {
           </Reveal>
         </div>
         <Reveal animation="pop" delay={120}>
-          <div className="project-carousel-shell mx-auto max-w-[92rem] py-3" aria-label="Featured student project videos">
-            <div className="project-carousel-track flex w-max gap-5 pr-5 sm:gap-6 sm:pr-6">
-              {[...featuredVideoProjects, ...featuredVideoProjects].map((project, index) => (
-                <FeaturedProjectCard key={`${project.title}-${index}`} project={project} duplicate={index >= featuredVideoProjects.length} />
-              ))}
-            </div>
-          </div>
+          <AutoCarousel ariaLabel="Featured student project videos" className="project-carousel-shell mx-auto max-w-[92rem] py-3" trackClassName="gap-5 pr-5 sm:gap-6 sm:pr-6">
+            {featuredVideoProjects.map((project) => (
+              <FeaturedProjectCard key={project.title} project={project} />
+            ))}
+          </AutoCarousel>
         </Reveal>
       </section>
 
@@ -154,13 +153,16 @@ export default function ProjectsPage() {
         <div className="grid gap-5">
           {[firstGalleryRow, secondGalleryRow].map((row, rowIndex) => (
             <Reveal key={rowIndex} animation="pop" delay={rowIndex * 100}>
-              <div className="project-carousel-shell mx-auto max-w-[92rem] py-2" aria-label={rowIndex === 0 ? 'Student creations gallery row one' : 'Student creations gallery row two'}>
-                <div className="project-carousel-track flex w-max gap-5 pr-5 sm:gap-6 sm:pr-6" style={{ animationDuration: rowIndex === 0 ? '42s' : '48s', animationDirection: rowIndex === 0 ? 'normal' : 'reverse' }}>
-                  {[...row, ...row].map((project, index) => (
-                    <CreationCard key={`${project.title}-${index}`} project={project} duplicate={index >= row.length} />
-                  ))}
-                </div>
-              </div>
+              <AutoCarousel
+                ariaLabel={rowIndex === 0 ? 'Student creations gallery row one' : 'Student creations gallery row two'}
+                className="project-carousel-shell mx-auto max-w-[92rem] py-2"
+                trackClassName="gap-5 pr-5 sm:gap-6 sm:pr-6"
+                reverse={rowIndex !== 0}
+              >
+                {row.map((project) => (
+                  <CreationCard key={project.title} project={project} />
+                ))}
+              </AutoCarousel>
             </Reveal>
           ))}
         </div>

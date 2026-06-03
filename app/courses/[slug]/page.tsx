@@ -7,7 +7,6 @@ import {
   CalendarDays,
   CheckCircle2,
   Clock,
-  FileDown,
   FolderKanban,
   Lightbulb,
   MapPin,
@@ -50,6 +49,15 @@ const outcomeBadgeClasses = [
   'bg-gradient-to-br from-[#1995D3] to-[#31C3DE] shadow-[0_10px_22px_rgba(25,149,211,0.22)]',
   'bg-gradient-to-br from-[#F5B400] to-[#FFD166] shadow-[0_10px_22px_rgba(245,180,0,0.22)]',
   'bg-gradient-to-br from-[#FF4D8D] to-[#8B5CF6] shadow-[0_10px_22px_rgba(255,77,141,0.20)]'
+];
+
+const structureIcons = [BookOpenCheck, Users, CheckCircle2, PackageCheck, Rocket];
+const structureBadgeClasses = [
+  'bg-gradient-to-br from-[#1995D3] to-[#31C3DE] shadow-[0_10px_20px_rgba(25,149,211,0.2)]',
+  'bg-gradient-to-br from-[#00A86B] to-[#65D96C] shadow-[0_10px_20px_rgba(0,168,107,0.2)]',
+  'bg-gradient-to-br from-[#FF7A00] to-[#FFB020] shadow-[0_10px_20px_rgba(255,122,0,0.2)]',
+  'bg-gradient-to-br from-[#0D3557] to-[#1995D3] shadow-[0_10px_20px_rgba(13,53,87,0.2)]',
+  'bg-gradient-to-br from-[#7C3AED] to-[#C084FC] shadow-[0_10px_20px_rgba(124,58,237,0.18)]'
 ];
 
 const toolLogoMap: Record<string, string> = {
@@ -178,6 +186,13 @@ function splitPrerequisites(text: string) {
     .filter(Boolean);
 }
 
+function splitCourseStructure(text: string) {
+  return text
+    .split(/\. (?=[A-Z])/)
+    .map((item) => item.trim().replace(/\.$/, ''))
+    .filter(Boolean);
+}
+
 function getOutcomeTitle(outcome: string) {
   const normalized = outcome.toLowerCase();
   if (normalized.includes('rules') || normalized.includes('player choices') || normalized.includes('feedback loops')) return 'Game Design';
@@ -210,6 +225,7 @@ export default function CoursePage({ params }: PageProps) {
   const closingDays = daysToNextClosingDate();
   const heroPhoto = getHeroPhoto(course);
   const prerequisites = splitPrerequisites(course.prerequisites);
+  const courseStructure = splitCourseStructure(course.courseStructure);
   const primaryCtaLabel = course.comingSoon ? 'Join the Interest List' : 'Register Now';
 
   return (
@@ -372,6 +388,28 @@ export default function CoursePage({ params }: PageProps) {
           </div>
           </Reveal>
         </div>
+
+        <Reveal animation="rise" className="mx-auto mt-6 max-w-[92rem]">
+          <article className="rounded-[10px] border border-navy/10 bg-white p-7 shadow-[0_14px_34px_rgba(13,53,87,0.07)] md:p-8">
+            <div className="border-l-4 border-orange pl-4">
+              <h2 className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">Course Structure</h2>
+            </div>
+            <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+              {(courseStructure.length ? courseStructure : [course.courseStructure]).map((item, index) => {
+                const Icon = structureIcons[index % structureIcons.length];
+                const badgeClass = structureBadgeClasses[index % structureBadgeClasses.length];
+                return (
+                  <div key={item} className="flex min-h-[150px] gap-4 rounded-[8px] border border-navy/10 bg-creamAlt p-5 shadow-[0_10px_22px_rgba(13,53,87,0.05)]">
+                    <span className={`grid h-11 w-11 shrink-0 place-items-center rounded-full text-white ${badgeClass}`}>
+                      <Icon size={21} strokeWidth={2.1} aria-hidden />
+                    </span>
+                    <p className="text-sm font-bold leading-6 text-navy">{item}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </article>
+        </Reveal>
       </section>
 
       <section className="bg-white px-4 py-10 sm:px-6 lg:px-8">
@@ -396,14 +434,6 @@ export default function CoursePage({ params }: PageProps) {
                   </div>
                 </a>
               ))}
-            </div>
-            <div className="mt-6 grid gap-3 sm:grid-cols-2">
-              <a href="#request-syllabus" className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] px-5 text-sm font-extrabold text-white shadow-[0_12px_24px_rgba(255,93,25,0.2)] transition hover:-translate-y-0.5">
-                Download Full Syllabus <FileDown size={16} />
-              </a>
-              <a href="#request-syllabus" className="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full border border-navy/20 bg-creamAlt px-5 text-sm font-extrabold text-navy transition hover:-translate-y-0.5 hover:border-orange hover:text-orange">
-                Download One Pager <FileDown size={16} />
-              </a>
             </div>
           </article>
           </Reveal>

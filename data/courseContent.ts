@@ -53,10 +53,10 @@ const sharedAdvancedPrerequisites = 'Strong knowledge of Python programming is r
 
 export const courseSpecificUpdates: Record<string, Partial<Course>> = {
   kx: {
-    title: 'STEM For Kids: Project Mars',
+    title: 'STEM For Kids',
     internalName: 'Knowledge Explorers',
     subtitle: 'STEM For Kids',
-    descriptor: 'A hands-on foundation programme where students explore coding, design, electronics, storytelling, and teamwork through adventure-based projects. Themes include Project Mars, Super Hero, and Into the Wild.',
+    descriptor: 'A hands-on foundation programme where students explore coding, design, electronics, storytelling, and teamwork through adventure-based projects.',
     ageRange: '8 - 12',
     duration: '4 months',
     format: 'One 2-hour session per week',
@@ -353,6 +353,6 @@ export const courseSpecificUpdates: Record<string, Partial<Course>> = {
     exampleProjects: ['Play-dough character creation and storytelling activity', 'Cup-and-stick tower building challenge to test stability', 'ScratchJr animated story with characters, scenes, and dialogue', 'Nature-themed drama and role-play performance', 'Simple 3D object and city map designed in TinkerCAD', 'Little maker toy using simple craft materials, motors, and LEDs', 'Money adventure board game involving earning, spending, and saving'],
     location: 'In Person Only / Colombo 06',
     registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSf3x8e9BGxo9y2WOmqUMAhq1vnAJIHRIqyYEfIKdpn1E5rvxw/viewform?usp=dialog',
-    recommendedCourses: ['kx', 'kx-superhero', 'kx-wild']
+    recommendedCourses: ['kx', 'coding-software', 'robotics-iot']
   }
 };

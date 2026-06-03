@@ -5,19 +5,20 @@ import { allCourses } from '@/data/courses';
 import { CourseCard } from './CourseCard';
 
 const ageGroups = [
-  { label: '8 - 12', slugs: ['kx', 'kx-superhero', 'kx-wild', 'kx-j'] },
-  { label: '10-14', slugs: ['kx-j', 'coding-software', 'robotics-iot', 'digital-media'] },
+  { label: '6 - 8', slugs: ['kx-j'] },
+  { label: '8 - 12', slugs: ['kx'] },
+  { label: '10-14', slugs: ['coding-software', 'robotics-iot', 'digital-media'] },
   { label: '12-16', slugs: ['ds', 'se', 'cs', 'gd', 'mr', 'eee', 'es', 'dm', 'va'] },
   { label: '16+', slugs: ['ua', 'ig', 'fs'] }
 ];
 
 const interestGroups = [
-  { label: 'STEM', slugs: ['kx', 'kx-superhero', 'kx-wild', 'kx-j'] },
-  { label: 'Programming', slugs: ['kx-wild', 'coding-software', 'se'] },
+  { label: 'STEM', slugs: ['kx-j', 'kx'] },
+  { label: 'Programming', slugs: ['coding-software', 'se'] },
   { label: 'AI and Data', slugs: ['coding-software', 'ds', 'cs'] },
   { label: 'Robotics & IoT', slugs: ['kx', 'robotics-iot', 'mr', 'es'] },
   { label: 'Engineering', slugs: ['robotics-iot', 'eee', 'es', 'mr'] },
-  { label: 'Creative Media', slugs: ['kx-wild', 'digital-media', 'dm', 'va', 'gd'] },
+  { label: 'Creative Media', slugs: ['digital-media', 'dm', 'va', 'gd'] },
   { label: 'Business & Careers', slugs: ['robotics-iot', 'ua', 'ig', 'fs'] }
 ];
 

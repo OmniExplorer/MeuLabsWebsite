@@ -50,9 +50,10 @@ export function WhyMeuLabs({ intro }: WhyMeuLabsProps) {
   }, [active, paused]);
 
   return (
-    <div className="grid max-w-7xl gap-7 lg:grid-cols-[1fr_1.08fr] lg:items-start">
-      <div>
-        {intro && <p className="mb-9 max-w-3xl text-pretty text-lg font-bold leading-8 text-slate-600">{intro}</p>}
+    <div className="w-full">
+      {intro && <p className="mb-9 w-full text-lg font-bold leading-8 text-slate-600">{intro}</p>}
+      <div className="grid w-full gap-7 lg:grid-cols-[1fr_1.08fr] lg:items-start">
+      <div className="flex flex-col lg:h-[505px]">
         <div className="grid gap-3" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
           {reasons.map((reason, index) => (
             <button
@@ -69,13 +70,13 @@ export function WhyMeuLabs({ intro }: WhyMeuLabsProps) {
                 setPaused(true);
                 setActive(index);
               }}
-              className={`relative flex min-h-[52px] cursor-pointer items-center rounded-[14px] px-4 py-2.5 text-left transition duration-300 focus:outline-none focus:ring-4 focus:ring-orange/35 ${active === index ? 'bg-navy text-white shadow-[0_0_0_3px_rgba(255,122,0,0.95),0_18px_42px_rgba(255,79,31,0.18)]' : 'bg-white text-navy shadow-soft hover:-translate-y-1 hover:shadow-pop'}`}
+              className={`relative flex min-h-[68px] cursor-pointer items-center rounded-[14px] px-5 py-4 text-left transition duration-300 focus:outline-none focus:ring-4 focus:ring-orange/35 ${active === index ? 'bg-navy text-white shadow-[0_0_0_3px_rgba(255,122,0,0.95),0_18px_42px_rgba(255,79,31,0.18)]' : 'bg-white text-navy shadow-soft hover:-translate-y-1 hover:shadow-pop'}`}
             >
               <span className="min-w-0 break-words text-base font-extrabold">{reason.title}</span>
             </button>
           ))}
         </div>
-        <ButtonLink href="/about" className="mt-8 w-fit">Learn More</ButtonLink>
+        <ButtonLink href="/about" className="mt-8 w-fit lg:mt-auto">Learn More</ButtonLink>
       </div>
       <div className="relative aspect-[4/3] overflow-hidden rounded-[24px] shadow-pop lg:mt-0 lg:h-[505px] lg:aspect-auto" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
         {reasons.map((reason, index) => (
@@ -88,6 +89,7 @@ export function WhyMeuLabs({ intro }: WhyMeuLabsProps) {
             sizes="(min-width: 1024px) 50vw, 100vw"
           />
         ))}
+      </div>
       </div>
     </div>
   );

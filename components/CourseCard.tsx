@@ -14,10 +14,10 @@ const stageClasses: Record<PathwayStage, string> = {
 };
 
 const stageLevels: Record<PathwayStage, string> = {
-  Foundations: 'Level 01',
-  'Learning Path': 'Level 02',
-  Specialisation: 'Level 03',
-  'Launch Pad': 'Level 04'
+  Foundations: 'LEVEL 01 : Foundations',
+  'Learning Path': 'LEVEL 02 : Learning Path',
+  Specialisation: 'LEVEL 03 : Specialisations',
+  'Launch Pad': 'LEVEL 04 : Launch Pad'
 };
 
 const courseImages: Record<string, string> = {
@@ -63,7 +63,7 @@ export function CourseCard({ course }: { course: Course }) {
       </div>
       <div className="flex flex-1 flex-col p-3.5">
         <div className="mb-2 flex flex-wrap items-center gap-1.5">
-          <span className={`rounded-full px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-[0.08em] ${stageClasses[course.pathwayStage]}`}>{stageLevels[course.pathwayStage]}</span>
+          <span className={`whitespace-nowrap rounded-full px-2.5 py-1 text-[10px] font-extrabold tracking-[0.08em] ${stageClasses[course.pathwayStage]}`}>{stageLevels[course.pathwayStage]}</span>
           {course.comingSoon && <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[10px] font-extrabold text-slate-600">Coming Soon</span>}
         </div>
         <h3 className="line-clamp-2 min-h-[42px] text-lg font-extrabold leading-tight text-navy">{course.title}</h3>

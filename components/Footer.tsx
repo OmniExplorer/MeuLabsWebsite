@@ -5,7 +5,7 @@ import { siteConfig } from '@/data/siteConfig';
 
 const courseLinks = [
   { href: '/courses', label: 'All Courses' },
-  { href: '/courses/kx', label: 'STEM For Kids: Project Mars' },
+  { href: '/courses/kx', label: 'STEM For Kids' },
   { href: '/courses/coding-software', label: 'Coding and Software' },
   { href: '/courses/robotics-iot', label: 'Robotics and IoT' },
   { href: '/courses/digital-media', label: 'Digital Media Production' },
