@@ -42,14 +42,14 @@ export function CourseExplorer() {
       .filter((course): course is NonNullable<typeof course> => Boolean(course));
   }, [activeAge, activeInterest, courseMap]);
 
-  const pillClass = (active: boolean) => `whitespace-nowrap rounded-full px-3.5 py-2.5 text-xs font-extrabold transition duration-200 xl:px-[17px] xl:py-[11px] ${active ? 'bg-[linear-gradient(135deg,#FFD166_0%,#F4A261_100%)] text-navy shadow-soft' : 'bg-white/80 text-slate-600 shadow-[0_8px_18px_rgba(13,53,87,0.06)] hover:bg-white hover:text-navy'}`;
+  const pillClass = (active: boolean) => `whitespace-nowrap rounded-full px-3 py-2 text-xs font-extrabold transition duration-200 sm:px-3.5 sm:py-2.5 xl:px-[17px] xl:py-[11px] ${active ? 'bg-[linear-gradient(135deg,#FFD166_0%,#F4A261_100%)] text-navy shadow-soft' : 'bg-white/80 text-slate-600 shadow-[0_8px_18px_rgba(13,53,87,0.06)] hover:bg-white hover:text-navy'}`;
 
   return (
-    <div>
+    <div className="w-full min-w-0 overflow-hidden">
       <div className="mb-7">
-        <div className="flex w-full flex-wrap items-center gap-x-2.5 gap-y-2 xl:flex-nowrap xl:gap-x-3">
-          <div className="flex shrink-0 items-center gap-1.5 xl:gap-2">
-            <span className="mr-1 whitespace-nowrap text-[11px] font-extrabold uppercase text-slate-400">By Age</span>
+        <div className="flex w-full min-w-0 flex-col gap-3 xl:flex-row xl:items-start xl:gap-x-3">
+          <div className="flex w-full min-w-0 flex-wrap items-center gap-1.5 xl:w-auto xl:flex-nowrap xl:gap-2">
+            <span className="mr-1 w-full text-[11px] font-extrabold uppercase text-slate-400 sm:w-auto">By Age</span>
             {ageGroups.map((group) => group.label).map((tag) => (
               <button
                 key={tag}
@@ -68,9 +68,9 @@ export function CourseExplorer() {
               All Ages
             </button>
           </div>
-          <div className="mx-0.5 h-7 w-[2px] shrink-0 rounded-full bg-navy/30" />
-          <div className="flex flex-wrap items-center gap-1.5 xl:flex-nowrap xl:gap-2">
-            <span className="mr-1 whitespace-nowrap text-[11px] font-extrabold uppercase text-slate-400">By Interest</span>
+          <div className="mx-0.5 hidden h-7 w-[2px] shrink-0 rounded-full bg-navy/30 xl:block" />
+          <div className="flex w-full min-w-0 flex-wrap items-center gap-1.5 xl:flex-1 xl:flex-nowrap xl:gap-2">
+            <span className="mr-1 w-full text-[11px] font-extrabold uppercase text-slate-400 sm:w-auto">By Interest</span>
             {interestGroups.map((group) => group.label).map((tag) => (
               <button
                 key={tag}
