@@ -60,9 +60,15 @@ const supportCards = [
 
 export default function ContactPage() {
   return (
-    <main className="bg-[#FFFDFC] text-navy">
-      <section className="relative isolate overflow-hidden bg-[linear-gradient(100deg,#FFFDFC_0%,#FFFFFF_44%,#FFF2E7_100%)] px-4 sm:px-6 lg:px-8">
-        <div className="absolute inset-y-0 right-0 -z-20 hidden w-[58%] lg:block">
+    <main className="bg-[#F8F1E2] text-navy">
+      <section className="relative isolate overflow-hidden bg-[radial-gradient(circle_at_76%_18%,rgba(255,122,0,0.20),transparent_31%),radial-gradient(circle_at_22%_45%,rgba(255,122,0,0.16),transparent_28%),linear-gradient(120deg,#F8F1E2_0%,#FFF6EA_55%,#FFE7CE_100%)] px-4 sm:px-6 lg:px-8">
+        <div
+          className="absolute inset-y-0 right-0 -z-20 hidden w-[58%] lg:block"
+          style={{
+            WebkitMaskImage: 'linear-gradient(90deg, transparent 0%, transparent 14%, black 44%)',
+            maskImage: 'linear-gradient(90deg, transparent 0%, transparent 14%, black 44%)'
+          }}
+        >
           <Image
             src="/assets/images/why-instructors.jpg"
             alt=""
@@ -72,8 +78,6 @@ export default function ContactPage() {
             sizes="58vw"
           />
         </div>
-        <div className="absolute inset-0 -z-10 hidden bg-[linear-gradient(90deg,#FFFDFC_0%,#FFFDFC_42%,rgba(255,253,252,0.92)_50%,rgba(255,253,252,0.42)_66%,rgba(255,246,234,0.16)_100%)] lg:block" />
-        <div className="absolute inset-x-0 bottom-0 -z-10 h-28 bg-gradient-to-t from-[#FFFDFC] to-transparent" />
 
         <div className="mx-auto grid max-w-[92rem] gap-8 py-10 lg:min-h-[620px] lg:grid-cols-[0.84fr_1.16fr] lg:items-center lg:py-16">
           <div className="max-w-3xl">
@@ -114,8 +118,7 @@ export default function ContactPage() {
               className="object-cover object-center opacity-80 lg:hidden"
               sizes="100vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#FFFDFC] via-[#FFFDFC]/25 to-transparent lg:hidden" />
-            <Reveal animation="pop" delay={320} className="absolute bottom-5 right-5 w-[min(88%,22rem)] rounded-lg border border-white/80 bg-white/95 p-4 shadow-[0_18px_48px_rgba(13,53,87,0.16)] backdrop-blur lg:bottom-0 lg:-right-16 xl:-right-24">
+            <Reveal animation="pop" delay={320} className="absolute bottom-5 right-5 w-[min(88%,22rem)] rounded-lg border border-orange/15 bg-[#FFF8EF]/95 p-4 shadow-[0_18px_48px_rgba(13,53,87,0.16)] backdrop-blur lg:bottom-0 lg:-right-16 xl:-right-24">
               <ContactLine icon={MessageCircle} label="Chat on WhatsApp" value={contact.phoneDisplay} />
               <ContactLine icon={Phone} label="Call Us" value={contact.phoneDisplay} />
               <ContactLine icon={Clock3} label="Hours" value={contact.hours} />
@@ -137,7 +140,7 @@ export default function ContactPage() {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {supportCards.map(({ title, body, icon: Icon }, index) => (
               <Reveal key={title} animation="pop" delay={index * 90} className="h-full">
-                <article className="h-full rounded-lg border border-navy/10 bg-white p-5 shadow-[0_10px_30px_rgba(13,53,87,0.08)]">
+                <article className="h-full rounded-lg border border-orange/15 bg-[#FFF8EF] p-5 shadow-[0_10px_30px_rgba(13,53,87,0.08)]">
                   <span className="grid h-14 w-14 place-items-center rounded-xl bg-gradient-to-br from-[#FF7A00] to-[#FF4F1F] text-white shadow-soft">
                     <Icon size={25} strokeWidth={2.4} aria-hidden />
                   </span>
@@ -163,7 +166,7 @@ export default function ContactPage() {
           </Reveal>
 
           <Reveal animation="pop" delay={120}>
-            <article className="relative overflow-hidden rounded-[18px] border-2 border-orange/60 bg-[linear-gradient(120deg,#FFFFFF_0%,#FFF7EF_100%)] p-6 shadow-[0_18px_48px_rgba(13,53,87,0.10)] sm:p-8">
+            <article className="relative overflow-hidden rounded-[18px] border-2 border-orange/50 bg-[linear-gradient(120deg,#FFF8EF_0%,#FFE7CE_100%)] p-6 shadow-[0_18px_48px_rgba(13,53,87,0.10)] sm:p-8">
               <div className="relative grid gap-7 md:grid-cols-[1fr_auto] md:items-center">
                 <div>
                   <div className="flex flex-wrap items-center gap-3">

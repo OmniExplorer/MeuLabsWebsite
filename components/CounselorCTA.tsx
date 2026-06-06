@@ -23,7 +23,7 @@ export function CounselorCTA({
 
   if (compact) {
     return (
-      <section className="mx-auto max-w-[92rem] overflow-hidden rounded-lg border border-orange/20 bg-white text-navy shadow-[0_14px_34px_rgba(13,53,87,0.08)]">
+      <section className="mx-auto max-w-[92rem] overflow-hidden rounded-lg border border-orange/20 bg-[#FFF8EF] text-navy shadow-[0_14px_34px_rgba(13,53,87,0.08)]">
         <div className="grid min-h-[260px] lg:grid-cols-[0.92fr_1.08fr]">
           <div className="flex flex-col justify-center px-5 py-10 sm:px-8 sm:py-12 lg:px-12">
             <h2 className="text-3xl font-extrabold leading-tight md:text-4xl">Not sure where to start?</h2>
@@ -35,7 +35,7 @@ export function CounselorCTA({
           </div>
           <div className="relative hidden min-h-[260px] overflow-hidden lg:block">
             <Image src="/assets/images/why-instructors.jpg" alt="" fill className="object-cover object-right" sizes="54vw" />
-            <div className="absolute inset-0 bg-gradient-to-r from-white/70 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#FFF8EF]/75 via-transparent to-transparent" />
           </div>
         </div>
       </section>
@@ -61,7 +61,7 @@ export function CounselorCTA({
         </Reveal>
 
         <Reveal animation="pop" delay={200}>
-          <div className="rounded-[24px] bg-white/88 p-6 shadow-[0_22px_60px_rgba(13,53,87,0.12)] backdrop-blur">
+          <div className="rounded-[24px] bg-[#FFF8EF]/88 p-6 shadow-[0_22px_60px_rgba(13,53,87,0.12)] backdrop-blur">
             <h3 className="text-2xl font-normal text-navy">Student Counselor</h3>
             <p className="mt-4 text-lg font-extrabold text-slate-600">We&apos;re here to help!</p>
             <div className="mt-7 grid gap-5">

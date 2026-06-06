@@ -2,6 +2,17 @@ import { courseAliases, courseSpecificUpdates } from './courseContent';
 
 export type PathwayStage = 'Foundations' | 'Learning Path' | 'Specialisation' | 'Launch Pad';
 
+const pathwayStageLabels: Record<PathwayStage, string> = {
+  Foundations: 'Level 01: Foundations',
+  'Learning Path': 'Level 02: Learning Path',
+  Specialisation: 'Level 03: Specialisation',
+  'Launch Pad': 'Level 04: Launch Pad'
+};
+
+export function formatPathwayStage(stage: PathwayStage) {
+  return pathwayStageLabels[stage];
+}
+
 export interface Course {
   slug: string;
   title: string;

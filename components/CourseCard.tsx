@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, Clock, Users } from 'lucide-react';
-import type { Course, PathwayStage } from '@/data/courses';
+import { formatPathwayStage, type Course, type PathwayStage } from '@/data/courses';
 import { trackEvent } from '@/lib/analytics';
 
 const stageClasses: Record<PathwayStage, string> = {
@@ -11,13 +11,6 @@ const stageClasses: Record<PathwayStage, string> = {
   'Learning Path': 'bg-gradient-to-br from-[#31C3DE] to-[#7DE3F2] text-white',
   Specialisation: 'bg-gradient-to-br from-[#48D83E] to-[#8BE95E] text-white',
   'Launch Pad': 'bg-gradient-to-br from-[#8B5CF6] to-[#C084FC] text-white'
-};
-
-const stageLevels: Record<PathwayStage, string> = {
-  Foundations: 'LEVEL 01 : Foundations',
-  'Learning Path': 'LEVEL 02 : Learning Path',
-  Specialisation: 'LEVEL 03 : Specialisations',
-  'Launch Pad': 'LEVEL 04 : Launch Pad'
 };
 
 const courseImages: Record<string, string> = {
@@ -63,7 +56,7 @@ export function CourseCard({ course }: { course: Course }) {
       </div>
       <div className="flex flex-1 flex-col p-3.5">
         <div className="mb-2 flex flex-wrap items-center gap-1.5">
-          <span className={`whitespace-nowrap rounded-full px-2.5 py-1 text-[10px] font-extrabold tracking-[0.08em] ${stageClasses[course.pathwayStage]}`}>{stageLevels[course.pathwayStage]}</span>
+          <span className={`whitespace-nowrap rounded-full px-2.5 py-1 text-[10px] font-extrabold tracking-[0.08em] ${stageClasses[course.pathwayStage]}`}>{formatPathwayStage(course.pathwayStage)}</span>
           {course.comingSoon && <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[10px] font-extrabold text-slate-600">Coming Soon</span>}
         </div>
         <h3 className="line-clamp-2 min-h-[42px] text-lg font-extrabold leading-tight text-navy">{course.title}</h3>
@@ -94,7 +87,7 @@ export function CourseCard({ course }: { course: Course }) {
             <ArrowRight size={14} className="text-[#FF4F1F]" aria-hidden />
           </Link>
           {course.comingSoon ? (
-            <button className="min-h-[40px] cursor-not-allowed rounded-full bg-slate-100 px-4 py-2 text-[13px] font-extrabold text-slate-400" disabled>Register Now</button>
+            <button className="min-h-[40px] cursor-not-allowed rounded-full bg-slate-100 px-4 py-2 text-[13px] font-extrabold text-slate-400" disabled>Join Waitlist</button>
           ) : (
             <a
               href={course.registerLink}

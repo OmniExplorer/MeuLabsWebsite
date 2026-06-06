@@ -7,19 +7,31 @@ import {
   CalendarDays,
   CheckCircle2,
   Clock,
+  Cpu,
+  Database,
+  DraftingCompass,
+  Film,
   FolderKanban,
+  Gamepad2,
+  Handshake,
   Lightbulb,
   MapPin,
   MessageCircle,
   MonitorUp,
   PackageCheck,
   PenTool,
+  Presentation,
+  Printer,
   Rocket,
   ShieldCheck,
   Sparkles,
+  Scissors,
+  Target,
+  Trophy,
+  Wrench,
   Users
 } from 'lucide-react';
-import { allCourses, getCourse, type Course } from '@/data/courses';
+import { allCourses, formatPathwayStage, getCourse, type Course } from '@/data/courses';
 import { courseAliases } from '@/data/courseContent';
 import { intakes } from '@/data/intakes';
 import { CourseCard } from '@/components/CourseCard';
@@ -40,7 +52,29 @@ const projectImages = [
   '/assets/images/project-prototype.jpg'
 ];
 
-const focusIcons = [MonitorUp, Bot, PenTool, Sparkles, Lightbulb, Rocket];
+const focusIcons = [Wrench, Gamepad2, DraftingCompass, Film, Handshake, Database, ShieldCheck, Cpu, Target, Trophy, Presentation, Rocket];
+const focusCardClasses = [
+  {
+    card: 'border-orange/25 bg-[linear-gradient(145deg,#FFF8EF_0%,#FFE7CE_100%)]',
+    icon: 'bg-gradient-to-br from-[#FF7A00] to-[#FF4F1F] shadow-[0_12px_24px_rgba(255,122,0,0.24)]'
+  },
+  {
+    card: 'border-sky/25 bg-[linear-gradient(145deg,#F0FCFF_0%,#DDF8FF_100%)]',
+    icon: 'bg-gradient-to-br from-[#1995D3] to-[#31C3DE] shadow-[0_12px_24px_rgba(25,149,211,0.22)]'
+  },
+  {
+    card: 'border-purple-300/40 bg-[linear-gradient(145deg,#F8F3FF_0%,#EFE1FF_100%)]',
+    icon: 'bg-gradient-to-br from-[#7C3AED] to-[#C084FC] shadow-[0_12px_24px_rgba(124,58,237,0.22)]'
+  },
+  {
+    card: 'border-emerald-300/40 bg-[linear-gradient(145deg,#F2FFF6_0%,#DDFBE4_100%)]',
+    icon: 'bg-gradient-to-br from-[#00A86B] to-[#65D96C] shadow-[0_12px_24px_rgba(0,168,107,0.22)]'
+  },
+  {
+    card: 'border-yellow-300/50 bg-[linear-gradient(145deg,#FFFBEA_0%,#FFEFB8_100%)]',
+    icon: 'bg-gradient-to-br from-[#F5B400] to-[#FFD166] shadow-[0_12px_24px_rgba(245,180,0,0.22)]'
+  }
+];
 const outcomeIcons = [BookOpenCheck, Bot, FolderKanban, PenTool, MonitorUp, PackageCheck];
 const outcomeBadgeClasses = [
   'bg-gradient-to-br from-[#7C3AED] to-[#C084FC] shadow-[0_10px_22px_rgba(124,58,237,0.24)]',
@@ -70,6 +104,8 @@ const toolLogoMap: Record<string, string> = {
   bandlab: '/assets/logos/tools/bandlab.svg',
   blender: '/assets/logos/tools/blender.svg',
   canva: '/assets/logos/tools/canva.svg',
+  capcut: '/assets/logos/tools/capcut.svg',
+  cyberchef: '/assets/logos/tools/cyberchef.png',
   'c#': '/assets/logos/tools/csharp.svg',
   chatgpt: '/assets/logos/tools/chatgpt.svg',
   clipchamp: '/assets/logos/tools/clipchamp.svg',
@@ -80,7 +116,7 @@ const toolLogoMap: Record<string, string> = {
   figma: '/assets/logos/tools/figma.svg',
   firebase: '/assets/logos/tools/firebase.svg',
   flask: '/assets/logos/tools/flask.svg',
-  'fusion 360': '/assets/logos/tools/autodesk.svg',
+  'fusion 360': '/assets/logos/Fusion-360-Logo-removebg-preview.png',
   github: '/assets/logos/tools/github.svg',
   git: '/assets/logos/tools/github.svg',
   godot: '/assets/logos/tools/godot.svg',
@@ -88,6 +124,7 @@ const toolLogoMap: Record<string, string> = {
   'google colab': '/assets/logos/tools/googlecolab.svg',
   'google trends': '/assets/logos/tools/google.svg',
   'google workspace': '/assets/logos/tools/googleworkspace.svg',
+  'browser developer tools': '/assets/logos/tools/browser-devtools.svg',
   html: '/assets/logos/tools/html5.svg',
   javascript: '/assets/logos/tools/javascript.svg',
   jupyter: '/assets/logos/tools/jupyter.svg',
@@ -95,13 +132,22 @@ const toolLogoMap: Record<string, string> = {
   krita: '/assets/logos/tools/krita.svg',
   linux: '/assets/logos/tools/linux.svg',
   mailchimp: '/assets/logos/tools/mailchimp.svg',
+  magicbit: '/assets/logos/magicbit.png',
   'meta business': '/assets/logos/tools/meta.svg',
   'ml for kids': '/assets/logos/tools/mlforkids.svg',
   'our world in data': '/assets/logos/tools/ourworldindata.svg',
   platformio: '/assets/logos/tools/platformio.svg',
+  pencil2d: '/assets/logos/tools/pencil2d.png',
+  mqtt: '/assets/logos/tools/mqtt.png',
+  'packet tracer': '/assets/logos/tools/packet-tracer.svg',
+  'network simulation': '/assets/logos/tools/packet-tracer.svg',
   postman: '/assets/logos/tools/postman.svg',
   'power bi': '/assets/logos/tools/powerbi.svg',
+  scratchjr: '/assets/logos/ScratchJr__logo.png',
   scratch: '/assets/logos/tools/scratch.svg',
+  'safe cyber lab': '/assets/logos/tools/safe-cyber-lab.svg',
+  'cyber lab': '/assets/logos/tools/safe-cyber-lab.svg',
+  'play-dough': '/assets/logos/Play_doh_craftbrand_logo.svg.png',
   python: '/assets/logos/tools/python.svg',
   nodered: '/assets/logos/tools/nodered.svg',
   raspberry: '/assets/logos/tools/raspberrypi.svg',
@@ -131,6 +177,30 @@ const courseHeroPhotos: Record<string, string> = {
   mr: '/assets/images/project-electronics-lab.jpg'
 };
 
+const toolVisualMap: Record<string, string> = {
+  tablet: '/assets/logos/LAPTOPSTABLETS.png',
+  laptop: '/assets/logos/LAPTOPSTABLETS.png',
+  'craft material': '/assets/logos/ARTSCRAFT.png',
+  'maker kit': '/assets/logos/MAKERKITS.png',
+  motor: '/assets/logos/MOTORS.png',
+  led: '/assets/logos/LIGHTBULB.png',
+  'board game': '/assets/logos/BOARDGAMERS.jpg',
+  '3d printer': '/assets/logos/3dprinter.png',
+  'cnc': '/assets/logos/cnc.png',
+  'laser cutter': '/assets/logos/lasercutting.png',
+  'liquid etching': '/assets/logos/lasercutting.png',
+  camera: '/assets/images/project-film.jpg',
+  mobile: '/assets/images/project-video.jpg',
+  'hand tool': '/assets/logos/habdtools.png',
+  'power tool': '/assets/logos/habdtools.png',
+  esp32: '/assets/logos/tools/esp32.png',
+  stm32: '/assets/logos/tools/stm32.png',
+  'cubeide': '/assets/logos/tools/stm32.png',
+  'edge impulse': '/assets/logos/tools/edge-impulse.png',
+  'logic analyzer': '/assets/logos/tools/logic-analyzer.png',
+  oscilloscope: '/assets/logos/tools/oscilloscope.png'
+};
+
 export function generateStaticParams() {
   return [...allCourses.map((course) => ({ slug: course.slug })), ...Object.keys(courseAliases).map((slug) => ({ slug }))];
 }
@@ -158,6 +228,26 @@ function formatCourseFormat(format: string) {
 function getToolLogo(tool: string) {
   const normalized = tool.toLowerCase();
   return Object.entries(toolLogoMap).find(([key]) => matchesToolLogoKey(normalized, key))?.[1];
+}
+
+function getToolVisual(tool: string) {
+  const normalized = tool.toLowerCase();
+  return Object.entries(toolVisualMap).find(([key]) => normalized.includes(key))?.[1];
+}
+
+function getToolIcon(tool: string) {
+  const normalized = tool.toLowerCase();
+  if (normalized.includes('microcontroller') || normalized.includes('wireless')) return Cpu;
+  if (normalized.includes('network')) return FolderKanban;
+  if (normalized.includes('led') || normalized.includes('light')) return Lightbulb;
+  if (normalized.includes('3d printer')) return Printer;
+  if (normalized.includes('cnc')) return DraftingCompass;
+  if (normalized.includes('laser')) return Scissors;
+  if (normalized.includes('etch')) return Cpu;
+  if (normalized.includes('circuit') || normalized.includes('electronics') || normalized.includes('sensor')) return Cpu;
+  if (normalized.includes('camera') || normalized.includes('mobile')) return Film;
+  if (normalized.includes('hand') || normalized.includes('power tool')) return Wrench;
+  return PackageCheck;
 }
 
 function matchesToolLogoKey(normalizedTool: string, key: string) {
@@ -193,6 +283,41 @@ function splitCourseStructure(text: string) {
     .filter(Boolean);
 }
 
+function getLocationPills(location: string) {
+  const parts = location.split('/').map((item) => item.trim()).filter(Boolean);
+  const hasColombo = parts.includes('Colombo 06');
+  const inPerson = parts.find((item) => item === 'In Person' || item === 'In Person Only');
+  const pills = parts.filter((item) => item !== 'Colombo 06' && item !== inPerson);
+
+  if (inPerson && hasColombo) {
+    pills.push(`${inPerson} • Colombo 06`);
+  } else {
+    if (inPerson) pills.push(inPerson);
+    if (hasColombo) pills.push('Colombo 06');
+  }
+
+  return pills;
+}
+
+function getFocusIcon(area: string, index: number) {
+  const normalized = area.toLowerCase();
+  if (normalized.includes('creative play')) return Sparkles;
+  if (normalized.includes('computer literacy') || normalized.includes('digital confidence')) return MonitorUp;
+  if (normalized.includes('team') || normalized.includes('communication') || normalized.includes('presentation') || normalized.includes('public speaking') || normalized.includes('decision')) return Handshake;
+  if (normalized.includes('hands-on') || normalized.includes('motor') || normalized.includes('led') || normalized.includes('fabrication') || normalized.includes('manufacturing')) return Wrench;
+  if (normalized.includes('scratchjr') || normalized.includes('scratch')) return Bot;
+  if (normalized.includes('coding') || normalized.includes('programming') || normalized.includes('game')) return Gamepad2;
+  if (normalized.includes('3d') || normalized.includes('cad') || normalized.includes('design') || normalized.includes('product') || normalized.includes('prototype')) return DraftingCompass;
+  if (normalized.includes('story') || normalized.includes('media') || normalized.includes('video') || normalized.includes('film') || normalized.includes('animation') || normalized.includes('photography')) return Film;
+  if (normalized.includes('data') || normalized.includes('dashboard') || normalized.includes('analytics') || normalized.includes('sql')) return Database;
+  if (normalized.includes('security') || normalized.includes('cyber') || normalized.includes('safety')) return ShieldCheck;
+  if (normalized.includes('circuit') || normalized.includes('sensor') || normalized.includes('iot') || normalized.includes('embedded') || normalized.includes('wireless')) return Cpu;
+  if (normalized.includes('strategy') || normalized.includes('marketing') || normalized.includes('campaign') || normalized.includes('brand')) return Target;
+  if (normalized.includes('portfolio') || normalized.includes('application') || normalized.includes('interview')) return Presentation;
+  if (normalized.includes('industry') || normalized.includes('professional') || normalized.includes('venture') || normalized.includes('pitch')) return Trophy;
+  return focusIcons[index % focusIcons.length];
+}
+
 function getOutcomeTitle(outcome: string) {
   const normalized = outcome.toLowerCase();
   if (normalized.includes('rules') || normalized.includes('player choices') || normalized.includes('feedback loops')) return 'Game Design';
@@ -226,7 +351,7 @@ export default function CoursePage({ params }: PageProps) {
   const heroPhoto = getHeroPhoto(course);
   const prerequisites = splitPrerequisites(course.prerequisites);
   const courseStructure = splitCourseStructure(course.courseStructure);
-  const primaryCtaLabel = course.comingSoon ? 'Join the Interest List' : 'Register Now';
+  const primaryCtaLabel = course.comingSoon ? 'Join Waitlist' : 'Register Now';
 
   return (
     <main className="bg-[#F8F1E3]">
@@ -267,7 +392,7 @@ export default function CoursePage({ params }: PageProps) {
                     { label: 'Age', value: course.ageRange, Icon: Users },
                     { label: 'Duration', value: course.duration, Icon: Clock },
                     { label: 'Format', value: formatCourseFormat(course.format), Icon: CalendarDays },
-                    { label: 'Pathway Stage', value: course.pathwayStage, Icon: ShieldCheck }
+                    { label: 'Pathway Stage', value: formatPathwayStage(course.pathwayStage), Icon: ShieldCheck }
                   ].map(({ label, value, Icon }) => (
                     <div key={label} className="flex min-w-fit items-center gap-2.5">
                       <Icon size={19} className="shrink-0 text-orange" aria-hidden />
@@ -299,14 +424,18 @@ export default function CoursePage({ params }: PageProps) {
           <Reveal className="mb-7 border-l-4 border-orange pl-5">
             <p className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">What you will explore</p>
           </Reveal>
-          <div className="grid gap-4 md:grid-cols-3 xl:grid-cols-5">
+          <div className={`grid gap-4 md:grid-cols-3 ${course.focusAreas.length > 5 ? 'xl:grid-cols-6' : 'xl:grid-cols-5'}`}>
             {course.focusAreas.map((area, index) => {
-              const Icon = focusIcons[index % focusIcons.length];
+              const Icon = getFocusIcon(area, index);
+              const colors = focusCardClasses[index % focusCardClasses.length];
+              const compactFocusCard = course.focusAreas.length > 5;
               return (
                 <Reveal key={area} animation="pop" delay={index * 70} className="h-full">
-                  <article className="flex min-h-[210px] flex-col items-center justify-center rounded-[8px] border border-orange/20 bg-white p-7 text-center shadow-[0_14px_30px_rgba(13,53,87,0.07)]">
-                    <Icon size={48} strokeWidth={1.8} className="mb-5 text-navy" aria-hidden />
-                    <h3 className="text-lg font-extrabold leading-tight text-navy">{area}</h3>
+                  <article className={`flex flex-col items-center justify-center rounded-[8px] border text-center shadow-[0_14px_30px_rgba(13,53,87,0.07)] ${compactFocusCard ? 'min-h-[176px] p-5' : 'min-h-[210px] p-7'} ${colors.card}`}>
+                    <span className={`grid place-items-center rounded-2xl text-white ${compactFocusCard ? 'mb-4 h-14 w-14' : 'mb-5 h-16 w-16'} ${colors.icon}`}>
+                      <Icon size={compactFocusCard ? 30 : 34} strokeWidth={2} aria-hidden />
+                    </span>
+                    <h3 className={`${compactFocusCard ? 'text-base' : 'text-lg'} font-extrabold leading-tight text-navy`}>{area}</h3>
                   </article>
                 </Reveal>
               );
@@ -349,19 +478,34 @@ export default function CoursePage({ params }: PageProps) {
               <div className="mt-8 grid flex-1 grid-cols-2 gap-3 sm:grid-cols-3">
                 {course.toolsUsed.map((tool) => {
                   const logo = getToolLogo(tool);
+                  const visual = getToolVisual(tool);
+                  const ToolIcon = getToolIcon(tool);
                   const wideLogo = isWideToolLogo(tool);
                   return (
-                    <div key={tool} className="grid min-h-[145px] place-items-center rounded-[8px] border border-navy/10 bg-white p-4 text-center shadow-[0_8px_18px_rgba(13,53,87,0.04)]">
+                    <div
+                      key={tool}
+                      className="grid min-h-[145px] place-items-center overflow-hidden rounded-[8px] border border-navy/10 bg-white p-4 text-center shadow-[0_8px_18px_rgba(13,53,87,0.04)]"
+                    >
                       {logo ? (
                         <Image
                           src={logo}
                           alt=""
-                          width={wideLogo ? 132 : 64}
-                          height={wideLogo ? 42 : 64}
-                          className={`${wideLogo ? 'mb-4 h-10 w-32' : 'mb-3 h-16 w-16'} object-contain`}
+                          width={wideLogo ? 132 : 112}
+                          height={wideLogo ? 42 : 72}
+                          className={`${wideLogo ? 'mb-4 h-10 w-32' : 'mb-3 max-h-20 w-28'} object-contain`}
+                        />
+                      ) : visual ? (
+                        <Image
+                          src={visual}
+                          alt=""
+                          width={132}
+                          height={84}
+                          className="mb-3 h-20 w-32 object-contain"
                         />
                       ) : (
-                        <span className="mb-3 grid h-16 w-16 place-items-center rounded-full bg-orange/12 text-sm font-extrabold text-orange">{tool.slice(0, 2).toUpperCase()}</span>
+                        <span className="mb-3 grid h-16 w-16 place-items-center rounded-2xl bg-gradient-to-br from-[#FF7A00] to-[#FF4F1F] text-white shadow-[0_12px_24px_rgba(255,122,0,0.22)]">
+                          <ToolIcon size={34} strokeWidth={2} aria-hidden />
+                        </span>
                       )}
                       <span className="text-xs font-extrabold leading-tight text-navy">{tool}</span>
                     </div>
@@ -474,11 +618,11 @@ export default function CoursePage({ params }: PageProps) {
               </div>
             )}
             <div className="mt-6 flex flex-wrap gap-3">
-              {course.location.split('/').map((location) => (
-                <span key={location} className="inline-flex items-center gap-2 rounded-full bg-creamAlt px-4 py-2 text-sm font-extrabold text-navy">
-                  <MapPin size={16} className="text-orange" /> {location.trim()}
-                </span>
-              ))}
+                {getLocationPills(course.location).map((location) => (
+                  <span key={location} className="inline-flex items-center gap-2 rounded-full bg-creamAlt px-4 py-2 text-sm font-extrabold text-navy">
+                    <MapPin size={16} className="text-orange" /> {location}
+                  </span>
+                ))}
             </div>
           </article>
           </Reveal>
@@ -486,7 +630,7 @@ export default function CoursePage({ params }: PageProps) {
           <Reveal animation="rise" delay={100} className="h-full">
           <article className="flex h-full flex-col justify-center rounded-[10px] bg-gradient-to-br from-[#EEF7FF] to-white p-8 shadow-[0_10px_24px_rgba(13,53,87,0.05)]">
             <div className="border-l-4 border-orange pl-4">
-              <h3 className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-lg font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-xl">Limited Seats. Big Impact.</h3>
+              <h3 className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-lg font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-xl">LIMITED SEATS, ENROLL NOW!</h3>
             </div>
             <p className="mt-3 text-sm font-semibold leading-6 text-slate-700">Our small batch sizes ensure personalised attention and the best learning experience for every student.</p>
             <a href={course.registerLink} target="_blank" rel="noreferrer" className="mt-6 inline-flex w-fit min-h-[48px] items-center justify-center rounded-full bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] px-7 text-sm font-extrabold text-white shadow-[0_12px_24px_rgba(255,93,25,0.22)] transition hover:-translate-y-0.5">

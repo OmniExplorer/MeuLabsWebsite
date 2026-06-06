@@ -9,10 +9,67 @@ type PageHeroProps = {
   imageSrc: string;
   imageAlt?: string;
   imageMode?: 'photo' | 'object';
+  imageStyle?: 'framed' | 'contact';
   children?: ReactNode;
 };
 
-export function PageHero({ eyebrow, title, subtitle, imageSrc, imageAlt = '', imageMode = 'photo', children }: PageHeroProps) {
+export function PageHero({ eyebrow, title, subtitle, imageSrc, imageAlt = '', imageMode = 'photo', imageStyle = 'framed', children }: PageHeroProps) {
+  if (imageStyle === 'contact') {
+    return (
+      <section className="relative isolate overflow-hidden bg-[#F8F1E2] px-4 text-navy sm:px-6 lg:px-8">
+        <div className="absolute inset-0 -z-30 bg-[radial-gradient(circle_at_76%_18%,rgba(255,122,0,0.20),transparent_31%),radial-gradient(circle_at_22%_45%,rgba(255,122,0,0.16),transparent_28%),linear-gradient(120deg,#F8F1E2_0%,#FFF6EA_55%,#FFE7CE_100%)]" />
+        <div
+          className="absolute inset-y-0 right-0 -z-20 hidden w-[58%] lg:block"
+          style={{
+            WebkitMaskImage: 'linear-gradient(90deg, transparent 0%, transparent 14%, black 44%)',
+            maskImage: 'linear-gradient(90deg, transparent 0%, transparent 14%, black 44%)'
+          }}
+        >
+          <Image
+            src={imageSrc}
+            alt=""
+            fill
+            priority
+            className="object-cover object-center"
+            sizes="58vw"
+          />
+        </div>
+
+        <div className="mx-auto grid max-w-[92rem] items-center gap-10 py-12 lg:min-h-[620px] lg:grid-cols-[0.82fr_1.18fr] lg:py-16">
+          <div className="max-w-3xl">
+            <Reveal>
+              <div className="mb-8 max-w-3xl border-l-4 border-orange pl-5">
+                <p className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">{eyebrow}</p>
+              </div>
+            </Reveal>
+            <Reveal delay={100}>
+              <h1 className="max-w-4xl text-4xl font-normal leading-[1.08] md:text-6xl">{title}</h1>
+            </Reveal>
+            {subtitle && (
+              <Reveal delay={200}>
+                <p className="mt-6 max-w-3xl text-xl leading-9 text-slate-700">{subtitle}</p>
+              </Reveal>
+            )}
+            {children && (
+              <Reveal animation="pop" delay={300} className="mt-8 flex flex-col gap-3 sm:flex-row">
+                {children}
+              </Reveal>
+            )}
+          </div>
+
+          <div className="relative min-h-[310px] overflow-hidden rounded-lg bg-[#FFF6EA]/70 lg:min-h-[500px] lg:overflow-visible lg:rounded-none lg:bg-transparent">
+            <Image src={imageSrc} alt={imageAlt} fill priority className="object-cover object-center lg:hidden" sizes="100vw" />
+            <div className="absolute right-2 top-2 hidden grid-cols-5 gap-1.5 lg:grid" aria-hidden="true">
+              {Array.from({ length: 25 }).map((_, index) => (
+                <span key={index} className="dot-ripple h-1.5 w-1.5 rounded-full bg-orange" style={{ animationDelay: `${(index % 5) * 120 + Math.floor(index / 5) * 18}ms` }} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="relative min-h-[760px] overflow-hidden bg-creamAlt px-4 text-navy sm:px-6 lg:px-8">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_24%_42%,rgba(255,122,0,0.26),transparent_32%),radial-gradient(circle_at_82%_22%,rgba(255,79,31,0.12),transparent_30%),linear-gradient(120deg,#F8F1E2_0%,#FFF6EA_58%,rgba(255,122,0,0.12)_100%)]" />

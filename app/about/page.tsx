@@ -4,7 +4,7 @@ import type { LucideIcon } from 'lucide-react';
 import { Brain, Building2, CheckCircle2, HeartHandshake, ShieldCheck, Sparkles, UsersRound } from 'lucide-react';
 import { ButtonLink } from '@/components/ButtonLink';
 import { CounselorCTA } from '@/components/CounselorCTA';
-import { LogoScroller } from '@/components/LogoScroller';
+import { LogoScroller, type LogoScrollerItem } from '@/components/LogoScroller';
 import { PageHero } from '@/components/PageHero';
 import { Reveal } from '@/components/Reveal';
 import { SectionHeader } from '@/components/SectionHeader';
@@ -68,8 +68,8 @@ const credibility = [
 const accreditationLogos = [
   { type: 'image', src: '/assets/logos/STEM-1.webp', label: 'STEM.org', meta: 'Accredited' },
   { type: 'image', src: '/assets/logos/icta.png', label: 'ICTA', meta: 'Supported by' },
-  { type: 'text', label: 'hatch.', meta: 'Incubated' },
-  { type: 'text', label: 'krya', meta: 'National Partner', color: 'text-[#2B45D9]' },
+  { type: 'image', src: '/assets/logos/hatch-logo.png', label: 'Hatch', meta: 'Incubated' },
+  { type: 'image', src: '/assets/logos/krya.png', label: 'Krya', meta: 'National Partner' },
   { type: 'text', label: 'dragonfly', meta: 'Trained by', color: 'text-[#33A852]' },
   { type: 'image', src: '/assets/logos/scratchlogo.png', label: 'Scratch', meta: 'SEC Partner' }
 ];
@@ -82,8 +82,28 @@ const trustPoints = [
   'Designed to help students build confidence, technical skill, and long-term direction'
 ];
 
-const trustedBy = ['British School', 'LPF Academy', 'French School', 'Maple Bear', 'Burhani', 'JPC', 'Thurston', 'Musaeus', 'St Clairs', 'BALPP', 'Avinya'];
-const builtBy = ['MIT', 'UoL', 'Cambridge', 'SLIIT', 'IIT', 'UWC', 'UoC', 'CIMA'];
+const trustedBy: LogoScrollerItem[] = [
+  { name: 'British School', src: '/assets/logos/British_School_Colombo_crest.png' },
+  { name: 'LPF Academy', src: '/assets/logos/LPF.png' },
+  { name: 'French School', src: '/assets/logos/EFIC.png' },
+  { name: 'Maple Bear', src: '/assets/logos/Maple.png' },
+  { name: 'Burhani', src: '/assets/logos/Burhani.png' },
+  { name: 'JPC', src: '/assets/logos/JPC.png' },
+  { name: 'Musaeus', src: '/assets/logos/Musaeus_College_crest.png' },
+  { name: 'St Claires', src: '/assets/logos/ST Claires.png' },
+  { name: 'BALPP', src: '/assets/logos/BALPP.png' }
+];
+
+const builtBy: LogoScrollerItem[] = [
+  { name: 'MIT', src: '/assets/logos/MIT-Massachusetts-Institute-of-Technology-Logo.png' },
+  { name: 'UoL', src: '/assets/logos/UOL.png' },
+  { name: 'Cambridge', src: '/assets/logos/Cambridge.png' },
+  { name: 'SLIIT', src: '/assets/logos/sliit.png' },
+  { name: 'IIT', src: '/assets/logos/iitlogo.png' },
+  { name: 'UWC', src: '/assets/logos/UWC.png' },
+  { name: 'UoC', src: '/assets/logos/UOC.png' },
+  { name: 'CIMA', src: '/assets/logos/CIM,ALOGO.png' }
+];
 
 export default function AboutPage() {
   return (
@@ -93,6 +113,8 @@ export default function AboutPage() {
         title="A home for students who learn by doing."
         subtitle="Meu Labs helps students build confidence, creativity, and real-world technical skills through project-based learning, expert mentoring, and hands-on programmes in robotics, coding, design, data, AI, and engineering."
         imageSrc="/assets/images/why-space.jpg"
+        imageAlt="Meu Labs learning space"
+        imageStyle="contact"
       >
         <ButtonLink href="/courses">Explore Courses</ButtonLink>
         <ButtonLink href="/projects" variant="secondary">View Student Projects</ButtonLink>
@@ -146,7 +168,6 @@ export default function AboutPage() {
                 body="Universities, companies, and institutions connected to the Meu Labs team."
                 icon={UsersRound}
                 items={builtBy}
-                showDots
               />
             </div>
           </Reveal>
@@ -168,7 +189,7 @@ export default function AboutPage() {
 
       <section className="px-4 py-14 sm:px-6 lg:px-8">
         <Reveal animation="pop">
-          <CounselorCTA source="/about" />
+          <CounselorCTA source="/about" compact />
         </Reveal>
       </section>
     </main>
@@ -253,14 +274,12 @@ function ProofLogoRow({
   title,
   body,
   icon: Icon,
-  items,
-  showDots
+  items
 }: {
   title: string;
   body: string;
   icon: LucideIcon;
-  items: string[];
-  showDots?: boolean;
+  items: LogoScrollerItem[];
 }) {
   return (
     <div className="mt-4 rounded-[18px] bg-white p-4 shadow-[0_10px_26px_rgba(13,53,87,0.06)]">
@@ -278,7 +297,7 @@ function ProofLogoRow({
           <p className="mt-4 text-sm font-bold leading-6 text-slate-600">{body}</p>
         </div>
 
-        <LogoScroller title={title} items={items} showDots={showDots} />
+        <LogoScroller title={title} items={items} />
       </div>
     </div>
   );

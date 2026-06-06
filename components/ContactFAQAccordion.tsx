@@ -53,15 +53,15 @@ export function ContactFAQAccordion() {
   const [open, setOpen] = useState(0);
 
   return (
-    <div className="overflow-hidden rounded-lg border-2 border-navy/10 bg-white shadow-[0_12px_34px_rgba(13,53,87,0.08)]">
+    <div className="overflow-hidden rounded-lg border-2 border-orange/15 bg-[#FFF8EF] shadow-[0_12px_34px_rgba(13,53,87,0.08)]">
       {faqs.map(({ question, answer, icon: FaqIcon }, index) => {
         const isOpen = open === index;
         return (
-          <div key={question} className="group border-b-2 border-navy/10 last:border-b-0">
+          <div key={question} className="group border-b-2 border-orange/10 last:border-b-0">
             <button
               type="button"
               aria-expanded={isOpen}
-              className={`grid w-full cursor-pointer list-none grid-cols-[2.75rem_1fr_1.5rem] items-center gap-4 px-4 py-5 text-left text-navy transition-colors duration-200 sm:px-6 sm:py-6 ${isOpen ? 'bg-orange/5' : 'hover:bg-orange/5'}`}
+              className={`grid w-full cursor-pointer list-none grid-cols-[2.75rem_1fr_1.5rem] items-center gap-4 px-4 py-5 text-left text-navy transition-colors duration-200 sm:px-6 sm:py-6 ${isOpen ? 'bg-[#FFE7CE]/55' : 'hover:bg-[#FFE7CE]/40'}`}
               onClick={() => setOpen(isOpen ? -1 : index)}
             >
               <span className={`grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-[#FF7A00] to-[#FF4F1F] text-white shadow-soft transition duration-300 ${isOpen ? 'scale-105' : ''}`}>
