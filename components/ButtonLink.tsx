@@ -6,6 +6,7 @@ type ButtonLinkProps = {
   href: string;
   children: ReactNode;
   variant?: 'primary' | 'secondary' | 'dark' | 'ghost';
+  shape?: 'pill' | 'square';
   className?: string;
   external?: boolean;
   onClick?: () => void;
@@ -18,8 +19,13 @@ const variants = {
   ghost: 'bg-transparent text-navy hover:bg-white/70'
 };
 
-export function ButtonLink({ href, children, variant = 'primary', className = '', external, onClick }: ButtonLinkProps) {
-  const classes = `inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 text-base font-extrabold transition duration-200 hover:-translate-y-1 hover:scale-[1.03] hover:shadow-pop active:translate-y-0 active:scale-[0.99] ${variants[variant]} ${className}`;
+const shapes = {
+  pill: 'rounded-full',
+  square: 'rounded-lg'
+};
+
+export function ButtonLink({ href, children, variant = 'primary', shape = 'pill', className = '', external, onClick }: ButtonLinkProps) {
+  const classes = `inline-flex items-center justify-center gap-2 ${shapes[shape]} px-6 py-3.5 text-base font-extrabold transition duration-200 hover:-translate-y-1 hover:scale-[1.03] hover:shadow-pop active:translate-y-0 active:scale-[0.99] ${variants[variant]} ${className}`;
 
   if (external) {
     return (

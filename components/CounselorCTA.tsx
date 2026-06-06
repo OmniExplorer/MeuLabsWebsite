@@ -8,7 +8,17 @@ import { Reveal } from './Reveal';
 import { counselorMessage, whatsappHref } from '@/lib/whatsapp';
 import { trackEvent } from '@/lib/analytics';
 
-export function CounselorCTA({ courseName, source = 'page', compact = false }: { courseName?: string; source?: string; compact?: boolean }) {
+export function CounselorCTA({
+  courseName,
+  source = 'page',
+  compact = false,
+  buttonShape = 'pill'
+}: {
+  courseName?: string;
+  source?: string;
+  compact?: boolean;
+  buttonShape?: 'pill' | 'square';
+}) {
   const message = counselorMessage(courseName);
 
   if (compact) {
@@ -19,8 +29,8 @@ export function CounselorCTA({ courseName, source = 'page', compact = false }: {
             <h2 className="text-3xl font-extrabold leading-tight md:text-4xl">Not sure where to start?</h2>
             <p className="mt-4 max-w-2xl text-base font-bold leading-7 text-slate-600">Talk to a Meu Labs student counselor and get help choosing the best course based on age, interests, and experience level.</p>
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <ButtonLink href={whatsappHref(message)} external onClick={() => trackEvent('whatsapp_click', { source })}>Talk to a Student Counselor</ButtonLink>
-              <ButtonLink href="/courses" variant="secondary">Explore All Courses</ButtonLink>
+              <ButtonLink href={whatsappHref(message)} external shape={buttonShape} onClick={() => trackEvent('whatsapp_click', { source })}>Talk to a Student Counselor</ButtonLink>
+              <ButtonLink href="/courses" variant="secondary" shape={buttonShape}>Explore All Courses</ButtonLink>
             </div>
           </div>
           <div className="relative hidden min-h-[260px] overflow-hidden lg:block">
@@ -39,8 +49,8 @@ export function CounselorCTA({ courseName, source = 'page', compact = false }: {
           <h2 className="max-w-xl text-5xl font-normal leading-[1.08] md:text-6xl">Not sure where to start?</h2>
           <p className="mt-6 max-w-xl text-lg font-extrabold leading-8 text-slate-600">Our student counselors are here to help you choose the right starting point based on your child&apos;s interests, age and goals.</p>
           <div className="mt-9 flex flex-col gap-4 sm:items-start">
-            <ButtonLink href={whatsappHref(message)} external onClick={() => trackEvent('whatsapp_click', { source })}>Talk to a Student Counselor</ButtonLink>
-            <ButtonLink href="/courses" variant="secondary">Explore Courses</ButtonLink>
+            <ButtonLink href={whatsappHref(message)} external shape={buttonShape} onClick={() => trackEvent('whatsapp_click', { source })}>Talk to a Student Counselor</ButtonLink>
+            <ButtonLink href="/courses" variant="secondary" shape={buttonShape}>Explore Courses</ButtonLink>
           </div>
         </Reveal>
 
