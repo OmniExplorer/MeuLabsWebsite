@@ -112,7 +112,7 @@ export default function ProjectsPage() {
               <Reveal key={item.link} animation="pop" delay={index * 60} className="h-full">
                 <a href={item.link} target="_blank" rel="noreferrer" className="group block h-full min-w-0 rounded-[14px] transition duration-200 hover:-translate-y-1">
                   <div className="relative aspect-[1.45/1] overflow-hidden rounded-[14px] bg-cream shadow-[0_12px_30px_rgba(13,53,87,0.10)]">
-                    <Image src={item.image} alt="" fill className="object-cover transition duration-300 group-hover:scale-105" sizes="(min-width: 1024px) 23vw, (min-width: 640px) 46vw, 92vw" />
+                    <Image src={item.image} alt="" fill className={`${item.imageClassName ?? 'object-cover'} transition duration-300 group-hover:scale-105`} sizes="(min-width: 1024px) 23vw, (min-width: 640px) 46vw, 92vw" />
                     <span className="absolute inset-0 bg-gradient-to-t from-navy/28 via-transparent to-transparent" />
                     <span className="absolute right-3 top-3 grid h-9 w-9 place-items-center rounded-full bg-white/95 text-orange shadow-soft">
                       <ArrowUpRight size={17} aria-hidden />

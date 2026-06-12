@@ -24,6 +24,7 @@ export interface NewsItem {
   link: string;
   label: string;
   image: string;
+  imageClassName?: string;
   timeAgo: string;
 }
 
@@ -57,7 +58,7 @@ export const projectNews: NewsItem[] = [
     description: 'Students take concepts from class and turn them into visible, working outcomes through guided project work.',
     link: 'https://www.facebook.com/share/v/1HtZaMc1mP/',
     label: 'STEM moment',
-    image: '/assets/images/electronics-board.jpg',
+    image: '/assets/images/Hands-On-STEM.png',
     timeAgo: 'STEM'
   },
   {
@@ -81,7 +82,7 @@ export const projectNews: NewsItem[] = [
     description: 'A glimpse into how students move from curiosity to working prototypes with instructor support and reflection.',
     link: 'https://www.facebook.com/share/p/1CTDdv6uXL/',
     label: 'Learning update',
-    image: '/assets/images/ProjectLearningUpdates.png',
+    image: '/assets/images/Project-Based-Learning-Upates.png',
     timeAgo: 'Learning'
   },
   {
@@ -89,7 +90,8 @@ export const projectNews: NewsItem[] = [
     description: 'A short reel showing the energy, experimentation, and imagination behind student-built work at Meu Labs.',
     link: 'https://www.facebook.com/share/r/18eS4NhCHF/',
     label: 'Student reel',
-    image: '/assets/images/project-film.jpg',
+    image: '/assets/images/Sudent_Creativity.png',
+    imageClassName: 'object-cover object-[center_42%]',
     timeAgo: 'Reel'
   }
 ];
