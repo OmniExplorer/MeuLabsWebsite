@@ -5,8 +5,7 @@ import { allCourses } from '@/data/courses';
 import { CourseCard } from './CourseCard';
 
 const ageGroups = [
-  { label: '6 - 8', slugs: ['kx-j'] },
-  { label: '8 - 12', slugs: ['kx'] },
+  { label: '6 - 12', slugs: ['kx-j', 'kx'] },
   { label: '10-14', slugs: ['coding-software', 'robotics-iot', 'digital-media'] },
   { label: '12-16', slugs: ['ds', 'se', 'cs', 'gd', 'mr', 'eee', 'es', 'dm', 'va'] },
   { label: '16+', slugs: ['ua', 'ig', 'fs'] }
@@ -22,7 +21,19 @@ const interestGroups = [
   { label: 'Business & Careers', slugs: ['robotics-iot', 'ua', 'ig', 'fs'] }
 ];
 
-export function CourseExplorer() {
+const courseExplorerDisplayTitles: Record<string, string> = {
+  'coding-software': 'Coding and Software',
+  'robotics-iot': 'Robotics and IoT',
+  'digital-media': 'Digital Media'
+};
+
+export function CourseExplorer({
+  selectedSlug,
+  onSelectCourse
+}: {
+  selectedSlug?: string;
+  onSelectCourse?: (slug: string) => void;
+}) {
   const [activeAge, setActiveAge] = useState('All Ages');
   const [activeInterest, setActiveInterest] = useState('All Interests');
 
@@ -44,8 +55,18 @@ export function CourseExplorer() {
 
   const pillClass = (active: boolean) => `whitespace-nowrap rounded-full px-3 py-2 text-xs font-extrabold transition duration-200 sm:px-3.5 sm:py-2.5 xl:px-[17px] xl:py-[11px] ${active ? 'bg-[linear-gradient(135deg,#FFD166_0%,#F4A261_100%)] text-navy shadow-soft' : 'bg-white/80 text-slate-600 shadow-[0_8px_18px_rgba(13,53,87,0.06)] hover:bg-white hover:text-navy'}`;
 
+  const selectAge = (age: string) => {
+    setActiveAge(age);
+    setActiveInterest('All Interests');
+  };
+
+  const selectInterest = (interest: string) => {
+    setActiveInterest(interest);
+    setActiveAge('All Ages');
+  };
+
   return (
-    <div className="w-full min-w-0 overflow-hidden">
+    <div className="w-full min-w-0 overflow-visible">
       <div className="mb-7">
         <div className="flex w-full min-w-0 flex-col gap-3 xl:flex-row xl:items-start xl:gap-x-3">
           <div className="flex w-full min-w-0 flex-wrap items-center gap-1.5 xl:w-auto xl:flex-nowrap xl:gap-2">
@@ -53,7 +74,7 @@ export function CourseExplorer() {
             {ageGroups.map((group) => group.label).map((tag) => (
               <button
                 key={tag}
-                onClick={() => setActiveAge(tag)}
+                onClick={() => selectAge(tag)}
                 className={pillClass(activeAge === tag)}
                 type="button"
               >
@@ -61,7 +82,7 @@ export function CourseExplorer() {
               </button>
             ))}
             <button
-              onClick={() => setActiveAge('All Ages')}
+              onClick={() => selectAge('All Ages')}
               className={pillClass(activeAge === 'All Ages')}
               type="button"
             >
@@ -74,20 +95,26 @@ export function CourseExplorer() {
             {interestGroups.map((group) => group.label).map((tag) => (
               <button
                 key={tag}
-                onClick={() => setActiveInterest(tag)}
+                onClick={() => selectInterest(tag)}
                 className={pillClass(activeInterest === tag)}
                 type="button"
               >
                 {tag}
               </button>
             ))}
-            <button onClick={() => setActiveInterest('All Interests')} className={pillClass(activeInterest === 'All Interests')} type="button">All Interests</button>
+            <button onClick={() => selectInterest('All Interests')} className={pillClass(activeInterest === 'All Interests')} type="button">All Interests</button>
           </div>
         </div>
       </div>
       <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
         {visibleCourses.map((course) => (
-          <CourseCard key={course.slug} course={course} />
+          <CourseCard
+            key={course.slug}
+            course={course}
+            displayTitle={courseExplorerDisplayTitles[course.slug]}
+            selected={selectedSlug === course.slug}
+            onSelect={onSelectCourse}
+          />
         ))}
       </div>
     </div>

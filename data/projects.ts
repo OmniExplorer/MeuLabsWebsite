@@ -33,7 +33,7 @@ export const projectNews: NewsItem[] = [
     description: 'A Meu Labs community update featuring student work, milestones, and project-led learning beyond the classroom.',
     link: 'https://www.facebook.com/share/p/1AuioXRpqt/',
     label: 'Community update',
-    image: '/assets/images/project-prototype.jpg',
+    image: '/assets/images/StudentProjectsHighlightArticle.png',
     timeAgo: 'Project story'
   },
   {
@@ -41,7 +41,7 @@ export const projectNews: NewsItem[] = [
     description: 'A project showcase moment where students demonstrate practical skills, creative thinking, and technical confidence.',
     link: 'https://www.facebook.com/share/p/1Cbvewmr7V/',
     label: 'Project showcase',
-    image: '/assets/images/hero-robotics.jpg',
+    image: '/assets/images/YoungBUilders.png',
     timeAgo: 'Showcase'
   },
   {
@@ -49,7 +49,7 @@ export const projectNews: NewsItem[] = [
     description: 'A behind-the-scenes look at students building, testing, explaining, and improving their ideas at Meu Labs.',
     link: 'https://www.facebook.com/share/v/1DsELrXLbx/',
     label: 'Video story',
-    image: '/assets/images/project-video.jpg',
+    image: '/assets/images/Learning-Moments.png',
     timeAgo: 'Video'
   },
   {
@@ -65,7 +65,7 @@ export const projectNews: NewsItem[] = [
     description: 'A parent-friendly milestone update showing the growth, confidence, and creativity behind student achievements.',
     link: 'https://www.facebook.com/share/p/1E1tTZiP4V/',
     label: 'Achievement',
-    image: '/assets/images/project-dashboard.jpg',
+    image: '/assets/images/Achievements from the Meu Labs community.png',
     timeAgo: 'Achievement'
   },
   {
@@ -73,7 +73,7 @@ export const projectNews: NewsItem[] = [
     description: 'A celebration of students applying coding, design, electronics, and teamwork to real project challenges.',
     link: 'https://www.facebook.com/share/p/17eo24XzN9/',
     label: 'Student win',
-    image: '/assets/images/project-game.jpg',
+    image: '/assets/images/CreativeBuild.png',
     timeAgo: 'Student work'
   },
   {
@@ -81,7 +81,7 @@ export const projectNews: NewsItem[] = [
     description: 'A glimpse into how students move from curiosity to working prototypes with instructor support and reflection.',
     link: 'https://www.facebook.com/share/p/1CTDdv6uXL/',
     label: 'Learning update',
-    image: '/assets/images/project-electronics-lab.jpg',
+    image: '/assets/images/ProjectLearningUpdates.png',
     timeAgo: 'Learning'
   },
   {

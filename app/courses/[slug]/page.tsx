@@ -27,6 +27,7 @@ import {
   CodeXml,
   Cog,
   Cpu,
+  CreditCard,
   Cuboid,
   Database,
   Dices,
@@ -40,6 +41,7 @@ import {
   Gamepad2,
   GraduationCap,
   Handshake,
+  HeartHandshake,
   Joystick,
   Kanban,
   KeyRound,
@@ -70,6 +72,7 @@ import {
   ScanEye,
   Sparkles,
   Scissors,
+  Tags,
   Target,
   Trophy,
   University,
@@ -90,6 +93,29 @@ import { counselorMessage, whatsappHref } from '@/lib/whatsapp';
 import { currentMonthName, daysToNextClosingDate, seededSpots } from '@/lib/registration';
 
 type PageProps = { params: { slug: string } };
+
+const paymentInfoItems = [
+  {
+    title: '25% sibling discounts',
+    Icon: Users
+  },
+  {
+    title: '25% discounts for multiple courses',
+    Icon: Tags
+  },
+  {
+    title: 'Pay with Koko, MyFees, or Mintpay',
+    Icon: CreditCard
+  },
+  {
+    title: 'Special one-time payment discounts',
+    Icon: Handshake
+  },
+  {
+    title: 'Try out the first class for free*',
+    Icon: HeartHandshake
+  }
+];
 
 const projectImages = [
   '/assets/images/project-dashboard.jpg',
@@ -866,7 +892,7 @@ export default function CoursePage({ params }: PageProps) {
       <section className="bg-[linear-gradient(180deg,#FFEBD1_0%,#FFF4E4_58%,#FFF8EF_100%)] px-4 py-12 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-[92rem]">
           <Reveal className="mb-7 border-l-4 border-orange pl-5">
-            <p className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">What you will explore</p>
+            <p className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">Focus Areas</p>
           </Reveal>
           <div className={`grid gap-4 md:grid-cols-3 ${course.focusAreas.length > 5 ? 'xl:grid-cols-6' : 'xl:grid-cols-5'}`}>
             {course.focusAreas.map((area, index) => {
@@ -1040,6 +1066,29 @@ export default function CoursePage({ params }: PageProps) {
         </div>
       </section>
 
+      <section className="bg-white px-4 py-10 sm:px-6 lg:px-8">
+        <Reveal animation="rise" className="mx-auto max-w-[92rem]">
+          <article className="rounded-[10px] border border-orange/20 bg-[linear-gradient(135deg,#FFFFFF_0%,#FFF8EF_58%,#FFEBD1_100%)] p-7 shadow-[0_16px_34px_rgba(255,122,0,0.10)] md:p-8">
+            <div className="border-l-4 border-orange pl-4">
+              <h2 className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">Payment Info</h2>
+            </div>
+            <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+              {paymentInfoItems.map(({ title, Icon }) => (
+                <div key={title} className="flex min-h-[132px] flex-col rounded-[8px] border border-navy/10 bg-white p-4 shadow-[0_10px_22px_rgba(13,53,87,0.05)]">
+                  <div className="flex items-start gap-3">
+                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-[#FF7A00] to-[#FF4F1F] text-white shadow-[0_10px_22px_rgba(255,122,0,0.22)]">
+                      <Icon size={22} strokeWidth={2.4} aria-hidden />
+                    </span>
+                    <p className="text-sm font-bold leading-6 text-navy">{title}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="mt-5 text-xs font-semibold leading-5 text-slate-500">*Free trial subject to seat availability.</p>
+          </article>
+        </Reveal>
+      </section>
+
       <section className="bg-[linear-gradient(180deg,#FFEBD1_0%,#FFF4E4_58%,#FFF8EF_100%)] px-4 py-12 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-[92rem] gap-6 lg:grid-cols-[1.6fr_0.8fr]">
           <Reveal animation="rise" className="h-full">
@@ -1053,9 +1102,9 @@ export default function CoursePage({ params }: PageProps) {
             ) : (
               <div className="mt-6 grid gap-x-8 gap-y-3 md:grid-cols-2">
                 {courseIntakes.map((batch) => (
-                  <div key={batch.label} className="flex items-center justify-between gap-3 text-sm font-semibold text-navy">
+                  <div key={batch.label} className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-semibold text-navy">
                     <span className="flex items-center gap-2"><Clock size={16} className="text-slate-500" /> {batch.label}</span>
-                    <span className="shrink-0 font-extrabold text-orange">{seededSpots(course.slug, batch.label)} spots left</span>
+                    <span className="font-extrabold text-orange">{seededSpots(course.slug, batch.label)} spots left</span>
                   </div>
                 ))}
               </div>

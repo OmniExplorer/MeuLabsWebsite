@@ -7,6 +7,7 @@ export function FAQAccordion() {
   const faqs = [
     ['Which course should my child start with?', 'If your child is new to robotics, coding or STEM, Knowledge Explorers is usually the best starting point. If they already have experience or a strong interest, our student counselors can help recommend the right course.'],
     ['Can my child join without prior experience?', 'Yes. Several Meu Labs courses are designed for beginners. Advanced specializations may require prior learning or instructor guidance before joining.'],
+    ['Does my child have to be within the age range mentioned for the course?', 'Not necessarily. The age ranges mentioned for each course are only a general guideline. At Meu Labs, our programmes are competency-based rather than strictly age-based. This means we look at a child’s interest, confidence, prior experience, and readiness for the course. Our student counsellors can help recommend the most suitable starting point based on your child’s current skill level, interests, and learning goals.'],
     ['How are classes delivered?', 'Most Meu Labs courses are delivered through weekly guided sessions with hands-on projects, instructor support and structured learning outcomes.'],
     ['What happens after one course?', 'Students can continue along the Meu Labs pathway into learning paths and advanced specializations based on their interests and readiness.']
   ];

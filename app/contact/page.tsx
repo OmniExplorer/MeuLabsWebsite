@@ -127,13 +127,13 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="px-4 py-10 sm:px-6 lg:px-8">
+      <section className="px-4 pb-10 pt-16 sm:px-6 sm:pt-20 lg:px-8 lg:pt-24">
         <div className="mx-auto max-w-[92rem]">
           <Reveal>
             <SectionHeader
               title="How our student counselors can help you"
               center
-              className="mb-6"
+              className="mb-14"
               titleClassName="text-2xl !font-black leading-tight sm:text-3xl md:text-3xl"
             />
           </Reveal>
@@ -213,11 +213,9 @@ export default function ContactPage() {
           <Reveal>
             <SectionHeader
               title="Frequently asked questions"
-              subtitle="For course inquiries, registrations, school programmes, workshops, or partnerships, contact our Sri Lanka team directly."
               center
-              className="mb-6"
+              className="mb-12"
               titleClassName="text-2xl !font-black leading-tight sm:text-3xl md:text-3xl"
-              subtitleClassName="mx-auto max-w-3xl text-sm font-bold leading-6"
             />
           </Reveal>
           <ContactFAQAccordion />

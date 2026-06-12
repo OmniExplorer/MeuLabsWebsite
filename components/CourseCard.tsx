@@ -13,6 +13,13 @@ const stageClasses: Record<PathwayStage, string> = {
   'Launch Pad': 'bg-gradient-to-br from-[#8B5CF6] to-[#C084FC] text-white'
 };
 
+const selectedStageClasses: Record<PathwayStage, string> = {
+  Foundations: 'border-orange ring-orange/30',
+  'Learning Path': 'border-sky ring-sky/30',
+  Specialisation: 'border-[#48D83E] ring-[#48D83E]/30',
+  'Launch Pad': 'border-[#8B5CF6] ring-[#8B5CF6]/30'
+};
+
 const courseImages: Record<string, string> = {
   kx: '/assets/images/hero-robotics.jpg',
   'kx-superhero': '/assets/images/project-traffic.jpg',
@@ -40,11 +47,26 @@ const courseHrefOverrides: Record<string, string> = {
   'kx-wild': '/courses/kx'
 };
 
-export function CourseCard({ course }: { course: Course }) {
+export function CourseCard({
+  course,
+  displayTitle,
+  selected = false,
+  onSelect
+}: {
+  course: Course;
+  displayTitle?: string;
+  selected?: boolean;
+  onSelect?: (slug: string) => void;
+}) {
   const courseHref = courseHrefOverrides[course.slug] ?? `/courses/${course.slug}`;
+  const title = displayTitle ?? course.title;
+  const selectedClass = selected ? `${selectedStageClasses[course.pathwayStage]} ring-4 shadow-pop` : 'border-navy/10';
 
   return (
-    <article className="group flex h-full min-h-[382px] flex-col overflow-hidden rounded-[14px] border border-navy/10 bg-white shadow-[0_12px_30px_rgba(13,53,87,0.08)] transition duration-200 hover:-translate-y-1 hover:shadow-pop">
+    <article
+      className={`group flex h-full min-h-[382px] flex-col overflow-hidden rounded-[14px] border bg-white shadow-[0_12px_30px_rgba(13,53,87,0.08)] transition duration-200 hover:-translate-y-1 hover:shadow-pop ${onSelect ? 'cursor-pointer' : ''} ${selectedClass}`}
+      onClick={() => onSelect?.(course.slug)}
+    >
       <div className="relative h-[152px] overflow-hidden bg-creamAlt">
         <Image
           src={courseImages[course.slug] ?? '/assets/images/project-electronics-lab.jpg'}
@@ -59,7 +81,7 @@ export function CourseCard({ course }: { course: Course }) {
           <span className={`whitespace-nowrap rounded-full px-2.5 py-1 text-[10px] font-extrabold tracking-[0.08em] ${stageClasses[course.pathwayStage]}`}>{formatPathwayStage(course.pathwayStage)}</span>
           {course.comingSoon && <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[10px] font-extrabold text-slate-600">Coming Soon</span>}
         </div>
-        <h3 className="line-clamp-2 min-h-[42px] text-lg font-extrabold leading-tight text-navy">{course.title}</h3>
+        <h3 className="line-clamp-2 min-h-[42px] text-lg font-extrabold leading-tight text-navy">{title}</h3>
         <div className="mt-0 flex flex-wrap gap-1.5">
           {course.keywords.slice(0, 3).map((keyword) => (
             <span key={keyword} className="rounded-full bg-[#FFF4E6] px-2.5 py-1.5 text-[11px] font-extrabold leading-none">

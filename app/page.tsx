@@ -243,6 +243,26 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="bg-white px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="popular-programmes-title">
+        <div className="mx-auto max-w-[92rem]">
+          <Reveal>
+            <div className="mb-10 w-full">
+              <div className="mb-6 border-l-4 border-orange pl-5">
+                <p className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">Popular Programmes</p>
+              </div>
+              <h2 id="popular-programmes-title" className="text-[2.85rem] font-normal leading-[1.05] text-navy md:text-[4rem]">Explore our most loved courses.</h2>
+            </div>
+          </Reveal>
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {popularPrograms.map((course, index) => (
+              <Reveal key={course.slug} animation="pop" delay={index * 90} className="h-full">
+                <CourseCard course={course} />
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="bg-creamAlt px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="learning-pathway-title">
         <div className="mx-auto max-w-[92rem]">
           <Reveal>
@@ -282,6 +302,7 @@ export default function HomePage() {
                     ariaLabel="Specialisation courses"
                     className="specialisation-course-carousel mt-3 max-h-[268px] pr-1"
                     trackClassName="grid gap-2.5 pb-2.5"
+                    speedPixelsPerSecond={60}
                   >
                   {stage.courses.map((course) => {
                     const CourseIcon = course.icon;
@@ -346,7 +367,7 @@ export default function HomePage() {
         </div>
         <div className="mx-auto mt-2 max-w-[92rem]">
           <Reveal animation="pop" delay={150}>
-          <AutoCarousel ariaLabel="Featured student projects" className="project-carousel-shell py-3" trackClassName="gap-5 pr-5 sm:gap-6 sm:pr-6">
+          <AutoCarousel ariaLabel="Featured student projects" className="project-carousel-shell py-3" trackClassName="gap-5 pr-5 sm:gap-6 sm:pr-6" speedPixelsPerSecond={60}>
               {projectCards.map((project) => (
                 <a
                   key={project.title}
@@ -373,26 +394,6 @@ export default function HomePage() {
               ))}
           </AutoCarousel>
           </Reveal>
-        </div>
-      </section>
-
-      <section className="bg-white px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="popular-programmes-title">
-        <div className="mx-auto max-w-[92rem]">
-          <Reveal>
-            <div className="mb-10 w-full">
-              <div className="mb-6 border-l-4 border-orange pl-5">
-                <p className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">Popular Programmes</p>
-              </div>
-              <h2 id="popular-programmes-title" className="text-[2.85rem] font-normal leading-[1.05] text-navy md:text-[4rem]">Explore our most loved courses.</h2>
-            </div>
-          </Reveal>
-          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            {popularPrograms.map((course, index) => (
-              <Reveal key={course.slug} animation="pop" delay={index * 90} className="h-full">
-                <CourseCard course={course} />
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 

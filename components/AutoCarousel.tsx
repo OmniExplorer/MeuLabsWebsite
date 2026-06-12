@@ -125,7 +125,6 @@ export function AutoCarousel({
       startOffset: offsetRef.current,
       moved: false
     };
-    event.currentTarget.setPointerCapture(event.pointerId);
   };
 
   const dragMove = (event: PointerEvent<HTMLDivElement>) => {
@@ -134,6 +133,9 @@ export function AutoCarousel({
 
     const delta = getPointerPosition(event) - drag.startPosition;
     if (Math.abs(delta) > 6) {
+      if (!drag.moved && !event.currentTarget.hasPointerCapture(event.pointerId)) {
+        event.currentTarget.setPointerCapture(event.pointerId);
+      }
       drag.moved = true;
       event.preventDefault();
     }
@@ -148,6 +150,9 @@ export function AutoCarousel({
     if (dragRef.current?.pointerId === event.pointerId) {
       suppressClickRef.current = dragRef.current.moved;
       dragRef.current = null;
+      if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+        event.currentTarget.releasePointerCapture(event.pointerId);
+      }
       resume();
     }
   };
@@ -192,7 +197,7 @@ export function AutoCarousel({
         <div ref={firstTrackRef} className={`auto-carousel-track auto-carousel-track-${axis} ${trackClassName}`}>
           {children}
         </div>
-        <div className={`auto-carousel-track auto-carousel-track-${axis} ${trackClassName}`} aria-hidden="true" inert>
+        <div className={`auto-carousel-track auto-carousel-track-${axis} ${trackClassName}`} aria-hidden="true">
           {children}
         </div>
       </div>

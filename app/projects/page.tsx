@@ -7,6 +7,7 @@ import { CounselorCTA } from '@/components/CounselorCTA';
 import { PageHero } from '@/components/PageHero';
 import { Reveal } from '@/components/Reveal';
 import { SectionHeader } from '@/components/SectionHeader';
+import { YouTubeThumbnail } from '@/components/YouTubeThumbnail';
 import { featuredVideoProjects, projectNews, studentCreations, type VideoProject } from '@/data/projects';
 
 export const metadata: Metadata = {
@@ -15,33 +16,42 @@ export const metadata: Metadata = {
   openGraph: { images: ['/og-default.jpg'] }
 };
 
-function youtubeThumbnail(videoId: string) {
-  return `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+const pillarboxedVideoIds = new Set(['1hEFNYY8peE']);
+
+function thumbnailClass(videoId: string) {
+  return pillarboxedVideoIds.has(videoId)
+    ? 'scale-[3.25] object-cover transition duration-300 group-hover:scale-[3.35]'
+    : 'scale-[1.18] object-cover transition duration-300 group-hover:scale-[1.24]';
 }
 
 function FeaturedProjectCard({ project, duplicate = false }: { project: VideoProject; duplicate?: boolean }) {
   return (
-    <article
+    <a
+      href={project.link}
+      target="_blank"
+      rel="noreferrer"
       aria-hidden={duplicate}
+      tabIndex={duplicate ? -1 : undefined}
       className="group grid h-[520px] w-[min(90vw,700px)] shrink-0 overflow-hidden rounded-[18px] border border-navy/10 bg-white transition duration-200 hover:-translate-y-1 hover:shadow-pop md:h-[300px] md:w-[calc((100vw-5rem)/2)] md:grid-cols-[0.94fr_1.06fr] md:items-center xl:w-[46rem]"
     >
-      <a href={project.link} target="_blank" rel="noreferrer" tabIndex={duplicate ? -1 : undefined} className="relative m-3 h-[220px] overflow-hidden rounded-[14px] bg-black md:m-4 md:h-[calc(100%-2rem)]">
-        <Image src={youtubeThumbnail(project.videoId)} alt="" fill className="object-contain transition duration-300 group-hover:scale-[1.02]" sizes="(min-width: 1280px) 320px, (min-width: 768px) 41vw, 90vw" />
-        <span className="absolute left-1/2 top-1/2 grid h-14 w-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-[14px] bg-[#FF0000] text-white shadow-soft transition group-hover:scale-105">
-          <Play size={25} fill="currentColor" strokeWidth={0} aria-hidden />
+      <div className="relative m-3 h-[220px] overflow-hidden rounded-[14px] bg-navy md:m-4 md:h-[calc(100%-2rem)]">
+        <YouTubeThumbnail videoId={project.videoId} className={thumbnailClass(project.videoId)} sizes="(min-width: 1280px) 320px, (min-width: 768px) 41vw, 90vw" />
+        <span className="absolute inset-0 bg-gradient-to-t from-navy/32 via-transparent to-transparent" />
+        <span className="absolute bottom-4 left-4 grid h-12 w-12 place-items-center rounded-full bg-white text-orange shadow-soft transition group-hover:scale-105">
+          <Play size={20} fill="currentColor" strokeWidth={0} aria-hidden />
         </span>
-      </a>
+      </div>
       <div className="flex min-w-0 flex-col px-5 pb-5 pt-0 md:px-4 md:py-4">
         {project.courseLabel && (
           <p className="w-fit rounded-full bg-[#FFF4E6] px-2.5 py-1.5 text-xs font-extrabold uppercase leading-none">
             <span className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-transparent">{project.courseLabel}</span>
           </p>
         )}
-        <h3 className="mt-3 break-words text-xl font-extrabold leading-tight text-navy md:text-2xl">{project.title}</h3>
+        <h3 className="mt-3 break-words text-xl font-extrabold leading-tight text-navy transition group-hover:text-orange md:text-2xl">{project.title}</h3>
         <p className="mt-3 line-clamp-5 break-words text-sm font-semibold leading-6 text-slate-700 md:line-clamp-6">{project.description}</p>
-        <a href={project.courseLink ?? project.link} tabIndex={duplicate ? -1 : undefined} className="mt-auto pt-3 text-base font-extrabold text-orange transition hover:text-[#FF4F1F]">View Related Course &gt;</a>
+        <span className="mt-auto pt-3 text-base font-extrabold text-orange transition group-hover:text-[#FF4F1F]">Watch Video &gt;</span>
       </div>
-    </article>
+    </a>
   );
 }
 
@@ -56,7 +66,7 @@ function CreationCard({ project, duplicate = false }: { project: VideoProject; d
       className="group grid h-[330px] w-[min(72vw,300px)] shrink-0 grid-rows-[150px_1fr] overflow-hidden rounded-[18px] border border-navy/10 bg-white transition duration-200 hover:-translate-y-1 hover:shadow-pop sm:w-[310px]"
     >
       <div className="relative overflow-hidden bg-navy">
-        <Image src={youtubeThumbnail(project.videoId)} alt="" fill className="object-cover transition duration-300 group-hover:scale-105" sizes="310px" />
+        <YouTubeThumbnail videoId={project.videoId} className={thumbnailClass(project.videoId)} sizes="310px" />
         <span className="absolute bottom-4 left-4 grid h-10 w-10 place-items-center rounded-full bg-white text-orange shadow-soft">
           <Play size={17} fill="currentColor" aria-hidden />
         </span>

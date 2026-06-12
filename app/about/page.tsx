@@ -58,28 +58,13 @@ const learningSections = [
   }
 ];
 
-const credibility = [
-  ['Why parents choose us', 'Meu Labs gives students a place to explore STEM seriously while still learning through curiosity, creativity and hands-on projects.'],
-  ['Schools & partnerships', 'Courses, clubs, workshops, competitions and institutional partnerships help students learn beyond the textbook.'],
-  ['Student outcomes', 'Students develop problem-solving, technical confidence, communication, collaboration and portfolio-ready project work.'],
-  ['Future-ready learning', 'Our pathways connect foundations to advanced areas such as software, data science, AI, embedded systems and product design.']
-];
-
 const accreditationLogos = [
-  { type: 'image', src: '/assets/logos/STEM-1.webp', label: 'STEM.org', meta: 'Accredited' },
+  { type: 'image-group', srcs: ['/assets/logos/STEMMACCREDITED2.png', '/assets/logos/STEMCERTIFIED.png'], label: 'STEM.org', meta: 'Accredited / Certified' },
   { type: 'image', src: '/assets/logos/icta.png', label: 'ICTA', meta: 'Supported by' },
   { type: 'image', src: '/assets/logos/hatch-logo.png', label: 'Hatch', meta: 'Incubated' },
   { type: 'image', src: '/assets/logos/krya.png', label: 'Krya', meta: 'National Partner' },
-  { type: 'text', label: 'dragonfly', meta: 'Trained by', color: 'text-[#33A852]' },
-  { type: 'image', src: '/assets/logos/scratchlogo.png', label: 'Scratch', meta: 'SEC Partner' }
-];
-
-const trustPoints = [
-  'Built by people with experience across engineering, technology, education, product design, AI, and innovation',
-  'Trusted by leading schools, partners, and learning communities',
-  'Curriculum shaped by real-world expectations, not just classroom theory',
-  'Delivered through school programmes, workshops, clubs, competitions, and partner-led opportunities',
-  'Designed to help students build confidence, technical skill, and long-term direction'
+  { type: 'image', src: '/assets/logos/dragonfly.png', label: 'dragonfly', meta: 'Trained by' },
+  { type: 'image', src: '/assets/logos/scratchlogonew.png', label: 'Scratch', meta: 'SEC Partner' }
 ];
 
 const trustedBy: LogoScrollerItem[] = [
@@ -120,14 +105,6 @@ export default function AboutPage() {
         <ButtonLink href="/projects" variant="secondary">View Student Projects</ButtonLink>
       </PageHero>
 
-      <section className="px-4 py-8 sm:px-6 lg:px-8">
-        <div className="mx-auto grid max-w-[92rem] gap-7">
-          {learningSections.map((section, index) => (
-            <LearningFeature key={section.title} section={section} reverse={index % 2 === 1} delay={index * 80} />
-          ))}
-        </div>
-      </section>
-
       <section className="px-4 py-14 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-[92rem]">
           <Reveal>
@@ -137,18 +114,8 @@ export default function AboutPage() {
               subtitle="Meu Labs brings together people, schools, partners, and institutions that believe students should learn beyond the textbook. Our programmes are shaped by real-world experience, strong academic foundations, and partnerships that drive future-ready learning."
               center
               titleClassName="!text-3xl !font-black !leading-[1.18] sm:!text-5xl"
-              subtitleClassName="mx-auto max-w-4xl text-sm font-bold leading-6"
+              subtitleClassName="mx-auto max-w-5xl text-sm font-bold leading-6"
             />
-          </Reveal>
-          <Reveal delay={100}>
-            <div className="mx-auto mb-7 grid max-w-5xl gap-3 md:grid-cols-2">
-              {trustPoints.map((point) => (
-                <div key={point} className="grid grid-cols-[1.5rem_1fr] gap-3 text-sm font-extrabold leading-6 text-navy">
-                  <CheckCircle2 size={18} className="mt-0.5 text-orange" aria-hidden />
-                  <span>{point}</span>
-                </div>
-              ))}
-            </div>
           </Reveal>
           <Reveal animation="pop">
             <div className="rounded-[22px] border border-orange/15 bg-[#FFF8EF] p-4 shadow-[0_22px_60px_rgba(13,53,87,0.09)] sm:p-5">
@@ -175,14 +142,9 @@ export default function AboutPage() {
       </section>
 
       <section className="px-4 py-8 sm:px-6 lg:px-8">
-        <div className="mx-auto grid max-w-[92rem] gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {credibility.map(([title, body], index) => (
-            <Reveal key={title} animation="pop" delay={index * 80} className="h-full">
-              <article className="h-full rounded-lg border border-navy/10 bg-white p-6 shadow-[0_12px_30px_rgba(13,53,87,0.08)]">
-                <h2 className="text-xl font-black leading-tight text-navy">{title}</h2>
-                <p className="mt-3 text-sm font-bold leading-7 text-slate-700">{body}</p>
-              </article>
-            </Reveal>
+        <div className="mx-auto grid max-w-[92rem] gap-7">
+          {learningSections.map((section, index) => (
+            <LearningFeature key={section.title} section={section} reverse={index % 2 === 1} delay={index * 80} />
           ))}
         </div>
       </section>
@@ -250,6 +212,7 @@ function LogoTile({
   logo: {
     type: string;
     src?: string;
+    srcs?: string[];
     label: string;
     meta: string;
     color?: string;
@@ -258,13 +221,18 @@ function LogoTile({
   return (
     <div className="grid min-h-24 place-items-center rounded-xl bg-white p-4 text-center shadow-[0_10px_26px_rgba(13,53,87,0.06)]">
       <div className="grid min-h-[3.4rem] place-items-center">
-        {logo.type === 'image' && logo.src ? (
+        {logo.type === 'image-group' && logo.srcs ? (
+          <div className="mx-auto grid w-full max-w-40 grid-cols-2 items-center justify-items-center gap-4">
+            {logo.srcs.map((src) => (
+              <Image key={src} src={src} alt={logo.label} width={86} height={70} className="max-h-14 w-auto object-contain" />
+            ))}
+          </div>
+        ) : logo.type === 'image' && logo.src ? (
           <Image src={logo.src} alt={logo.label} width={128} height={52} className="max-h-10 w-auto object-contain" />
         ) : (
           <span className={`text-2xl font-black leading-none ${logo.color ?? 'text-navy'}`}>{logo.label}</span>
         )}
       </div>
-      <p className="mt-2 text-[11px] font-black leading-tight text-navy">{logo.label}</p>
       <p className="text-[10px] font-bold leading-tight text-slate-500">{logo.meta}</p>
     </div>
   );

@@ -21,6 +21,12 @@ const faqs: Array<{
     icon: UsersRound
   },
   {
+    question: 'Does my child have to be within the age range mentioned for the course?',
+    answer:
+      'Not necessarily. The age ranges mentioned for each course are only a general guideline. At Meu Labs, our programmes are competency-based rather than strictly age-based, so we look at a child’s interest, confidence, prior experience, and readiness for the course. Some younger students may join more advanced programmes because they already have strong interest, experience, or a clear idea of what they want to build and learn. Some older students may also choose courses recommended for younger age groups because they want to explore new areas, build confidence, or learn at their own pace. Our student counsellors can help recommend the most suitable starting point based on your child’s current skill level, interests, and learning goals.',
+    icon: School
+  },
+  {
     question: 'How do I register for a course?',
     answer:
       'You can register through the relevant course page. If you are unsure which course or intake to choose, our student counselor can guide you and send the correct registration link.',
@@ -70,9 +76,9 @@ export function ContactFAQAccordion() {
               <span className="text-sm font-black leading-snug sm:text-base">{question}</span>
               <ChevronDown size={18} className={`text-navy transition-transform duration-300 ease-out ${isOpen ? 'rotate-180' : ''}`} aria-hidden />
             </button>
-            <div className={`overflow-hidden transition-[max-height,opacity] duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] ${isOpen ? 'max-h-72 opacity-100' : 'max-h-0 opacity-0'}`}>
+            <div className={`overflow-hidden transition-[max-height,opacity] duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] ${isOpen ? 'max-h-[34rem] opacity-100' : 'max-h-0 opacity-0'}`}>
               <div className={`transition-transform duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] ${isOpen ? 'translate-y-0' : '-translate-y-2'}`}>
-                <p className="px-4 pb-6 pl-[5rem] pr-8 text-sm font-bold leading-7 text-slate-700 sm:px-6 sm:pl-[5.75rem]">
+                <p className="px-4 pb-6 pl-[5rem] pr-8 text-base font-bold leading-8 text-slate-700 sm:px-6 sm:pl-[5.75rem]">
                   {answer}
                 </p>
               </div>
