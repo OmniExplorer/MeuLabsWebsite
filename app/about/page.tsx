@@ -82,7 +82,7 @@ const trustedBy: LogoScrollerItem[] = [
 const builtBy: LogoScrollerItem[] = [
   { name: 'The Massachusetts Institute of Technology (MIT)', src: '/assets/logos/MIT-Massachusetts-Institute-of-Technology-Logo.png', href: 'https://www.mit.edu/' },
   { name: 'The University of Lahore', src: '/assets/logos/UOL.png', href: 'https://uol.edu.pk/' },
-  { name: 'Cambridge', src: '/assets/logos/Cambridge.png' },
+  { name: 'University of Cambridge', src: '/assets/logos/Cambridge.png' },
   { name: 'Sri Lanka Institute of Information Technology', src: '/assets/logos/sliit.png', href: 'https://en.wikipedia.org/wiki/Sri_Lanka_Institute_of_Information_Technology' },
   { name: 'IIT', src: '/assets/logos/iitlogo.png' },
   { name: 'UWC', src: '/assets/logos/UWC.png' },
