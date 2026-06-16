@@ -49,11 +49,11 @@ const pathway = [
   {
     title: 'Learning Paths',
     age: 'Age 10 - 14',
-    body: 'Choose themed courses aligned with engineering, analytics, or creative expression. Deeper, project-driven, and skill-focused.',
+    body: 'Choose themed courses aligned with coding, robotics, and digital media. Deeper, project-driven, and skill-focused.',
     courses: [
       { name: 'Coding and Software', icon: Code2, href: '/courses/coding-software' },
       { name: 'Robotics and IoT', icon: Bot, href: '/courses/robotics-iot' },
-      { name: 'Digital Media Production', icon: Video, href: '/courses/digital-media' }
+      { name: 'Digital Media', icon: Video, href: '/courses/digital-media' }
     ],
     color: 'bg-gradient-to-br from-[#31C3DE] to-[#7DE3F2]',
     accent: 'from-sky/16 via-white to-white border-sky/60',
@@ -353,15 +353,15 @@ export default function HomePage() {
       <section className="overflow-hidden bg-cream px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="student-projects-title">
         <div className="mx-auto max-w-[92rem]">
           <Reveal>
-            <div className="mb-10 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+            <div className="mb-10 flex flex-col gap-8">
               <div className="w-full">
                 <div className="mb-6 border-l-4 border-orange pl-5">
                   <p className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">Student Projects</p>
                 </div>
-                <h2 id="student-projects-title" className="text-[2.85rem] font-normal leading-[1.05] text-navy md:text-[4rem]">See what your child will build at Meu Labs.</h2>
+                <h2 id="student-projects-title" className="text-[2.85rem] font-normal leading-[1.05] text-navy md:whitespace-nowrap md:text-[4rem]">See what your child will build at Meu Labs.</h2>
                 <p className="mt-5 w-full text-lg font-extrabold leading-8 text-slate-600">From Robots to WebApps from Media productions to AI agents. At Meu Labs students build literally anything</p>
               </div>
-              <ButtonLink href="/projects" className="w-fit shrink-0 lg:mb-2">View Student Projects</ButtonLink>
+              <ButtonLink href="/projects" className="w-fit shrink-0 self-start lg:self-end">View Student Projects</ButtonLink>
             </div>
           </Reveal>
         </div>

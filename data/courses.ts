@@ -87,7 +87,7 @@ export const courses: Course[] = [
   {
     slug: 'coding-software',
     title: 'Coding and Software',
-    internalName: 'Analytics',
+    internalName: 'Coding and Software',
     subtitle: 'Programming for Kids',
     keywords: ['Python', 'Web Sites', 'AI Models', 'Statistics', 'Research'],
     pathwayStage: 'Learning Path',
@@ -108,7 +108,7 @@ export const courses: Course[] = [
   {
     slug: 'robotics-iot',
     title: 'Robotics and IoT',
-    internalName: 'Product Design',
+    internalName: 'Robotics and IoT',
     subtitle: 'Robotics and IoT',
     keywords: ['Fusion 360', 'Arduino', 'Woodworking', 'EasyEDA', '3D Printing', 'CNC', 'Laser Cutting', 'PCB Design', 'Prototyping', 'Product Pitching'],
     pathwayStage: 'Learning Path',
@@ -128,9 +128,9 @@ export const courses: Course[] = [
   },
   {
     slug: 'digital-media',
-    title: 'Digital Media Production',
-    internalName: 'Creative Expression',
-    subtitle: 'Digital Media Production',
+    title: 'Digital Media',
+    internalName: 'Digital Media',
+    subtitle: 'Digital Media',
     keywords: ['Story Writing', 'Script Writing', 'Digital Drawing', 'Video Production', 'Acting', 'Photography', 'Videography', 'Post Production', 'Public Speaking'],
     pathwayStage: 'Learning Path',
     descriptor: 'A creative production pathway where students write, shoot, draw, edit and present stories using modern media tools.',

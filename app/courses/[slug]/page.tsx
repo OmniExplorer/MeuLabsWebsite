@@ -821,6 +821,7 @@ export default function CoursePage({ params }: PageProps) {
   const heroPhoto = getHeroPhoto(course);
   const prerequisites = splitPrerequisites(course.prerequisites);
   const courseStructure = splitCourseStructure(course.courseStructure);
+  const usesIndustryPartnerLabels = course.slug === 'ig' || course.slug === 'fs';
   const primaryCtaLabel = course.comingSoon ? 'Join Waitlist' : 'Register Now';
 
   return (
@@ -916,7 +917,7 @@ export default function CoursePage({ params }: PageProps) {
           <Reveal animation="rise" className="h-full">
           <article className="flex h-full min-h-[790px] flex-col rounded-[10px] border border-navy/10 bg-white p-8 shadow-[0_14px_34px_rgba(13,53,87,0.07)]">
             <div className="border-l-4 border-orange pl-4">
-              <h2 className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">What You Will Learn</h2>
+              <h2 className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">Learning Outcomes</h2>
             </div>
             <div className="mt-10 divide-y divide-navy/10">
               {course.learningOutcomes.map((outcome, index) => {
@@ -942,7 +943,7 @@ export default function CoursePage({ params }: PageProps) {
           <div className="grid h-full gap-5">
             <article className="flex min-h-[430px] flex-col rounded-[10px] border border-navy/10 bg-white p-8 shadow-[0_14px_34px_rgba(13,53,87,0.07)]">
               <div className="border-l-4 border-orange pl-4">
-                <h2 className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">Tools You Will Use</h2>
+                <h2 className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">{usesIndustryPartnerLabels ? 'Industry Partners' : 'Tools Used'}</h2>
               </div>
               <div className="mt-8 grid flex-1 auto-rows-[145px] content-start grid-cols-2 gap-3 sm:grid-cols-3">
                 {course.toolsUsed.map((tool) => {
@@ -1030,7 +1031,7 @@ export default function CoursePage({ params }: PageProps) {
           <Reveal animation="rise" className="h-full">
           <article className="h-full rounded-[10px] border border-orange/15 bg-white p-7 shadow-[0_18px_42px_rgba(13,53,87,0.08)]">
             <div className="border-l-4 border-orange pl-4">
-              <h2 className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">Example Projects</h2>
+              <h2 className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">{usesIndustryPartnerLabels ? 'Success Stories' : 'Example Projects'}</h2>
             </div>
             <div className="mt-7 grid gap-4 sm:grid-cols-2">
               {(course.exampleProjects.length ? course.exampleProjects : ['Project details coming soon']).slice(0, 4).map((project, index) => (

@@ -66,11 +66,11 @@ const ecosystemStages: EcosystemStage[] = [
   {
     title: 'Learning Paths',
     age: 'Age 10 - 14',
-    body: 'Choose themed courses aligned with engineering, analytics, or creative expression. Deeper, project-driven, and skill-focused.',
+    body: 'Choose themed courses aligned with coding, robotics, and digital media. Deeper, project-driven, and skill-focused.',
     courses: [
       { slug: 'coding-software', name: 'Coding and Software', icon: Code2, href: '/courses/coding-software' },
       { slug: 'robotics-iot', name: 'Robotics and IoT', icon: Bot, href: '/courses/robotics-iot' },
-      { slug: 'digital-media', name: 'Digital Media Production', icon: Video, href: '/courses/digital-media' }
+      { slug: 'digital-media', name: 'Digital Media', icon: Video, href: '/courses/digital-media' }
     ],
     color: 'bg-gradient-to-br from-[#31C3DE] to-[#7DE3F2]',
     accent: 'from-sky/16 via-white to-white border-sky/60',

@@ -140,7 +140,11 @@ export default function ProjectsPage() {
       <section className="overflow-hidden bg-cream px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="featured-projects-title">
         <div className="mx-auto max-w-[92rem]">
           <Reveal>
-            <SectionHeader eyebrow="Featured Projects" title="Standout projects from the Meu Labs community" />
+            <SectionHeader
+              eyebrow="Featured Projects"
+              title="Standout projects from the Meu Labs community"
+              titleClassName="md:whitespace-nowrap md:text-[clamp(2rem,3.45vw,3.7rem)]"
+            />
           </Reveal>
         </div>
         <Reveal animation="pop" delay={120}>

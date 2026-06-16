@@ -6,7 +6,7 @@ import { PageHero } from '@/components/PageHero';
 
 export const metadata: Metadata = {
   title: 'Courses | Meu Labs — Robotics, Coding & STEM for Kids in Sri Lanka',
-  description: 'Explore robotics, coding, design, analytics, AI and engineering courses designed for different ages, interests and experience levels.',
+  description: 'Explore robotics, coding, digital media, AI and engineering courses designed for different ages, interests and experience levels.',
   openGraph: { images: ['/og-default.jpg'] }
 };
 
@@ -16,7 +16,7 @@ export default function CoursesPage() {
       <PageHero
         eyebrow="Meu Labs Courses"
         title="Choose the right STEM pathway for your child."
-        subtitle="Explore robotics, coding, design, analytics, AI and engineering courses designed for different ages, interests and experience levels."
+        subtitle="Explore robotics, coding, digital media, AI and engineering courses designed for different ages, interests and experience levels."
         imageSrc="/assets/images/courses-hero-student-3d.png"
         imageMode="object"
       >

@@ -59,34 +59,34 @@ const learningSections = [
 ];
 
 const accreditationLogos = [
-  { type: 'image-group', srcs: ['/assets/logos/STEMMACCREDITED2.png', '/assets/logos/STEMCERTIFIED.png'], label: 'STEM.org', meta: 'Accredited / Certified' },
-  { type: 'image', src: '/assets/logos/icta.png', label: 'ICTA', meta: 'Supported by' },
-  { type: 'image', src: '/assets/logos/hatch-logo.png', label: 'Hatch', meta: 'Incubated' },
-  { type: 'image', src: '/assets/logos/krya.png', label: 'Krya', meta: 'National Partner' },
-  { type: 'image', src: '/assets/logos/dragonfly.png', label: 'dragonfly', meta: 'Trained by' },
-  { type: 'image', src: '/assets/logos/scratchlogonew.png', label: 'Scratch', meta: 'SEC Partner' }
+  { type: 'image-group', srcs: ['/assets/logos/STEMMACCREDITED2.png', '/assets/logos/STEMCERTIFIED.png'], label: 'STEM.org', meta: 'Accredited / Certified', href: 'https://stem.org/' },
+  { type: 'image', src: '/assets/logos/icta.png', label: 'ICTA', meta: 'Supported by', href: 'https://www.icta.lk/' },
+  { type: 'image', src: '/assets/logos/hatch-logo.png', label: 'Hatch', meta: 'Incubated', href: 'https://hatch.lk/' },
+  { type: 'image', src: '/assets/logos/krya.png', label: 'Krya', meta: 'National Partner', href: 'https://krya.global/' },
+  { type: 'image', src: '/assets/logos/dragonfly.png', label: 'dragonfly', meta: 'Trained by', href: 'https://www.dragonfly-training.co.uk/' },
+  { type: 'image', src: '/assets/logos/scratchlogonew.png', label: 'Scratch', meta: 'SEC Partner', href: 'https://scratch.mit.edu/' }
 ];
 
 const trustedBy: LogoScrollerItem[] = [
-  { name: 'British School', src: '/assets/logos/British_School_Colombo_crest.png' },
-  { name: 'LPF Academy', src: '/assets/logos/LPF.png' },
-  { name: 'French School', src: '/assets/logos/EFIC.png' },
+  { name: 'British School of Colombo', src: '/assets/logos/British_School_Colombo_crest.png' },
+  { name: 'LPF Schools', src: '/assets/logos/LPF.png' },
+  { name: 'École Française Internationale de Colombo', src: '/assets/logos/EFIC.png' },
   { name: 'Maple Bear', src: '/assets/logos/Maple.png' },
-  { name: 'Burhani', src: '/assets/logos/Burhani.png' },
-  { name: 'JPC', src: '/assets/logos/JPC.png' },
-  { name: 'Musaeus', src: '/assets/logos/Musaeus_College_crest.png' },
-  { name: 'St Claires', src: '/assets/logos/ST Claires.png' },
-  { name: 'BALPP', src: '/assets/logos/BALPP.png' }
+  { name: 'Burhani Serendib School', src: '/assets/logos/Burhani.png' },
+  { name: 'John Paul College', src: '/assets/logos/JPC.png' },
+  { name: 'Musaeus College', src: '/assets/logos/Musaeus_College_crest.png', href: 'https://en.wikipedia.org/wiki/Musaeus_College' },
+  { name: 'St Claires College', src: '/assets/logos/ST Claires.png' },
+  { name: 'BALPP', src: '/assets/logos/BALPP.png', href: 'https://balpp.com/' }
 ];
 
 const builtBy: LogoScrollerItem[] = [
-  { name: 'MIT', src: '/assets/logos/MIT-Massachusetts-Institute-of-Technology-Logo.png' },
-  { name: 'UoL', src: '/assets/logos/UOL.png' },
+  { name: 'The Massachusetts Institute of Technology (MIT)', src: '/assets/logos/MIT-Massachusetts-Institute-of-Technology-Logo.png', href: 'https://www.mit.edu/' },
+  { name: 'The University of Lahore', src: '/assets/logos/UOL.png', href: 'https://uol.edu.pk/' },
   { name: 'Cambridge', src: '/assets/logos/Cambridge.png' },
-  { name: 'SLIIT', src: '/assets/logos/sliit.png' },
+  { name: 'Sri Lanka Institute of Information Technology', src: '/assets/logos/sliit.png', href: 'https://en.wikipedia.org/wiki/Sri_Lanka_Institute_of_Information_Technology' },
   { name: 'IIT', src: '/assets/logos/iitlogo.png' },
   { name: 'UWC', src: '/assets/logos/UWC.png' },
-  { name: 'UoC', src: '/assets/logos/UOC.png' },
+  { name: 'University of Colombo', src: '/assets/logos/UOC.png', href: 'https://cmb.ac.lk/' },
   { name: 'CIMA', src: '/assets/logos/CIM,ALOGO.png' }
 ];
 
@@ -135,6 +135,7 @@ export default function AboutPage() {
                 body="Universities, companies, and institutions connected to the Meu Labs team."
                 icon={UsersRound}
                 items={builtBy}
+                reverse
               />
             </div>
           </Reveal>
@@ -216,10 +217,11 @@ function LogoTile({
     label: string;
     meta: string;
     color?: string;
+    href?: string;
   };
 }) {
   return (
-    <div className="grid min-h-24 place-items-center rounded-xl bg-white p-4 text-center shadow-[0_10px_26px_rgba(13,53,87,0.06)]">
+    <a href={logo.href} target="_blank" rel="noreferrer" className="grid min-h-24 place-items-center rounded-xl bg-white p-4 text-center shadow-[0_10px_26px_rgba(13,53,87,0.06)] transition hover:-translate-y-0.5 hover:shadow-[0_14px_30px_rgba(13,53,87,0.10)]">
       <div className="grid min-h-[3.4rem] place-items-center">
         {logo.type === 'image-group' && logo.srcs ? (
           <div className="mx-auto grid w-full max-w-40 grid-cols-2 items-center justify-items-center gap-4">
@@ -234,7 +236,7 @@ function LogoTile({
         )}
       </div>
       <p className="text-[10px] font-bold leading-tight text-slate-500">{logo.meta}</p>
-    </div>
+    </a>
   );
 }
 
@@ -242,12 +244,14 @@ function ProofLogoRow({
   title,
   body,
   icon: Icon,
-  items
+  items,
+  reverse = false
 }: {
   title: string;
   body: string;
   icon: LucideIcon;
   items: LogoScrollerItem[];
+  reverse?: boolean;
 }) {
   return (
     <div className="mt-4 rounded-[18px] bg-white p-4 shadow-[0_10px_26px_rgba(13,53,87,0.06)]">
@@ -265,7 +269,7 @@ function ProofLogoRow({
           <p className="mt-4 text-sm font-bold leading-6 text-slate-600">{body}</p>
         </div>
 
-        <LogoScroller title={title} items={items} />
+        <LogoScroller title={title} items={items} reverse={reverse} />
       </div>
     </div>
   );
