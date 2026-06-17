@@ -37,6 +37,11 @@ export interface Course {
 }
 
 const placeholderRegister = 'https://docs.google.com/forms/d/e/placeholder/viewform';
+const waitlistForm = 'https://docs.google.com/forms/d/e/1FAIpQLSfHTAPLWoPd_qrtZBPzjtGB2xPsOz66eAHeeGRzKFvco37Lkg/viewform';
+
+function waitlistRegister(courseName: string) {
+  return `${waitlistForm}?course=${encodeURIComponent(courseName)}`;
+}
 
 const detailsPending = 'Course details are being finalised for the next Meu Labs pathway update.';
 const tbc = 'To be confirmed';
@@ -60,7 +65,7 @@ export const courses: Course[] = [
     prerequisites: 'Can read and write, use a computer at a basic level, and enjoys hands-on activities.',
     exampleProjects: ['Robotics challenge', 'Animated story game', 'Smart traffic light'],
     location: 'Online / In Person / Colombo 06',
-    registerLink: placeholderRegister,
+    registerLink: 'https://forms.gle/RuJ8dto9zjFNCCsE9',
     recommendedCourses: ['kx-j', 'coding-software', 'robotics-iot']
   },
   {
@@ -81,7 +86,7 @@ export const courses: Course[] = [
     prerequisites: 'Suitable for early learners.',
     exampleProjects: [],
     location: 'Colombo 06',
-    registerLink: placeholderRegister,
+    registerLink: 'https://forms.gle/gdU3BmjrT4j95EKW8',
     recommendedCourses: ['kx', 'coding-software', 'robotics-iot']
   },
   {
@@ -102,7 +107,7 @@ export const courses: Course[] = [
     prerequisites: 'Foundation level or Scratch/MIT App Inventor basics. Entry test available.',
     exampleProjects: ['Climate dashboard', 'Survey analyser', 'Sensor data visualiser'],
     location: 'Online / In Person / Colombo 06',
-    registerLink: placeholderRegister,
+    registerLink: 'https://forms.gle/6sMCTHnULp7g84v18',
     recommendedCourses: ['se', 'ds', 'kx', 'robotics-iot', 'digital-media']
   },
   {
@@ -123,7 +128,7 @@ export const courses: Course[] = [
     prerequisites: 'Foundation level or basic Arduino experience such as blink/sensor projects. Entry test available.',
     exampleProjects: ['Smart planter', 'Assistive device prototype', 'Laser-cut product enclosure'],
     location: 'In Person Only / Colombo 06',
-    registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSepU0SFzbk-OkCmXBVt27Mar8xBcxOpyW9fRKVKuZt-qfQjyw/viewform?usp=dialog',
+    registerLink: 'https://forms.gle/ku4g46KqGRfdP9Fi8',
     recommendedCourses: ['es', 'kx', 'coding-software', 'digital-media']
   },
   {
@@ -144,7 +149,7 @@ export const courses: Course[] = [
     prerequisites: 'Foundation level or basic video/animation experience with tools such as ClipChamp. Entry test available.',
     exampleProjects: ['Short film', 'Animated explainer', 'Photo essay'],
     location: 'In Person Only / Colombo 06',
-    registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSeBIqnOl9mOB8ijcX7OzsYL1lqzvmMxWOhLZpjoJrjMXklgng/viewform?usp=dialog',
+    registerLink: 'https://forms.gle/jrRfKHsMNYiiH1ou8',
     recommendedCourses: ['kx', 'coding-software', 'robotics-iot']
   },
   {
@@ -165,7 +170,7 @@ export const courses: Course[] = [
     prerequisites: 'Strong Python, independent debugging ability and Coding and Software recommended. Entry test for other students.',
     exampleProjects: ['Student portal', 'Inventory app', 'Community service platform'],
     location: 'Online / In Person / Colombo 06',
-    registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSdZw5sTmNXKakcBcEKl0vS6-HuJFOouq40fiFipgSpCzZ0lxA/viewform?usp=dialog',
+    registerLink: 'https://forms.gle/NnzmhgsxgLVxVmwY6',
     recommendedCourses: ['ds', 'coding-software', 'robotics-iot', 'digital-media']
   },
   {
@@ -186,7 +191,7 @@ export const courses: Course[] = [
     prerequisites: 'Strong Python and Coding and Software recommended. Entry test for other students.',
     exampleProjects: ['Image classifier', 'AI research assistant', 'Power BI insight dashboard'],
     location: 'Online / In Person / Colombo 06',
-    registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSeo1dTM6x9Yjsfjjcftjq_s5rQ0VrtQrvOKc2Hsv6SGz-57eQ/viewform?usp=dialog',
+    registerLink: 'https://forms.gle/ku4g46KqGRfdP9Fi8',
     recommendedCourses: ['se', 'coding-software', 'robotics-iot', 'digital-media']
   },
   {
@@ -207,7 +212,7 @@ export const courses: Course[] = [
     prerequisites: tbc,
     exampleProjects: [],
     location: 'Colombo 06',
-    registerLink: '#',
+    registerLink: waitlistRegister('Game Development'),
     recommendedCourses: ['coding-software', 'se', 'digital-media'],
     comingSoon: true
   },
@@ -229,7 +234,7 @@ export const courses: Course[] = [
     prerequisites: tbc,
     exampleProjects: [],
     location: 'Colombo 06',
-    registerLink: '#',
+    registerLink: waitlistRegister('Cyber Security'),
     recommendedCourses: ['coding-software', 'se', 'ds'],
     comingSoon: true
   },
@@ -251,7 +256,7 @@ export const courses: Course[] = [
     prerequisites: 'Prior ESP32/Arduino experience, strong MCU coding and basic electronics required. Robotics and IoT recommended. Entry test available.',
     exampleProjects: ['Smart energy node', 'MQTT sensor network', 'TinyML gesture device'],
     location: 'In Person Only / Colombo 06',
-    registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSfPmUDhS8KX0LHkNNt6qefKPaMEKrgcGCMOa-PyKJy644xWBg/viewform?usp=dialog',
+    registerLink: 'https://forms.gle/KzahsCn95rH1azhe8',
     recommendedCourses: ['eee', 'robotics-iot', 'digital-media', 'coding-software']
   },
   {
@@ -272,7 +277,7 @@ export const courses: Course[] = [
     prerequisites: 'Robotics and IoT, ES or equivalent; basic MCU coding mandatory. Entry test available.',
     exampleProjects: ['Battery monitor', 'Motor controller', 'Sensor test rig'],
     location: 'In Person Only / Colombo 06',
-    registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSfFX-Ws2_OnCQYmxGJl2y2KRjegyZf1ggDgqep_8Zj1XDwDaA/viewform?usp=dialog',
+    registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSfFX-Ws2_OnCQYmxGJl2y2KRjegyZf1ggDgqep_8Zj1XDwDaA/viewform',
     recommendedCourses: ['es', 'robotics-iot', 'digital-media', 'coding-software']
   },
   {
@@ -293,7 +298,7 @@ export const courses: Course[] = [
     prerequisites: tbc,
     exampleProjects: [],
     location: 'Colombo 06',
-    registerLink: '#',
+    registerLink: waitlistRegister('Manufacturing and Robotics'),
     recommendedCourses: ['robotics-iot', 'es', 'eee'],
     comingSoon: true
   },
@@ -315,7 +320,7 @@ export const courses: Course[] = [
     prerequisites: tbc,
     exampleProjects: [],
     location: 'Colombo 06',
-    registerLink: '#',
+    registerLink: waitlistRegister('Digital Marketing'),
     recommendedCourses: ['digital-media', 'coding-software', 'fs'],
     comingSoon: true
   },
@@ -337,7 +342,7 @@ export const courses: Course[] = [
     prerequisites: tbc,
     exampleProjects: [],
     location: 'Colombo 06',
-    registerLink: placeholderRegister,
+    registerLink: waitlistRegister('Animation & Post-Production'),
     recommendedCourses: ['digital-media', 'dm', 'gd']
   },
   {
@@ -358,7 +363,7 @@ export const courses: Course[] = [
     prerequisites: tbc,
     exampleProjects: [],
     location: 'Colombo 06',
-    registerLink: placeholderRegister,
+    registerLink: waitlistRegister('Founder Studio'),
     recommendedCourses: ['ig', 'fs', 'se']
   },
   {
@@ -379,7 +384,7 @@ export const courses: Course[] = [
     prerequisites: tbc,
     exampleProjects: [],
     location: 'Colombo 06',
-    registerLink: placeholderRegister,
+    registerLink: 'https://forms.gle/Bb7BzUqo4YxoZhtM8',
     recommendedCourses: ['ua', 'fs', 'se']
   },
   {

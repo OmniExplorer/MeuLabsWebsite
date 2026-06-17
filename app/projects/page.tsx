@@ -3,7 +3,6 @@ import Image from 'next/image';
 import { ArrowUpRight, Newspaper, Play } from 'lucide-react';
 import { AutoCarousel } from '@/components/AutoCarousel';
 import { ButtonLink } from '@/components/ButtonLink';
-import { CounselorCTA } from '@/components/CounselorCTA';
 import { PageHero } from '@/components/PageHero';
 import { Reveal } from '@/components/Reveal';
 import { SectionHeader } from '@/components/SectionHeader';
@@ -179,11 +178,6 @@ export default function ProjectsPage() {
               </AutoCarousel>
             </Reveal>
           ))}
-        </div>
-        <div className="mx-auto mt-14 max-w-[92rem]">
-          <Reveal animation="pop" delay={100}>
-            <CounselorCTA source="/projects" compact />
-          </Reveal>
         </div>
       </section>
     </main>

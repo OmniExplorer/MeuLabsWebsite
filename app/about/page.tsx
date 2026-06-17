@@ -3,7 +3,6 @@ import Image from 'next/image';
 import type { LucideIcon } from 'lucide-react';
 import { Brain, Building2, CheckCircle2, HeartHandshake, ShieldCheck, Sparkles, UsersRound } from 'lucide-react';
 import { ButtonLink } from '@/components/ButtonLink';
-import { CounselorCTA } from '@/components/CounselorCTA';
 import { LogoScroller, type LogoScrollerItem } from '@/components/LogoScroller';
 import { PageHero } from '@/components/PageHero';
 import { Reveal } from '@/components/Reveal';
@@ -148,12 +147,6 @@ export default function AboutPage() {
             <LearningFeature key={section.title} section={section} reverse={index % 2 === 1} delay={index * 80} />
           ))}
         </div>
-      </section>
-
-      <section className="px-4 py-14 sm:px-6 lg:px-8">
-        <Reveal animation="pop">
-          <CounselorCTA source="/about" compact />
-        </Reveal>
       </section>
     </main>
   );

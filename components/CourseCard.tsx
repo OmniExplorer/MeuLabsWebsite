@@ -108,19 +108,15 @@ export function CourseCard({
             <span className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-transparent">View Course</span>
             <ArrowRight size={14} className="text-[#FF4F1F]" aria-hidden />
           </Link>
-          {course.comingSoon ? (
-            <button className="min-h-[40px] cursor-not-allowed rounded-full bg-slate-100 px-4 py-2 text-[13px] font-extrabold text-slate-400" disabled>Join Waitlist</button>
-          ) : (
-            <a
-              href={course.registerLink}
-              target="_blank"
-              rel="noreferrer"
-              onClick={() => trackEvent('registration_click', { course: course.slug, batch: 'course_card' })}
-              className="inline-flex min-h-[40px] items-center justify-center rounded-full bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] px-4 py-2 text-[13px] font-extrabold text-white shadow-[0_10px_24px_rgba(255,79,31,0.20)] transition duration-200 hover:-translate-y-0.5 hover:scale-[1.02] hover:from-[#ff6b00] hover:to-[#f04417] hover:shadow-pop"
-            >
-              Register Now
-            </a>
-          )}
+          <a
+            href={course.registerLink}
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => trackEvent(course.comingSoon ? 'waitlist_click' : 'registration_click', { course: course.slug, batch: 'course_card' })}
+            className="inline-flex min-h-[40px] items-center justify-center rounded-full bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] px-4 py-2 text-[13px] font-extrabold text-white shadow-[0_10px_24px_rgba(255,79,31,0.20)] transition duration-200 hover:-translate-y-0.5 hover:scale-[1.02] hover:from-[#ff6b00] hover:to-[#f04417] hover:shadow-pop"
+          >
+            {course.comingSoon ? 'Join Waitlist' : 'Register Now'}
+          </a>
         </div>
       </div>
     </article>

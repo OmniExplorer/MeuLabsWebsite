@@ -41,7 +41,6 @@ import {
   Gamepad2,
   GraduationCap,
   Handshake,
-  HeartHandshake,
   Joystick,
   Kanban,
   KeyRound,
@@ -86,7 +85,6 @@ import { allCourses, formatPathwayStage, getCourse, type Course } from '@/data/c
 import { courseAliases } from '@/data/courseContent';
 import { intakes } from '@/data/intakes';
 import { CourseCard } from '@/components/CourseCard';
-import { CounselorCTA } from '@/components/CounselorCTA';
 import { Reveal } from '@/components/Reveal';
 import { SyllabusForm } from '@/components/SyllabusForm';
 import { counselorMessage, whatsappHref } from '@/lib/whatsapp';
@@ -94,27 +92,34 @@ import { currentMonthName, daysToNextClosingDate, seededSpots } from '@/lib/regi
 
 type PageProps = { params: { slug: string } };
 
-const paymentInfoItems = [
+const paymentBenefitItems = [
   {
     title: '25% sibling discounts',
+    eyebrow: 'Family savings',
     Icon: Users
   },
   {
     title: '25% discounts for multiple courses',
+    eyebrow: 'Bundle discount',
     Icon: Tags
   },
   {
-    title: 'Pay with Koko, MyFees, or Mintpay',
-    Icon: CreditCard
-  },
-  {
     title: 'Special one-time payment discounts',
-    Icon: Handshake
+    eyebrow: 'Upfront payment',
+    Icon: PackageCheck,
+    imageSrc: '/assets/images/handholding.png'
   },
   {
     title: 'Try out the first class for free*',
-    Icon: HeartHandshake
+    eyebrow: 'Trial class',
+    Icon: BookOpenCheck
   }
+];
+
+const paymentPartnerLogos = [
+  { label: 'Mintpay', src: '/assets/logos/mintpay.png' },
+  { label: 'Koko', src: '/assets/logos/koko.png' },
+  { label: 'MyFees', src: '/assets/logos/myfees.png' }
 ];
 
 const projectImages = [
@@ -483,7 +488,8 @@ const toolLogoMap: Record<string, string> = {
   chatgpt: '/assets/logos/tools/chatgpt.svg',
   clipchamp: '/assets/logos/tools/clipchamp.svg',
   css: '/assets/logos/tools/css.svg',
-  'da vinci resolve': '/assets/logos/tools/davinciresolve.svg',
+  'davinci resolve': '/assets/logos/davinciresolve.png',
+  'da vinci resolve': '/assets/logos/davinciresolve.png',
   easyeda: '/assets/logos/tools/easyeda.svg',
   'digital drawing tools': '/assets/images/Digital-Drawing-Tools.png',
   excel: '/assets/logos/tools/excel.svg',
@@ -649,7 +655,12 @@ function matchesToolLogoKey(normalizedTool: string, key: string) {
 
 function isWideToolLogo(tool: string) {
   const normalized = tool.toLowerCase();
-  return normalized.includes('google workspace') || normalized.includes('our world in data') || normalized.includes('ml for kids') || normalized.includes('meta business') || normalized.includes('aia') || normalized.includes('biet') || normalized.includes('meu labs');
+  return normalized.includes('google workspace') || normalized.includes('our world in data') || normalized.includes('ml for kids') || normalized.includes('meta business') || normalized.includes('aia') || normalized.includes('biet') || normalized.includes('meu labs') || normalized.includes('davinci resolve') || normalized.includes('da vinci resolve');
+}
+
+function isLargeToolLogo(tool: string) {
+  const normalized = tool.toLowerCase();
+  return normalized.includes('davinci resolve') || normalized.includes('da vinci resolve');
 }
 
 function getHeroPhoto(course: Course) {
@@ -951,6 +962,7 @@ export default function CoursePage({ params }: PageProps) {
                   const visual = getToolVisual(tool);
                   const ToolIcon = getToolIcon(tool);
                   const wideLogo = isWideToolLogo(tool);
+                  const largeLogo = isLargeToolLogo(tool);
                   return (
                     <div
                       key={tool}
@@ -960,9 +972,9 @@ export default function CoursePage({ params }: PageProps) {
                         <Image
                           src={logo}
                           alt=""
-                          width={wideLogo ? 160 : 112}
-                          height={wideLogo ? 56 : 72}
-                          className={`${wideLogo ? 'mb-4 h-14 w-40' : 'mb-3 max-h-20 w-28'} object-contain`}
+                          width={largeLogo ? 190 : wideLogo ? 160 : 112}
+                          height={largeLogo ? 90 : wideLogo ? 56 : 72}
+                          className={`${largeLogo ? 'mb-3 h-24 w-44' : wideLogo ? 'mb-4 h-14 w-40' : 'mb-3 max-h-20 w-28'} object-contain`}
                         />
                       ) : visual ? (
                         <Image
@@ -1069,24 +1081,83 @@ export default function CoursePage({ params }: PageProps) {
 
       <section className="bg-white px-4 py-10 sm:px-6 lg:px-8">
         <Reveal animation="rise" className="mx-auto max-w-[92rem]">
-          <article className="rounded-[10px] border border-orange/20 bg-[linear-gradient(135deg,#FFFFFF_0%,#FFF8EF_58%,#FFEBD1_100%)] p-7 shadow-[0_16px_34px_rgba(255,122,0,0.10)] md:p-8">
+          <div className="rounded-[10px] border border-orange/20 bg-[linear-gradient(135deg,#FFFFFF_0%,#FFF8EF_58%,#FFEBD1_100%)] p-6 shadow-[0_16px_34px_rgba(255,122,0,0.10)] md:p-8">
             <div className="border-l-4 border-orange pl-4">
-              <h2 className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">Payment Info</h2>
+              <div>
+                <h2 className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">Payment Info</h2>
+              </div>
             </div>
-            <div className="mt-7 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
-              {paymentInfoItems.map(({ title, Icon }) => (
-                <div key={title} className="flex min-h-[132px] flex-col rounded-[8px] border border-navy/10 bg-white p-4 shadow-[0_10px_22px_rgba(13,53,87,0.05)]">
-                  <div className="flex items-start gap-3">
-                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-[#FF7A00] to-[#FF4F1F] text-white shadow-[0_10px_22px_rgba(255,122,0,0.22)]">
-                      <Icon size={22} strokeWidth={2.4} aria-hidden />
+
+            <div className="mt-8 grid gap-4 xl:grid-cols-[1fr_1.18fr_1fr]">
+              <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-1">
+                {paymentBenefitItems.slice(0, 2).map(({ title, eyebrow, Icon, imageSrc }) => (
+                  <div key={title} className="group flex min-h-[128px] items-center gap-4 rounded-[8px] border border-orange/15 bg-white p-4 shadow-[0_12px_26px_rgba(13,53,87,0.06)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_16px_34px_rgba(255,122,0,0.14)]">
+                    <span className="relative grid h-14 w-14 shrink-0 place-items-center overflow-hidden rounded-full bg-[radial-gradient(circle_at_35%_28%,#FFB45C_0%,#FF7A00_42%,#FF4F1F_100%)] text-white shadow-[0_12px_24px_rgba(255,122,0,0.24)]">
+                      {imageSrc ? (
+                        <Image src={imageSrc} alt="" width={38} height={38} className="h-9 w-9 object-contain mix-blend-screen" sizes="38px" />
+                      ) : (
+                        <Icon size={24} strokeWidth={2.4} aria-hidden />
+                      )}
                     </span>
-                    <p className="text-sm font-bold leading-6 text-navy">{title}</p>
+                    <span>
+                      <span className="block text-[11px] font-black uppercase tracking-[0.1em] text-orange">{eyebrow}</span>
+                      <span className="mt-1 block text-base font-black leading-6 text-navy">{title}</span>
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="rounded-[8px] border border-navy/10 bg-white p-5 shadow-[0_12px_26px_rgba(13,53,87,0.07)]">
+                <div className="flex items-start gap-3 border-b border-slate-100 pb-4">
+                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-[#FFF4E6] text-orange">
+                    <CreditCard size={24} strokeWidth={2.4} aria-hidden />
+                  </span>
+                  <div>
+                    <h3 className="text-lg font-black leading-6 text-navy">Installment Payment Partners</h3>
+                    <p className="mt-1 text-xs font-bold uppercase tracking-[0.08em] text-slate-500">Mintpay, Koko, and MyFees</p>
                   </div>
                 </div>
-              ))}
+                <div className="mt-5 grid gap-3 sm:grid-cols-3">
+                  {paymentPartnerLogos.map((logo) => (
+                    <span key={logo.label} className="flex min-h-[112px] flex-col items-center justify-center gap-3 rounded-[8px] border border-slate-200 bg-[linear-gradient(180deg,#FFFFFF_0%,#F8FAFC_100%)] px-4 py-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.85)]">
+                      {logo.label === 'Mintpay' ? (
+                        <span className="grid h-16 w-16 place-items-center overflow-hidden rounded-full bg-white shadow-[0_10px_22px_rgba(13,53,87,0.12)]">
+                          <Image src={logo.src} alt={logo.label} width={64} height={64} className="h-16 w-16 object-cover" sizes="64px" />
+                        </span>
+                      ) : logo.label === 'MyFees' ? (
+                        <span className="grid h-16 w-16 place-items-center overflow-hidden rounded-[14px] bg-white shadow-[0_10px_22px_rgba(13,53,87,0.10)]">
+                          <Image src={logo.src} alt={logo.label} width={64} height={64} className="h-14 w-14 object-contain" sizes="64px" />
+                        </span>
+                      ) : (
+                        <Image src={logo.src} alt={logo.label} width={150} height={72} className="h-11 w-full max-w-[132px] object-contain" sizes="150px" />
+                      )}
+                      <span className="text-[11px] font-black uppercase tracking-[0.08em] text-slate-500">{logo.label}</span>
+                    </span>
+                  ))}
+                </div>
+                <p className="mt-4 text-xs font-semibold leading-5 text-slate-500">Select your preferred installment partner during enrollment.</p>
+              </div>
+
+              <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-1">
+                {paymentBenefitItems.slice(2).map(({ title, eyebrow, Icon, imageSrc }) => (
+                  <div key={title} className="group flex min-h-[128px] items-center gap-4 rounded-[8px] border border-orange/15 bg-white p-4 shadow-[0_12px_26px_rgba(13,53,87,0.06)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_16px_34px_rgba(255,122,0,0.14)]">
+                    <span className="relative grid h-14 w-14 shrink-0 place-items-center overflow-hidden rounded-full bg-[radial-gradient(circle_at_35%_28%,#FFB45C_0%,#FF7A00_42%,#FF4F1F_100%)] text-white shadow-[0_12px_24px_rgba(255,122,0,0.24)]">
+                      {imageSrc ? (
+                        <Image src={imageSrc} alt="" width={38} height={38} className="h-9 w-9 object-contain mix-blend-screen" sizes="38px" />
+                      ) : (
+                        <Icon size={24} strokeWidth={2.4} aria-hidden />
+                      )}
+                    </span>
+                    <span>
+                      <span className="block text-[11px] font-black uppercase tracking-[0.1em] text-orange">{eyebrow}</span>
+                      <span className="mt-1 block text-base font-black leading-6 text-navy">{title}</span>
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
             <p className="mt-5 text-xs font-semibold leading-5 text-slate-500">*Free trial subject to seat availability.</p>
-          </article>
+          </div>
         </Reveal>
       </section>
 
@@ -1139,9 +1210,6 @@ export default function CoursePage({ params }: PageProps) {
           </div>
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {recommended.map((item) => item ? <CourseCard key={item.slug} course={item} /> : null)}
-          </div>
-          <div className="mt-10">
-            <CounselorCTA courseName={course.title} source={`/courses/${course.slug}`} compact />
           </div>
         </Reveal>
       </section>

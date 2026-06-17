@@ -2,7 +2,6 @@ import Image from 'next/image';
 import { Blocks, Bot, BrainCircuit, BriefcaseBusiness, Code2, Factory, GraduationCap, Landmark, Lightbulb, Megaphone, Orbit, Rocket, Route, Shield, Trees, Video } from 'lucide-react';
 import { AutoCarousel } from '@/components/AutoCarousel';
 import { ButtonLink } from '@/components/ButtonLink';
-import { CounselorCTA } from '@/components/CounselorCTA';
 import { CourseCard } from '@/components/CourseCard';
 import { Reveal } from '@/components/Reveal';
 import { WhyMeuLabs } from '@/components/WhyMeuLabs';
@@ -409,9 +408,6 @@ export default function HomePage() {
           </Reveal>
           <Reveal animation="pop" delay={200}>
             <WhyMeuLabs intro="We combine expert instruction, safe creative spaces, and a world-class project-based curriculum so students build confidence, creativity, and real technical skill." />
-          </Reveal>
-          <Reveal animation="pop" delay={300} className="mt-10">
-            <CounselorCTA source="/" compact />
           </Reveal>
         </div>
       </section>

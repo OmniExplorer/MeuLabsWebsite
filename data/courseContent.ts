@@ -105,15 +105,15 @@ export const courseSpecificUpdates: Record<string, Partial<Course>> = {
     title: 'Digital Media',
     internalName: 'Digital Media',
     subtitle: 'Digital Media',
-    descriptor: 'A creative production programme where students explore storytelling, visual design, performance, filming, editing, and digital media while creating their own original video project.',
+    descriptor: 'A creative production programme where students explore visual storytelling, filming, performance, editing, and digital media tools used in both production and post-production, while developing and creating their own original video projects.',
     ageRange: '10 - 14',
     duration: '6 months',
     format: 'One 2-hour session per week',
-    focusAreas: ['Story Writing & Script Development', 'Sketching, Visualisation & Mood Boards', 'Photography, Videography & Set Design', 'Digital Drawing & Creative Artwork', 'Acting, Public Speaking & Performance', 'Video Editing, Audio Production & Post Production'],
+    focusAreas: ['Story Writing & Script Development', 'Sketching, Visualisation & Mood Boards', 'Stage-craft and Digital Illustration', 'Cinematography and Production Tools', 'Acting, Public Speaking & Performance', 'Video Editing, Audio Production & Post Production'],
     learningOutcomes: ['Conceptualise a creative idea and turn it into a structured story, script, or production plan.', 'Create mood boards, sketches, and visual plans to communicate the look, feel, characters, and setting of a story.', 'Use basic photography and videography techniques, including camera angles, lighting, background settings, and scene composition.', 'Create digital artwork and explore different styles of visual expression using beginner-friendly creative tools.', 'Develop confidence in performance through acting, improvisation, voice projection, public speaking, and scene work.', 'Edit a final video project using basic post-production techniques, including video editing, audio mixing, voiceovers, music, and foley effects.'],
     courseStructure: sharedProjectStructure,
     toolsUsed: ['Canva', 'Google Workspace', 'Camera / Mobile Filming Tools', 'Krita', 'BandLab', 'Pencil2D', 'CapCut'],
-    prerequisites: 'Students should have successfully completed the Foundation level or be able to independently create basic videos and animations using tools like Clipchamp. Photography experience is an added advantage. Students who have not completed the Foundation level may request an entry test.',
+    prerequisites: 'Students should have successfully completed the Foundation level or be able to independently create basic videos and animations using tools like Clipchamp. Prior experience in photography, creative ideation, and writing or script writing is an added advantage. Students who have not completed the Foundation level may request an entry test.',
     exampleProjects: ['https://web.facebook.com/share/v/1ETxNNmH7Z/', 'https://web.facebook.com/share/r/1EB7H4dmdM/', 'https://web.facebook.com/share/v/1BELu8RcSA/', 'https://web.facebook.com/share/r/18dv7K3hda/'],
     recommendedCourses: ['kx', 'coding-software', 'robotics-iot']
   },
@@ -296,7 +296,7 @@ export const courseSpecificUpdates: Record<string, Partial<Course>> = {
     prerequisites: 'Completion of two relevant specialisations is required. Students should be able to work independently, communicate clearly, complete assigned tasks, and take responsibility for deadlines. Students should have prior project work in software, data, AI, engineering, product development, design, or a related area. Acceptance into internship opportunities is not automatic and will depend on performance, readiness, partner requirements, and mentor evaluation.',
     exampleProjects: ['Sadeeptha success story', 'Hamaadh success story', 'Denaro success story', 'Dinuja success story'],
     location: 'Online / In Person / Colombo 06',
-    registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSfHtxIWI5Hm60IEXxDuG8rUYEWzWtxmnzPCvUxGJmdiYgR2rg/viewform?usp=dialog',
+    registerLink: 'https://forms.gle/Bb7BzUqo4YxoZhtM8',
     recommendedCourses: ['ua', 'fs', 'se', 'ds']
   },
   ua: {
@@ -352,7 +352,7 @@ export const courseSpecificUpdates: Record<string, Partial<Course>> = {
     prerequisites: 'No prior coding, robotics, or computer experience required. Students should be 6-7 years old and comfortable participating in guided group activities. Basic ability to listen, follow simple instructions, and communicate in their own mother tongue is helpful. English is preferred, but support is available in Sinhala and Tamil where needed. Curiosity, creativity, and willingness to try new activities are the most important requirements.',
     exampleProjects: ['Play-dough character creation and storytelling activity', 'Cup-and-stick tower building challenge to test stability', 'ScratchJr animated story with characters, scenes, and dialogue', 'Nature-themed drama and role-play performance', 'Simple 3D object and city map designed in TinkerCAD', 'Little maker toy using simple craft materials, motors, and LEDs', 'Money adventure board game involving earning, spending, and saving'],
     location: 'In Person Only / Colombo 06',
-    registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSf3x8e9BGxo9y2WOmqUMAhq1vnAJIHRIqyYEfIKdpn1E5rvxw/viewform?usp=dialog',
+    registerLink: 'https://forms.gle/gdU3BmjrT4j95EKW8',
     recommendedCourses: ['kx', 'coding-software', 'robotics-iot']
   }
 };

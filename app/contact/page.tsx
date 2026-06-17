@@ -14,7 +14,6 @@ import {
 } from 'lucide-react';
 import { ButtonLink } from '@/components/ButtonLink';
 import { ContactFAQAccordion } from '@/components/ContactFAQAccordion';
-import { CounselorCTA } from '@/components/CounselorCTA';
 import { Reveal } from '@/components/Reveal';
 import { SectionHeader } from '@/components/SectionHeader';
 import { siteConfig } from '@/data/siteConfig';
@@ -32,7 +31,7 @@ const contact = {
   whatsappHref: whatsappHref(counselorMessage()),
   email: 'hello@meulabs.com',
   hours: siteConfig.openingHours,
-  address: 'Colombo 06'
+  address: siteConfig.address
 };
 
 const supportCards = [
@@ -220,12 +219,6 @@ export default function ContactPage() {
           </Reveal>
           <ContactFAQAccordion />
         </div>
-      </section>
-
-      <section className="px-4 py-10 sm:px-6 lg:px-8">
-        <Reveal animation="pop">
-          <CounselorCTA source="/contact" compact buttonShape="square" />
-        </Reveal>
       </section>
     </main>
   );

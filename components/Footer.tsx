@@ -10,7 +10,7 @@ const courseLinks = [
   { href: '/courses/coding-software', label: 'Coding and Software' },
   { href: '/courses/robotics-iot', label: 'Robotics and IoT' },
   { href: '/courses/digital-media', label: 'Digital Media' },
-  { href: '/courses/se', label: 'Specialisations' }
+  { href: '/courses/se', label: 'Software Engineering' }
 ];
 
 const companyLinks = [
@@ -138,7 +138,7 @@ export function Footer() {
             </a>
             <div className="grid grid-cols-[1.25rem_1fr] gap-3">
               <MapPin size={16} className="text-orange" aria-hidden />
-              <span>No. 133, High Level Road, Nugegoda, Colombo, Sri Lanka</span>
+              <span>{siteConfig.address}</span>
             </div>
           </div>
         </div>
