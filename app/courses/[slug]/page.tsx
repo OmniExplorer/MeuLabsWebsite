@@ -1073,7 +1073,7 @@ export default function CoursePage({ params }: PageProps) {
             </div>
             <p className="mt-5 max-w-xl text-sm font-bold leading-6 text-slate-700">Complete the request form and we will send the full syllabus to you.</p>
             <div className="mt-7">
-              <SyllabusForm courseSlug={course.slug} />
+              <SyllabusForm courseSlug={course.slug} courseTitle={course.title} />
             </div>
             <p className="mt-auto pt-8 text-xs font-bold text-slate-500">We respect your privacy. Your information is safe with us.</p>
           </article>
