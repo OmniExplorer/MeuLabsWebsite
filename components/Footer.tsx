@@ -68,12 +68,9 @@ export function Footer() {
                   <ChevronRight size={15} aria-hidden />
                 </a>
               </div>
-              <div className="grid gap-3 sm:grid-cols-[1fr_auto]">
-                <label className="grid h-11 grid-cols-[1.75rem_1fr] items-center rounded-full border border-white/10 bg-white/[0.04] px-4 text-slate-400">
+              <div>
+                <a href="mailto:info@meulabs.com" className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-[#17105A] px-6 text-xs font-black text-white transition hover:-translate-y-0.5 hover:bg-[#21177A]">
                   <Mail size={14} aria-hidden />
-                  <input type="email" placeholder="Enter your email" className="min-w-0 bg-transparent text-xs font-bold text-white placeholder:text-slate-400" aria-label="Enter your email" />
-                </label>
-                <a href="mailto:info@meulabs.com" className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-[#17105A] px-6 text-xs font-black text-white transition hover:-translate-y-0.5 hover:bg-[#21177A]">
                   Email Us
                   <ChevronRight size={15} aria-hidden />
                 </a>
