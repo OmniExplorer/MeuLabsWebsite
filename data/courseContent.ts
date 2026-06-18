@@ -315,7 +315,8 @@ export const courseSpecificUpdates: Record<string, Partial<Course>> = {
     prerequisites: 'Students should be 16+ and preparing for university, diploma, foundation, or study-abroad pathways. Academic records, extracurriculars, projects, or portfolio work are helpful. Meu Labs course experience is required. Students must be ready to work on essays, applications, interviews, documents, and deadlines.',
     exampleProjects: ['Senul success story', 'Suhrid success story'],
     location: 'Online / In Person / Colombo 06',
-    recommendedCourses: ['ig', 'fs']
+    recommendedCourses: ['ig', 'fs'],
+    comingSoon: true
   },
   fs: {
     title: 'Founder Studio',

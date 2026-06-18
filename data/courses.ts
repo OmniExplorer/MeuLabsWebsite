@@ -364,7 +364,8 @@ export const courses: Course[] = [
     exampleProjects: [],
     location: 'Colombo 06',
     registerLink: waitlistRegister(),
-    recommendedCourses: ['ig', 'fs', 'se']
+    recommendedCourses: ['ig', 'fs', 'se'],
+    comingSoon: true
   },
   {
     slug: 'ig',
