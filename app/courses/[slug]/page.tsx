@@ -589,8 +589,9 @@ const toolVisualMap: Record<string, string> = {
   '555 timer': '/assets/images/555Timer.png',
   'pcb tool': '/assets/images/PCBTOOLS.png',
   esp32: '/assets/images/ESP32.png',
-  stm32: '/assets/logos/tools/stm32.png',
-  'cubeide': '/assets/logos/tools/stm32.png',
+  'stm32cubeide': '/assets/logos/STM32CUBE.png',
+  'cubeide': '/assets/logos/STM32CUBE.png',
+  stm32: '/assets/logos/STM32.png',
   'edge impulse': '/assets/logos/tools/edge-impulse.png',
   'logic analyzer': '/assets/images/LogicAnalyser.png',
   oscilloscope: '/assets/logos/tools/oscilloscope.png'
@@ -834,6 +835,7 @@ export default function CoursePage({ params }: PageProps) {
   const courseStructure = splitCourseStructure(course.courseStructure);
   const usesIndustryPartnerLabels = course.slug === 'ig' || course.slug === 'fs';
   const primaryCtaLabel = course.comingSoon ? 'Join Waitlist' : 'Register Now';
+  const heroEyebrow = course.pathwayStage === 'Learning Path' ? course.title : course.subtitle;
 
   return (
     <main className="bg-[#F8F1E3]">
@@ -865,7 +867,7 @@ export default function CoursePage({ params }: PageProps) {
             <div className="relative z-10 mx-auto grid min-h-[760px] max-w-[92rem] gap-8 px-4 py-20 sm:px-6 lg:grid-cols-[0.88fr_1.12fr] lg:items-center lg:px-8">
               <Reveal className="flex max-w-3xl flex-col justify-center text-white" animation="rise">
                 <div className="mb-8 max-w-3xl border-l-4 border-orange pl-5">
-                  <p className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">{course.subtitle}</p>
+                  <p className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">{heroEyebrow}</p>
                 </div>
                 <h1 className="max-w-4xl text-4xl font-normal leading-[1.08] tracking-normal md:text-6xl">{pageTitle}</h1>
                 <p className="mt-6 max-w-3xl text-xl font-semibold leading-9 text-white/88">{course.descriptor}</p>
@@ -1069,7 +1071,7 @@ export default function CoursePage({ params }: PageProps) {
             <div className="border-l-4 border-orange pl-4">
               <h2 className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">Request Full Syllabus</h2>
             </div>
-            <p className="mt-5 max-w-xl text-sm font-bold leading-6 text-slate-700">Fill in your details and we will send the full syllabus to you.</p>
+            <p className="mt-5 max-w-xl text-sm font-bold leading-6 text-slate-700">Complete the request form and we will send the full syllabus to you.</p>
             <div className="mt-7">
               <SyllabusForm courseSlug={course.slug} />
             </div>

@@ -37,10 +37,10 @@ export interface Course {
 }
 
 const placeholderRegister = 'https://docs.google.com/forms/d/e/placeholder/viewform';
-const waitlistForm = 'https://docs.google.com/forms/d/e/1FAIpQLSfHTAPLWoPd_qrtZBPzjtGB2xPsOz66eAHeeGRzKFvco37Lkg/viewform';
+const waitlistForm = 'https://forms.gle/fBLiHsRBqRB6n3MZ7';
 
-function waitlistRegister(courseName: string) {
-  return `${waitlistForm}?course=${encodeURIComponent(courseName)}`;
+function waitlistRegister() {
+  return waitlistForm;
 }
 
 const detailsPending = 'Course details are being finalised for the next Meu Labs pathway update.';
@@ -92,7 +92,7 @@ export const courses: Course[] = [
   {
     slug: 'coding-software',
     title: 'Coding and Software',
-    internalName: 'Coding and Software',
+    internalName: 'Analytics',
     subtitle: 'Programming for Kids',
     keywords: ['Python', 'Web Sites', 'AI Models', 'Statistics', 'Research'],
     pathwayStage: 'Learning Path',
@@ -113,7 +113,7 @@ export const courses: Course[] = [
   {
     slug: 'robotics-iot',
     title: 'Robotics and IoT',
-    internalName: 'Robotics and IoT',
+    internalName: 'Product Design',
     subtitle: 'Robotics and IoT',
     keywords: ['Fusion 360', 'Arduino', 'Woodworking', 'EasyEDA', '3D Printing', 'CNC', 'Laser Cutting', 'PCB Design', 'Prototyping', 'Product Pitching'],
     pathwayStage: 'Learning Path',
@@ -134,7 +134,7 @@ export const courses: Course[] = [
   {
     slug: 'digital-media',
     title: 'Digital Media',
-    internalName: 'Digital Media',
+    internalName: 'Creative Expression',
     subtitle: 'Digital Media',
     keywords: ['Story Writing', 'Script Writing', 'Digital Drawing', 'Video Production', 'Acting', 'Photography', 'Videography', 'Post Production', 'Public Speaking'],
     pathwayStage: 'Learning Path',
@@ -212,7 +212,7 @@ export const courses: Course[] = [
     prerequisites: tbc,
     exampleProjects: [],
     location: 'Colombo 06',
-    registerLink: waitlistRegister('Game Development'),
+    registerLink: waitlistRegister(),
     recommendedCourses: ['coding-software', 'se', 'digital-media'],
     comingSoon: true
   },
@@ -234,7 +234,7 @@ export const courses: Course[] = [
     prerequisites: tbc,
     exampleProjects: [],
     location: 'Colombo 06',
-    registerLink: waitlistRegister('Cyber Security'),
+    registerLink: waitlistRegister(),
     recommendedCourses: ['coding-software', 'se', 'ds'],
     comingSoon: true
   },
@@ -298,7 +298,7 @@ export const courses: Course[] = [
     prerequisites: tbc,
     exampleProjects: [],
     location: 'Colombo 06',
-    registerLink: waitlistRegister('Manufacturing and Robotics'),
+    registerLink: waitlistRegister(),
     recommendedCourses: ['robotics-iot', 'es', 'eee'],
     comingSoon: true
   },
@@ -320,7 +320,7 @@ export const courses: Course[] = [
     prerequisites: tbc,
     exampleProjects: [],
     location: 'Colombo 06',
-    registerLink: waitlistRegister('Digital Marketing'),
+    registerLink: waitlistRegister(),
     recommendedCourses: ['digital-media', 'coding-software', 'fs'],
     comingSoon: true
   },
@@ -342,7 +342,7 @@ export const courses: Course[] = [
     prerequisites: tbc,
     exampleProjects: [],
     location: 'Colombo 06',
-    registerLink: waitlistRegister('Animation & Post-Production'),
+    registerLink: waitlistRegister(),
     recommendedCourses: ['digital-media', 'dm', 'gd']
   },
   {
@@ -363,7 +363,7 @@ export const courses: Course[] = [
     prerequisites: tbc,
     exampleProjects: [],
     location: 'Colombo 06',
-    registerLink: waitlistRegister('Founder Studio'),
+    registerLink: waitlistRegister(),
     recommendedCourses: ['ig', 'fs', 'se']
   },
   {

@@ -70,7 +70,7 @@ export const courseSpecificUpdates: Record<string, Partial<Course>> = {
   },
   'coding-software': {
     title: 'Coding and Software',
-    internalName: 'Coding and Software',
+    internalName: 'Analytics',
     subtitle: 'Programming for Kids',
     keywords: ['Python', 'Colab', 'Web Dev', 'Streamlit', 'Excel', 'APIs', 'Data Analysis', 'AI', 'Research'],
     descriptor: 'A hands-on analytics programme for students who love coding, computers, and maths, where they use data, AI, electronics, and research to solve real-world challenges.',
@@ -87,7 +87,7 @@ export const courseSpecificUpdates: Record<string, Partial<Course>> = {
   },
   'robotics-iot': {
     title: 'Robotics and IoT',
-    internalName: 'Robotics and IoT',
+    internalName: 'Product Design',
     subtitle: 'Robotics and IoT',
     descriptor: 'A hands-on product design programme for young engineers where students reverse-engineer everyday products and redesign smarter versions using prototyping, electronics, CAD, manufacturing, and pitching.',
     ageRange: '10 - 14',
@@ -103,7 +103,7 @@ export const courseSpecificUpdates: Record<string, Partial<Course>> = {
   },
   'digital-media': {
     title: 'Digital Media',
-    internalName: 'Digital Media',
+    internalName: 'Creative Expression',
     subtitle: 'Digital Media',
     descriptor: 'A creative production programme where students explore visual storytelling, filming, performance, editing, and digital media tools used in both production and post-production, while developing and creating their own original video projects.',
     ageRange: '10 - 14',
