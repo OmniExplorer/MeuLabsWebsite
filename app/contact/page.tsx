@@ -77,6 +77,11 @@ export default function ContactPage() {
             sizes="58vw"
           />
         </div>
+        <Reveal animation="pop" delay={320} className="absolute bottom-8 right-0 z-20 hidden w-[22rem] rounded-l-lg border border-r-0 border-orange/15 bg-[#FFF8EF]/95 p-4 shadow-[0_18px_48px_rgba(13,53,87,0.16)] backdrop-blur lg:block">
+          <ContactLine icon={MessageCircle} label="Chat on WhatsApp" value={contact.phoneDisplay} />
+          <ContactLine icon={Phone} label="Call Us" value={contact.phoneDisplay} />
+          <ContactLine icon={Clock3} label="Hours" value={contact.hours} />
+        </Reveal>
 
         <div className="mx-auto grid max-w-[92rem] gap-8 py-10 lg:min-h-[620px] lg:grid-cols-[0.84fr_1.16fr] lg:items-center lg:py-16">
           <div className="max-w-3xl">
@@ -117,7 +122,7 @@ export default function ContactPage() {
               className="object-cover object-center opacity-80 lg:hidden"
               sizes="100vw"
             />
-            <Reveal animation="pop" delay={320} className="absolute bottom-5 right-5 w-[min(88%,22rem)] rounded-lg border border-orange/15 bg-[#FFF8EF]/95 p-4 shadow-[0_18px_48px_rgba(13,53,87,0.16)] backdrop-blur lg:bottom-0 lg:-right-16 xl:-right-24">
+            <Reveal animation="pop" delay={320} className="absolute -right-4 bottom-0 w-[min(88%,22rem)] rounded-lg border border-orange/15 bg-[#FFF8EF]/95 p-4 shadow-[0_18px_48px_rgba(13,53,87,0.16)] backdrop-blur sm:-right-6 lg:hidden">
               <ContactLine icon={MessageCircle} label="Chat on WhatsApp" value={contact.phoneDisplay} />
               <ContactLine icon={Phone} label="Call Us" value={contact.phoneDisplay} />
               <ContactLine icon={Clock3} label="Hours" value={contact.hours} />
