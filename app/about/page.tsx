@@ -20,7 +20,7 @@ const learningSections = [
     title: 'Guided by instructors who bring real-world experience into the classroom.',
     body: 'Meu Labs instructors are trained to do more than deliver lessons. They guide students through building, testing, debugging, presenting, and improving real projects. We believe students learn best from mentors who understand how these skills are used beyond the classroom.',
     points: ['Safeguarding-trained instructors', 'STEM-certified teaching team', 'Industry-experienced mentors', 'Practical guidance through every project', 'Support with coding, robotics, design, electronics, AI, and creative technology'],
-    image: '/assets/images/why-instructors.jpg',
+    image: '/assets/images/Expert Instructors .jpg',
     icon: UsersRound
   },
   {
@@ -28,7 +28,7 @@ const learningSections = [
     title: 'Small groups, clear feedback, and personalised next steps.',
     body: 'We keep our learning environment personal so every student gets the support they need. With small-group classes and a strong instructor-to-student ratio, students receive regular guidance while parents stay informed about their progress.',
     points: ['Approximately 1 instructor for every 5 students', 'Regular parent updates on student work and progress', 'Instructor feedback on participation, creativity, teamwork, and technical understanding', 'Guidance based on each student’s confidence, interests, and readiness', 'Clear next-step recommendations at the end of each course'],
-    image: '/assets/images/why-attention.jpg',
+    image: '/assets/images/Personal attention.jpg',
     icon: HeartHandshake
   },
   {
@@ -36,7 +36,7 @@ const learningSections = [
     title: 'Serious learning that still feels exciting.',
     body: 'Meu Labs is built around curiosity, energy, and student ownership. Students learn through missions, games, challenges, builds, videos, prototypes, showcases, and team activities that make technical learning feel meaningful and memorable.',
     points: ['Challenge-based learning', 'Team activities and friendly competition', 'Student showcases and project presentations', 'A culture where mistakes become part of learning', 'Students build confidence by creating things they are proud of'],
-    image: '/assets/images/why-culture.jpg',
+    image: '/assets/images/Fun Learning.jpg',
     icon: Sparkles
   },
   {
@@ -44,7 +44,7 @@ const learningSections = [
     title: 'A safe, well-equipped space for building, coding, and experimenting.',
     body: 'Students need the right environment to explore technology confidently. Meu Labs provides structured, supervised learning spaces where students can safely work with computers, electronics, tools, prototypes, and creative equipment.',
     points: ['Fully equipped makerspace for hands-on learning', 'Access to devices for student work', 'Monitored internet access during sessions', 'Course-specific safety briefings before hands-on activities', 'PPE and safety practices for relevant tools and classroom spaces', 'Closed-off learning facility with a single monitored entrance and security personnel'],
-    image: '/assets/images/why-space.jpg',
+    image: '/assets/images/Safe Creative Space (2).jpg',
     icon: ShieldCheck
   },
   {
@@ -52,7 +52,7 @@ const learningSections = [
     title: 'A curriculum built for real-world learning.',
     body: 'Our curriculum is designed to help students build both technical depth and human skills. We use project-based learning, modern tools, and structured progression so students can explore widely, specialise deeply, and connect what they learn to real-world problems.',
     points: ['Project-Based Learning: students learn by building real projects', 'Mind, Hand, and Heart approach: thinking, making, and purpose-driven learning', 'T-shaped learning: broad exposure first, then deeper specialisation', 'Real-world tools across coding, robotics, AI, engineering, design, and media', 'Long-term progression from foundations to launchpad opportunities'],
-    image: '/assets/images/why-curriculum.jpg',
+    image: '/assets/images/World Class Curriculum.jpg',
     icon: Brain
   }
 ];
@@ -96,8 +96,8 @@ export default function AboutPage() {
         eyebrow="About Meu Labs"
         title="A home for students who learn by doing."
         subtitle="Meu Labs helps students build confidence, creativity, and real-world technical skills through project-based learning, expert mentoring, and hands-on programmes in robotics, coding, design, data, AI, and engineering."
-        imageSrc="/assets/images/why-space.jpg"
-        imageAlt="Meu Labs learning space"
+        imageSrc="/assets/images/About-Main-Hero.jpg"
+        imageAlt="Meu Labs student building an electronics project"
         imageStyle="contact"
       >
         <ButtonLink href="/courses">Explore Courses</ButtonLink>

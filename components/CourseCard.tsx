@@ -21,25 +21,25 @@ const selectedStageClasses: Record<PathwayStage, string> = {
 };
 
 const courseImages: Record<string, string> = {
-  kx: '/assets/images/hero-robotics.jpg',
-  'kx-superhero': '/assets/images/project-traffic.jpg',
-  'kx-wild': '/assets/images/electronics-board.jpg',
-  'kx-j': '/assets/images/hero-robotics.jpg',
-  'coding-software': '/assets/images/hero-code.jpg',
-  'robotics-iot': '/assets/images/project-prototype.jpg',
-  'digital-media': '/assets/images/project-film.jpg',
-  se: '/assets/images/project-dashboard.jpg',
-  ds: '/assets/images/project-ai.jpg',
-  eee: '/assets/images/electronics-board.jpg',
-  es: '/assets/images/project-electronics-lab.jpg',
-  mr: '/assets/images/project-electronics-lab.jpg',
-  cs: '/assets/images/hero-code.jpg',
-  gd: '/assets/images/project-game.jpg',
-  dm: '/assets/images/project-video.jpg',
-  va: '/assets/images/project-film.jpg',
-  ua: '/assets/images/why-curriculum.jpg',
-  ig: '/assets/images/why-instructors.jpg',
-  fs: '/assets/images/project-3d-print.jpg'
+  kx: '/assets/images/Course-Hero-Images/KX.jpg',
+  'kx-superhero': '/assets/images/Course-Hero-Images/KX.jpg',
+  'kx-wild': '/assets/images/Course-Hero-Images/KX.jpg',
+  'kx-j': '/assets/images/Course-Hero-Images/KXJ .jpg',
+  'coding-software': '/assets/images/Course-Hero-Images/Coding and Software .jpg',
+  'robotics-iot': '/assets/images/Course-Hero-Images/Robotics and IoT.jpg',
+  'digital-media': '/assets/images/Course-Hero-Images/Digital Media.jpg',
+  se: '/assets/images/Course-Hero-Images/Software Engineering.jpg',
+  ds: '/assets/images/Course-Hero-Images/Data Science and AI.jpg',
+  gd: '/assets/images/Course-Hero-Images/Game Development.jpg',
+  cs: '/assets/images/Course-Hero-Images/Cyber Security.jpg',
+  es: '/assets/images/Course-Hero-Images/Embedded Systems & IoT.jpg',
+  eee: '/assets/images/Course-Hero-Images/Electrical and Electronics Engineering.jpg',
+  mr: '/assets/images/Course-Hero-Images/Manufacturing and Robotics.jpg',
+  dm: '/assets/images/Course-Hero-Images/Digital Marketing.jpg',
+  va: '/assets/images/Course-Hero-Images/Animation & Post-Production.jpg',
+  ua: '/assets/images/Course-Hero-Images/University Access.jpg',
+  ig: '/assets/images/Course-Hero-Images/Industry Gateway.jpg',
+  fs: '/assets/images/Course-Hero-Images/Founder Studio.jpg'
 };
 
 const courseHrefOverrides: Record<string, string> = {
@@ -70,9 +70,10 @@ export function CourseCard({
       <div className="relative h-[152px] overflow-hidden bg-creamAlt">
         <Image
           src={courseImages[course.slug] ?? '/assets/images/project-electronics-lab.jpg'}
-          alt=""
+          alt={title}
           fill
           className="object-cover transition duration-300 group-hover:scale-105"
+          style={course.slug === 'mr' ? { objectPosition: 'center 38%' } : undefined}
           sizes="(min-width: 1280px) 30vw, (min-width: 768px) 45vw, 92vw"
         />
       </div>

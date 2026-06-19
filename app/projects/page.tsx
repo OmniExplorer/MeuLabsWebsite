@@ -88,7 +88,9 @@ export default function ProjectsPage() {
       <PageHero
         eyebrow="Young innovators are building the future."
         title="See what our students build, create, and achieve at Meu Labs"
-        imageSrc="/assets/images/project-prototype.jpg"
+        imageSrc="/assets/images/Projects-Main-Hero.jpg"
+        imageAlt="Meu Labs students representing Sri Lanka at the 2025 International Creativity and Innovation Awards"
+        imageStyle="single"
       >
         <ButtonLink href="/courses">Explore Courses</ButtonLink>
         <ButtonLink href="/contact" variant="secondary">Help Me Choose</ButtonLink>

@@ -16,8 +16,9 @@ export default function CoursesPage() {
         eyebrow="Meu Labs Courses"
         title="Choose the right STEM pathway for your child."
         subtitle="Explore robotics, coding, digital media, AI and engineering courses designed for different ages, interests and experience levels."
-        imageSrc="/assets/images/courses-hero-student-3d.png"
-        imageMode="object"
+        imageSrc="/assets/images/Coursees-Main-Hero-Image.jpg"
+        imageAlt="Meu Labs students learning coding, electronics, robotics, and digital media"
+        imageStyle="single"
       >
         <ButtonLink href="/contact" variant="secondary">Talk to a Student Counselor</ButtonLink>
       </PageHero>

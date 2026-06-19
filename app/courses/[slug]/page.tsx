@@ -553,15 +553,23 @@ const toolLogoMap: Record<string, string> = {
 };
 
 const courseHeroPhotos: Record<string, string> = {
-  kx: '/assets/images/hero-robotics.jpg',
-  'coding-software': '/assets/images/hero-code.jpg',
-  'robotics-iot': '/assets/images/project-prototype.jpg',
-  'digital-media': '/assets/images/project-film.jpg',
-  se: '/assets/images/hero-code.jpg',
-  ds: '/assets/images/project-ai.jpg',
-  es: '/assets/images/project-electronics-lab.jpg',
-  eee: '/assets/images/electronics-board.jpg',
-  mr: '/assets/images/project-electronics-lab.jpg'
+  kx: '/assets/images/Course-Hero-Images/KX.jpg',
+  'kx-j': '/assets/images/Course-Hero-Images/KXJ .jpg',
+  'coding-software': '/assets/images/Course-Hero-Images/Coding and Software .jpg',
+  'robotics-iot': '/assets/images/Course-Hero-Images/Robotics and IoT.jpg',
+  'digital-media': '/assets/images/Course-Hero-Images/Digital Media.jpg',
+  se: '/assets/images/Course-Hero-Images/Software Engineering.jpg',
+  ds: '/assets/images/Course-Hero-Images/Data Science and AI.jpg',
+  gd: '/assets/images/Course-Hero-Images/Game Development.jpg',
+  cs: '/assets/images/Course-Hero-Images/Cyber Security.jpg',
+  es: '/assets/images/Course-Hero-Images/Embedded Systems & IoT.jpg',
+  eee: '/assets/images/Course-Hero-Images/Electrical and Electronics Engineering.jpg',
+  mr: '/assets/images/Course-Hero-Images/Manufacturing and Robotics.jpg',
+  dm: '/assets/images/Course-Hero-Images/Digital Marketing.jpg',
+  va: '/assets/images/Course-Hero-Images/Animation & Post-Production.jpg',
+  ua: '/assets/images/Course-Hero-Images/University Access.jpg',
+  ig: '/assets/images/Course-Hero-Images/Industry Gateway.jpg',
+  fs: '/assets/images/Course-Hero-Images/Founder Studio.jpg'
 };
 
 const toolVisualMap: Record<string, string> = {

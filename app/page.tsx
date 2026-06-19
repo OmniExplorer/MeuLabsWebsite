@@ -196,48 +196,16 @@ export default function HomePage() {
               <ButtonLink href="/contact" variant="secondary">Speak with a Student Counselor</ButtonLink>
             </Reveal>
           </div>
-          <Reveal animation="pop" delay={400} className="relative mx-auto aspect-[1.18/1] w-full max-w-[760px] lg:ml-auto lg:scale-[1.12]">
-            <div className="absolute -right-1 top-8 z-30 grid grid-cols-5 gap-1.5" aria-hidden="true">
-              {Array.from({ length: 25 }).map((_, index) => (
-                <span key={index} className="dot-ripple h-1.5 w-1.5 rounded-full bg-orange" style={{ animationDelay: `${(index % 5) * 120 + Math.floor(index / 5) * 18}ms` }} />
-              ))}
-            </div>
-            <div
-              className="absolute left-[0%] top-[9%] z-30 h-[78%] w-[60%] overflow-hidden p-2 shadow-[0_30px_58px_rgba(5,24,44,0.34)]"
-              style={{
-                background: 'linear-gradient(90deg, transparent 0 44%, rgba(255,246,234,0.72) 44% 100%)',
-                clipPath: 'polygon(22% 0, 100% 8%, 78% 100%, 0 90%)',
-                transform: 'rotate(-4deg) translate(-10px, -4px)'
-              }}
-            >
-              <div
-                className="relative h-full w-full overflow-hidden"
-                style={{
-                  clipPath: 'polygon(22% 0, 100% 8%, 78% 100%, 0 90%)',
-                  WebkitMaskImage: 'linear-gradient(90deg, transparent 0%, #000 18%, #000 100%)',
-                  maskImage: 'linear-gradient(90deg, transparent 0%, #000 18%, #000 100%)'
-                }}
-              >
-                <Image src="/assets/images/hero-robotics.jpg" alt="" fill priority className="object-cover" sizes="(min-width: 1024px) 30vw, 82vw" />
-              </div>
-            </div>
-            <div
-              className="absolute right-[4%] top-[7%] z-20 h-[45%] w-[49%] overflow-hidden rounded-[28px] bg-[#FFF6EA]/70 p-2 shadow-[0_18px_38px_rgba(5,24,44,0.20)]"
-              style={{ transform: 'rotate(2deg) translateX(-8px)' }}
-            >
-              <div className="relative h-full w-full overflow-hidden rounded-[20px]">
-                <Image src="/assets/images/hero-code.jpg" alt="" fill className="object-cover" sizes="(min-width: 1024px) 28vw, 78vw" />
-              </div>
-            </div>
-            <div
-              className="absolute bottom-[8%] right-[5%] z-20 h-[45%] w-[53%] overflow-hidden rounded-[28px] bg-[#FFF6EA]/70 p-2 shadow-[0_18px_38px_rgba(5,24,44,0.20)]"
-              style={{ transform: 'rotate(-1deg) translateX(-4px)' }}
-            >
-              <div className="relative h-full w-full overflow-hidden rounded-[20px]">
-                <Image src="/assets/images/electronics-board.jpg" alt="" fill className="object-cover" sizes="(min-width: 1024px) 32vw, 84vw" />
-                <div className="absolute bottom-4 left-4 rounded-xl bg-navy px-3 py-2 text-xs font-extrabold text-white shadow-soft">Smart Home</div>
-              </div>
-            </div>
+          <Reveal animation="pop" delay={400} className="mx-auto w-full max-w-[760px] lg:ml-auto">
+            <Image
+              src="/assets/images/Home-Main-Hero.jpg"
+              alt="Meu Labs students exploring virtual reality, STEM, and robotics"
+              width={3406}
+              height={1938}
+              priority
+              sizes="(min-width: 1024px) 54vw, 92vw"
+              className="h-auto w-full rounded-[32px] shadow-[0_30px_58px_rgba(5,24,44,0.28)]"
+            />
           </Reveal>
         </div>
       </section>

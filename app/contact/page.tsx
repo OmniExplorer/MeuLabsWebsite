@@ -69,7 +69,7 @@ export default function ContactPage() {
           }}
         >
           <Image
-            src="/assets/images/why-instructors.jpg"
+            src="/assets/images/Contact-Main-hero.jpg"
             alt=""
             fill
             priority

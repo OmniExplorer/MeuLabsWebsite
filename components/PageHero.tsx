@@ -9,7 +9,7 @@ type PageHeroProps = {
   imageSrc: string;
   imageAlt?: string;
   imageMode?: 'photo' | 'object';
-  imageStyle?: 'framed' | 'contact';
+  imageStyle?: 'framed' | 'contact' | 'single';
   children?: ReactNode;
 };
 
@@ -94,6 +94,19 @@ export function PageHero({ eyebrow, title, subtitle, imageSrc, imageAlt = '', im
             </Reveal>
           )}
         </div>
+        {imageStyle === 'single' ? (
+          <Reveal animation="pop" delay={400} className="mx-auto w-full max-w-[760px] lg:ml-auto">
+            <Image
+              src={imageSrc}
+              alt={imageAlt}
+              width={3406}
+              height={1938}
+              priority
+              sizes="(min-width: 1024px) 54vw, 92vw"
+              className="h-auto w-full rounded-[32px] shadow-[0_30px_58px_rgba(5,24,44,0.28)]"
+            />
+          </Reveal>
+        ) : (
         <Reveal animation="pop" delay={400} className="relative mx-auto aspect-[1.18/1] w-full max-w-[760px] lg:ml-auto lg:scale-[1.14]">
           <div className="absolute -right-1 top-8 z-0 grid grid-cols-5 gap-1.5" aria-hidden="true">
             {Array.from({ length: 25 }).map((_, index) => (
@@ -123,6 +136,7 @@ export function PageHero({ eyebrow, title, subtitle, imageSrc, imageAlt = '', im
             </>
           )}
         </Reveal>
+        )}
       </div>
     </section>
   );

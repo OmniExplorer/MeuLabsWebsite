@@ -8,27 +8,27 @@ const reasons = [
   {
     title: 'Expert instructors',
     body: 'Mentors guide students through real projects with care and technical clarity.',
-    image: '/assets/images/why-instructors.jpg'
+    image: '/assets/images/Expert Instructors .jpg'
   },
   {
     title: 'Personal attention',
     body: 'Small-group learning helps students ask questions, get feedback and keep moving.',
-    image: '/assets/images/why-attention.jpg'
+    image: '/assets/images/Personal attention.jpg'
   },
   {
     title: 'Safe creative spaces',
     body: 'Students learn in a supportive lab culture built for curiosity and making.',
-    image: '/assets/images/why-space.jpg'
+    image: '/assets/images/Safe Creative Space (2).jpg'
   },
   {
     title: 'World-class curriculum',
     body: 'Programmes connect project work with global tools, standards and portfolio habits.',
-    image: '/assets/images/why-curriculum.jpg'
+    image: '/assets/images/World Class Curriculum.jpg'
   },
   {
     title: 'Fun learning culture',
     body: 'Students showcase work, collaborate and build confidence as creators.',
-    image: '/assets/images/why-culture.jpg'
+    image: '/assets/images/Fun Learning.jpg'
   }
 ];
 
@@ -83,7 +83,7 @@ export function WhyMeuLabs({ intro }: WhyMeuLabsProps) {
           <Image
             key={reason.image}
             src={reason.image}
-            alt=""
+            alt={reason.title}
             fill
             className={`object-cover transition-opacity duration-700 ${active === index ? 'opacity-100' : 'opacity-0'}`}
             sizes="(min-width: 1024px) 50vw, 100vw"
