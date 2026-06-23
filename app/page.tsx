@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import { Blocks, Bot, BrainCircuit, BriefcaseBusiness, Code2, Factory, GraduationCap, Landmark, Lightbulb, Megaphone, Orbit, Rocket, Route, Shield, Trees, Video } from 'lucide-react';
 import { AutoCarousel } from '@/components/AutoCarousel';
@@ -5,8 +6,33 @@ import { ButtonLink } from '@/components/ButtonLink';
 import { CourseCard } from '@/components/CourseCard';
 import { Reveal } from '@/components/Reveal';
 import { WhyMeuLabs } from '@/components/WhyMeuLabs';
-import { allCourses } from '@/data/courses';
+import { allCourses, courses } from '@/data/courses';
 import { projects } from '@/data/projects';
+
+export const metadata: Metadata = {
+  title: 'Meu Labs | Robotics, Coding & STEM Classes for Kids in Sri Lanka',
+  description: 'Meu Labs offers robotics, IoT, coding, STEM, STEAM, AI and engineering classes for children and teens in Colombo, Sri Lanka. Project-based learning with expert instructors.',
+  keywords: [
+    'coding classes Sri Lanka',
+    'robotics classes Sri Lanka',
+    'STEM classes Sri Lanka',
+    'STEAM classes Sri Lanka',
+    'IoT classes Sri Lanka',
+    'coding classes Colombo',
+    'robotics for kids Sri Lanka',
+    'coding for kids Sri Lanka',
+    'STEM education Sri Lanka',
+    'STEAM education Sri Lanka',
+    'kids coding classes Sri Lanka',
+    'children robotics Sri Lanka',
+    'programming classes Sri Lanka',
+    'technology classes Sri Lanka',
+    'engineering classes Sri Lanka',
+    'after school STEM Sri Lanka',
+    'kids tech classes Colombo',
+    'Meu Labs'
+  ]
+};
 
 const specialisationIconBySlug = {
   se: Code2,
@@ -98,9 +124,51 @@ const popularPrograms = popularProgramSlugs
   .map((slug) => allCourses.find((course) => course.slug === slug))
   .filter((course): course is NonNullable<typeof course> => Boolean(course));
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': ['LocalBusiness', 'EducationalOrganization'],
+      '@id': 'https://meulabs.org/#organization',
+      name: 'Meu Labs',
+      url: 'https://meulabs.org',
+      description: 'Project-based robotics, coding, IoT, STEM, AI and engineering classes for children and teens in Colombo, Sri Lanka.',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '26A Rudra Mawatha',
+        addressLocality: 'Colombo',
+        postalCode: '00600',
+        addressCountry: 'LK'
+      },
+      telephone: '+94769623500',
+      openingHours: 'Mo-Su 10:00-19:00',
+      sameAs: [
+        'https://facebook.com/meulabs',
+        'https://instagram.com/meulabs',
+        'https://youtube.com/@meulabs',
+        'https://linkedin.com/company/meulabs'
+      ]
+    },
+    ...courses.map((course) => ({
+      '@type': 'Course',
+      name: course.title,
+      description: course.descriptor,
+      url: `https://meulabs.org/courses/${course.slug}`,
+      provider: { '@id': 'https://meulabs.org/#organization' },
+      courseMode: 'in-person',
+      educationalLevel: course.pathwayStage,
+      typicalAgeRange: course.ageRange
+    }))
+  ]
+};
+
 export default function HomePage() {
   return (
     <main id="main-content">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <section className="relative min-h-[760px] overflow-hidden bg-creamAlt px-4 sm:px-6 lg:px-8">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_24%_42%,rgba(255,122,0,0.26),transparent_32%),radial-gradient(circle_at_82%_22%,rgba(255,79,31,0.12),transparent_30%),linear-gradient(120deg,#F8F1E2_0%,#FFF6EA_58%,rgba(255,122,0,0.12)_100%)]" />
         <div className="relative mx-auto grid min-h-[760px] max-w-[92rem] items-center gap-8 py-20 lg:grid-cols-[0.84fr_1.16fr]">

@@ -613,8 +613,19 @@ export function generateMetadata({ params }: PageProps): Metadata {
   const course = getCourse(params.slug);
   if (!course) return {};
   return {
-    title: `${course.internalName || course.title} | Meu Labs — Robotics, Coding & STEM for Kids in Sri Lanka`,
-    description: course.descriptor,
+    title: `${course.internalName || course.title} | Meu Labs — Robotics, Coding & STEM Classes in Sri Lanka`,
+    description: `${course.descriptor} Available in Colombo, Sri Lanka.`,
+    keywords: [
+      ...course.keywords.map((k) => `${k} Sri Lanka`),
+      `${course.title} Sri Lanka`,
+      `${course.title} Colombo`,
+      `${course.title} class Sri Lanka`,
+      `${course.title} course Sri Lanka`,
+      'STEM classes Sri Lanka',
+      'STEAM classes Sri Lanka',
+      'coding classes Sri Lanka',
+      'robotics classes Sri Lanka'
+    ],
     openGraph: { images: ['/og-default.jpg'] }
   };
 }
