@@ -29,7 +29,7 @@ const contact = {
   phoneDisplay: '+94 76 962 3500',
   phoneHref: 'tel:+94769623500',
   whatsappHref: whatsappHref(counselorMessage()),
-  email: 'hello@meulabs.com',
+  email: 'hello@melabs.org',
   hours: siteConfig.openingHours,
   address: siteConfig.address
 };

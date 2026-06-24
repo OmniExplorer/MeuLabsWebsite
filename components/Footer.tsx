@@ -69,7 +69,7 @@ export function Footer() {
                 </a>
               </div>
               <div>
-                <a href="mailto:info@meulabs.com" className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-[#17105A] px-6 text-xs font-black text-white transition hover:-translate-y-0.5 hover:bg-[#21177A]">
+                <a href="mailto:info@meulabs.org" className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-[#17105A] px-6 text-xs font-black text-white transition hover:-translate-y-0.5 hover:bg-[#21177A]">
                   <Mail size={14} aria-hidden />
                   Email Us
                   <ChevronRight size={15} aria-hidden />
@@ -129,9 +129,9 @@ export function Footer() {
               <Phone size={15} className="text-orange" aria-hidden />
               <span>{siteConfig.phoneNumber}</span>
             </a>
-            <a href="mailto:info@meulabs.com" className="grid grid-cols-[1.25rem_1fr] gap-3 transition hover:text-orange">
+            <a href="mailto:info@meulabs.org" className="grid grid-cols-[1.25rem_1fr] gap-3 transition hover:text-orange">
               <Mail size={15} className="text-orange" aria-hidden />
-              <span>info@meulabs.com</span>
+              <span>info@meulabs.org</span>
             </a>
             <div className="grid grid-cols-[1.25rem_1fr] gap-3">
               <MapPin size={16} className="text-orange" aria-hidden />
