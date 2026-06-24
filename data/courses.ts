@@ -128,7 +128,7 @@ export const courses: Course[] = [
     prerequisites: 'Foundation level or basic Arduino experience such as blink/sensor projects. Entry test available.',
     exampleProjects: ['Smart planter', 'Assistive device prototype', 'Laser-cut product enclosure'],
     location: 'In Person Only / Colombo 06',
-    registerLink: 'https://forms.gle/ku4g46KqGRfdP9Fi8',
+    registerLink: 'https://forms.gle/cNL3QTCuAbvkjVUK7',
     recommendedCourses: ['es', 'kx', 'coding-software', 'digital-media']
   },
   {
