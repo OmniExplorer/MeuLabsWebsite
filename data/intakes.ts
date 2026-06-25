@@ -19,9 +19,10 @@ export const intakeTemplates: Omit<IntakeBatch, 'spotsLeft' | 'intakeMonth'>[] =
   { courseSlug: 'coding-software', label: 'Wednesday, 4:00 PM - 6:00 PM' },
   { courseSlug: 'coding-software', label: 'Saturday, 1:00 PM - 3:00 PM' },
   { courseSlug: 'coding-software', label: 'Sunday, 4:00 PM - 6:00 PM' },
-  { courseSlug: 'robotics-iot', label: 'Wednesday, 3:30 PM - 6:30 PM' },
-  { courseSlug: 'robotics-iot', label: 'Saturday, 9:00 AM - 12:00 PM' },
-  { courseSlug: 'robotics-iot', label: 'Sunday, 1:00 PM - 4:00 PM' },
+  { courseSlug: 'robotics-iot', label: 'Wednesday, 3:00 PM - 6:00 PM' },
+  { courseSlug: 'robotics-iot', label: 'Saturday, 12:00 PM - 3:00 PM' },
+  { courseSlug: 'robotics-iot', label: 'Sunday, 9:00 AM - 12:00 PM' },
+  { courseSlug: 'robotics-iot', label: 'Sunday, 3:30 PM - 6:30 PM' },
   { courseSlug: 'digital-media', label: 'Saturday, 10:00 AM - 12:00 PM' },
   { courseSlug: 'digital-media', label: 'Tuesday, 4:00 PM - 6:00 PM' },
   { courseSlug: 'se', label: 'Wednesday, 4:00 PM - 6:00 PM' },
@@ -30,11 +31,9 @@ export const intakeTemplates: Omit<IntakeBatch, 'spotsLeft' | 'intakeMonth'>[] =
   { courseSlug: 'ds', label: 'Wednesday, 4:00 PM - 6:00 PM' },
   { courseSlug: 'ds', label: 'Saturday, 1:00 PM - 3:00 PM' },
   { courseSlug: 'ds', label: 'Sunday, 4:00 PM - 6:00 PM' },
-  { courseSlug: 'eee', label: 'Friday, 3:30 PM - 6:30 PM' },
-  { courseSlug: 'eee', label: 'Sunday, 9:00 AM - 12:00 PM' },
-  { courseSlug: 'es', label: 'Wednesday, 3:30 PM - 6:30 PM' },
-  { courseSlug: 'es', label: 'Saturday, 9:00 AM - 12:00 PM' },
-  { courseSlug: 'es', label: 'Sunday, 1:00 PM - 4:00 PM' }
+  { courseSlug: 'eee', label: 'Friday, 3:00 PM - 6:00 PM' },
+  { courseSlug: 'eee', label: 'Sunday, 12:30 PM - 3:30 PM' },
+  { courseSlug: 'es', label: 'Saturday, 3:00 PM - 6:00 PM' }
 ];
 
 export const intakes: IntakeBatch[] = intakeTemplates.map((batch) => ({
