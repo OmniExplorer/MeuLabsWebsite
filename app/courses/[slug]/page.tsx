@@ -973,6 +973,22 @@ export default function CoursePage({ params }: PageProps) {
 
           <Reveal animation="rise" delay={100} className="h-full">
           <div className="grid h-full gap-5">
+            {course.schedule?.length ? (
+              <article className="rounded-[10px] border border-orange/20 bg-[linear-gradient(135deg,#FFFFFF_0%,#FFF8EF_58%,#FFECD5_100%)] p-7 shadow-[0_18px_42px_rgba(255,122,0,0.12)]">
+                <div className="border-l-4 border-orange pl-4">
+                  <h2 className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">Available Time Slots</h2>
+                </div>
+                <div className="mt-6 grid gap-3">
+                  {course.schedule.map((slot) => (
+                    <p key={slot} className="flex gap-3 rounded-[8px] border border-orange/15 bg-white px-4 py-3 text-sm font-extrabold leading-6 text-navy shadow-[0_8px_18px_rgba(13,53,87,0.05)]">
+                      <CalendarDays size={18} className="mt-0.5 shrink-0 text-orange" aria-hidden />
+                      <span>{slot}</span>
+                    </p>
+                  ))}
+                </div>
+              </article>
+            ) : null}
+
             <article className="flex min-h-[430px] flex-col rounded-[10px] border border-navy/10 bg-white p-8 shadow-[0_14px_34px_rgba(13,53,87,0.07)]">
               <div className="border-l-4 border-orange pl-4">
                 <h2 className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">{usesIndustryPartnerLabels ? 'Industry Partners' : 'Tools Used'}</h2>

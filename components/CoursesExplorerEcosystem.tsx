@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Blocks, Bot, BrainCircuit, BriefcaseBusiness, Code2, Factory, GraduationCap, Landmark, Lightbulb, Megaphone, Orbit, Rocket, Route, Shield, Video, type LucideIcon } from 'lucide-react';
-import { allCourses } from '@/data/courses';
+import { allCourses, type Course } from '@/data/courses';
 import { AutoCarousel } from './AutoCarousel';
 import { CourseExplorer } from './CourseExplorer';
 
@@ -106,8 +106,79 @@ const ecosystemStages: EcosystemStage[] = [
   }
 ];
 
-export function CoursesExplorerEcosystem() {
+const nzEcosystemStages: EcosystemStage[] = [
+  {
+    title: 'Foundations',
+    age: 'Age 6 - 12',
+    body: 'Build strong foundational skills across coding, design, communication, and creative problem solving while developing essential 21st-century skills.',
+    courses: [
+      { slug: 'kx-j', name: 'STEM For Kids: Junior', icon: Rocket, href: '/courses/kx-j' },
+      { slug: 'kx', name: 'STEM For Kids', icon: Shield, href: '/courses/kx' }
+    ],
+    color: 'bg-gradient-to-br from-[#FF7A00] to-[#FFB347]',
+    accent: 'from-orange/16 via-white to-white border-orange/60',
+    ringColor: 'border-orange',
+    cornerColor: 'bg-orange/20',
+    badge: 'bg-gradient-to-br from-[#FF7A00] to-[#FF4F1F]'
+  },
+  {
+    title: 'Learning Paths',
+    age: 'Age 10 - 14',
+    body: 'Choose themed courses aligned with coding and software. Deeper, project-driven, and skill-focused for New Zealand learners.',
+    courses: [
+      { slug: 'coding-software', name: 'Coding and Software', icon: Code2, href: '/courses/coding-software' }
+    ],
+    color: 'bg-gradient-to-br from-[#31C3DE] to-[#7DE3F2]',
+    accent: 'from-sky/16 via-white to-white border-sky/60',
+    ringColor: 'border-sky',
+    cornerColor: 'bg-sky/20',
+    badge: 'bg-gradient-to-br from-[#1995D3] to-[#31C3DE]'
+  },
+  {
+    title: 'Specialisations',
+    age: 'Age 12 - 16',
+    body: 'Dive deep into coding-focused domains through advanced projects, technical mentorship, and real-world problem solving.',
+    courses: [
+      { slug: 'se', name: 'Software Engineering', icon: Code2, href: '/courses/se' },
+      { slug: 'ds', name: 'Data Science and AI', icon: BrainCircuit, href: '/courses/ds' },
+      { slug: 'gd', name: 'Game Development', icon: Code2, href: '/courses/gd', badge: 'COMING SOON' },
+      { slug: 'cs', name: 'Cyber Security', icon: Shield, href: '/courses/cs', badge: 'COMING SOON' }
+    ],
+    color: 'bg-gradient-to-br from-[#48D83E] to-[#8BE95E]',
+    accent: 'from-[#48D83E]/16 via-white to-white border-[#48D83E]/60',
+    ringColor: 'border-[#48D83E]',
+    cornerColor: 'bg-[#48D83E]/20',
+    badge: 'bg-gradient-to-br from-[#48D83E] to-[#65D96C]'
+  },
+  {
+    title: 'Launch Pad',
+    age: 'Age 16 +',
+    body: 'Transition into university or entrepreneurship through structured pathways and portfolio-focused guidance.',
+    courses: [
+      { slug: 'ua', name: 'University Access', icon: Landmark, href: '/courses/ua', badge: 'COMING SOON' },
+      { slug: 'fs', name: 'Founder Studio', icon: Lightbulb, href: '/courses/fs' }
+    ],
+    color: 'bg-gradient-to-br from-[#8B5CF6] to-[#C084FC]',
+    accent: 'from-[#8B5CF6]/16 via-white to-white border-[#8B5CF6]/60',
+    ringColor: 'border-[#8B5CF6]',
+    cornerColor: 'bg-[#8B5CF6]/20',
+    badge: 'bg-gradient-to-br from-[#8B5CF6] to-[#A855F7]'
+  }
+];
+
+export function CoursesExplorerEcosystem({
+  courses = allCourses,
+  basePath = '',
+  stageSet = 'default',
+  hiddenInterestLabels = []
+}: {
+  courses?: Course[];
+  basePath?: string;
+  stageSet?: 'default' | 'nz';
+  hiddenInterestLabels?: string[];
+}) {
   const [selectedSlug, setSelectedSlug] = useState<string>();
+  const stages = stageSet === 'nz' ? nzEcosystemStages : ecosystemStages;
 
   return (
     <>
@@ -118,7 +189,7 @@ export function CoursesExplorerEcosystem() {
               <p className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">Course Explorer</p>
             </div>
           </div>
-          <CourseExplorer selectedSlug={selectedSlug} onSelectCourse={setSelectedSlug} />
+          <CourseExplorer selectedSlug={selectedSlug} onSelectCourse={setSelectedSlug} courses={courses} basePath={basePath} hiddenInterestLabels={hiddenInterestLabels} />
         </div>
       </section>
 
@@ -129,7 +200,7 @@ export function CoursesExplorerEcosystem() {
           </div>
           <h2 id="course-ecosystem-title" className="sr-only">Learning Pathway</h2>
           <div className="grid gap-4 lg:grid-cols-4">
-            {ecosystemStages.map((stage, index) => {
+            {stages.map((stage, index) => {
               const stageNumber = index + 1;
               const isStageSelected = stage.courses.some((course) => course.slug === selectedSlug);
               const selectedStageCourse = stage.courses.find((course) => course.slug === selectedSlug);
@@ -167,7 +238,7 @@ export function CoursesExplorerEcosystem() {
                       speedPixelsPerSecond={60}
                     >
                       {stage.courses.map((course) => (
-                        <EcosystemCourseTablet key={course.slug} course={course} selected={selectedSlug === course.slug} stage={stage} />
+                        <EcosystemCourseTablet key={course.slug} course={course} selected={selectedSlug === course.slug} stage={stage} basePath={basePath} />
                       ))}
                     </AutoCarousel>
                   ) : (
@@ -175,7 +246,7 @@ export function CoursesExplorerEcosystem() {
                       <ul className="grid gap-2.5">
                         {displayedCourses.map((course) => (
                           <li key={course.slug}>
-                            <EcosystemCourseTablet course={course} selected={selectedSlug === course.slug} stage={stage} />
+                            <EcosystemCourseTablet course={course} selected={selectedSlug === course.slug} stage={stage} basePath={basePath} />
                           </li>
                         ))}
                       </ul>
@@ -194,11 +265,13 @@ export function CoursesExplorerEcosystem() {
 function EcosystemCourseTablet({
   course,
   selected,
-  stage
+  stage,
+  basePath = ''
 }: {
   course: EcosystemCourse;
   selected: boolean;
   stage: EcosystemStage;
+  basePath?: string;
 }) {
   const CourseIcon = course.icon;
   const iconClass = selected ? `${stage.color} text-white` : 'bg-slate-200 text-slate-500';
@@ -207,7 +280,7 @@ function EcosystemCourseTablet({
     : 'border-slate-200 bg-white/80 text-slate-500 grayscale';
 
   return (
-    <a href={course.href} className={`grid min-h-[58px] grid-cols-[2.5rem_1fr] items-center gap-3 rounded-[14px] border px-3.5 py-2.5 text-sm font-extrabold leading-5 transition duration-200 hover:-translate-y-1 hover:scale-[1.01] focus-visible:scale-[1.01] ${tabletClass}`}>
+    <a href={`${basePath}${course.href}`} className={`grid min-h-[58px] grid-cols-[2.5rem_1fr] items-center gap-3 rounded-[14px] border px-3.5 py-2.5 text-sm font-extrabold leading-5 transition duration-200 hover:-translate-y-1 hover:scale-[1.01] focus-visible:scale-[1.01] ${tabletClass}`}>
       <span className={`grid h-7 w-7 place-items-center self-center rounded-full transition duration-200 ${iconClass}`}>
         <CourseIcon size={16} strokeWidth={2.5} aria-hidden />
       </span>

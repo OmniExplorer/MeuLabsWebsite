@@ -1,7 +1,7 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import { allCourses } from '@/data/courses';
+import { allCourses, type Course } from '@/data/courses';
 import { CourseCard } from './CourseCard';
 
 const ageGroups = [
@@ -29,29 +29,44 @@ const courseExplorerDisplayTitles: Record<string, string> = {
 
 export function CourseExplorer({
   selectedSlug,
-  onSelectCourse
+  onSelectCourse,
+  courses = allCourses,
+  basePath = '',
+  hiddenInterestLabels = []
 }: {
   selectedSlug?: string;
   onSelectCourse?: (slug: string) => void;
+  courses?: Course[];
+  basePath?: string;
+  hiddenInterestLabels?: string[];
 }) {
   const [activeAge, setActiveAge] = useState('All Ages');
   const [activeInterest, setActiveInterest] = useState('All Interests');
 
-  const courseMap = useMemo(() => new Map(allCourses.map((course) => [course.slug, course])), []);
+  const courseMap = useMemo(() => new Map(courses.map((course) => [course.slug, course])), [courses]);
+  const courseSlugs = useMemo(() => courses.map((course) => course.slug), [courses]);
+  const visibleAgeGroups = useMemo(
+    () => ageGroups.filter((group) => group.slugs.some((slug) => courseSlugs.includes(slug))),
+    [courseSlugs]
+  );
+  const visibleInterestGroups = useMemo(
+    () => interestGroups.filter((group) => !hiddenInterestLabels.includes(group.label) && group.slugs.some((slug) => courseSlugs.includes(slug))),
+    [courseSlugs, hiddenInterestLabels]
+  );
   const visibleCourses = useMemo(() => {
-    const ageGroup = activeAge === 'All Ages' ? undefined : ageGroups.find((group) => group.label === activeAge);
-    const interestGroup = activeInterest === 'All Interests' ? undefined : interestGroups.find((group) => group.label === activeInterest);
+    const ageGroup = activeAge === 'All Ages' ? undefined : visibleAgeGroups.find((group) => group.label === activeAge);
+    const interestGroup = activeInterest === 'All Interests' ? undefined : visibleInterestGroups.find((group) => group.label === activeInterest);
 
-    if (!ageGroup && !interestGroup) return allCourses;
+    if (!ageGroup && !interestGroup) return courses;
 
-    const matchingSlugs = allCourses
+    const matchingSlugs = courses
       .map((course) => course.slug)
       .filter((slug) => (!ageGroup || ageGroup.slugs.includes(slug)) && (!interestGroup || interestGroup.slugs.includes(slug)));
 
     return matchingSlugs
       .map((slug) => courseMap.get(slug))
       .filter((course): course is NonNullable<typeof course> => Boolean(course));
-  }, [activeAge, activeInterest, courseMap]);
+  }, [activeAge, activeInterest, courseMap, courses, visibleAgeGroups, visibleInterestGroups]);
 
   const pillClass = (active: boolean) => `whitespace-nowrap rounded-full px-3 py-2 text-xs font-extrabold transition duration-200 sm:px-3.5 sm:py-2.5 xl:px-[17px] xl:py-[11px] ${active ? 'bg-[linear-gradient(135deg,#FFD166_0%,#F4A261_100%)] text-navy shadow-soft' : 'bg-white/80 text-slate-600 shadow-[0_8px_18px_rgba(13,53,87,0.06)] hover:bg-white hover:text-navy'}`;
 
@@ -71,7 +86,7 @@ export function CourseExplorer({
         <div className="flex w-full min-w-0 flex-col gap-3 xl:flex-row xl:items-start xl:gap-x-3">
           <div className="flex w-full min-w-0 flex-wrap items-center gap-1.5 xl:w-auto xl:flex-nowrap xl:gap-2">
             <span className="mr-1 w-full text-[11px] font-extrabold uppercase text-slate-400 sm:w-auto">By Age</span>
-            {ageGroups.map((group) => group.label).map((tag) => (
+            {visibleAgeGroups.map((group) => group.label).map((tag) => (
               <button
                 key={tag}
                 onClick={() => selectAge(tag)}
@@ -92,7 +107,7 @@ export function CourseExplorer({
           <div className="mx-0.5 hidden h-7 w-[2px] shrink-0 rounded-full bg-navy/30 xl:block" />
           <div className="flex w-full min-w-0 flex-wrap items-center gap-1.5 xl:flex-1 xl:flex-nowrap xl:gap-2">
             <span className="mr-1 w-full text-[11px] font-extrabold uppercase text-slate-400 sm:w-auto">By Interest</span>
-            {interestGroups.map((group) => group.label).map((tag) => (
+            {visibleInterestGroups.map((group) => group.label).map((tag) => (
               <button
                 key={tag}
                 onClick={() => selectInterest(tag)}
@@ -114,6 +129,7 @@ export function CourseExplorer({
             displayTitle={courseExplorerDisplayTitles[course.slug]}
             selected={selectedSlug === course.slug}
             onSelect={onSelectCourse}
+            basePath={basePath}
           />
         ))}
       </div>

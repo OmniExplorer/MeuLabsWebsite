@@ -84,7 +84,7 @@ const builtBy: LogoScrollerItem[] = [
   { name: 'University of Cambridge', src: '/assets/logos/Cambridge.png' },
   { name: 'Sri Lanka Institute of Information Technology', src: '/assets/logos/sliit.png', href: 'https://en.wikipedia.org/wiki/Sri_Lanka_Institute_of_Information_Technology' },
   { name: 'IIT', src: '/assets/logos/iitlogo.png' },
-  { name: 'UWC', src: '/assets/logos/UWC.png' },
+  { name: 'UWC', src: '/assets/logos/uwc.png' },
   { name: 'University of Colombo', src: '/assets/logos/UOC.png', href: 'https://cmb.ac.lk/' },
   { name: 'CIMA', src: '/assets/logos/CIM,ALOGO.png' }
 ];

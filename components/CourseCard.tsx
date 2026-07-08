@@ -51,14 +51,16 @@ export function CourseCard({
   course,
   displayTitle,
   selected = false,
-  onSelect
+  onSelect,
+  basePath = ''
 }: {
   course: Course;
   displayTitle?: string;
   selected?: boolean;
   onSelect?: (slug: string) => void;
+  basePath?: string;
 }) {
-  const courseHref = courseHrefOverrides[course.slug] ?? `/courses/${course.slug}`;
+  const courseHref = courseHrefOverrides[course.slug] ?? `${basePath}/courses/${course.slug}`;
   const title = displayTitle ?? course.title;
   const selectedClass = selected ? `${selectedStageClasses[course.pathwayStage]} ring-4 shadow-pop` : 'border-navy/10';
 
