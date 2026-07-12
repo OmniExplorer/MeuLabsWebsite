@@ -350,6 +350,7 @@ export const courseSpecificUpdates: Record<string, Partial<Course>> = {
     ageRange: '6 - 7',
     duration: '4 months',
     format: 'One 2-hour session per week',
+    schedule: ['Saturday, 1:00 PM - 3:00 PM', 'Saturday, 4:00 PM - 6:00 PM'],
     focusAreas: ['Creative Play & Basic Engineering', 'Computer Literacy & Digital Confidence', 'ScratchJr Coding & Storytelling', '3D Design & Spatial Thinking', 'Hands-On Making with Motors and LEDs', 'Teamwork, Presentation & Decision-Making'],
     learningOutcomes: ['Use computers or tablets with more confidence.', 'Create simple animated stories in ScratchJr.', 'Design basic 3D objects in TinkerCAD.', 'Build simple toys, towers, and maker projects.', 'Practise creativity, storytelling, and teamwork.', 'Learn basic decision-making through play-based games.'],
     courseStructure: 'Play-based sessions with stories, games, digital activities, and hands-on building. Progress tracked through participation, confidence, creativity, and completed mini-projects. Student work documented through photos, designs, builds, and presentations. Small-group learning with close instructor support.',

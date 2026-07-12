@@ -5,6 +5,7 @@ export type LogoScrollerItem = {
   name: string;
   src: string;
   href?: string;
+  imageClassName?: string;
 };
 
 type LogoScrollerProps = {
@@ -34,7 +35,7 @@ export function LogoScroller({ title, items, reverse = false }: LogoScrollerProp
             alt={`${item.name} logo`}
             width={150}
             height={90}
-            className="max-h-20 w-full object-contain"
+            className={`max-h-20 w-full object-contain ${item.imageClassName ?? ''}`}
             sizes="136px"
           />
           <p className="text-xs font-black leading-tight text-navy">{item.name}</p>

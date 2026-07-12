@@ -8,6 +8,8 @@ export interface IntakeBatch {
 const intakeMonth = new Date().toLocaleString('default', { month: 'long' });
 
 export const intakeTemplates: Omit<IntakeBatch, 'spotsLeft' | 'intakeMonth'>[] = [
+  { courseSlug: 'kx-j', label: 'Saturday, 1:00 PM - 3:00 PM' },
+  { courseSlug: 'kx-j', label: 'Saturday, 4:00 PM - 6:00 PM' },
   { courseSlug: 'kx', label: 'Tuesday, 3:30 PM - 5:30 PM' },
   { courseSlug: 'kx', label: 'Wednesday, 3:30 PM - 5:30 PM' },
   { courseSlug: 'kx', label: 'Saturday, 10:00 AM - 12:00 PM' },

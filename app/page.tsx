@@ -173,92 +173,94 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_24%_42%,rgba(255,122,0,0.26),transparent_32%),radial-gradient(circle_at_82%_22%,rgba(255,79,31,0.12),transparent_30%),linear-gradient(120deg,#F8F1E2_0%,#FFF6EA_58%,rgba(255,122,0,0.12)_100%)]" />
         <div className="relative mx-auto grid min-h-[760px] max-w-[92rem] items-center gap-8 py-20 lg:grid-cols-[0.84fr_1.16fr]">
           <div className="max-w-4xl text-navy">
-            <Reveal>
-              <div className="mb-8 max-w-3xl border-l-4 border-orange pl-5">
-                <p className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">Where students discover their passion and build real world tools and skills</p>
-              </div>
-            </Reveal>
             <Reveal delay={100}>
-              <h1 className="text-4xl font-normal leading-[1.08] md:text-6xl">
-                Sri Lanka&apos;s Best{' '}
-                <span className="robotics-image-word">
-                  <Image
-                    src="/assets/images/RoboticsFont.png"
-                    alt="Robotics"
-                    width={2015}
-                    height={528}
-                    priority
-                    className="robotics-word-image h-full w-auto"
-                  />
-                  <Image
-                    src="/assets/images/FirstO.png"
-                    alt=""
-                    width={234}
-                    height={236}
-                    className="robotics-cog-overlay robotics-first-o"
-                    aria-hidden="true"
-                  />
-                  <Image
-                    src="/assets/images/secondo .png"
-                    alt=""
-                    width={244}
-                    height={246}
-                    className="robotics-cog-overlay robotics-second-o"
-                    aria-hidden="true"
-                  />
-                  <Image
-                    src="/assets/images/COG.png"
-                    alt=""
-                    width={212}
-                    height={214}
-                    className="robotics-cog-overlay robotics-cog-overlay-first"
-                    aria-hidden="true"
-                  />
-                  <Image
-                    src="/assets/images/COG.png"
-                    alt=""
-                    width={212}
-                    height={214}
-                    className="robotics-cog-overlay robotics-cog-overlay-second"
-                    aria-hidden="true"
-                  />
-                  <span className="robotics-bulb-overlay" aria-hidden="true">
+              <h1 className="text-[2rem] font-normal leading-[1.08] sm:text-4xl md:text-6xl">
+                <span className="block">Sri Lanka&apos;s Best</span>
+                <span className="mt-1 block whitespace-nowrap">
+                  <span className="robotics-image-word">
                     <Image
-                    src="/assets/images/LIGHTBULBOFF.png"
-                    alt=""
-                    width={90}
-                    height={100}
-                    className="robotics-bulb-frame robotics-bulb-frame-off"
-                  />
-                    <Image
-                      src="/assets/images/LIGHTBULBFULL.png"
-                      alt=""
-                      width={90}
-                      height={100}
-                      className="robotics-bulb-frame robotics-bulb-frame-full"
+                      src="/assets/images/RoboticsFont.png"
+                      alt="Robotics"
+                      width={2015}
+                      height={528}
+                      priority
+                      className="robotics-word-image h-full w-auto"
                     />
+                    <Image
+                      src="/assets/images/FirstO.png"
+                      alt=""
+                      width={234}
+                      height={236}
+                      className="robotics-cog-overlay robotics-first-o"
+                      aria-hidden="true"
+                    />
+                    <Image
+                      src="/assets/images/secondo .png"
+                      alt=""
+                      width={244}
+                      height={246}
+                      className="robotics-cog-overlay robotics-second-o"
+                      aria-hidden="true"
+                    />
+                    <Image
+                      src="/assets/images/COG.png"
+                      alt=""
+                      width={212}
+                      height={214}
+                      className="robotics-cog-overlay robotics-cog-overlay-first"
+                      aria-hidden="true"
+                    />
+                    <Image
+                      src="/assets/images/COG.png"
+                      alt=""
+                      width={212}
+                      height={214}
+                      className="robotics-cog-overlay robotics-cog-overlay-second"
+                      aria-hidden="true"
+                    />
+                    <span className="robotics-bulb-overlay" aria-hidden="true">
+                      <Image
+                        src="/assets/images/LIGHTBULBOFF.png"
+                        alt=""
+                        width={90}
+                        height={100}
+                        className="robotics-bulb-frame robotics-bulb-frame-off"
+                      />
+                      <Image
+                        src="/assets/images/LIGHTBULBFULL.png"
+                        alt=""
+                        width={90}
+                        height={100}
+                        className="robotics-bulb-frame robotics-bulb-frame-full"
+                      />
+                    </span>
+                  </span>
+                  {' '}
+                  <span className="coding-type" aria-label="Coding">
+                    <span aria-hidden="true">Coding</span>
                   </span>
                 </span>
-                {' '}
-                <span className="coding-type" aria-label="Coding">
-                  <span aria-hidden="true">Coding</span>
-                </span>{' '}
-                <span className="stem-tiles" aria-label="STEM">
-                  {[
-                    ['S', 'stem-tile-blue', '0ms'],
-                    ['T', 'stem-tile-orange', '220ms'],
-                    ['E', 'stem-tile-teal', '440ms'],
-                    ['M', 'stem-tile-yellow', '660ms']
-                  ].map(([letter, tileClass, delay]) => (
-                    <span key={letter} className={`stem-tile ${tileClass}`} style={{ animationDelay: delay }} aria-hidden="true">
-                      {letter}
-                    </span>
-                  ))}
-                </span>{' '}
-                Courses <span className="relative top-[5px] whitespace-nowrap">for <span className="text-orange">Kids</span></span>
+                <span className="mt-1 block whitespace-nowrap">
+                  <span className="stem-tiles" aria-label="STEM">
+                    {[
+                      ['S', 'stem-tile-blue', '0ms'],
+                      ['T', 'stem-tile-orange', '220ms'],
+                      ['E', 'stem-tile-teal', '440ms'],
+                      ['M', 'stem-tile-yellow', '660ms']
+                    ].map(([letter, tileClass, delay]) => (
+                      <span key={letter} className={`stem-tile ${tileClass}`} style={{ animationDelay: delay }} aria-hidden="true">
+                        {letter}
+                      </span>
+                    ))}
+                  </span>{' '}
+                  Courses
+                </span>
+                <span className="mt-1 block whitespace-nowrap">
+                  <span className="relative top-[5px] whitespace-nowrap">for <span className="text-orange">Kids</span></span>
+                </span>
               </h1>
             </Reveal>
-            <Reveal delay={200}><p className="mt-6 max-w-2xl text-xl leading-9 text-slate-700">Bridge the gap between what your child learns in school and what they need for the real world</p></Reveal>
+            <Reveal delay={200}><p className="mt-10 max-w-2xl text-xl leading-9 text-slate-700">Bridge the gap between what your child learns in school and the skills they need to thrive in the real world.</p></Reveal>
             <Reveal animation="pop" delay={300} className="mt-8 flex flex-col gap-3 sm:flex-row">
               <ButtonLink href="/courses">Explore Courses</ButtonLink>
               <ButtonLink href="/contact" variant="secondary">Speak with a Student Counselor</ButtonLink>
