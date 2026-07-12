@@ -24,7 +24,6 @@ export interface Course {
   ageRange: string;
   duration: string;
   format: string;
-  schedule?: string[];
   focusAreas: string[];
   learningOutcomes: string[];
   courseStructure: string;
