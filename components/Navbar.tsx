@@ -18,18 +18,14 @@ const navLinks = [
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
-  const basePath = pathname.startsWith('/nz') ? '/nz' : '';
-
-  const regionalHref = (href: string) => (href === '/' ? basePath || '/' : `${basePath}${href}`);
   const isActiveLink = (href: string) => {
-    const currentHref = regionalHref(href);
-    return href === '/' ? pathname === currentHref : pathname === currentHref || pathname.startsWith(`${currentHref}/`);
+    return href === '/' ? pathname === href : pathname === href || pathname.startsWith(`${href}/`);
   };
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/70 bg-cream/95 backdrop-blur-md">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <Link href={regionalHref('/')} className="flex items-center gap-3" onClick={() => setOpen(false)}>
+        <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
           <Image src="/assets/logos/logo.svg" alt="Meu Labs" width={150} height={48} className="h-auto w-40" priority />
         </Link>
         <div className="hidden items-center gap-8 lg:flex">
@@ -39,7 +35,7 @@ export function Navbar() {
             return (
               <Link
                 key={link.href}
-                href={regionalHref(link.href)}
+                href={link.href}
                 aria-current={active ? 'page' : undefined}
                 className={`relative py-2 text-sm font-bold transition hover:text-orange ${active ? 'text-orange' : 'text-navy/80'}`}
               >
@@ -50,7 +46,7 @@ export function Navbar() {
           })}
         </div>
         <div className="hidden lg:block">
-          <ButtonLink href={`${basePath}/courses`}>Explore Courses</ButtonLink>
+          <ButtonLink href="/courses">Explore Courses</ButtonLink>
         </div>
         <button
           className="grid h-11 w-11 place-items-center rounded-full bg-white text-navy shadow-soft lg:hidden"
@@ -70,7 +66,7 @@ export function Navbar() {
               return (
                 <Link
                   key={link.href}
-                  href={regionalHref(link.href)}
+                  href={link.href}
                   aria-current={active ? 'page' : undefined}
                   className={`rounded-2xl px-4 py-3 font-bold transition duration-200 hover:bg-white ${active ? 'bg-white text-orange' : 'text-navy'}`}
                   onClick={() => setOpen(false)}
@@ -79,7 +75,7 @@ export function Navbar() {
                 </Link>
               );
             })}
-            <ButtonLink href={`${basePath}/courses`} className="mt-3 w-fit px-5 py-2.5 text-sm" onClick={() => setOpen(false)}>Explore Courses</ButtonLink>
+            <ButtonLink href="/courses" className="mt-3 w-fit px-5 py-2.5 text-sm" onClick={() => setOpen(false)}>Explore Courses</ButtonLink>
           </div>
         </div>
       </div>

@@ -106,79 +106,17 @@ const ecosystemStages: EcosystemStage[] = [
   }
 ];
 
-const nzEcosystemStages: EcosystemStage[] = [
-  {
-    title: 'Foundations',
-    age: 'Age 6 - 12',
-    body: 'Build strong foundational skills across coding, design, communication, and creative problem solving while developing essential 21st-century skills.',
-    courses: [
-      { slug: 'kx-j', name: 'STEM For Kids: Junior', icon: Rocket, href: '/courses/kx-j' },
-      { slug: 'kx', name: 'STEM For Kids', icon: Shield, href: '/courses/kx' }
-    ],
-    color: 'bg-gradient-to-br from-[#FF7A00] to-[#FFB347]',
-    accent: 'from-orange/16 via-white to-white border-orange/60',
-    ringColor: 'border-orange',
-    cornerColor: 'bg-orange/20',
-    badge: 'bg-gradient-to-br from-[#FF7A00] to-[#FF4F1F]'
-  },
-  {
-    title: 'Learning Paths',
-    age: 'Age 10 - 14',
-    body: 'Choose themed courses aligned with coding and software. Deeper, project-driven, and skill-focused for New Zealand learners.',
-    courses: [
-      { slug: 'coding-software', name: 'Coding and Software', icon: Code2, href: '/courses/coding-software' }
-    ],
-    color: 'bg-gradient-to-br from-[#31C3DE] to-[#7DE3F2]',
-    accent: 'from-sky/16 via-white to-white border-sky/60',
-    ringColor: 'border-sky',
-    cornerColor: 'bg-sky/20',
-    badge: 'bg-gradient-to-br from-[#1995D3] to-[#31C3DE]'
-  },
-  {
-    title: 'Specialisations',
-    age: 'Age 12 - 16',
-    body: 'Dive deep into coding-focused domains through advanced projects, technical mentorship, and real-world problem solving.',
-    courses: [
-      { slug: 'se', name: 'Software Engineering', icon: Code2, href: '/courses/se' },
-      { slug: 'ds', name: 'Data Science and AI', icon: BrainCircuit, href: '/courses/ds' },
-      { slug: 'gd', name: 'Game Development', icon: Code2, href: '/courses/gd', badge: 'COMING SOON' },
-      { slug: 'cs', name: 'Cyber Security', icon: Shield, href: '/courses/cs', badge: 'COMING SOON' }
-    ],
-    color: 'bg-gradient-to-br from-[#48D83E] to-[#8BE95E]',
-    accent: 'from-[#48D83E]/16 via-white to-white border-[#48D83E]/60',
-    ringColor: 'border-[#48D83E]',
-    cornerColor: 'bg-[#48D83E]/20',
-    badge: 'bg-gradient-to-br from-[#48D83E] to-[#65D96C]'
-  },
-  {
-    title: 'Launch Pad',
-    age: 'Age 16 +',
-    body: 'Transition into university or entrepreneurship through structured pathways and portfolio-focused guidance.',
-    courses: [
-      { slug: 'ua', name: 'University Access', icon: Landmark, href: '/courses/ua', badge: 'COMING SOON' },
-      { slug: 'fs', name: 'Founder Studio', icon: Lightbulb, href: '/courses/fs' }
-    ],
-    color: 'bg-gradient-to-br from-[#8B5CF6] to-[#C084FC]',
-    accent: 'from-[#8B5CF6]/16 via-white to-white border-[#8B5CF6]/60',
-    ringColor: 'border-[#8B5CF6]',
-    cornerColor: 'bg-[#8B5CF6]/20',
-    badge: 'bg-gradient-to-br from-[#8B5CF6] to-[#A855F7]'
-  }
-];
-
 export function CoursesExplorerEcosystem({
   courses = allCourses,
   basePath = '',
-  stageSet = 'default',
   hiddenInterestLabels = []
 }: {
   courses?: Course[];
   basePath?: string;
-  stageSet?: 'default' | 'nz';
   hiddenInterestLabels?: string[];
 }) {
   const [selectedSlug, setSelectedSlug] = useState<string>();
-  const stages = stageSet === 'nz' ? nzEcosystemStages : ecosystemStages;
+  const stages = ecosystemStages;
 
   return (
     <>

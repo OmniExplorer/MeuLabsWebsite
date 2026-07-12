@@ -2,11 +2,9 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import type { ReactNode } from 'react';
 import { ChevronRight, Mail, MapPin, MessageCircle, Phone, ShieldCheck, UserRound } from 'lucide-react';
 import { siteConfig } from '@/data/siteConfig';
-import { nzConfig } from '@/data/regions';
 
 const courseLinks = [
   { href: '/courses', label: 'All Courses' },
@@ -42,41 +40,18 @@ const footerLogos = [
 ];
 
 export function Footer() {
-  const pathname = usePathname();
-  const basePath = pathname.startsWith('/nz') ? '/nz' : '';
-  const contactConfig = basePath
-    ? {
-        phoneNumber: nzConfig.phoneDisplay,
-        phoneHref: nzConfig.phoneHref,
-        whatsappNumber: nzConfig.whatsappNumber,
-        email: nzConfig.email,
-        address: nzConfig.address,
-        callLabel: 'Email Us',
-        whatsappLabel: 'Contact Team'
-      }
-    : {
-        phoneNumber: siteConfig.phoneNumber,
-        phoneHref: `tel:${siteConfig.phoneNumber.replace(/\s/g, '')}`,
-        whatsappNumber: siteConfig.whatsappNumber,
-        email: 'hello@meulabs.org',
-        address: siteConfig.address,
-        callLabel: 'Call Us',
-        whatsappLabel: 'Chat on WhatsApp'
-      };
+  const contactConfig = {
+    phoneNumber: siteConfig.phoneNumber,
+    phoneHref: `tel:${siteConfig.phoneNumber.replace(/\s/g, '')}`,
+    whatsappNumber: siteConfig.whatsappNumber,
+    email: 'hello@meulabs.org',
+    address: siteConfig.address,
+    callLabel: 'Call Us',
+    whatsappLabel: 'Chat on WhatsApp'
+  };
   const whatsappOrEmailHref = contactConfig.whatsappNumber
     ? `https://wa.me/${contactConfig.whatsappNumber.replace(/\D/g, '')}`
     : `mailto:${contactConfig.email}`;
-  const regionalHref = (href: string) => (href === '/' ? basePath || '/' : `${basePath}${href}`);
-  const regionalCourseLinks = basePath
-    ? [
-        { href: '/courses', label: 'Courses' },
-        { href: '/courses/kx', label: 'STEM For Kids' },
-        { href: '/courses/coding-software', label: 'Coding and Software' },
-        { href: '/courses/se', label: 'Software Engineering' },
-        { href: '/courses/ua', label: 'University Access' },
-        { href: '/courses/fs', label: 'Founder Studio' }
-      ]
-    : courseLinks;
 
   return (
     <footer className="bg-[#07002A] text-white">
@@ -127,7 +102,7 @@ export function Footer() {
       <div className="border-t border-white/10 px-4 py-10 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-[92rem] gap-8 lg:grid-cols-[1.35fr_0.85fr_0.95fr_1.35fr_1.7fr]">
           <div>
-          <Link href={basePath || '/'} className="inline-flex">
+          <Link href="/" className="inline-flex">
             <Image src="/assets/logos/logo.svg" alt="Meu Labs" width={150} height={47} className="h-auto w-40" />
           </Link>
           <p className="mt-5 max-w-[300px] text-sm font-extrabold leading-6 text-slate-300">Empowering young minds through project-based STEM, robotics, coding and creative learning.</p>
@@ -143,9 +118,9 @@ export function Footer() {
         <nav aria-label="Courses">
           <FooterHeading>Courses</FooterHeading>
           <ul className="mt-4 grid gap-2.5 text-xs font-extrabold leading-5 text-slate-300">
-            {regionalCourseLinks.map((link) => (
+            {courseLinks.map((link) => (
               <li key={link.label}>
-                <Link href={regionalHref(link.href)} className="inline-flex items-center gap-1.5 transition hover:text-orange"><ChevronRight size={12} aria-hidden />{link.label}</Link>
+                <Link href={link.href} className="inline-flex items-center gap-1.5 transition hover:text-orange"><ChevronRight size={12} aria-hidden />{link.label}</Link>
               </li>
             ))}
           </ul>
@@ -156,7 +131,7 @@ export function Footer() {
           <ul className="mt-4 grid gap-2.5 text-xs font-extrabold leading-5 text-slate-300">
             {companyLinks.map((link) => (
               <li key={link.label}>
-                <Link href={regionalHref(link.href)} className="inline-flex items-center gap-1.5 transition hover:text-orange"><ChevronRight size={12} aria-hidden />{link.label}</Link>
+                <Link href={link.href} className="inline-flex items-center gap-1.5 transition hover:text-orange"><ChevronRight size={12} aria-hidden />{link.label}</Link>
               </li>
             ))}
           </ul>
@@ -192,14 +167,14 @@ export function Footer() {
               <MapPin size={24} fill="currentColor" strokeWidth={0} aria-hidden className="h-6 w-6" />
               <span className="absolute left-1/2 top-[7px] h-2 w-2 -translate-x-1/2 rounded-full bg-white" />
             </span>
-            <Link href="/nz" aria-label="Go to Meu Labs New Zealand" className="footer-map-pin absolute left-[83%] top-[58%] z-10 h-6 w-6 text-[#2FA8FF] drop-shadow-[0_10px_12px_rgba(47,168,255,0.34)] [animation-delay:320ms]">
+            <span className="footer-map-pin absolute left-[83%] top-[58%] z-10 h-6 w-6 text-[#2FA8FF] drop-shadow-[0_10px_12px_rgba(47,168,255,0.34)] [animation-delay:320ms]">
               <MapPin size={24} fill="currentColor" strokeWidth={0} aria-hidden className="h-6 w-6" />
               <span className="absolute left-1/2 top-[7px] h-2 w-2 -translate-x-1/2 rounded-full bg-white" />
-            </Link>
+            </span>
           </div>
           <div className="mt-4 grid gap-x-4 gap-y-2 text-xs font-extrabold sm:grid-cols-[max-content_max-content]">
             <span className="inline-flex whitespace-nowrap items-center gap-2"><span className="h-2.5 w-2.5 shrink-0 rounded-full bg-orange" />Sri Lanka</span>
-            <span className="inline-flex whitespace-nowrap items-center gap-2"><span className="h-2.5 w-2.5 shrink-0 rounded-full bg-[#2FA8FF]" />New Zealand {basePath ? <small className="text-[11px] text-[#9CE0FF]">Active</small> : null}</span>
+            <span className="inline-flex whitespace-nowrap items-center gap-2"><span className="h-2.5 w-2.5 shrink-0 rounded-full bg-[#2FA8FF]" />New Zealand</span>
             <span className="inline-flex whitespace-nowrap items-center gap-2 sm:col-span-2"><span className="h-2.5 w-2.5 shrink-0 rounded-full bg-[#65D96C]" />Maldives <small className="text-[11px] text-slate-400">Coming Soon</small></span>
           </div>
         </div>
