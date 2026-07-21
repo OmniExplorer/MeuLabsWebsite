@@ -17,6 +17,13 @@ export const metadata: Metadata = {
 
 const pillarboxedVideoIds = new Set(['1hEFNYY8peE']);
 
+const galleryVideos = [
+  {
+    title: 'AT ML',
+    src: '/assets/images/AT%20ML.mp4'
+  }
+];
+
 function thumbnailClass(videoId: string) {
   return pillarboxedVideoIds.has(videoId)
     ? 'scale-[3.25] object-cover transition duration-300 group-hover:scale-[3.35]'
@@ -76,6 +83,17 @@ function CreationCard({ project, duplicate = false }: { project: VideoProject; d
         <span className="mt-auto pt-3 text-sm font-extrabold text-orange">View project &gt;</span>
       </div>
     </a>
+  );
+}
+
+function GalleryVideoCard({ video }: { video: (typeof galleryVideos)[number] }) {
+  return (
+    <article className="w-[min(86vw,520px)] shrink-0 overflow-hidden rounded-[18px] border border-navy/10 bg-white shadow-soft">
+      <div className="aspect-video overflow-hidden bg-navy">
+        <video src={video.src} controls playsInline preload="metadata" className="h-full w-full object-contain" aria-label={video.title} />
+      </div>
+      <h3 className="px-5 py-4 text-lg font-extrabold text-navy">{video.title}</h3>
+    </article>
   );
 }
 
@@ -155,6 +173,25 @@ export default function ProjectsPage() {
             ))}
           </div>
         </div>
+      </section>
+
+      <section className="overflow-hidden bg-white px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="project-gallery-title">
+        <div className="mx-auto max-w-[92rem]">
+          <Reveal>
+            <SectionHeader
+              eyebrow="Gallery"
+              title="Moments from the Meu Labs community"
+              subtitle="A growing collection of student work, classroom moments, and project showcases."
+            />
+          </Reveal>
+        </div>
+        <Reveal animation="pop" delay={120}>
+          <AutoCarousel ariaLabel="Meu Labs video gallery" className="project-carousel-shell mx-auto max-w-[92rem] py-3" trackClassName="gap-5 pr-5 sm:gap-6 sm:pr-6" speedPixelsPerSecond={45}>
+            {galleryVideos.map((video) => (
+              <GalleryVideoCard key={video.src} video={video} />
+            ))}
+          </AutoCarousel>
+        </Reveal>
       </section>
 
       <section className="overflow-hidden bg-cream px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="student-creations-title">
