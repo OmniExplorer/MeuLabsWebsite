@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { ArrowUpRight, Newspaper, Play } from 'lucide-react';
 import { AutoCarousel } from '@/components/AutoCarousel';
 import { ButtonLink } from '@/components/ButtonLink';
+import { GalleryVideoCard } from '@/components/GalleryVideoCard';
 import { PageHero } from '@/components/PageHero';
 import { Reveal } from '@/components/Reveal';
 import { SectionHeader } from '@/components/SectionHeader';
@@ -21,6 +22,10 @@ const galleryVideos = [
   {
     title: 'AT ML',
     src: '/assets/images/AT%20ML.mp4'
+  },
+  {
+    title: 'Go Global',
+    src: '/assets/images/Go%20global.mp4'
   }
 ];
 
@@ -83,17 +88,6 @@ function CreationCard({ project, duplicate = false }: { project: VideoProject; d
         <span className="mt-auto pt-3 text-sm font-extrabold text-orange">View project &gt;</span>
       </div>
     </a>
-  );
-}
-
-function GalleryVideoCard({ video }: { video: (typeof galleryVideos)[number] }) {
-  return (
-    <article className="w-[min(86vw,520px)] shrink-0 overflow-hidden rounded-[18px] border border-navy/10 bg-white shadow-soft">
-      <div className="aspect-video overflow-hidden bg-navy">
-        <video src={video.src} controls playsInline preload="metadata" className="h-full w-full object-contain" aria-label={video.title} />
-      </div>
-      <h3 className="px-5 py-4 text-lg font-extrabold text-navy">{video.title}</h3>
-    </article>
   );
 }
 
