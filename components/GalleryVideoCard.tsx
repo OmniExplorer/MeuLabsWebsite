@@ -22,8 +22,8 @@ export function GalleryVideoCard({ video }: { video: { title: string; src: strin
   };
 
   return (
-    <article className="w-[min(86vw,520px)] shrink-0 overflow-hidden rounded-[18px] border border-navy/10 bg-white shadow-soft">
-      <div className="group/video relative aspect-video cursor-pointer overflow-hidden bg-navy">
+    <article className="aspect-[4/3] w-[min(84vw,440px)] shrink-0 snap-start overflow-hidden rounded-[18px] border border-navy/10 bg-navy shadow-soft">
+      <div className="group/video relative h-full w-full cursor-pointer overflow-hidden">
         <video
           ref={videoRef}
           src={video.src}
@@ -33,7 +33,7 @@ export function GalleryVideoCard({ video }: { video: { title: string; src: strin
           controls
           playsInline
           preload="metadata"
-          className="h-full w-full object-contain"
+          className="h-full w-full object-cover"
           aria-label={video.title}
           onPointerDown={(event) => event.stopPropagation()}
           data-gallery-video
@@ -50,7 +50,6 @@ export function GalleryVideoCard({ video }: { video: { title: string; src: strin
           </button>
         )}
       </div>
-      <h3 className="px-5 py-4 text-lg font-extrabold text-navy">{video.title}</h3>
     </article>
   );
 }

@@ -29,6 +29,56 @@ const galleryVideos = [
   }
 ];
 
+const galleryImageFiles = [
+  '1234.jpg',
+  '20241101_144415.jpg',
+  '20241215_102815.jpg',
+  '20250301_173756.jpg',
+  '469010625_1132657788733903_7951119495611350745_n.jpg',
+  '470159413_1138789921454023_5911846406064261922_n.jpg',
+  '482024818_1034709658681019_4965927369958704488_n.jpg',
+  '482350103_1037631238388861_5824154455780954481_n.jpg',
+  '483105501_1038800718271913_724611605121888085_n.jpg',
+  '483485517_1037958285022823_2707986845760264682_n.jpg',
+  '483823649_1038317064986945_7715705953599176958_n.jpg',
+  '483850526_1038316181653700_2374321439713406812_n.jpg',
+  '483917832_1038331078318877_2411987226618060669_n.jpg',
+  '484265609_1037630911722227_7479027288105203912_n.jpg',
+  '484275501_1038316258320359_8129729714089203539_n.jpg',
+  '487480387_1053983196753665_6762230341964369598_n.jpg',
+  'DSC_0165.JPG',
+  'DSC_0173.JPG',
+  'DSC_0184.JPG',
+  'IMG 1.jpg',
+  'IMG 2.jpg',
+  'IMG 3.jpg',
+  'IMG 4.jpg',
+  'IMG-20250426-WA0006.jpg',
+  'IMG-20250426-WA0036.jpg',
+  'IMG-20250430-WA0014.jpg',
+  'IMG_0970.JPG',
+  'IMG_1485.JPG',
+  'IMG_1493.JPG',
+  'IMG_2007 - Copy.JPG',
+  'IMG_2112.JPG',
+  'IMG_3096.JPG',
+  'IMG_3325.JPG',
+  'IMG_3341.JPG',
+  'IMG_3369.JPG',
+  'IMG_3574.JPG',
+  'IMG_3585.JPG',
+  'IMG_3600.JPG',
+  'IMG_4332.JPG',
+  'IMG_4369.JPG',
+  'VideoCapture_20250303-140849.jpg',
+  'WhatsApp Image 2026-04-18 at 11.32.12 AM.jpeg'
+];
+
+const galleryImages = galleryImageFiles.map((filename, index) => ({
+  src: `/assets/images/Gallery/${encodeURIComponent(filename)}`,
+  alt: `Meu Labs gallery moment ${index + 1}`
+}));
+
 function thumbnailClass(videoId: string) {
   return pillarboxedVideoIds.has(videoId)
     ? 'scale-[3.25] object-cover transition duration-300 group-hover:scale-[3.35]'
@@ -88,6 +138,14 @@ function CreationCard({ project, duplicate = false }: { project: VideoProject; d
         <span className="mt-auto pt-3 text-sm font-extrabold text-orange">View project &gt;</span>
       </div>
     </a>
+  );
+}
+
+function GalleryImageCard({ image }: { image: (typeof galleryImages)[number] }) {
+  return (
+    <figure className="relative aspect-[4/3] w-[min(84vw,440px)] shrink-0 snap-start overflow-hidden rounded-[18px] border border-navy/10 bg-cream shadow-soft">
+      <Image src={image.src} alt={image.alt} fill className="object-cover transition duration-300 hover:scale-105" sizes="440px" />
+    </figure>
   );
 }
 
@@ -180,11 +238,14 @@ export default function ProjectsPage() {
           </Reveal>
         </div>
         <Reveal animation="pop" delay={120}>
-          <AutoCarousel ariaLabel="Meu Labs video gallery" className="project-carousel-shell mx-auto max-w-[92rem] py-3" trackClassName="gap-5 pr-5 sm:gap-6 sm:pr-6" speedPixelsPerSecond={45}>
+          <div aria-label="Meu Labs photo and video gallery" className="no-scrollbar mx-auto flex max-w-[92rem] snap-x snap-mandatory gap-5 overflow-x-auto py-3 sm:gap-6">
             {galleryVideos.map((video) => (
               <GalleryVideoCard key={video.src} video={video} />
             ))}
-          </AutoCarousel>
+            {galleryImages.map((image) => (
+              <GalleryImageCard key={image.src} image={image} />
+            ))}
+          </div>
         </Reveal>
       </section>
 
