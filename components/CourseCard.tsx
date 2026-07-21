@@ -20,6 +20,29 @@ const selectedStageClasses: Record<PathwayStage, string> = {
   'Launch Pad': 'border-[#8B5CF6] ring-[#8B5CF6]/30'
 };
 
+const homeCardClasses: Record<PathwayStage, { border: string; badge: string; tag: string }> = {
+  Foundations: {
+    border: 'border-orange/60',
+    badge: 'bg-orange/20 text-orange',
+    tag: 'bg-orange/15 text-orange'
+  },
+  'Learning Path': {
+    border: 'border-sky/60',
+    badge: 'bg-sky/20 text-sky',
+    tag: 'bg-sky/15 text-sky'
+  },
+  Specialisation: {
+    border: 'border-[#48D83E]/60',
+    badge: 'bg-[#48D83E]/20 text-[#2BAE35]',
+    tag: 'bg-[#48D83E]/15 text-[#2BAE35]'
+  },
+  'Launch Pad': {
+    border: 'border-[#8B5CF6]/60',
+    badge: 'bg-[#8B5CF6]/20 text-[#8B5CF6]',
+    tag: 'bg-[#8B5CF6]/15 text-[#8B5CF6]'
+  }
+};
+
 const courseImages: Record<string, string> = {
   kx: '/assets/images/Course-Hero-Images/KX.jpg',
   'kx-superhero': '/assets/images/Course-Hero-Images/KX.jpg',
@@ -52,17 +75,79 @@ export function CourseCard({
   displayTitle,
   selected = false,
   onSelect,
-  basePath = ''
+  basePath = '',
+  variant = 'default'
 }: {
   course: Course;
   displayTitle?: string;
   selected?: boolean;
   onSelect?: (slug: string) => void;
   basePath?: string;
+  variant?: 'default' | 'home';
 }) {
   const courseHref = courseHrefOverrides[course.slug] ?? `${basePath}/courses/${course.slug}`;
   const title = displayTitle ?? course.title;
   const selectedClass = selected ? `${selectedStageClasses[course.pathwayStage]} ring-4 shadow-pop` : 'border-navy/10';
+
+  if (variant === 'home') {
+    const homeStyle = homeCardClasses[course.pathwayStage];
+
+    return (
+      <article
+        className={`group flex h-full min-h-[540px] flex-col overflow-hidden rounded-[12px] border-2 bg-white p-3 transition-[transform,box-shadow] duration-200 hover:-translate-y-1 hover:shadow-[6px_6px_4px_rgba(228,136,111,0.25)] ${onSelect ? 'cursor-pointer' : ''} ${homeStyle.border} ${selected ? `${selectedStageClasses[course.pathwayStage]} ring-4 shadow-pop` : ''}`}
+        onClick={() => onSelect?.(course.slug)}
+      >
+        <div className="relative h-[230px] overflow-hidden rounded-[8px] bg-creamAlt">
+          <Image
+            src={courseImages[course.slug] ?? '/assets/images/project-electronics-lab.jpg'}
+            alt={title}
+            fill
+            className="object-cover transition duration-300 group-hover:scale-105"
+            sizes="(min-width: 1280px) 22vw, (min-width: 768px) 45vw, 92vw"
+          />
+        </div>
+        <div className="flex flex-1 flex-col items-center px-3 pb-1 pt-5 text-center">
+          <div className="flex min-h-[58px] w-full items-center justify-center">
+            <h3 className="line-clamp-2 text-2xl font-extrabold leading-tight text-navy">{title}</h3>
+          </div>
+          <div className="mt-2 flex min-h-[30px] items-center justify-center">
+            <span className={`rounded-[5px] px-3.5 py-1.5 text-xs font-extrabold ${homeStyle.badge}`}>
+              {formatPathwayStage(course.pathwayStage)}
+            </span>
+          </div>
+          <div className="mt-3 flex min-h-[40px] w-full flex-nowrap items-center justify-center gap-1">
+            {course.keywords.slice(0, 3).map((keyword) => (
+              <span key={keyword} className={`whitespace-nowrap rounded-full px-2 py-1.5 text-xs font-bold ${homeStyle.tag}`}>
+                {keyword}
+              </span>
+            ))}
+          </div>
+          <div className="mt-2 flex min-h-[52px] flex-col justify-center space-y-1.5 text-sm font-semibold text-navy/80">
+            <p>Age: {course.ageRange}</p>
+            <p>Duration: {course.duration}</p>
+          </div>
+          <div className="mt-auto w-full pt-6">
+            <Link
+              href={courseHref}
+              onClick={() => trackEvent('course_card_click', { course: course.slug })}
+              className="inline-flex min-h-[48px] w-full items-center justify-center rounded-full bg-white px-6 py-3.5 text-base font-extrabold text-[#FF5A24] shadow-soft transition duration-200 hover:-translate-y-1 hover:scale-[1.03] hover:shadow-pop active:translate-y-0 active:scale-[0.99]"
+            >
+              View Course
+            </Link>
+          </div>
+          <a
+            href={course.registerLink}
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => trackEvent(course.comingSoon ? 'waitlist_click' : 'registration_click', { course: course.slug, batch: 'course_card' })}
+            className="mt-3 inline-flex min-h-[48px] w-full items-center justify-center rounded-full bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] px-6 py-3.5 text-base font-extrabold text-white shadow-soft transition duration-200 hover:-translate-y-1 hover:scale-[1.03] hover:from-[#ff6b00] hover:to-[#f04417] hover:shadow-pop active:translate-y-0 active:scale-[0.99]"
+          >
+            {course.comingSoon ? 'Join Waitlist' : 'Register Now'}
+          </a>
+        </div>
+      </article>
+    );
+  }
 
   return (
     <article

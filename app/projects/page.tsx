@@ -90,7 +90,7 @@ export default function ProjectsPage() {
         title="See what our students build, create, and achieve at Meu Labs"
         imageSrc="/assets/images/Projects-Main-Hero.jpg"
         imageAlt="Meu Labs students representing Sri Lanka at the 2025 International Creativity and Innovation Awards"
-        imageStyle="single"
+        imageStyle="contact"
       >
         <ButtonLink href="/courses">Explore Courses</ButtonLink>
         <ButtonLink href="/contact" variant="secondary">Help Me Choose</ButtonLink>

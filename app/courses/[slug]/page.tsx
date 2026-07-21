@@ -858,7 +858,7 @@ export default function CoursePage({ params }: PageProps) {
 
   return (
     <main className="bg-[#F8F1E3]">
-      <section className="relative bg-creamAlt pb-0 pt-0 text-navy">
+      <section className="relative bg-[linear-gradient(90deg,#FFEACC_0%,#FFFFFF_100%)] pb-0 pt-0 text-navy">
         <div className="mx-auto w-full">
           <div className="relative bg-[#06243A] shadow-[0_22px_60px_rgba(13,53,87,0.18)]">
             <div className="absolute inset-0 overflow-hidden">

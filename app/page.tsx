@@ -59,7 +59,7 @@ const pathway = [
   {
     title: 'Foundations',
     age: 'Age 8 - 12',
-    body: 'Build strong foundational skills across coding, design, robotics, videography, communication, and leadership while developing essential 21st-century skills.',
+    body: 'Build strong foundational skills in Robotics, Coding, electronics, IoT, creative design, critical thinking, and leadership while developing essential 21st-century skills.',
     courses: [
       { name: 'STEM For Kids: Junior', icon: Rocket, href: '/courses/kx-j' },
       { name: 'STEM For Kids', icon: Shield, href: '/courses/kx' }
@@ -74,7 +74,7 @@ const pathway = [
   {
     title: 'Learning Paths',
     age: 'Age 10 - 14',
-    body: 'Choose themed courses aligned with coding, robotics, and digital media. Deeper, project-driven, and skill-focused.',
+    body: 'Choose themed courses aligned with coding, robotics, and digital media, designed to help students build deeper understanding through project-based, skill-focused learning.',
     courses: [
       { name: 'Coding and Software', icon: Code2, href: '/courses/coding-software' },
       { name: 'Robotics and IoT', icon: Bot, href: '/courses/robotics-iot' },
@@ -169,8 +169,7 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <section className="relative min-h-[760px] overflow-hidden bg-creamAlt px-4 sm:px-6 lg:px-8">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_24%_42%,rgba(255,122,0,0.26),transparent_32%),radial-gradient(circle_at_82%_22%,rgba(255,79,31,0.12),transparent_30%),linear-gradient(120deg,#F8F1E2_0%,#FFF6EA_58%,rgba(255,122,0,0.12)_100%)]" />
+      <section className="relative min-h-[760px] overflow-hidden bg-[linear-gradient(90deg,#FFEACC_0%,#FFFFFF_100%)] px-4 sm:px-6 lg:px-8">
         <div className="relative mx-auto grid min-h-[760px] max-w-[92rem] items-center gap-8 py-20 lg:grid-cols-[0.84fr_1.16fr]">
           <div className="max-w-4xl text-navy">
             <Reveal delay={100}>
@@ -260,7 +259,7 @@ export default function HomePage() {
                 </span>
               </h1>
             </Reveal>
-            <Reveal delay={200}><p className="mt-10 max-w-2xl text-xl leading-9 text-slate-700">Bridge the gap between what your child learns in school and the skills they need to thrive in the real world.</p></Reveal>
+            <Reveal delay={200}><p className="mt-10 max-w-2xl text-xl leading-9 text-slate-700">Where students discover their passion and build real-world skills for the future.</p></Reveal>
             <Reveal animation="pop" delay={300} className="mt-8 flex flex-col gap-3 sm:flex-row">
               <ButtonLink href="/courses">Explore Courses</ButtonLink>
               <ButtonLink href="/contact" variant="secondary">Speak with a Student Counselor</ButtonLink>
@@ -293,14 +292,14 @@ export default function HomePage() {
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {popularPrograms.map((course, index) => (
               <Reveal key={course.slug} animation="pop" delay={index * 90} className="h-full">
-                <CourseCard course={course} />
+                <CourseCard course={course} variant="home" />
               </Reveal>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-creamAlt px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="learning-pathway-title">
+      <section className="bg-[linear-gradient(90deg,#FFEACC_0%,#FFFFFF_100%)] px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="learning-pathway-title">
         <div className="mx-auto max-w-[92rem]">
           <Reveal>
             <div className="mb-10 w-full">
@@ -308,7 +307,7 @@ export default function HomePage() {
                 <p className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">Learning Pathway</p>
               </div>
               <h2 id="learning-pathway-title" className="text-[2.85rem] font-normal leading-[1.05] text-navy md:text-[4rem]">A long-term journey, built step by step</h2>
-              <p className="mt-5 w-full text-lg font-extrabold leading-8 text-slate-600">From first steps to advanced skills, our courses help students discover what they love and build real-world capabilities.</p>
+              <p className="mt-5 w-full text-lg font-extrabold leading-8 text-slate-600">From first steps to advanced pathways, our courses help students discover their passions and build real-world skills for the future.</p>
             </div>
           </Reveal>
           <div className="grid gap-4 lg:grid-cols-4">
@@ -318,7 +317,7 @@ export default function HomePage() {
                   const displayedCourses = isSpecialisations ? [...stage.courses, ...stage.courses] : stage.courses;
                   return (
               <Reveal key={stage.title} animation="pop" delay={index * 100} className="h-full">
-              <article className={`relative flex h-full flex-col overflow-hidden rounded-[22px] border-x border-b border-t-[5px] bg-gradient-to-b ${stage.accent} ${stage.ringColor} p-4 shadow-soft`}>
+              <article className={`relative flex h-full flex-col overflow-hidden rounded-[22px] border-x border-b border-t-[5px] bg-[linear-gradient(180deg,#FFFFFF_0%,#FFFAEE_19%,#FFFCF5_80%,#FFFFFF_100%)] ${stage.ringColor} p-4 shadow-soft`}>
                 <div className="pointer-events-none absolute right-0 top-0 h-32 w-32 overflow-hidden">
                   <div className={`absolute -right-8 -top-10 h-32 w-32 rounded-full ${stage.cornerColor}`} />
                 </div>
@@ -395,8 +394,8 @@ export default function HomePage() {
                 <div className="mb-6 border-l-4 border-orange pl-5">
                   <p className="bg-gradient-to-r from-[#FF7A00] to-[#FF4F1F] bg-clip-text text-xl font-black uppercase leading-snug tracking-[0.08em] text-transparent md:text-2xl">Student Projects</p>
                 </div>
-                <h2 id="student-projects-title" className="text-[2.85rem] font-normal leading-[1.05] text-navy md:whitespace-nowrap md:text-[4rem]">See what your child will build at Meu Labs.</h2>
-                <p className="mt-5 w-full text-lg font-extrabold leading-8 text-slate-600">From Robots to WebApps from Media productions to AI agents. At Meu Labs students build literally anything</p>
+                <h2 id="student-projects-title" className="text-[2.85rem] font-normal leading-[1.05] text-navy md:whitespace-nowrap md:text-[4rem]">See what your child will build at Meu Labs!</h2>
+                <p className="mt-5 w-full text-lg font-extrabold leading-8 text-slate-600">From Robots to WebApps from Media productions to AI agents. At Meu Labs students build literally anything!</p>
               </div>
               <ButtonLink href="/projects" className="w-fit shrink-0 self-start lg:self-end">View Student Projects</ButtonLink>
             </div>

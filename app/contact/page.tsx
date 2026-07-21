@@ -59,8 +59,8 @@ const supportCards = [
 
 export default function ContactPage() {
   return (
-    <main className="bg-[#F8F1E2] text-navy">
-      <section className="relative isolate overflow-hidden bg-[radial-gradient(circle_at_76%_18%,rgba(255,122,0,0.20),transparent_31%),radial-gradient(circle_at_22%_45%,rgba(255,122,0,0.16),transparent_28%),linear-gradient(120deg,#F8F1E2_0%,#FFF6EA_55%,#FFE7CE_100%)] px-4 sm:px-6 lg:px-8">
+    <main className="bg-white text-navy">
+      <section className="relative isolate overflow-hidden bg-[linear-gradient(90deg,#FFEACC_0%,#FFFFFF_100%)] px-4 sm:px-6 lg:px-8">
         <div
           className="absolute inset-y-0 right-0 -z-20 hidden w-[58%] lg:block"
           style={{

@@ -16,8 +16,7 @@ type PageHeroProps = {
 export function PageHero({ eyebrow, title, subtitle, imageSrc, imageAlt = '', imageMode = 'photo', imageStyle = 'framed', children }: PageHeroProps) {
   if (imageStyle === 'contact') {
     return (
-      <section className="relative isolate overflow-hidden bg-[#F8F1E2] px-4 text-navy sm:px-6 lg:px-8">
-        <div className="absolute inset-0 -z-30 bg-[radial-gradient(circle_at_76%_18%,rgba(255,122,0,0.20),transparent_31%),radial-gradient(circle_at_22%_45%,rgba(255,122,0,0.16),transparent_28%),linear-gradient(120deg,#F8F1E2_0%,#FFF6EA_55%,#FFE7CE_100%)]" />
+      <section className="relative isolate overflow-hidden bg-[linear-gradient(90deg,#FFEACC_0%,#FFFFFF_100%)] px-4 text-navy sm:px-6 lg:px-8">
         <div
           className="absolute inset-y-0 right-0 -z-20 hidden w-[58%] lg:block"
           style={{
@@ -71,8 +70,7 @@ export function PageHero({ eyebrow, title, subtitle, imageSrc, imageAlt = '', im
   }
 
   return (
-    <section className="relative min-h-[760px] overflow-hidden bg-creamAlt px-4 text-navy sm:px-6 lg:px-8">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_24%_42%,rgba(255,122,0,0.26),transparent_32%),radial-gradient(circle_at_82%_22%,rgba(255,79,31,0.12),transparent_30%),linear-gradient(120deg,#F8F1E2_0%,#FFF6EA_58%,rgba(255,122,0,0.12)_100%)]" />
+    <section className="relative min-h-[760px] overflow-hidden bg-[linear-gradient(90deg,#FFEACC_0%,#FFFFFF_100%)] px-4 text-navy sm:px-6 lg:px-8">
       <div className="relative mx-auto grid min-h-[760px] max-w-[92rem] items-center gap-8 py-20 lg:grid-cols-[0.84fr_1.16fr]">
         <div>
           <Reveal>
