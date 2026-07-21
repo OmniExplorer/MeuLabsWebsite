@@ -238,14 +238,14 @@ export default function ProjectsPage() {
           </Reveal>
         </div>
         <Reveal animation="pop" delay={120}>
-          <div aria-label="Meu Labs photo and video gallery" className="no-scrollbar mx-auto flex max-w-[92rem] snap-x snap-mandatory gap-5 overflow-x-auto py-3 sm:gap-6">
+          <AutoCarousel ariaLabel="Meu Labs photo and video gallery" className="project-carousel-shell mx-auto max-w-[92rem] py-3" trackClassName="gap-5 pr-5 sm:gap-6 sm:pr-6" speedPixelsPerSecond={45}>
             {galleryVideos.map((video) => (
               <GalleryVideoCard key={video.src} video={video} />
             ))}
             {galleryImages.map((image) => (
               <GalleryImageCard key={image.src} image={image} />
             ))}
-          </div>
+          </AutoCarousel>
         </Reveal>
       </section>
 
