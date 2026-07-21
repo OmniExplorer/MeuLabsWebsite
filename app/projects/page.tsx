@@ -96,6 +96,25 @@ export default function ProjectsPage() {
         <ButtonLink href="/contact" variant="secondary">Help Me Choose</ButtonLink>
       </PageHero>
 
+      <section className="overflow-hidden bg-cream px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="featured-projects-title">
+        <div className="mx-auto max-w-[92rem]">
+          <Reveal>
+            <SectionHeader
+              eyebrow="Featured Projects"
+              title="Standout projects from the Meu Labs community"
+              titleClassName="md:whitespace-nowrap md:text-[clamp(2rem,3.45vw,3.7rem)]"
+            />
+          </Reveal>
+        </div>
+        <Reveal animation="pop" delay={120}>
+          <AutoCarousel ariaLabel="Featured student project videos" className="project-carousel-shell mx-auto max-w-[92rem] py-3" trackClassName="gap-5 pr-5 sm:gap-6 sm:pr-6">
+            {featuredVideoProjects.map((project) => (
+              <FeaturedProjectCard key={project.title} project={project} />
+            ))}
+          </AutoCarousel>
+        </Reveal>
+      </section>
+
       <section className="bg-white px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="projects-news-title">
         <div className="mx-auto max-w-[92rem]">
           <Reveal>
@@ -136,25 +155,6 @@ export default function ProjectsPage() {
             ))}
           </div>
         </div>
-      </section>
-
-      <section className="overflow-hidden bg-cream px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="featured-projects-title">
-        <div className="mx-auto max-w-[92rem]">
-          <Reveal>
-            <SectionHeader
-              eyebrow="Featured Projects"
-              title="Standout projects from the Meu Labs community"
-              titleClassName="md:whitespace-nowrap md:text-[clamp(2rem,3.45vw,3.7rem)]"
-            />
-          </Reveal>
-        </div>
-        <Reveal animation="pop" delay={120}>
-          <AutoCarousel ariaLabel="Featured student project videos" className="project-carousel-shell mx-auto max-w-[92rem] py-3" trackClassName="gap-5 pr-5 sm:gap-6 sm:pr-6">
-            {featuredVideoProjects.map((project) => (
-              <FeaturedProjectCard key={project.title} project={project} />
-            ))}
-          </AutoCarousel>
-        </Reveal>
       </section>
 
       <section className="overflow-hidden bg-cream px-4 py-16 sm:px-6 lg:px-8" aria-labelledby="student-creations-title">
