@@ -25,7 +25,7 @@ const galleryVideos = [
   },
   {
     title: 'Go Global',
-    src: '/assets/images/Go%20global.mp4'
+    src: '/assets/images/Go%20global%20(1).mp4'
   }
 ];
 
