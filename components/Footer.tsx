@@ -58,7 +58,7 @@ export function Footer() {
         phoneNumber: siteConfig.phoneNumber,
         phoneHref: `tel:${siteConfig.phoneNumber.replace(/\s/g, '')}`,
         whatsappNumber: siteConfig.whatsappNumber,
-        email: 'hello@meulabs.org',
+        email: 'hello.nz@meulabs.org',
         address: siteConfig.address,
         callLabel: 'Call Us',
         whatsappLabel: 'Chat on WhatsApp'
@@ -198,7 +198,7 @@ export function Footer() {
             </Link>
           </div>
           <div className="mt-4 grid gap-x-4 gap-y-2 text-xs font-extrabold sm:grid-cols-[max-content_max-content]">
-            <span className="inline-flex whitespace-nowrap items-center gap-2"><span className="h-2.5 w-2.5 shrink-0 rounded-full bg-orange" />Sri Lanka</span>
+            <span className="inline-flex whitespace-nowrap items-center gap-2"><span className="h-2.5 w-2.5 shrink-0 rounded-full bg-orange" />New Zealand</span>
             <span className="inline-flex whitespace-nowrap items-center gap-2"><span className="h-2.5 w-2.5 shrink-0 rounded-full bg-[#2FA8FF]" />New Zealand {basePath ? <small className="text-[11px] text-[#9CE0FF]">Active</small> : null}</span>
             <span className="inline-flex whitespace-nowrap items-center gap-2 sm:col-span-2"><span className="h-2.5 w-2.5 shrink-0 rounded-full bg-[#65D96C]" />Maldives <small className="text-[11px] text-slate-400">Coming Soon</small></span>
           </div>

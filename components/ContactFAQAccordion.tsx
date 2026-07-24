@@ -34,7 +34,7 @@ const faqs: Array<{
   },
   {
     question: 'Do you offer online and in-person classes?',
-    answer: 'Some courses are available online, while others are delivered in person at Meu Labs Colombo. Each course page shows the available format.',
+    answer: 'Some courses are available online, while others are delivered in person at Meu Labs Auckland. Each course page shows the available format.',
     icon: Monitor
   },
   {

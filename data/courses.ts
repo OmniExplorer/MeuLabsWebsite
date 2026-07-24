@@ -65,7 +65,7 @@ export const courses: Course[] = [
     toolsUsed: ['Scratch', 'TinkerCAD', 'Arduino', 'ChatGPT', 'ClipChamp', 'Google Workspace'],
     prerequisites: 'Can read and write, use a computer at a basic level, and enjoys hands-on activities.',
     exampleProjects: ['Robotics challenge', 'Animated story game', 'Smart traffic light'],
-    location: 'Online / In Person / Colombo 06',
+    location: 'Online / In Person / Auckland CBD',
     registerLink: 'https://forms.gle/RuJ8dto9zjFNCCsE9',
     recommendedCourses: ['kx-j', 'coding-software', 'robotics-iot']
   },
@@ -86,7 +86,7 @@ export const courses: Course[] = [
     toolsUsed: ['To be confirmed'],
     prerequisites: 'Suitable for early learners.',
     exampleProjects: [],
-    location: 'Colombo 06',
+    location: 'Auckland CBD',
     registerLink: 'https://forms.gle/gdU3BmjrT4j95EKW8',
     recommendedCourses: ['kx', 'coding-software', 'robotics-iot']
   },
@@ -107,7 +107,7 @@ export const courses: Course[] = [
     toolsUsed: ['Python', 'Google Colab', 'Streamlit', 'Excel', 'Our World in Data', 'ML for Kids', 'GitHub', 'Google Workspace'],
     prerequisites: 'Foundation level or Scratch/MIT App Inventor basics. Entry test available.',
     exampleProjects: ['Climate dashboard', 'Survey analyser', 'Sensor data visualiser'],
-    location: 'Online / In Person / Colombo 06',
+    location: 'Online / In Person / Auckland CBD',
     registerLink: 'https://forms.gle/6sMCTHnULp7g84v18',
     recommendedCourses: ['se', 'ds', 'kx', 'robotics-iot', 'digital-media']
   },
@@ -128,7 +128,7 @@ export const courses: Course[] = [
     toolsUsed: ['Fusion 360', 'Arduino', 'Magicbit', 'EasyEDA', '3D Printers', 'CNC', 'Laser Cutters', 'Hand & Power Tools', 'Google Workspace'],
     prerequisites: 'Foundation level or basic Arduino experience such as blink/sensor projects. Entry test available.',
     exampleProjects: ['Smart planter', 'Assistive device prototype', 'Laser-cut product enclosure'],
-    location: 'In Person Only / Colombo 06',
+    location: 'In Person Only / Auckland CBD',
     registerLink: 'https://forms.gle/cNL3QTCuAbvkjVUK7',
     recommendedCourses: ['es', 'kx', 'coding-software', 'digital-media']
   },
@@ -149,7 +149,7 @@ export const courses: Course[] = [
     toolsUsed: ['Canva', 'Google Workspace', 'Camera/Mobile', 'Krita', 'BandLab', 'Pencil2D', 'CapCut'],
     prerequisites: 'Foundation level or basic video/animation experience with tools such as ClipChamp. Entry test available.',
     exampleProjects: ['Short film', 'Animated explainer', 'Photo essay'],
-    location: 'In Person Only / Colombo 06',
+    location: 'In Person Only / Auckland CBD',
     registerLink: 'https://forms.gle/jrRfKHsMNYiiH1ou8',
     recommendedCourses: ['kx', 'coding-software', 'robotics-iot']
   },
@@ -170,7 +170,7 @@ export const courses: Course[] = [
     toolsUsed: ['Python', 'HTML', 'CSS', 'JavaScript', 'React', 'Flask', 'SQLite', 'Firebase', 'GitHub', 'Figma', 'Canva', 'Postman'],
     prerequisites: 'Strong Python, independent debugging ability and Coding and Software recommended. Entry test for other students.',
     exampleProjects: ['Student portal', 'Inventory app', 'Community service platform'],
-    location: 'Online / In Person / Colombo 06',
+    location: 'Online / In Person / Auckland CBD',
     registerLink: 'https://forms.gle/NnzmhgsxgLVxVmwY6',
     recommendedCourses: ['ds', 'coding-software', 'robotics-iot', 'digital-media']
   },
@@ -191,7 +191,7 @@ export const courses: Course[] = [
     toolsUsed: ['Python', 'Google Colab', 'Jupyter', 'SQL Databases', 'Power BI', 'Scikit-learn', 'TensorFlow', 'Kaggle', 'Generative AI APIs'],
     prerequisites: 'Strong Python and Coding and Software recommended. Entry test for other students.',
     exampleProjects: ['Image classifier', 'AI research assistant', 'Power BI insight dashboard'],
-    location: 'Online / In Person / Colombo 06',
+    location: 'Online / In Person / Auckland CBD',
     registerLink: 'https://forms.gle/ku4g46KqGRfdP9Fi8',
     recommendedCourses: ['se', 'coding-software', 'robotics-iot', 'digital-media']
   },
@@ -212,7 +212,7 @@ export const courses: Course[] = [
     toolsUsed: ['To be confirmed'],
     prerequisites: tbc,
     exampleProjects: [],
-    location: 'Colombo 06',
+    location: 'Auckland CBD',
     registerLink: waitlistRegister(),
     recommendedCourses: ['coding-software', 'se', 'digital-media'],
     comingSoon: true
@@ -234,7 +234,7 @@ export const courses: Course[] = [
     toolsUsed: ['To be confirmed'],
     prerequisites: tbc,
     exampleProjects: [],
-    location: 'Colombo 06',
+    location: 'Auckland CBD',
     registerLink: waitlistRegister(),
     recommendedCourses: ['coding-software', 'se', 'ds'],
     comingSoon: true
@@ -256,7 +256,7 @@ export const courses: Course[] = [
     toolsUsed: ['ESP32', 'PlatformIO', 'STM32', 'STM32CubeIDE', 'Raspberry Pi', 'Linux', 'Python', 'Edge Impulse', 'NodeRED', 'MQTT Broker', 'Git', 'Logic Analyzer', 'Oscilloscope'],
     prerequisites: 'Prior ESP32/Arduino experience, strong MCU coding and basic electronics required. Robotics and IoT recommended. Entry test available.',
     exampleProjects: ['Smart energy node', 'MQTT sensor network', 'TinyML gesture device'],
-    location: 'In Person Only / Colombo 06',
+    location: 'In Person Only / Auckland CBD',
     registerLink: 'https://forms.gle/KzahsCn95rH1azhe8',
     recommendedCourses: ['eee', 'robotics-iot', 'digital-media', 'coding-software']
   },
@@ -277,7 +277,7 @@ export const courses: Course[] = [
     toolsUsed: ['Multimeter', 'Oscilloscope', 'Breadboard', 'Circuit Simulation', 'Arduino', 'Op-Amps', 'Sensors', 'MOSFETs', '555 Timer', 'EasyEDA', 'PCB Tools', 'Google Workspace'],
     prerequisites: 'Robotics and IoT, ES or equivalent; basic MCU coding mandatory. Entry test available.',
     exampleProjects: ['Battery monitor', 'Motor controller', 'Sensor test rig'],
-    location: 'In Person Only / Colombo 06',
+    location: 'In Person Only / Auckland CBD',
     registerLink: 'https://docs.google.com/forms/d/e/1FAIpQLSfFX-Ws2_OnCQYmxGJl2y2KRjegyZf1ggDgqep_8Zj1XDwDaA/viewform',
     recommendedCourses: ['es', 'robotics-iot', 'digital-media', 'coding-software']
   },
@@ -298,7 +298,7 @@ export const courses: Course[] = [
     toolsUsed: ['To be confirmed'],
     prerequisites: tbc,
     exampleProjects: [],
-    location: 'Colombo 06',
+    location: 'Auckland CBD',
     registerLink: waitlistRegister(),
     recommendedCourses: ['robotics-iot', 'es', 'eee'],
     comingSoon: true
@@ -320,7 +320,7 @@ export const courses: Course[] = [
     toolsUsed: ['To be confirmed'],
     prerequisites: tbc,
     exampleProjects: [],
-    location: 'Colombo 06',
+    location: 'Auckland CBD',
     registerLink: waitlistRegister(),
     recommendedCourses: ['digital-media', 'coding-software', 'fs'],
     comingSoon: true
@@ -342,7 +342,7 @@ export const courses: Course[] = [
     toolsUsed: ['To be confirmed'],
     prerequisites: tbc,
     exampleProjects: [],
-    location: 'Colombo 06',
+    location: 'Auckland CBD',
     registerLink: waitlistRegister(),
     recommendedCourses: ['digital-media', 'dm', 'gd']
   },
@@ -363,7 +363,7 @@ export const courses: Course[] = [
     toolsUsed: ['To be confirmed'],
     prerequisites: tbc,
     exampleProjects: [],
-    location: 'Colombo 06',
+    location: 'Auckland CBD',
     registerLink: waitlistRegister(),
     recommendedCourses: ['ig', 'fs', 'se'],
     comingSoon: true
@@ -385,7 +385,7 @@ export const courses: Course[] = [
     toolsUsed: ['To be confirmed'],
     prerequisites: tbc,
     exampleProjects: [],
-    location: 'Colombo 06',
+    location: 'Auckland CBD',
     registerLink: 'https://forms.gle/Bb7BzUqo4YxoZhtM8',
     recommendedCourses: ['ua', 'fs', 'se']
   },
@@ -406,7 +406,7 @@ export const courses: Course[] = [
     toolsUsed: ['To be confirmed'],
     prerequisites: tbc,
     exampleProjects: [],
-    location: 'Colombo 06',
+    location: 'Auckland CBD',
     registerLink: placeholderRegister,
     recommendedCourses: ['ua', 'ig', 'dm']
   }

@@ -203,7 +203,7 @@ export const courseSpecificUpdates: Record<string, Partial<Course>> = {
     ageRange: '12 - 16',
     prerequisites: 'Completion of Robotics and IoT, Embedded Systems & IoT, or equivalent hands-on engineering experience is recommended. Students should have basic experience with CAD, electronics, microcontrollers, or hands-on making. Students should be comfortable following safety instructions carefully when working with tools, machines, and moving mechanisms. Basic coding experience using Arduino, Scratch, Python, or similar tools is helpful. Students without prior Meu Labs experience can request an entry test or counselor discussion to assess readiness.',
     exampleProjects: ['Project details coming soon'],
-    location: 'In Person Only / Colombo 06',
+    location: 'In Person Only / Auckland CBD',
     recommendedCourses: ['es', 'eee', 'robotics-iot', 'digital-media', 'coding-software'],
     comingSoon: true
   },
@@ -222,7 +222,7 @@ export const courseSpecificUpdates: Record<string, Partial<Course>> = {
     ageRange: '12 - 16',
     prerequisites: 'Completion of Coding and Software, Software Engineering, or equivalent coding/computer experience is recommended. Students should be comfortable using computers, browsing the internet, managing files, and following technical instructions. Basic coding experience in Python, Scratch, MIT App Inventor, JavaScript, or similar tools is helpful. Students must be willing to follow strict ethical and safety guidelines when learning about cyber security. Students without prior Meu Labs experience can request an entry test or counselor discussion to assess readiness.',
     exampleProjects: ['Project details coming soon'],
-    location: 'Online / In Person / Colombo 06',
+    location: 'Online / In Person / Auckland CBD',
     recommendedCourses: ['se', 'ds', 'coding-software', 'robotics-iot', 'digital-media'],
     comingSoon: true
   },
@@ -241,7 +241,7 @@ export const courseSpecificUpdates: Record<string, Partial<Course>> = {
     ageRange: '12 - 16',
     prerequisites: 'Completion of Coding and Software, Digital Media, Software Engineering, or equivalent coding/design experience is recommended. Students should have basic coding experience using tools such as Scratch, Python, JavaScript, MIT App Inventor, or similar platforms. Students should be comfortable with logical thinking, creative problem-solving, and testing ideas repeatedly. Interest in games, storytelling, design, animation, or interactive technology is helpful. Students without prior Meu Labs experience can request an entry test or counselor discussion to assess readiness.',
     exampleProjects: ['Project details coming soon'],
-    location: 'Online / In Person / Colombo 06',
+    location: 'Online / In Person / Auckland CBD',
     recommendedCourses: ['se', 'ds', 'coding-software', 'robotics-iot', 'digital-media'],
     comingSoon: true
   },
@@ -260,7 +260,7 @@ export const courseSpecificUpdates: Record<string, Partial<Course>> = {
     ageRange: '12 - 16',
     prerequisites: 'Completion of Digital Media, Coding and Software, Robotics and IoT, or equivalent creative/business experience is recommended. Students should be comfortable using a computer, writing simple content, researching online, and presenting ideas. Interest in branding, business, content creation, social media, design, storytelling, or entrepreneurship is helpful. Students should be willing to think creatively, receive feedback, and improve their work through iteration. Students without prior Meu Labs experience can request an entry test or counselor discussion to assess readiness.',
     exampleProjects: ['Project details coming soon'],
-    location: 'Online / In Person / Colombo 06',
+    location: 'Online / In Person / Auckland CBD',
     recommendedCourses: ['digital-media', 'va', 'coding-software', 'robotics-iot'],
     comingSoon: true
   },
@@ -279,7 +279,7 @@ export const courseSpecificUpdates: Record<string, Partial<Course>> = {
     toolsUsed: ['Blender', 'DaVinci Resolve', 'Adobe After Effects / Premiere Pro', 'CapCut', 'Clipchamp', 'Canva', 'Audacity', 'Stop Motion Studio', 'Camera / Mobile Filming Tools', 'Digital Drawing Tools', 'Google Workspace'],
     prerequisites: 'Completion of Digital Media or equivalent creative media experience is recommended. Students should be comfortable using a computer or tablet for creative tasks such as editing, drawing, recording, or organizing media files. Interest in animation, filmmaking, storytelling, music, sound, digital art, or visual effects is helpful. Students should be willing to plan carefully, revise creative work, receive feedback, and improve projects through multiple drafts. Students without prior Meu Labs experience can request an entry test or counselor discussion to assess readiness.',
     exampleProjects: ['Project details coming soon'],
-    location: 'In Person Only / Colombo 06',
+    location: 'In Person Only / Auckland CBD',
     recommendedCourses: ['digital-media', 'dm', 'coding-software', 'robotics-iot'],
     comingSoon: true
   },
@@ -299,7 +299,7 @@ export const courseSpecificUpdates: Record<string, Partial<Course>> = {
     ageRange: '16+',
     prerequisites: 'Completion of two relevant specialisations is required. Students should be able to work independently, communicate clearly, complete assigned tasks, and take responsibility for deadlines. Students should have prior project work in software, data, AI, engineering, product development, design, or a related area. Acceptance into internship opportunities is not automatic and will depend on performance, readiness, partner requirements, and mentor evaluation.',
     exampleProjects: ['Sadeeptha success story', 'Hamaadh success story', 'Denaro success story', 'Dinuja success story'],
-    location: 'Online / In Person / Colombo 06',
+    location: 'Online / In Person / Auckland CBD',
     registerLink: 'https://forms.gle/Bb7BzUqo4YxoZhtM8',
     recommendedCourses: ['ua', 'fs', 'se', 'ds']
   },
@@ -318,7 +318,7 @@ export const courseSpecificUpdates: Record<string, Partial<Course>> = {
     toolsUsed: ['AIA Study Abroad', 'BIET'],
     prerequisites: 'Students should be 16+ and preparing for university, diploma, foundation, or study-abroad pathways. Academic records, extracurriculars, projects, or portfolio work are helpful. Meu Labs course experience is required. Students must be ready to work on essays, applications, interviews, documents, and deadlines.',
     exampleProjects: ['Senul success story', 'Suhrid success story'],
-    location: 'Online / In Person / Colombo 06',
+    location: 'Online / In Person / Auckland CBD',
     recommendedCourses: ['ig', 'fs'],
     comingSoon: true
   },
@@ -337,7 +337,7 @@ export const courseSpecificUpdates: Record<string, Partial<Course>> = {
     toolsUsed: ['Coming Soon'],
     prerequisites: 'Students should be 16+ and interested in building a product, startup, social venture, or business idea. Prior project experience in technology, design, marketing, engineering, or business is helpful. Previous Meu Labs course experience is required. Students should be ready to research, test ideas, speak to users, build prototypes, receive feedback, and present their work. Students without prior experience can request a counselor discussion to check readiness.',
     exampleProjects: ['Coming soon'],
-    location: 'Online / In Person / Colombo 06',
+    location: 'Online / In Person / Auckland CBD',
     recommendedCourses: ['ua', 'ig'],
     comingSoon: true
   },
@@ -357,7 +357,7 @@ export const courseSpecificUpdates: Record<string, Partial<Course>> = {
     toolsUsed: ['ScratchJr', 'TinkerCAD', 'Google Workspace', 'Tablets / Laptops', 'Play-Dough', 'Craft Materials', 'Motors', 'LEDs', 'Simple Maker Kits', 'Board Games'],
     prerequisites: 'No prior coding, robotics, or computer experience required. Students should be 6-7 years old and comfortable participating in guided group activities. Basic ability to listen, follow simple instructions, and communicate in their own mother tongue is helpful. English is preferred, but support is available in Sinhala and Tamil where needed. Curiosity, creativity, and willingness to try new activities are the most important requirements.',
     exampleProjects: ['Play-dough character creation and storytelling activity', 'Cup-and-stick tower building challenge to test stability', 'ScratchJr animated story with characters, scenes, and dialogue', 'Nature-themed drama and role-play performance', 'Simple 3D object and city map designed in TinkerCAD', 'Little maker toy using simple craft materials, motors, and LEDs', 'Money adventure board game involving earning, spending, and saving'],
-    location: 'In Person Only / Colombo 06',
+    location: 'In Person Only / Auckland CBD',
     registerLink: 'https://forms.gle/gdU3BmjrT4j95EKW8',
     recommendedCourses: ['kx', 'coding-software', 'robotics-iot']
   }

@@ -77,11 +77,11 @@ export function CounselorCTA({
                 </span>
                 <span className="font-extrabold leading-10 text-navy">{siteConfig.phoneNumber}</span>
               </a>
-              <a href="mailto:hello@meulabs.org" className="flex gap-4 rounded-[16px] transition hover:text-orange">
+              <a href="mailto:hello.nz@meulabs.org" className="flex gap-4 rounded-[16px] transition hover:text-orange">
                 <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-orange/12 text-orange">
                   <Mail size={18} aria-hidden />
                 </span>
-                <span className="font-extrabold leading-10 text-navy">hello@meulabs.org</span>
+                <span className="font-extrabold leading-10 text-navy">hello.nz@meulabs.org</span>
               </a>
             </div>
           </div>

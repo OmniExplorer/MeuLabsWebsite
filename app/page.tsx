@@ -10,26 +10,26 @@ import { allCourses, courses } from '@/data/courses';
 import { projects } from '@/data/projects';
 
 export const metadata: Metadata = {
-  title: 'Meu Labs | Robotics, Coding & STEM Classes for Kids in Sri Lanka',
-  description: 'Meu Labs offers robotics, IoT, coding, STEM, STEAM, AI and engineering classes for children and teens in Colombo, Sri Lanka. Project-based learning with expert instructors.',
+  title: 'Meu Labs | Robotics, Coding & STEM Classes for Kids in New Zealand',
+  description: 'Meu Labs offers robotics, IoT, coding, STEM, STEAM, AI and engineering classes for children and teens in Auckland, New Zealand. Project-based learning with expert instructors.',
   keywords: [
-    'coding classes Sri Lanka',
-    'robotics classes Sri Lanka',
-    'STEM classes Sri Lanka',
-    'STEAM classes Sri Lanka',
-    'IoT classes Sri Lanka',
-    'coding classes Colombo',
-    'robotics for kids Sri Lanka',
-    'coding for kids Sri Lanka',
-    'STEM education Sri Lanka',
-    'STEAM education Sri Lanka',
-    'kids coding classes Sri Lanka',
-    'children robotics Sri Lanka',
-    'programming classes Sri Lanka',
-    'technology classes Sri Lanka',
-    'engineering classes Sri Lanka',
-    'after school STEM Sri Lanka',
-    'kids tech classes Colombo',
+    'coding classes New Zealand',
+    'robotics classes New Zealand',
+    'STEM classes New Zealand',
+    'STEAM classes New Zealand',
+    'IoT classes New Zealand',
+    'coding classes Auckland',
+    'robotics for kids New Zealand',
+    'coding for kids New Zealand',
+    'STEM education New Zealand',
+    'STEAM education New Zealand',
+    'kids coding classes New Zealand',
+    'children robotics New Zealand',
+    'programming classes New Zealand',
+    'technology classes New Zealand',
+    'engineering classes New Zealand',
+    'after school STEM New Zealand',
+    'kids tech classes Auckland',
     'Meu Labs'
   ]
 };
@@ -132,15 +132,15 @@ const jsonLd = {
       '@id': 'https://meulabs.org/#organization',
       name: 'Meu Labs',
       url: 'https://meulabs.org',
-      description: 'Project-based robotics, coding, IoT, STEM, AI and engineering classes for children and teens in Colombo, Sri Lanka.',
+      description: 'Project-based robotics, coding, IoT, STEM, AI and engineering classes for children and teens in Auckland, New Zealand.',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: '26A Rudra Mawatha',
-        addressLocality: 'Colombo',
+        streetAddress: '42 Wellesley Street West',
+        addressLocality: 'Auckland',
         postalCode: '00600',
-        addressCountry: 'LK'
+        addressCountry: 'NZ'
       },
-      telephone: '+94769623500',
+      telephone: '+6495550187',
       openingHours: 'Mo-Su 10:00-19:00',
       sameAs: [
         'https://facebook.com/meulabs',
@@ -175,7 +175,7 @@ export default function HomePage() {
           <div className="max-w-4xl text-navy">
             <Reveal delay={100}>
               <h1 className="text-[2rem] font-normal leading-[1.08] sm:text-4xl md:text-6xl">
-                <span className="block">Sri Lanka&apos;s Best</span>
+                <span className="block">New Zealand&apos;s Best</span>
                 <span className="mt-1 block whitespace-nowrap">
                   <span className="robotics-image-word">
                     <Image

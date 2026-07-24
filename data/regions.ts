@@ -8,10 +8,10 @@ export const nzConfig = {
   countryCode: 'NZ',
   city: 'Auckland',
   address: 'New Zealand',
-  phoneDisplay: 'Email hello@meulabs.org',
-  phoneHref: 'mailto:hello@meulabs.org',
+  phoneDisplay: 'Email hello.nz@meulabs.org',
+  phoneHref: 'mailto:hello.nz@meulabs.org',
   whatsappNumber: '',
-  email: 'hello@meulabs.org',
+  email: 'hello.nz@meulabs.org',
   openingHours: 'Mon - Sun | 10:00 AM - 7:00 PM NZT',
   courseSlugs: nzCourseSlugs
 };

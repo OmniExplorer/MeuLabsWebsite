@@ -9,7 +9,7 @@ import { Reveal } from '@/components/Reveal';
 import { SectionHeader } from '@/components/SectionHeader';
 
 export const metadata: Metadata = {
-  title: 'About | Meu Labs - Project-Based STEM Learning in Sri Lanka',
+  title: 'About | Meu Labs - Project-Based STEM Learning in New Zealand',
   description: 'Meu Labs helps students build confidence, creativity and real-world technical skills through project-based STEM learning.',
   openGraph: { images: ['/og-default.jpg'] }
 };
@@ -67,9 +67,9 @@ const accreditationLogos = [
 ];
 
 const trustedBy: LogoScrollerItem[] = [
-  { name: 'British School of Colombo', src: '/assets/logos/British_School_Colombo_crest.png' },
+  { name: 'British School of Auckland', src: '/assets/logos/British_School_Auckland_crest.png' },
   { name: 'LPF Schools', src: '/assets/logos/LPF.png' },
-  { name: 'École Française Internationale de Colombo', src: '/assets/logos/EFIC.png' },
+  { name: 'École Française Internationale de Auckland', src: '/assets/logos/EFIC.png' },
   { name: 'Maple Bear', src: '/assets/logos/Maple.png' },
   { name: 'Burhani Serendib School', src: '/assets/logos/Burhani.png' },
   { name: 'John Paul College', src: '/assets/logos/JPC.png' },
@@ -82,10 +82,10 @@ const builtBy: LogoScrollerItem[] = [
   { name: 'The Massachusetts Institute of Technology (MIT)', src: '/assets/logos/MIT-Massachusetts-Institute-of-Technology-Logo.png', href: 'https://www.mit.edu/' },
   { name: 'University of London', src: '/assets/logos/uol.png', href: 'https://www.london.ac.uk/', imageClassName: '!max-h-32' },
   { name: 'University of Cambridge', src: '/assets/logos/Cambridge.png' },
-  { name: 'Sri Lanka Institute of Information Technology', src: '/assets/logos/sliit.png', href: 'https://en.wikipedia.org/wiki/Sri_Lanka_Institute_of_Information_Technology' },
+  { name: 'New Zealand Institute of Information Technology', src: '/assets/logos/sliit.png', href: 'https://en.wikipedia.org/wiki/Sri_Lanka_Institute_of_Information_Technology' },
   { name: 'IIT', src: '/assets/logos/iitlogo.png', imageClassName: '!max-h-28' },
   { name: 'UWC', src: '/assets/logos/uwc.PNG' },
-  { name: 'University of Colombo', src: '/assets/logos/UOC.png', href: 'https://cmb.ac.lk/' },
+  { name: 'University of Auckland', src: '/assets/logos/UOC.png', href: 'https://cmb.ac.lk/' },
   { name: 'CIMA', src: '/assets/logos/CIM,ALOGO.png' }
 ];
 

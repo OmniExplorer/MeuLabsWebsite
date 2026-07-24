@@ -613,18 +613,18 @@ export function generateMetadata({ params }: PageProps): Metadata {
   const course = getCourse(params.slug);
   if (!course) return {};
   return {
-    title: `${course.internalName || course.title} | Meu Labs — Robotics, Coding & STEM Classes in Sri Lanka`,
-    description: `${course.descriptor} Available in Colombo, Sri Lanka.`,
+    title: `${course.internalName || course.title} | Meu Labs — Robotics, Coding & STEM Classes in New Zealand`,
+    description: `${course.descriptor} Available in Auckland, New Zealand.`,
     keywords: [
-      ...course.keywords.map((k) => `${k} Sri Lanka`),
-      `${course.title} Sri Lanka`,
-      `${course.title} Colombo`,
-      `${course.title} class Sri Lanka`,
-      `${course.title} course Sri Lanka`,
-      'STEM classes Sri Lanka',
-      'STEAM classes Sri Lanka',
-      'coding classes Sri Lanka',
-      'robotics classes Sri Lanka'
+      ...course.keywords.map((k) => `${k} New Zealand`),
+      `${course.title} New Zealand`,
+      `${course.title} Auckland`,
+      `${course.title} class New Zealand`,
+      `${course.title} course New Zealand`,
+      'STEM classes New Zealand',
+      'STEAM classes New Zealand',
+      'coding classes New Zealand',
+      'robotics classes New Zealand'
     ],
     openGraph: { images: ['/og-default.jpg'] }
   };
@@ -708,15 +708,15 @@ function splitCourseStructure(text: string) {
 
 function getLocationPills(location: string) {
   const parts = location.split('/').map((item) => item.trim()).filter(Boolean);
-  const hasColombo = parts.includes('Colombo 06');
+  const hasAuckland = parts.includes('Auckland CBD');
   const inPerson = parts.find((item) => item === 'In Person' || item === 'In Person Only');
-  const pills = parts.filter((item) => item !== 'Colombo 06' && item !== inPerson);
+  const pills = parts.filter((item) => item !== 'Auckland CBD' && item !== inPerson);
 
-  if (inPerson && hasColombo) {
-    pills.push(`${inPerson} • Colombo 06`);
+  if (inPerson && hasAuckland) {
+    pills.push(`${inPerson} • Auckland CBD`);
   } else {
     if (inPerson) pills.push(inPerson);
-    if (hasColombo) pills.push('Colombo 06');
+    if (hasAuckland) pills.push('Auckland CBD');
   }
 
   return pills;

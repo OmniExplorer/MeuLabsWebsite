@@ -1,7 +1,7 @@
 export const siteConfig = {
-  whatsappNumber: '+94 76 962 3500',
-  phoneNumber: '+94 76 962 3500',
-  address: '26A Rudra Mawatha, Colombo 00600',
+  whatsappNumber: '+64 9 555 0187',
+  phoneNumber: '+64 9 555 0187',
+  address: '42 Wellesley Street West, Auckland 1010',
   openingHours: 'Mon - Sun | 10:00 AM - 7:00 PM',
   socialLinks: {
     facebook: 'https://facebook.com/meulabs',

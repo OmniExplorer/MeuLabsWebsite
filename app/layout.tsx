@@ -5,8 +5,8 @@ import './globals.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://meulabs.org'),
-  title: 'Meu Labs | Robotics, Coding & STEM for Kids in Sri Lanka',
-  description: 'Project-based robotics, coding, STEM, AI, data and design learning for children and teens in Colombo, Sri Lanka.',
+  title: 'Meu Labs | Robotics, Coding & STEM for Kids in New Zealand',
+  description: 'Project-based robotics, coding, STEM, AI, data and design learning for children and teens in Auckland, New Zealand.',
   openGraph: {
     images: ['/og-default.jpg']
   }

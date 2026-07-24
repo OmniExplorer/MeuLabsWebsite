@@ -26,10 +26,10 @@ export const metadata: Metadata = {
 };
 
 const contact = {
-  phoneDisplay: '+94 76 962 3500',
-  phoneHref: 'tel:+94769623500',
+  phoneDisplay: '+64 9 555 0187',
+  phoneHref: 'tel:+6495550187',
   whatsappHref: whatsappHref(counselorMessage()),
-  email: 'hello@meulabs.org',
+  email: 'hello.nz@meulabs.org',
   hours: siteConfig.openingHours,
   address: siteConfig.address
 };
@@ -162,7 +162,7 @@ export default function ContactPage() {
           <Reveal>
             <SectionHeader
               title="We are here to help"
-              subtitle="For course inquiries, registrations, school programmes, workshops, or partnerships, contact our Sri Lanka team directly."
+              subtitle="For course inquiries, registrations, school programmes, workshops, or partnerships, contact our New Zealand team directly."
               className="mb-0"
               titleClassName="!text-3xl !font-black !leading-[1.32] sm:!text-4xl md:!text-4xl"
               subtitleClassName="mt-6 max-w-lg text-base font-bold leading-8"
@@ -175,11 +175,11 @@ export default function ContactPage() {
                 <div>
                   <div className="flex flex-wrap items-center gap-3">
                     <span className="relative h-7 w-11 overflow-hidden rounded-[4px] border border-white shadow-sm">
-                      <Image src="/assets/images/SL FLAG.jpg" alt="Sri Lankan flag" fill className="object-cover" sizes="44px" />
+                      <span className="text-xs font-black text-white">NZ</span>
                     </span>
-                    <span className="text-sm font-black uppercase tracking-[0.08em] text-orange">Sri Lanka</span>
+                    <span className="text-sm font-black uppercase tracking-[0.08em] text-orange">New Zealand</span>
                   </div>
-                  <h3 className="mt-5 text-3xl font-black leading-tight text-navy sm:text-4xl">Meu Labs Sri Lanka</h3>
+                  <h3 className="mt-5 text-3xl font-black leading-tight text-navy sm:text-4xl">Meu Labs New Zealand</h3>
                   <p className="mt-2 text-base font-extrabold text-slate-600">{contact.address}</p>
                   <div className="mt-6 grid gap-3 text-sm font-extrabold text-navy">
                     <a href={contact.phoneHref} className="inline-flex items-center gap-3 transition hover:text-orange">

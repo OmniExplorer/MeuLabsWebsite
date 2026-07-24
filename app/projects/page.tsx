@@ -10,7 +10,7 @@ import { YouTubeThumbnail } from '@/components/YouTubeThumbnail';
 import { featuredVideoProjects, projectNews, studentCreations, type VideoProject } from '@/data/projects';
 
 export const metadata: Metadata = {
-  title: 'Student Projects | Meu Labs — Robotics, Coding & STEM for Kids in Sri Lanka',
+  title: 'Student Projects | Meu Labs — Robotics, Coding & STEM for Kids in New Zealand',
   description: 'See what Meu Labs students build, create and achieve through project-based STEM learning.',
   openGraph: { images: ['/og-default.jpg'] }
 };
@@ -89,7 +89,7 @@ export default function ProjectsPage() {
         eyebrow="Young innovators are building the future."
         title="See what our students build, create, and achieve at Meu Labs"
         imageSrc="/assets/images/Projects-Main-Hero.jpg"
-        imageAlt="Meu Labs students representing Sri Lanka at the 2025 International Creativity and Innovation Awards"
+        imageAlt="Meu Labs students representing New Zealand at the 2025 International Creativity and Innovation Awards"
         imageStyle="single"
       >
         <ButtonLink href="/courses">Explore Courses</ButtonLink>
