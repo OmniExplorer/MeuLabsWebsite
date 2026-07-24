@@ -211,6 +211,7 @@ h6 {
 }
 
 .footer-map-pin {
+  transform: translate(-50%, -100%);
   transform-origin: 50% 100%;
   animation: footerPinBounce 1.8s ease-in-out infinite;
 }
@@ -428,13 +429,13 @@ h6 {
 @keyframes footerPinBounce {
   0%,
   100% {
-    transform: translateY(0);
+    transform: translate(-50%, -100%);
   }
   42% {
-    transform: translateY(-7px);
+    transform: translate(-50%, calc(-100% - 7px));
   }
   58% {
-    transform: translateY(0);
+    transform: translate(-50%, -100%);
   }
 }
 

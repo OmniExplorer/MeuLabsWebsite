@@ -39,6 +39,19 @@ const footerLogos = [
   { label: 'Scratch SEC Partner', src: '/assets/logos/scratchlogonew.png', href: 'https://scratch.mit.edu/' }
 ];
 
+const mapLocations = [
+  { label: 'Sri Lanka', left: '64%', top: '47%', color: '#FF7A00' },
+  { label: 'New Zealand', left: '81%', top: '68%', color: '#2FA8FF' },
+  { label: 'Australia', left: '73%', top: '61%', color: '#FFD166' },
+  { label: 'Qatar', left: '59%', top: '39%', color: '#E76F9A' },
+  { label: 'Maldives', left: '62%', top: '51%', color: '#65D96C' },
+  { label: 'Italy', left: '52%', top: '28%', color: '#A78BFA' },
+  { label: 'UK', left: '49%', top: '20%', color: '#FF5D5D' },
+  { label: 'USA', left: '34%', top: '31%', color: '#38BDF8' },
+  { label: 'Singapore', left: '68%', top: '50%', color: '#F472B6' },
+  { label: 'Canada', left: '32%', top: '18%', color: '#34D399' }
+];
+
 export function Footer() {
   const contactConfig = {
     phoneNumber: siteConfig.phoneNumber,
@@ -105,7 +118,7 @@ export function Footer() {
           <Link href="/" className="inline-flex">
             <Image src="/assets/logos/logo.svg" alt="Meu Labs" width={150} height={47} className="h-auto w-40" />
           </Link>
-          <p className="mt-5 max-w-[300px] text-sm font-extrabold leading-6 text-slate-300">Empowering young minds through project-based STEM, robotics, coding and creative learning.</p>
+          <p className="mt-5 max-w-[300px] text-sm font-extrabold leading-6 text-slate-300">Empowering young minds through Project based STEM, Robotics, Coding and Creative Learning</p>
           <div className="mt-5 flex flex-nowrap gap-2.5">
             {socials.map(({ href, label, icon, className }) => (
               <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label} className={`grid h-9 w-9 shrink-0 place-items-center rounded-full text-white shadow-soft transition hover:-translate-y-1 ${className}`}>
@@ -159,23 +172,32 @@ export function Footer() {
           <FooterHeading>Our Locations</FooterHeading>
           <div className="relative mt-4 aspect-[2.55/1] max-w-[360px]">
             <Image src="/assets/images/world-map.svg" alt="" fill className="object-contain opacity-70 invert" sizes="310px" />
-            <span className="footer-map-pin absolute left-[62%] top-[50%] z-10 h-6 w-6 text-orange drop-shadow-[0_10px_12px_rgba(255,122,0,0.34)]">
-              <MapPin size={24} fill="currentColor" strokeWidth={0} aria-hidden className="h-6 w-6" />
-              <span className="absolute left-1/2 top-[7px] h-2 w-2 -translate-x-1/2 rounded-full bg-white" />
-            </span>
-            <span className="footer-map-pin absolute left-[58%] top-[46%] z-20 h-6 w-6 text-[#65D96C] drop-shadow-[0_10px_12px_rgba(101,217,108,0.32)] [animation-delay:160ms]">
-              <MapPin size={24} fill="currentColor" strokeWidth={0} aria-hidden className="h-6 w-6" />
-              <span className="absolute left-1/2 top-[7px] h-2 w-2 -translate-x-1/2 rounded-full bg-white" />
-            </span>
-            <span className="footer-map-pin absolute left-[83%] top-[58%] z-10 h-6 w-6 text-[#2FA8FF] drop-shadow-[0_10px_12px_rgba(47,168,255,0.34)] [animation-delay:320ms]">
-              <MapPin size={24} fill="currentColor" strokeWidth={0} aria-hidden className="h-6 w-6" />
-              <span className="absolute left-1/2 top-[7px] h-2 w-2 -translate-x-1/2 rounded-full bg-white" />
-            </span>
+            {mapLocations.map((location, index) => (
+              <span
+                key={location.label}
+                className="footer-map-pin absolute z-10 h-5 w-5 drop-shadow-[0_7px_8px_rgba(0,0,0,0.4)]"
+                style={{
+                  left: location.left,
+                  top: location.top,
+                  color: location.color,
+                  animationDelay: `${index * 120}ms`
+                }}
+                role="img"
+                aria-label={location.label}
+                title={location.label}
+              >
+                <MapPin size={20} fill="currentColor" strokeWidth={0} aria-hidden className="h-5 w-5" />
+                <span className="absolute left-1/2 top-[6px] h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-white" />
+              </span>
+            ))}
           </div>
-          <div className="mt-4 grid gap-x-4 gap-y-2 text-xs font-extrabold sm:grid-cols-[max-content_max-content]">
-            <span className="inline-flex whitespace-nowrap items-center gap-2"><span className="h-2.5 w-2.5 shrink-0 rounded-full bg-orange" />Sri Lanka</span>
-            <span className="inline-flex whitespace-nowrap items-center gap-2"><span className="h-2.5 w-2.5 shrink-0 rounded-full bg-[#2FA8FF]" />New Zealand</span>
-            <span className="inline-flex whitespace-nowrap items-center gap-2 sm:col-span-2"><span className="h-2.5 w-2.5 shrink-0 rounded-full bg-[#65D96C]" />Maldives <small className="text-[11px] text-slate-400">Coming Soon</small></span>
+          <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-2 text-xs font-extrabold">
+            {mapLocations.map((location) => (
+              <span key={location.label} className="inline-flex items-center gap-2">
+                <span className="h-2.5 w-2.5 shrink-0 rounded-full" style={{ backgroundColor: location.color }} />
+                {location.label}
+              </span>
+            ))}
           </div>
         </div>
         </div>

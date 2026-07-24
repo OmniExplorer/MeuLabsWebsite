@@ -76,7 +76,7 @@ export function CourseCard({
   selected = false,
   onSelect,
   basePath = '',
-  variant = 'default'
+  variant = 'home'
 }: {
   course: Course;
   displayTitle?: string;
