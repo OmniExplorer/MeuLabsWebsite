@@ -52,6 +52,7 @@ export function Navbar() {
           className="grid h-11 w-11 place-items-center rounded-full bg-white text-navy shadow-soft lg:hidden"
           type="button"
           aria-label="Toggle navigation"
+          aria-expanded={open}
           onClick={() => setOpen((value) => !value)}
         >
           {open ? <X size={22} /> : <Menu size={22} />}

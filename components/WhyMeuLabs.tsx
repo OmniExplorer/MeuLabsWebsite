@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { ButtonLink } from '@/components/ButtonLink';
+import { trackEvent } from '@/lib/analytics';
 
 const reasons = [
   {
@@ -49,6 +50,11 @@ export function WhyMeuLabs({ intro }: WhyMeuLabsProps) {
     return () => window.clearTimeout(timer);
   }, [active, paused]);
 
+  const selectFeature = (index: number, method: string) => {
+    if (index !== active) trackEvent('feature_select', { element_label: reasons[index].title, method });
+    setActive(index);
+  };
+
   return (
     <div className="w-full">
       {intro && <p className="mb-6 w-full text-base font-bold leading-7 text-slate-600 sm:text-lg sm:leading-8 lg:mb-9">{intro}</p>}
@@ -62,13 +68,13 @@ export function WhyMeuLabs({ intro }: WhyMeuLabsProps) {
               aria-pressed={active === index}
               onFocus={() => {
                 setPaused(true);
-                setActive(index);
+                selectFeature(index, 'focus');
               }}
               onBlur={() => setPaused(false)}
-              onMouseEnter={() => setActive(index)}
+              onMouseEnter={() => selectFeature(index, 'hover')}
               onClick={() => {
                 setPaused(true);
-                setActive(index);
+                selectFeature(index, 'click');
               }}
               className={`relative flex min-h-[58px] cursor-pointer items-center rounded-[12px] px-4 py-3 text-left transition duration-300 focus:outline-none focus:ring-4 focus:ring-orange/35 sm:min-h-[68px] sm:rounded-[14px] sm:px-5 sm:py-4 ${active === index ? 'bg-navy text-white shadow-[0_0_0_3px_rgba(255,122,0,0.95),0_18px_42px_rgba(255,79,31,0.18)]' : 'bg-white text-navy shadow-soft hover:-translate-y-1 hover:shadow-pop'}`}
             >

@@ -9,6 +9,7 @@ export function SyllabusForm({ courseSlug, courseTitle }: { courseSlug: string; 
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (status === 'submitting') return;
     setStatus('submitting');
     setErrorMessage('');
 
@@ -26,12 +27,14 @@ export function SyllabusForm({ courseSlug, courseTitle }: { courseSlug: string; 
     }).catch(() => null);
 
     if (!response) {
+      trackEvent('form_error', { form_id: 'syllabus-request', course: courseSlug, error_type: 'network' });
       setErrorMessage('We could not connect to the request service. Please try again.');
       setStatus('error');
       return;
     }
 
     if (!response.ok) {
+      trackEvent('form_error', { form_id: 'syllabus-request', course: courseSlug, error_type: 'server', status_code: response.status });
       const result = (await response.json().catch(() => null)) as { error?: unknown } | null;
       setErrorMessage(
         typeof result?.error === 'string'
@@ -43,6 +46,7 @@ export function SyllabusForm({ courseSlug, courseTitle }: { courseSlug: string; 
     }
 
     trackEvent('syllabus_request', { course: courseSlug });
+    trackEvent('generate_lead', { course: courseSlug, form_id: 'syllabus-request' });
     form.reset();
     setStatus('success');
   }
@@ -56,7 +60,7 @@ export function SyllabusForm({ courseSlug, courseTitle }: { courseSlug: string; 
   }
 
   return (
-    <form className="grid w-full gap-4" onSubmit={handleSubmit}>
+    <form id="syllabus-request" className="grid w-full gap-4" onSubmit={handleSubmit}>
       <label className="grid gap-1.5 text-sm font-extrabold text-navy">
         Parent/Guardian Full Name
         <input
