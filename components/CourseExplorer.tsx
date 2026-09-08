@@ -3,6 +3,7 @@
 import { useMemo, useState } from 'react';
 import { allCourses, type Course } from '@/data/courses';
 import { CourseCard } from './CourseCard';
+import { trackEvent } from '@/lib/analytics';
 
 const ageGroups = [
   { label: '6 - 12', slugs: ['kx-j', 'kx'] },
@@ -71,11 +72,13 @@ export function CourseExplorer({
   const pillClass = (active: boolean) => `whitespace-nowrap rounded-full px-3 py-2 text-xs font-extrabold transition duration-200 sm:px-3.5 sm:py-2.5 xl:px-[17px] xl:py-[11px] ${active ? 'bg-[linear-gradient(135deg,#FFD166_0%,#F4A261_100%)] text-navy shadow-soft' : 'bg-white/80 text-slate-600 shadow-[0_8px_18px_rgba(13,53,87,0.06)] hover:bg-white hover:text-navy'}`;
 
   const selectAge = (age: string) => {
+    trackEvent('course_filter', { filter_type: 'age_group', filter_value: age });
     setActiveAge(age);
     setActiveInterest('All Interests');
   };
 
   const selectInterest = (interest: string) => {
+    trackEvent('course_filter', { filter_type: 'interest', filter_value: interest });
     setActiveInterest(interest);
     setActiveAge('All Ages');
   };

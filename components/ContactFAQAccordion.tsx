@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { trackEvent } from '@/lib/analytics';
 import type { LucideIcon } from 'lucide-react';
 import { ChevronDown, ClipboardCheck, Monitor, Phone, Route, School, TrendingUp, UsersRound } from 'lucide-react';
 
@@ -68,7 +69,7 @@ export function ContactFAQAccordion() {
               type="button"
               aria-expanded={isOpen}
               className={`grid w-full cursor-pointer list-none grid-cols-[2.75rem_1fr_1.5rem] items-center gap-4 px-4 py-5 text-left text-navy transition-colors duration-200 sm:px-6 sm:py-6 ${isOpen ? 'bg-[#FFE7CE]/55' : 'hover:bg-[#FFE7CE]/40'}`}
-              onClick={() => setOpen(isOpen ? -1 : index)}
+              onClick={() => { trackEvent('faq_toggle', { source: 'contact', question_id: index, action: isOpen ? 'close' : 'open' }); setOpen(isOpen ? -1 : index); }}
             >
               <span className={`grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-[#FF7A00] to-[#FF4F1F] text-white shadow-soft transition duration-300 ${isOpen ? 'scale-105' : ''}`}>
                 <FaqIcon size={19} strokeWidth={2.5} aria-hidden />

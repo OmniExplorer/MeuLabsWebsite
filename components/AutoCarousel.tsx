@@ -2,6 +2,8 @@
 
 import { MouseEvent, PointerEvent, ReactNode, WheelEvent, useEffect, useRef, useState } from 'react';
 
+import { trackEvent } from '@/lib/analytics';
+
 type AutoCarouselProps = {
   ariaLabel: string;
   children: ReactNode;
@@ -32,6 +34,7 @@ export function AutoCarousel({
   const suppressClickRef = useRef(false);
   const resumeTimerRef = useRef<number | null>(null);
   const [paused, setPaused] = useState(false);
+  const lastWheelEvent = useRef(0);
 
   const getLoopSize = () => {
     const firstTrack = firstTrackRef.current;
@@ -148,6 +151,9 @@ export function AutoCarousel({
 
   const dragEnd = (event: PointerEvent<HTMLDivElement>) => {
     if (dragRef.current?.pointerId === event.pointerId) {
+      if (dragRef.current.moved && event.type !== 'pointercancel') {
+        trackEvent('carousel_interaction', { element_label: ariaLabel, action: 'drag' });
+      }
       suppressClickRef.current = dragRef.current.moved;
       dragRef.current = null;
       if (event.currentTarget.hasPointerCapture(event.pointerId)) {
@@ -170,6 +176,10 @@ export function AutoCarousel({
       : Math.abs(event.deltaY) > Math.abs(event.deltaX) ? event.deltaY : event.deltaX;
 
     if (Math.abs(rawDelta) < 1) return;
+    if (Date.now() - lastWheelEvent.current > 1000) {
+      trackEvent('carousel_interaction', { element_label: ariaLabel, action: 'wheel' });
+    }
+    lastWheelEvent.current = Date.now();
     event.preventDefault();
     pause();
     moveBy(-rawDelta);

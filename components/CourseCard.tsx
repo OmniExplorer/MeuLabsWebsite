@@ -67,7 +67,7 @@ export function CourseCard({
   return (
     <article
       className={`group flex h-full min-h-[382px] flex-col overflow-hidden rounded-[14px] border bg-white shadow-[0_12px_30px_rgba(13,53,87,0.08)] transition duration-200 hover:-translate-y-1 hover:shadow-pop ${onSelect ? 'cursor-pointer' : ''} ${selectedClass}`}
-      onClick={() => onSelect?.(course.slug)}
+      onClick={() => { if (onSelect) { trackEvent('course_select', { course: course.slug }); onSelect(course.slug); } }}
     >
       <div className="relative h-[152px] overflow-hidden bg-creamAlt">
         <Image
